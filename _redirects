@@ -1,0 +1,6 @@
+# Links de afiliado centralizados.
+# Trocar a URL de destino aqui atualiza o site inteiro de uma vez.
+# 302 = redirecionamento temporário, correto para links comerciais.
+
+/ml-polimet   https://SUBSTITUIR-PELO-SEU-LINK-DE-AFILIADO   302
+/ml-dream     https://SUBSTITUIR-PELO-SEU-LINK-DE-AFILIADO   302

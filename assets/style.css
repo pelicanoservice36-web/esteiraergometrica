@@ -1,0 +1,316 @@
+/* esteiraergometrica.com — folha de estilo base
+   Tipografia: Archivo (títulos e números) + Source Serif 4 (texto)
+   Paleta: cinza-máquina, tinta ardósia, azul-ficha, laranja só no botão de compra */
+
+:root {
+  --paper:  #F0EFEC;
+  --panel:  #E4E3DE;
+  --ink:    #16232E;
+  --muted:  #66757F;
+  --rule:   #D1CFC9;
+  --signal: #12508E;
+  --buy:    #B23F16;
+
+  --sans:  "Archivo", system-ui, -apple-system, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --measure: 34rem;
+  --gutter: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-synthesis-weight: none;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.site-head {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 0;
+}
+
+.site-head .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.site-nav a { color: var(--muted); text-decoration: none; }
+.site-nav a:hover { color: var(--signal); text-decoration: underline; }
+
+/* ---------- Tipografia ---------- */
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+
+h1 { font-weight: 800; font-size: clamp(2rem, 5.5vw, 3.1rem); }
+h2 { font-weight: 700; font-size: clamp(1.4rem, 3vw, 1.85rem); margin-top: 2.4rem; }
+h3 { font-weight: 700; font-size: 1.15rem; margin-top: 1.8rem; }
+
+p { margin: 0 0 1.1rem; max-width: var(--measure); }
+
+a { color: var(--signal); }
+
+.standfirst {
+  font-size: 1.1875rem;
+  color: var(--muted);
+  max-width: 38rem;
+}
+
+.stamp {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
+.lead-section { padding: 3rem 0 1rem; }
+
+/* ---------- Tabela de especificações ---------- */
+
+.specs {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.specs caption {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  padding-bottom: 0.6rem;
+}
+
+.specs th,
+.specs td {
+  text-align: left;
+  padding: 0.7rem 0.9rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: baseline;
+}
+
+.specs thead th {
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 2px solid var(--ink);
+  white-space: nowrap;
+}
+
+.specs tbody th {
+  font-weight: 700;
+  padding-right: 1.25rem;
+}
+
+.specs td.num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.specs tr:last-child th,
+.specs tr:last-child td { border-bottom: none; }
+
+.table-scroll { overflow-x: auto; }
+
+/* ---------- Ficha do produto (topo da review) ---------- */
+
+.ficha {
+  background: var(--panel);
+  border-top: 3px solid var(--ink);
+  padding: 1.5rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.ficha dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1.25rem 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.ficha dt {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.ficha dd {
+  font-family: var(--sans);
+  font-size: 1.375rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+.price-note {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+}
+
+/* ---------- Botão de compra ---------- */
+
+.buy {
+  display: inline-block;
+  background: var(--buy);
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  padding: 0.9rem 1.6rem;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.buy:hover { background: #8E3211; }
+
+.buy:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* ---------- Blocos de veredito ---------- */
+
+.verdict {
+  border-left: 3px solid var(--signal);
+  padding-left: 1.1rem;
+  margin: 2rem 0;
+}
+
+.verdict p { margin-bottom: 0; }
+
+.pros-cons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.pros-cons h3 { margin-top: 0; }
+
+.pros-cons ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  max-width: var(--measure);
+}
+
+.pros-cons li { margin-bottom: 0.5rem; }
+
+/* ---------- Lista de escolhas na home ---------- */
+
+.picks { margin: 0 0 1rem; padding: 0; list-style: none; }
+
+.pick {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pick h3 { margin: 0 0 0.25rem; }
+.pick h3 a { text-decoration: none; }
+.pick h3 a:hover { text-decoration: underline; }
+
+.pick p { margin: 0; max-width: 32rem; color: var(--muted); }
+
+.pick .tag {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.pick .amount {
+  font-family: var(--sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  grid-row: span 2;
+}
+
+/* ---------- Rodapé ---------- */
+
+.site-foot {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.site-foot p { max-width: 40rem; }
+
+.disclosure {
+  background: var(--panel);
+  padding: 1rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 2.5rem 0;
+  max-width: 40rem;
+}
+
+/* ---------- Acessibilidade e responsivo ---------- */
+
+@media (max-width: 34rem) {
+  .pick { grid-template-columns: 1fr; }
+  .pick .amount { grid-row: auto; }
+  .ficha { padding: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
