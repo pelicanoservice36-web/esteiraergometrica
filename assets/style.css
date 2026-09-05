@@ -256,6 +256,18 @@ a:focus-visible {
   border-bottom: 1px solid var(--rule);
 }
 
+.pick--with-thumb {
+  grid-template-columns: 4.5rem 1fr auto;
+  align-items: center;
+}
+
+.pick-thumb {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  background: var(--panel);
+}
+
 .pick h3 { margin: 0 0 0.25rem; }
 .pick h3 a { text-decoration: none; }
 .pick h3 a:hover { text-decoration: underline; }
@@ -308,6 +320,7 @@ a:focus-visible {
 @media (max-width: 34rem) {
   .pick { grid-template-columns: 1fr; }
   .pick .amount { grid-row: auto; }
+  .pick-thumb { width: 5rem; height: 5rem; margin-bottom: 0.25rem; }
   .ficha { padding: 1.25rem; }
 }
 
