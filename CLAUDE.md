@@ -89,10 +89,14 @@ Google para link pago, e a ausência expõe o site a ação manual.
 Ordem definida por análise de SERP, da menor para a maior dificuldade:
 
 1. Polimet EP-1600 — publicada
-2. Polimet EP-1600 Sênior — produto distinto, praticamente sem cobertura na concorrência
-3. Dream Fitness DR-1600
-4. Guia: esteira para apartamento pequeno
-5. Guia: como escolher uma esteira
+2. Polimet EP-1600 Sênior — publicada
+3. Dream Fitness DR-1600 — publicada
+4. Guia: esteira para apartamento pequeno — publicado
+5. Guia: como escolher uma esteira — publicado
+
+Todos os itens da fila original já estão publicados. Próximo passo é decidir a próxima
+frente (novo modelo, ou aprofundar SEO/conversão do que já existe) antes de continuar
+gerando conteúdo novo — ver "Não gerar análises em lote" abaixo.
 
 ## O que não fazer
 
