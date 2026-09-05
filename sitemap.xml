@@ -24,4 +24,16 @@
     <loc>https://esteiraergometrica.com/guias/como-escolher.html</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://esteiraergometrica.com/aviso-legal.html</loc>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://esteiraergometrica.com/termos-de-uso.html</loc>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://esteiraergometrica.com/politica-de-cookies.html</loc>
+    <priority>0.1</priority>
+  </url>
 </urlset>

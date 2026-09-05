@@ -305,6 +305,16 @@ a:focus-visible {
 
 .site-foot p { max-width: 40rem; }
 
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.foot-nav a { color: var(--muted); }
+.foot-nav a:hover { color: var(--signal); }
+
 .disclosure {
   background: var(--panel);
   padding: 1rem 1.25rem;

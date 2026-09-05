@@ -4,9 +4,9 @@ Contexto para agentes trabalhando neste repositório. Leia antes de qualquer alt
 
 ## O que é
 
-Site estático de análises de esteiras ergométricas para o mercado brasileiro, hospedado
-no Cloudflare Pages. Monetização por links de afiliado (Mercado Livre). Domínio expirado
-readquirido, com autoridade residual — PA 23 / DA 11 na data de retomada.
+Site especialista em ajudar o brasileiro a escolher uma esteira ergométrica. Estático,
+hospedado no Cloudflare Pages, monetizado por links de afiliado (Mercado Livre). Domínio
+expirado readquirido, com autoridade residual — PA 23 / DA 11 na data de retomada.
 
 Sem build step. Sem framework. HTML e CSS escritos à mão. Isso é intencional: o site
 precisa carregar rápido e ser trivial de manter por anos.
@@ -38,11 +38,26 @@ index.html                          Home com tabela comparativa
 reviews/
   _template-review.html             Template em branco — duplicar para novas análises
   polimet-ep1600.html               Análise publicada (referência de padrão e tom)
+  polimet-ep1600-senior.html
+  dream-fitness-dr1600.html
+guias/
+  esteira-para-apartamento.html
+  como-escolher.html
+aviso-legal.html                    Isenção de responsabilidade, afiliados, dados pessoais
+termos-de-uso.html                  Termos de uso do site
+politica-de-cookies.html            O que o site rastreia (ou não) hoje
 assets/style.css                    Folha de estilo única
+assets/images/                      Fotos de produto (de anúncio verificado, self-hosted)
 _redirects                          Links de afiliado centralizados
 _headers                            Cache e cabeçalhos de segurança
 robots.txt · sitemap.xml
 ```
+
+As três páginas legais (`aviso-legal.html`, `termos-de-uso.html`, `politica-de-cookies.html`)
+são linkadas no rodapé (`.foot-nav`) de toda página do site, incluindo o template de review.
+Se o site ganhar cadastro, formulário ou analytics com cookie no futuro, atualize
+`politica-de-cookies.html` — hoje ela afirma explicitamente que não há cookie de rastreamento
+próprio, e isso deixaria de ser verdade.
 
 Ao criar uma análise nova: duplique `_template-review.html`, não a `polimet-ep1600.html`.
 Use a EP-1600 como referência de tom e profundidade, não como base para copiar e editar.
