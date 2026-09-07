@@ -459,19 +459,22 @@ a:hover { color: var(--primary-ink); }
 
 .hero-content .standfirst { color: rgba(255, 255, 255, 0.86); margin-bottom: 1.75rem; }
 
-.hero-content .indicator-chip {
+.hero-video-section .indicator-chip {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.24);
   color: #fff;
   backdrop-filter: blur(6px);
 }
 
-.hero-content .indicator-chip svg { color: #7FE0A8; }
+.hero-video-section .indicator-chip svg { color: #7FE0A8; }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.85rem;
+  max-width: 30rem;
+  margin-inline: auto;
   margin-bottom: 2.25rem;
 }
 
@@ -480,10 +483,11 @@ a:hover { color: var(--primary-ink); }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
   max-width: 30rem;
+  margin-inline: auto;
 }
 
 @media (min-width: 30rem) {
-  .indicators { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: none; }
+  .indicators { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 38rem; }
 }
 
 .indicator-chip {
@@ -1179,17 +1183,15 @@ a:hover { color: var(--primary-ink); }
   h2 { font-size: clamp(1.875rem, 5vw, 2.25rem); } /* ~30–36px */
   h3 { font-size: 1.375rem; } /* ~22px */
 
-  /* ---- Hero: tudo centralizado como bloco, etiqueta discreta acima do H1, texto mais compacto ---- */
+  /* ---- Hero: título/texto centralizados no mobile, etiqueta discreta acima do H1, texto mais compacto ---- */
   .hero-content { text-align: center; margin-inline: auto; }
   .hero-content .eyebrow { margin-bottom: 1rem; }
-  .hero-content .standfirst { font-size: 1.125rem; line-height: 1.55; margin-inline: auto; }
+  .hero-content .standfirst { font-size: 1.125rem; line-height: 1.55; }
 
-  /* Botões do hero: centralizados como grupo, altura confortável ao toque; empilham quando falta espaço */
-  .hero-actions { justify-content: center; }
+  /* Botões do hero: altura confortável ao toque; empilham quando falta espaço (centralização é global, ver acima) */
   .hero-actions .btn { flex: 1 1 13rem; min-height: 3.375rem; }
 
-  /* Benefícios 2x2: grid centralizado no bloco, todos os cartões com a mesma altura e conteúdo centralizado */
-  .indicators { margin-inline: auto; }
+  /* Benefícios 2x2: todos os cartões com a mesma altura, conteúdo centralizado no bloco */
   .indicator-chip { min-height: 3.375rem; justify-content: center; text-align: center; }
 
   /* Garante respiro mínimo abaixo do header fixo (a etiqueta nunca fica sob o logo) */
