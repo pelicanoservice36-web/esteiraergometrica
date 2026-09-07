@@ -1,8 +1,14 @@
 ---
 import Logo from './Logo.astro';
+
+export interface Props {
+	transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
 ---
 
-<header class="site-head">
+<header class:list={['site-head', { 'site-head--overlay': transparent }]}>
   <div class="wrap">
     <Logo />
 
@@ -24,3 +30,17 @@ import Logo from './Logo.astro';
     </details>
   </div>
 </header>
+
+{transparent && (
+	<script is:inline>
+		(function () {
+			var header = document.querySelector('.site-head--overlay');
+			if (!header) return;
+			var onScroll = function () {
+				header.classList.toggle('is-scrolled', window.scrollY > 60);
+			};
+			onScroll();
+			window.addEventListener('scroll', onScroll, { passive: true });
+		})();
+	</script>
+)}

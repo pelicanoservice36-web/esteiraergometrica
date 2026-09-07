@@ -17,6 +17,8 @@
   --primary-tint:  #E8EEFA;
 
   --brand-green:   #20D06B; /* cor da marca — só para o símbolo/logotipo, ver nota de contraste abaixo */
+  --logo-navy:     #0B3B82; /* cor viva da marca — sobrescrita no header transparente sobre o vídeo */
+  --logo-green:    #20D06B;
   --accent:        #15803D; /* verde operacional (botões, badges) — mantido mais escuro que --brand-green de propósito: texto branco sobre #20D06B fica abaixo do mínimo WCAG AA (4,5:1). Sobre #15803D fica em ~5,2:1. */
   --accent-ink:    #0F5C2C;
   --accent-tint:   #E9F8EF;
@@ -74,20 +76,21 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
 }
 
-.brand-mark { color: var(--primary); flex-shrink: 0; }
+.brand-mark { flex-shrink: 0; }
 
 .brand-word {
   font-family: var(--sans);
   font-weight: 500;
   font-size: 1.125rem;
   letter-spacing: -0.01em;
-  color: var(--primary);
+  color: var(--logo-navy);
   white-space: nowrap;
+  transition: color 250ms ease;
 }
 
-.brand-word strong { font-weight: 800; color: var(--primary); }
-.brand-word .word-mid { font-weight: 500; color: var(--primary); opacity: 0.82; }
-.brand-word .word-dot { font-weight: 700; color: var(--brand-green); }
+.brand-word strong { font-weight: 800; color: var(--logo-navy); transition: color 250ms ease; }
+.brand-word .word-mid { font-weight: 500; color: var(--logo-navy); opacity: 0.82; transition: color 250ms ease; }
+.brand-word .word-dot { font-weight: 700; color: var(--logo-green); }
 
 /* ---------- Cabeçalho ---------- */
 
@@ -97,7 +100,42 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 40;
+  transition: background-color 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
 }
+
+/* Header sobreposto ao vídeo do hero (só na home) */
+.site-head--overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom-color: transparent;
+  --logo-navy: #fff;
+  --logo-green: #20D06B;
+}
+
+.site-head--overlay .site-nav a { color: rgba(255, 255, 255, 0.92); }
+.site-head--overlay .site-nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.14); }
+.site-head--overlay .site-nav a.is-featured { color: #fff; background: rgba(255, 255, 255, 0.18); }
+.site-head--overlay .site-nav a.is-featured:hover { background: rgba(255, 255, 255, 0.26); }
+.site-head--overlay .mobile-nav summary { color: #fff; }
+.site-head--overlay .mobile-nav summary:hover { background: rgba(255, 255, 255, 0.14); }
+
+.site-head--overlay.is-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04), 0 8px 24px -16px rgba(17, 24, 39, 0.18);
+  --logo-navy: #0B3B82;
+  --logo-green: #20D06B;
+}
+
+.site-head--overlay.is-scrolled .site-nav a { color: var(--muted); }
+.site-head--overlay.is-scrolled .site-nav a:hover { color: var(--ink); background: var(--surface-sunk); }
+.site-head--overlay.is-scrolled .site-nav a.is-featured { color: var(--primary); background: var(--primary-tint); }
+.site-head--overlay.is-scrolled .site-nav a.is-featured:hover { background: #DDE7F8; }
+.site-head--overlay.is-scrolled .mobile-nav summary { color: var(--ink); }
+.site-head--overlay.is-scrolled .mobile-nav summary:hover { background: var(--surface-sunk); }
 
 .site-head .wrap {
   display: flex;
@@ -326,20 +364,109 @@ a:hover { color: var(--primary-ink); }
 
 .buy:hover { background: var(--accent-ink); color: #fff; transform: translateY(-1px); }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (vídeo) ---------- */
 
-.hero {
-  display: grid;
-  gap: 3rem;
+.hero-video-section {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  min-height: 40.625rem; /* 650px */
+  display: flex;
   align-items: center;
-  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 4.5rem);
+  overflow: hidden;
+  color: #fff;
+  background: #0A1A33; /* cor sólida atrás do vídeo enquanto ele carrega */
 }
 
-@media (min-width: 60rem) {
-  .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 4rem; }
+@media (min-width: 90rem) {
+  .hero-video-section { min-height: 47.5rem; } /* 760px, telas bem largas */
 }
 
-.hero-copy .standfirst { margin-bottom: 1.75rem; }
+@media (max-width: 64rem) {
+  .hero-video-section { min-height: 37.5rem; } /* 600px, tablet */
+}
+
+@media (max-width: 30rem) {
+  .hero-video-section { min-height: 38.75rem; align-items: flex-end; } /* 620px, conteúdo embaixo no mobile */
+}
+
+.hero-video,
+.hero-poster-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-poster-fallback { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+  .hero-poster-fallback { display: block; }
+}
+
+@media (max-width: 47.9375rem) {
+  .hero-video, .hero-poster-fallback { object-position: 65% center; }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 18, 38, 0.88) 0%,
+    rgba(7, 18, 38, 0.65) 38%,
+    rgba(7, 18, 38, 0.25) 70%,
+    rgba(7, 18, 38, 0.10) 100%
+  );
+}
+
+@media (max-width: 47.9375rem) {
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 18, 38, 0.32) 0%,
+      rgba(7, 18, 38, 0.58) 48%,
+      rgba(7, 18, 38, 0.94) 100%
+    );
+  }
+}
+
+.hero-video-section > .wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+@media (max-width: 47.9375rem) {
+  .hero-video-section > .wrap { padding-top: 0; padding-bottom: 2.5rem; }
+}
+
+.hero-content { max-width: 35rem; }
+
+.hero-content .eyebrow { background: rgba(255, 255, 255, 0.14); color: #fff; }
+
+.hero-content h1 { color: #fff; }
+
+.hero-content .standfirst { color: rgba(255, 255, 255, 0.86); margin-bottom: 1.75rem; }
+
+.hero-content .indicator-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+.hero-content .indicator-chip svg { color: #7FE0A8; }
 
 .hero-actions {
   display: flex;
@@ -374,72 +501,6 @@ a:hover { color: var(--primary-ink); }
 }
 
 .indicator-chip svg { flex-shrink: 0; color: var(--accent); }
-
-/* ---------- Composição visual do hero ---------- */
-
-.hero-visual { position: relative; }
-
-.hero-visual-shape {
-  position: absolute;
-  inset: 1.25rem 0 auto auto;
-  width: 78%;
-  aspect-ratio: 1;
-  background: var(--primary-tint);
-  border-radius: var(--radius-lg);
-  z-index: 0;
-}
-
-.hero-visual-card {
-  position: relative;
-  z-index: 1;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-pop);
-  padding: 1.5rem 1.5rem 1.75rem;
-}
-
-.hero-visual-media {
-  background: var(--surface-sunk);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  display: grid;
-  place-items: center;
-  margin-bottom: 1.25rem;
-}
-
-.hero-visual-media img {
-  width: 62%;
-  height: auto;
-  transition: transform 250ms ease;
-}
-
-.hero-visual-card:hover .hero-visual-media img { transform: scale(1.035); }
-
-.hero-visual-name {
-  font-weight: 800;
-  font-size: 1.0625rem;
-  margin-bottom: 0.75rem;
-}
-
-.hero-visual-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tag-chip {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  background: var(--accent-tint);
-  color: var(--accent-ink);
-}
-
-.tag-chip.is-neutral { background: var(--surface-sunk); color: var(--muted); }
 
 /* ---------- Card de comparativo ---------- */
 

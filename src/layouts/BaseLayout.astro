@@ -11,6 +11,7 @@ export interface Props {
 	ogDescription?: string;
 	ogType?: 'website' | 'article';
 	jsonLd?: Record<string, unknown>;
+	transparentHeader?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
 	ogDescription = description,
 	ogType = 'website',
 	jsonLd,
+	transparentHeader = false,
 } = Astro.props;
 
 const canonicalURL = new URL(path, Astro.site);
@@ -49,7 +51,7 @@ const canonicalURL = new URL(path, Astro.site);
 </head>
 <body>
 
-<Header />
+<Header transparent={transparentHeader} />
 
 <main class="wrap">
 	<slot />

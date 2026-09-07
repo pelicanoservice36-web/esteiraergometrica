@@ -10,39 +10,46 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
 	path="/"
 	ogTitle="Esteira Ergométrica: qual comprar"
 	ogDescription="Site especialista em ajudar o brasileiro a escolher uma esteira: motor, lona, peso suportado e preço."
+	transparentHeader={true}
 >
 
-  <section class="hero">
-    <div class="hero-copy">
-      <span class="eyebrow">Guia de compra • Atualizado em setembro de 2026</span>
-      <h1>Qual esteira ergométrica comprar para usar em casa?</h1>
-      <p class="standfirst">Comparamos os modelos que realmente aparecem nas lojas brasileiras para ajudar você a escolher uma esteira que faça sentido para seu espaço, peso, objetivo e orçamento.</p>
+  <section class="hero-video-section">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/video/esteiraergometricahead-poster.webp"
+      width="640"
+      height="360"
+      aria-hidden="true"
+    >
+      <source src="/video/esteiraergometricahead.webm" type="video/webm" />
+      <source src="/video/esteiraergometricahead.mp4" type="video/mp4" />
+    </video>
+    <img class="hero-poster-fallback" src="/video/esteiraergometricahead-poster.webp" alt="" aria-hidden="true" width="640" height="360" />
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#comparativo">Ver comparativo</a>
-        <a class="btn btn-secondary" href="/guias/como-escolher.html">Como escolher</a>
-      </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-      <ul class="indicators" role="list">
-        <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Potência</li>
-        <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Tamanho da lona</li>
-        <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Peso suportado</li>
-        <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Preço</li>
-      </ul>
-    </div>
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="eyebrow">Guia de compra • Atualizado em setembro de 2026</span>
+        <h1>Qual esteira ergométrica comprar para usar em casa?</h1>
+        <p class="standfirst">Comparamos os modelos que realmente aparecem nas lojas brasileiras para ajudar você a escolher uma esteira que faça sentido para seu espaço, peso, objetivo e orçamento.</p>
 
-    <div class="hero-visual">
-      <div class="hero-visual-shape"></div>
-      <div class="hero-visual-card">
-        <div class="hero-visual-media">
-          <img src="/assets/images/polimet-ep1600.webp" alt="Esteira Polimet EP-1600" width="280" height="280" loading="eager">
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#comparativo">Ver comparativo</a>
+          <a class="btn btn-secondary" href="/guias/como-escolher.html">Como escolher</a>
         </div>
-        <p class="hero-visual-name">Polimet EP-1600</p>
-        <div class="hero-visual-tags">
-          <span class="tag-chip">Melhor custo-benefício</span>
-          <span class="tag-chip is-neutral">Até 110 kg</span>
-          <span class="tag-chip is-neutral">9 km/h</span>
-        </div>
+
+        <ul class="indicators" role="list">
+          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Motor</li>
+          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Tamanho da lona</li>
+          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Peso suportado</li>
+          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Preço</li>
+        </ul>
       </div>
     </div>
   </section>
