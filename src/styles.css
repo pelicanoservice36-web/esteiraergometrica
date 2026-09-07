@@ -12,11 +12,12 @@
   --border:        #E2E8F0;
   --border-strong: #CBD5E1;
 
-  --primary:       #1E3A8A;
-  --primary-ink:   #16296B;
-  --primary-tint:  #EAF0FB;
+  --primary:       #0F3B82;
+  --primary-ink:   #0A2B61;
+  --primary-tint:  #E8EEFA;
 
-  --accent:        #15803D;
+  --brand-green:   #22C55E; /* cor da marca — só para o símbolo/logotipo, ver nota de contraste abaixo */
+  --accent:        #15803D; /* verde operacional (botões, badges) — mantido mais escuro que --brand-green de propósito: texto branco sobre #22C55E fica em ~2,3:1, abaixo do mínimo WCAG AA (4,5:1). Sobre #15803D fica em ~5,2:1. */
   --accent-ink:    #0F5C2C;
   --accent-tint:   #E9F8EF;
 
@@ -78,13 +79,15 @@ img { max-width: 100%; display: block; }
 .brand-word {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   letter-spacing: -0.01em;
-  color: var(--muted);
+  color: var(--primary);
   white-space: nowrap;
 }
 
-.brand-word strong { font-weight: 800; color: var(--ink); }
+.brand-word strong { font-weight: 800; color: var(--primary); }
+.brand-word .word-mid { font-weight: 500; color: var(--primary); opacity: 0.82; }
+.brand-word .word-dot { font-weight: 700; color: var(--brand-green); }
 
 /* ---------- Cabeçalho ---------- */
 

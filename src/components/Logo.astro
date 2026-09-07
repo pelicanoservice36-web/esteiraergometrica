@@ -7,12 +7,16 @@ const { class: className = '' } = Astro.props;
 ---
 
 <a href="/" class:list={['brand', className]} aria-label="esteiraergometrica.com — página inicial">
-	<svg class="brand-mark" width="30" height="30" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-		<line x1="4" y1="20.5" x2="24" y2="20.5" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" />
-		<line x1="9" y1="18.4" x2="12.6" y2="16.7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" opacity="0.35" />
-		<line x1="12.4" y1="16" x2="15.6" y2="14.1" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" opacity="0.6" />
-		<line x1="17.4" y1="15.6" x2="19.4" y2="20.5" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" />
-		<circle cx="19.4" cy="12.4" r="2.6" fill="currentColor" />
+	<svg class="brand-mark" width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<rect x="2" y="30" width="17" height="6.5" rx="3.25" fill="#22C55E" />
+		<rect x="2" y="40.5" width="25" height="6.5" rx="3.25" fill="#22C55E" />
+		<rect x="2" y="51" width="33" height="6.5" rx="3.25" fill="#22C55E" />
+		<polygon points="12,88 88,88 88,58" fill="#0F3B82" opacity="0.16" />
+		<circle cx="66" cy="16" r="8.5" fill="#0F3B82" />
+		<path d="M64,26 L54,50" stroke="#0F3B82" stroke-width="9" stroke-linecap="round" fill="none" />
+		<path d="M60,32 L70,38 L66,50" stroke="#0F3B82" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+		<path d="M54,50 L66,62 L80,78" stroke="#0F3B82" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+		<path d="M54,50 L38,52 L42,34" stroke="#0F3B82" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 	</svg>
-	<span class="brand-word"><strong>esteira</strong>ergometrica.com</span>
+	<span class="brand-word"><strong>esteira</strong><span class="word-mid">ergometrica</span><span class="word-dot">.com</span></span>
 </a>
