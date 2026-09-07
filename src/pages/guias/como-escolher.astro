@@ -1,54 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Como escolher uma esteira ergométrica para casa</title>
-<meta name="description" content="Os quatro números que decidem a compra de uma esteira doméstica — e as cinco especificações que os anúncios costumam inflar. Guia prático, sem enrolação.">
-<link rel="canonical" href="https://esteiraergometrica.com/guias/como-escolher.html">
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="Como escolher uma esteira ergométrica">
-<meta property="og:description" content="Quatro números decidem a compra. Cinco especificações nos anúncios costumam ser infladas ou mal descritas — aprenda a reconhecer as duas coisas.">
-<meta property="og:url" content="https://esteiraergometrica.com/guias/como-escolher.html">
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Como escolher uma esteira ergométrica para casa',
+	author: { '@type': 'Organization', name: 'esteiraergometrica.com' },
+	datePublished: '2026-09-05',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/como-escolher.html',
+};
+---
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Como escolher uma esteira ergométrica para casa",
-  "author": { "@type": "Organization", "name": "esteiraergometrica.com" },
-  "datePublished": "2026-09-05",
-  "mainEntityOfPage": "https://esteiraergometrica.com/guias/como-escolher.html"
-}
-</script>
-</head>
-<body>
-
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">esteiraergometrica.com</a>
-    <nav class="site-nav">
-      <a href="/#comparativo">Comparativo</a>
-      <a href="/#analises">Análises</a>
-      <a href="/#guias">Guias</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-<article>
-
-  <div class="lead-section">
-    <h1>Como escolher uma esteira ergométrica</h1>
-    <p class="standfirst">Quatro números decidem se uma esteira serve para você. O resto é detalhe de conforto — e parte considerável do que os anúncios destacam além desses quatro números é, na prática, inflado ou descrito de um jeito que não corresponde ao produto real.</p>
-    <p class="stamp">Atualizado em setembro de 2026</p>
-  </div>
+<ArticleLayout
+	title="Como escolher uma esteira ergométrica para casa"
+	description="Os quatro números que decidem a compra de uma esteira doméstica — e as cinco especificações que os anúncios costumam inflar. Guia prático, sem enrolação."
+	path="/guias/como-escolher.html"
+	ogTitle="Como escolher uma esteira ergométrica"
+	ogDescription="Quatro números decidem a compra. Cinco especificações nos anúncios costumam ser infladas ou mal descritas — aprenda a reconhecer as duas coisas."
+	jsonLd={jsonLd}
+	h1="Como escolher uma esteira ergométrica"
+	standfirst="Quatro números decidem se uma esteira serve para você. O resto é detalhe de conforto — e parte considerável do que os anúncios destacam além desses quatro números é, na prática, inflado ou descrito de um jeito que não corresponde ao produto real."
+	updated="setembro de 2026"
+>
 
   <h2>Os quatro números que decidem a compra</h2>
 
@@ -98,20 +71,4 @@
 
   <p class="disclosure">Este guia foi escrito a partir das análises que já publicamos, com dados verificados na ficha do fabricante e em anúncios de varejo. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
-</article>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap">
-    <p>esteiraergometrica.com — análises independentes de esteiras ergométricas para uso doméstico no Brasil.</p>
-    <p>Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas. Confira sempre o valor final no site do vendedor antes de comprar.</p>
-    <nav class="foot-nav">
-      <a href="/aviso-legal.html">Aviso legal</a>
-      <a href="/termos-de-uso.html">Termos de uso</a>
-      <a href="/politica-de-cookies.html">Política de cookies</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
-</html>
+</ArticleLayout>

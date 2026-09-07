@@ -4,12 +4,16 @@ Contexto para agentes trabalhando neste repositório. Leia antes de qualquer alt
 
 ## O que é
 
-Site especialista em ajudar o brasileiro a escolher uma esteira ergométrica. Estático,
-hospedado no Cloudflare Pages, monetizado por links de afiliado (Mercado Livre). Domínio
-expirado readquirido, com autoridade residual — PA 23 / DA 11 na data de retomada.
+Site especialista em ajudar o brasileiro a escolher uma esteira ergométrica. Hospedado no
+Cloudflare Pages, monetizado por links de afiliado (Mercado Livre). Domínio expirado
+readquirido, com autoridade residual — PA 23 / DA 11 na data de retomada.
 
-Sem build step. Sem framework. HTML e CSS escritos à mão. Isso é intencional: o site
-precisa carregar rápido e ser trivial de manter por anos.
+Construído em [Astro](https://astro.build) desde 2026-09-07 (migrado de HTML/CSS puro).
+`npm run build` gera HTML estático em `dist/` — **sem framework de UI no cliente**: nenhum
+React, Vue ou JS de interatividade é enviado ao navegador. O que mudou foi só a forma de
+montar o HTML (layouts + componentes reaproveitáveis em vez de copiar `<header>`/`<footer>`
+em cada arquivo); o resultado publicado continua sendo a mesma coisa que sempre foi: HTML e
+CSS simples, rápido, fácil de manter. Ver README.md para comandos e deploy.
 
 ## Regra número um: nunca invente dado técnico
 
@@ -26,45 +30,56 @@ honestidade é o diferencial editorial frente aos concorrentes que inventam núm
 
 Preços variam entre vendedores e mudam em semanas. Escreva sempre como faixa com mês de
 referência ("R$ 1.449 a 1.599, em setembro de 2026"). O único lugar com valor único é o
-JSON-LD, que usa `AggregateOffer` com `lowPrice` e `highPrice`.
+JSON-LD (prop `jsonLd` do layout), que usa `AggregateOffer` com `lowPrice` e `highPrice`.
 
 Nunca reproduza o preço "de R$ X" riscado dos anúncios. É âncora de marketing, não preço
 praticado.
 
+Cuidado com referência cruzada: quando uma review cita o preço de *outro* modelo em prosa
+(ex: a EP-1600 padrão menciona a faixa da Sênior), atualizar um dos dois sem o outro cria
+uma inconsistência que já aconteceu uma vez neste repositório. Ao mudar um preço, busque o
+valor antigo em todo o `src/` antes de considerar a tarefa concluída.
+
 ## Estrutura
 
 ```
-index.html                          Home com tabela comparativa
-reviews/
-  _template-review.html             Template em branco — duplicar para novas análises
-  polimet-ep1600.html               Análise publicada (referência de padrão e tom)
-  polimet-ep1600-senior.html
-  dream-fitness-dr1600.html
-guias/
-  esteira-para-apartamento.html
-  como-escolher.html
-aviso-legal.html                    Isenção de responsabilidade, afiliados, dados pessoais
-termos-de-uso.html                  Termos de uso do site
-politica-de-cookies.html            O que o site rastreia (ou não) hoje
-assets/style.css                    Folha de estilo única
-assets/images/                      Fotos de produto (de anúncio verificado, self-hosted)
-_redirects                          Links de afiliado centralizados
-_headers                            Cache e cabeçalhos de segurança
-robots.txt · sitemap.xml
+src/
+  layouts/
+    BaseLayout.astro        Head, Header, Footer — toda página passa por aqui
+    ReviewLayout.astro      + lead-section, ficha técnica, botão de compra, JSON-LD Product
+    ArticleLayout.astro     Para guias e páginas legais (lead-section, sem ficha técnica)
+  components/
+    Header.astro · Footer.astro
+  pages/
+    index.astro              Home com tabela comparativa
+    reviews/*.astro          Uma análise por arquivo, usa ReviewLayout
+    guias/*.astro            Usa ArticleLayout
+    aviso-legal.astro · termos-de-uso.astro · politica-de-cookies.astro
+  styles.css                 Folha de estilo única, importada pelo BaseLayout
+public/
+  assets/images/             Fotos de produto (de anúncio verificado, self-hosted)
+  _redirects                 Links de afiliado centralizados
+  _headers                   Cache e cabeçalhos de segurança
+  robots.txt · sitemap.xml   Copiados como estão para dist/ — sitemap é mantido à mão
+astro.config.mjs             build.format: 'file' preserva as URLs .html existentes
 ```
 
-As três páginas legais (`aviso-legal.html`, `termos-de-uso.html`, `politica-de-cookies.html`)
-são linkadas no rodapé (`.foot-nav`) de toda página do site, incluindo o template de review.
-Se o site ganhar cadastro, formulário ou analytics com cookie no futuro, atualize
-`politica-de-cookies.html` — hoje ela afirma explicitamente que não há cookie de rastreamento
-próprio, e isso deixaria de ser verdade.
+As três páginas legais (`aviso-legal.astro`, `termos-de-uso.astro`, `politica-de-cookies.astro`)
+são linkadas no rodapé (`.foot-nav`, dentro de `Footer.astro`) de toda página do site
+automaticamente — não precisa repetir isso por página. Se o site ganhar cadastro, formulário
+ou analytics com cookie no futuro, atualize `politica-de-cookies.astro` — hoje ela afirma
+explicitamente que não há cookie de rastreamento próprio, e isso deixaria de ser verdade.
 
-Ao criar uma análise nova: duplique `_template-review.html`, não a `polimet-ep1600.html`.
-Use a EP-1600 como referência de tom e profundidade, não como base para copiar e editar.
+Ao criar uma análise nova: crie `src/pages/reviews/nome-do-modelo.astro` importando
+`ReviewLayout`, e use `polimet-ep1600.astro` como referência de tom, profundidade e de quais
+props preencher — não como base para copiar e editar às cegas. Rode `npm run build` antes de
+commitar; se o build falhar, a página não vai para o ar.
 
 ## Padrão editorial das análises
 
-A ordem é fixa e não deve ser alterada:
+A ordem é fixa e não deve ser alterada. As três primeiras entradas são responsabilidade do
+`ReviewLayout` (props `h1`, `standfirst`, `updated`, `fichaItems`); o resto é conteúdo dentro
+do `<slot />`:
 
 1. Título, standfirst, data
 2. Ficha técnica (`.ficha`) — antes de qualquer texto corrido
@@ -85,8 +100,8 @@ featured snippet do Google.
 
 ## Links de afiliado
 
-Todos passam por `_redirects`. No HTML escreva o caminho curto (`/ml-polimet`), nunca a
-URL da loja. Trocar o destino em um lugar atualiza o site inteiro.
+Todos passam por `public/_redirects`. No `.astro` escreva o caminho curto (`/ml-polimet`),
+nunca a URL da loja. Trocar o destino em um lugar atualiza o site inteiro.
 
 Todo link de compra leva `rel="sponsored nofollow"`. Não é opcional: é exigência do
 Google para link pago, e a ausência expõe o site a ação manual.
@@ -94,10 +109,12 @@ Google para link pago, e a ausência expõe o site a ação manual.
 ## SEO
 
 - Um `<h1>` por página
-- `<title>` até 60 caracteres, `meta description` até 155
-- `canonical` absoluto em toda página
-- JSON-LD `Product` com `AggregateOffer` — validar no Rich Results Test antes de publicar
-- Adicionar toda página nova ao `sitemap.xml`
+- `title` até 60 caracteres, `description` até 155 (props do layout)
+- `canonical` absoluto em toda página — gerado automaticamente pelo `BaseLayout` a partir
+  da prop `path` e de `site` em `astro.config.mjs`; não hardcode a URL
+- JSON-LD `Product` com `AggregateOffer` em toda review — validar no Rich Results Test
+  antes de publicar
+- Adicionar toda página nova ao `public/sitemap.xml`
 
 ## Prioridade de conteúdo
 
@@ -115,8 +132,10 @@ gerando conteúdo novo — ver "Não gerar análises em lote" abaixo.
 
 ## O que não fazer
 
-- Não adicionar framework, bundler ou dependência npm
+- Não adicionar framework de UI no cliente (React, Vue, Svelte, Alpine etc.) — o site deve
+  continuar sendo HTML estático puro no navegador, sem JS de interatividade
 - Não usar localStorage ou qualquer armazenamento de navegador
-- Não criar arquivo CSS adicional — tudo em `assets/style.css`
+- Não criar arquivo CSS adicional — tudo em `src/styles.css`
 - Não gerar análises em lote; o texto é o produto do site
 - Não copiar descrição de anúncio do Mercado Livre para dentro da página
+- Não commitar sem rodar `npm run build` antes

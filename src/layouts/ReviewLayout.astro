@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface FichaItem {
+	label: string;
+	value: string;
+}
+
+export interface Props {
+	title: string;
+	description: string;
+	path: string;
+	ogTitle?: string;
+	ogDescription?: string;
+	jsonLd?: Record<string, unknown>;
+	h1: string;
+	standfirst: string;
+	updated: string;
+	fichaItems: FichaItem[];
+	buyHref: string;
+	priceNote: string;
+	buyLabel?: string;
+}
+
+const {
+	title,
+	description,
+	path,
+	ogTitle,
+	ogDescription,
+	jsonLd,
+	h1,
+	standfirst,
+	updated,
+	fichaItems,
+	buyHref,
+	priceNote,
+	buyLabel = 'Ver preço no Mercado Livre',
+} = Astro.props;
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+	path={path}
+	ogTitle={ogTitle}
+	ogDescription={ogDescription}
+	ogType="article"
+	jsonLd={jsonLd}
+>
+<article>
+
+  <div class="lead-section">
+    <h1>{h1}</h1>
+    <p class="standfirst">{standfirst}</p>
+    <p class="stamp">Atualizado em {updated}</p>
+  </div>
+
+  <section class="ficha">
+    <dl>
+      {fichaItems.map((item) => (
+        <div><dt>{item.label}</dt><dd>{item.value}</dd></div>
+      ))}
+    </dl>
+
+    <a class="buy" href={buyHref} rel="sponsored nofollow" target="_blank">{buyLabel}</a>
+    <p class="price-note">{priceNote}</p>
+  </section>
+
+  <slot />
+
+</article>
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import '../styles.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+export interface Props {
+	title: string;
+	description: string;
+	path: string;
+	ogTitle?: string;
+	ogDescription?: string;
+	ogType?: 'website' | 'article';
+	jsonLd?: Record<string, unknown>;
+}
+
+const {
+	title,
+	description,
+	path,
+	ogTitle = title,
+	ogDescription = description,
+	ogType = 'website',
+	jsonLd,
+} = Astro.props;
+
+const canonicalURL = new URL(path, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonicalURL}>
+
+<meta property="og:type" content={ogType}>
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:url" content={canonicalURL}>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+</head>
+<body>
+
+<Header />
+
+<main class="wrap">
+	<slot />
+</main>
+
+<Footer />
+
+</body>
+</html>

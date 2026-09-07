@@ -1,75 +1,46 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Polimet EP-1600 é boa? Análise honesta, preço e para quem vale</title>
-<meta name="description" content="Análise da esteira Polimet EP-1600: motor de 1,6 HP, lona de 33×100 cm e 9 km/h. Para quem vale, para quem não vale, e a diferença para a versão Sênior.">
-<link rel="canonical" href="https://esteiraergometrica.com/reviews/polimet-ep1600.html">
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="Polimet EP-1600 é boa? Análise honesta">
-<meta property="og:description" content="1,6 HP, 9 km/h e lona de 100 cm. É esteira de caminhada, não de corrida — e isso muda quem deve comprar.">
-<meta property="og:url" content="https://esteiraergometrica.com/reviews/polimet-ep1600.html">
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Polimet EP-1600',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Polimet' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '1449.00',
+		highPrice: '1599.00',
+		offerCount: '4',
+		availability: 'https://schema.org/InStock',
+	},
+};
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+const fichaItems = [
+	{ label: 'Motor', value: '1,6 HP' },
+	{ label: 'Velocidade máxima', value: '9 km/h' },
+	{ label: 'Lona', value: '33 × 100 cm' },
+	{ label: 'Peso máximo', value: '110 kg' },
+	{ label: 'Inclinação', value: '1 nível fixo' },
+	{ label: 'Preço', value: 'R$ 1.449 a 1.599' },
+];
+---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Polimet EP-1600",
-  "category": "Esteira ergométrica",
-  "brand": { "@type": "Brand", "name": "Polimet" },
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "BRL",
-    "lowPrice": "1449.00",
-    "highPrice": "1599.00",
-    "offerCount": "4",
-    "availability": "https://schema.org/InStock"
-  }
-}
-</script>
-</head>
-<body>
-
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">esteiraergometrica.com</a>
-    <nav class="site-nav">
-      <a href="/#comparativo">Comparativo</a>
-      <a href="/#analises">Análises</a>
-      <a href="/#guias">Guias</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-<article>
-
-  <div class="lead-section">
-    <h1>Polimet EP-1600 é boa?</h1>
-    <p class="standfirst">É uma esteira de caminhada honesta por menos de R$ 1.600 — e não é uma esteira de corrida, por mais que os anúncios sugiram o contrário. A diferença decide se ela serve para você.</p>
-    <p class="stamp">Atualizado em setembro de 2026</p>
-  </div>
-
-  <section class="ficha">
-    <dl>
-      <div><dt>Motor</dt><dd>1,6 HP</dd></div>
-      <div><dt>Velocidade máxima</dt><dd>9 km/h</dd></div>
-      <div><dt>Lona</dt><dd>33 × 100 cm</dd></div>
-      <div><dt>Peso máximo</dt><dd>110 kg</dd></div>
-      <div><dt>Inclinação</dt><dd>1 nível fixo</dd></div>
-      <div><dt>Preço</dt><dd>R$ 1.449 a 1.599</dd></div>
-    </dl>
-
-    <a class="buy" href="/ml-polimet" rel="sponsored nofollow" target="_blank">Ver preço no Mercado Livre</a>
-    <p class="price-note">Faixa observada em setembro de 2026, considerando quatro vendedores. Link de afiliado.</p>
-  </section>
+<ReviewLayout
+	title="Polimet EP-1600 é boa? Análise honesta, preço e para quem vale"
+	description="Análise da esteira Polimet EP-1600: motor de 1,6 HP, lona de 33×100 cm e 9 km/h. Para quem vale, para quem não vale, e a diferença para a versão Sênior."
+	path="/reviews/polimet-ep1600.html"
+	ogTitle="Polimet EP-1600 é boa? Análise honesta"
+	ogDescription="1,6 HP, 9 km/h e lona de 100 cm. É esteira de caminhada, não de corrida — e isso muda quem deve comprar."
+	jsonLd={jsonLd}
+	h1="Polimet EP-1600 é boa?"
+	standfirst="É uma esteira de caminhada honesta por menos de R$ 1.600 — e não é uma esteira de corrida, por mais que os anúncios sugiram o contrário. A diferença decide se ela serve para você."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref="/ml-polimet"
+	priceNote="Faixa observada em setembro de 2026, considerando quatro vendedores. Link de afiliado."
+>
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
@@ -93,7 +64,7 @@
 
   <h2>Cuidado: existem duas EP-1600</h2>
   <p>Ao pesquisar, você vai encontrar a <strong>EP-1600</strong> e a <strong>EP-1600 Sênior</strong> lado a lado, com o mesmo nome de modelo e preços diferentes. Não são o mesmo produto.</p>
-  <p>A versão Sênior tem corrimão estendido ao longo de toda a lona, pensado para apoio contínuo de pessoas idosas ou em reabilitação. Ela apareceu entre R$ 1.579 e R$ 2.021, contra R$ 1.449 a R$ 1.599 da versão padrão. Se você não precisa desse apoio, está pagando a mais por um recurso que não vai usar. Se precisa, comprar a padrão por engano é um problema de segurança, não de conforto.</p>
+  <p>A versão Sênior tem corrimão estendido ao longo de toda a lona, pensado para apoio contínuo de pessoas idosas ou em reabilitação. Ela apareceu entre R$ 1.579 e R$ 1.699, contra R$ 1.449 a R$ 1.599 da versão padrão. Se você não precisa desse apoio, está pagando a mais por um recurso que não vai usar. Se precisa, comprar a padrão por engano é um problema de segurança, não de conforto.</p>
   <p>Confira a palavra "Sênior" no título do anúncio e o formato do corrimão na foto antes de fechar a compra.</p>
 
   <h2>Inclinação: um nível, e ele é fixo</h2>
@@ -166,7 +137,7 @@
         <th scope="row">EP-1600 Sênior</th>
         <td>Estendido, lateral</td>
         <td>Apoio contínuo, idosos</td>
-        <td class="num">R$ 1.579 – 2.021</td>
+        <td class="num">R$ 1.579 – 1.699</td>
       </tr>
     </tbody>
   </table>
@@ -193,20 +164,4 @@
 
   <p class="disclosure">Esta análise foi feita a partir da ficha técnica do fabricante e de anúncios públicos de varejo, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Polimet. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
-</article>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap">
-    <p>esteiraergometrica.com — análises independentes de esteiras ergométricas para uso doméstico no Brasil.</p>
-    <p>Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas. Confira sempre o valor final no site do vendedor antes de comprar.</p>
-    <nav class="foot-nav">
-      <a href="/aviso-legal.html">Aviso legal</a>
-      <a href="/termos-de-uso.html">Termos de uso</a>
-      <a href="/politica-de-cookies.html">Política de cookies</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
-</html>
+</ReviewLayout>

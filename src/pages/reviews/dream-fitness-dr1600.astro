@@ -1,75 +1,46 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dream Fitness DR-1600 é boa? Análise, preço e reclamações</title>
-<meta name="description" content="Análise da Dream Fitness DR-1600: motor 1,6 HP, 2 níveis de inclinação, 110 kg e o que os compradores reclamam no Reclame Aqui. Preço e para quem vale.">
-<link rel="canonical" href="https://esteiraergometrica.com/reviews/dream-fitness-dr1600.html">
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="Dream Fitness DR-1600 é boa? Análise honesta">
-<meta property="og:description" content="A mais vendida das esteiras domésticas, com inclinação em 2 níveis e amortecimento — mas também com um padrão de reclamação que vale conhecer antes de comprar.">
-<meta property="og:url" content="https://esteiraergometrica.com/reviews/dream-fitness-dr1600.html">
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Dream Fitness DR-1600',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Dream Fitness' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '1939.00',
+		highPrice: '2199.00',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+};
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+const fichaItems = [
+	{ label: 'Motor', value: '1,6 HP' },
+	{ label: 'Velocidade máxima', value: '9 km/h' },
+	{ label: 'Lona', value: '33 × 100 cm' },
+	{ label: 'Peso máximo', value: '110 kg' },
+	{ label: 'Inclinação', value: '2 níveis manuais' },
+	{ label: 'Preço', value: 'R$ 1.939 a 2.199' },
+];
+---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Dream Fitness DR-1600",
-  "category": "Esteira ergométrica",
-  "brand": { "@type": "Brand", "name": "Dream Fitness" },
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "BRL",
-    "lowPrice": "1939.00",
-    "highPrice": "2199.00",
-    "offerCount": "2",
-    "availability": "https://schema.org/InStock"
-  }
-}
-</script>
-</head>
-<body>
-
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">esteiraergometrica.com</a>
-    <nav class="site-nav">
-      <a href="/#comparativo">Comparativo</a>
-      <a href="/#analises">Análises</a>
-      <a href="/#guias">Guias</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-<article>
-
-  <div class="lead-section">
-    <h1>Dream Fitness DR-1600 é boa?</h1>
-    <p class="standfirst">É a esteira doméstica mais vendida que encontramos com número de vendas verificável — mais de 10 mil unidades pela própria loja da Dream Fitness. Tem inclinação em dois níveis e amortecimento que a concorrência de entrada não tem. Também tem um padrão de reclamação específico que vale conhecer antes de pagar a mais por ela.</p>
-    <p class="stamp">Atualizado em setembro de 2026</p>
-  </div>
-
-  <section class="ficha">
-    <dl>
-      <div><dt>Motor</dt><dd>1,6 HP</dd></div>
-      <div><dt>Velocidade máxima</dt><dd>9 km/h</dd></div>
-      <div><dt>Lona</dt><dd>33 × 100 cm</dd></div>
-      <div><dt>Peso máximo</dt><dd>110 kg</dd></div>
-      <div><dt>Inclinação</dt><dd>2 níveis manuais</dd></div>
-      <div><dt>Preço</dt><dd>R$ 1.939 a 2.199</dd></div>
-    </dl>
-
-    <a class="buy" href="/ml-dream" rel="sponsored nofollow" target="_blank">Ver preço no Mercado Livre</a>
-    <p class="price-note">Faixa observada em setembro de 2026, em dois anúncios da própria Dream Fitness. Link de afiliado.</p>
-  </section>
+<ReviewLayout
+	title="Dream Fitness DR-1600 é boa? Análise, preço e reclamações"
+	description="Análise da Dream Fitness DR-1600: motor 1,6 HP, 2 níveis de inclinação, 110 kg e o que os compradores reclamam no Reclame Aqui. Preço e para quem vale."
+	path="/reviews/dream-fitness-dr1600.html"
+	ogTitle="Dream Fitness DR-1600 é boa? Análise honesta"
+	ogDescription="A mais vendida das esteiras domésticas, com inclinação em 2 níveis e amortecimento — mas também com um padrão de reclamação que vale conhecer antes de comprar."
+	jsonLd={jsonLd}
+	h1="Dream Fitness DR-1600 é boa?"
+	standfirst="É a esteira doméstica mais vendida que encontramos com número de vendas verificável — mais de 10 mil unidades pela própria loja da Dream Fitness. Tem inclinação em dois níveis e amortecimento que a concorrência de entrada não tem. Também tem um padrão de reclamação específico que vale conhecer antes de pagar a mais por ela."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref="/ml-dream"
+	priceNote="Faixa observada em setembro de 2026, em dois anúncios da própria Dream Fitness. Link de afiliado."
+>
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
@@ -181,20 +152,4 @@
 
   <p class="disclosure">Esta análise foi feita a partir da ficha técnica do fabricante, de anúncios públicos de varejo e de reclamações públicas registradas no Reclame Aqui, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Dream Fitness. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
-</article>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap">
-    <p>esteiraergometrica.com — análises independentes de esteiras ergométricas para uso doméstico no Brasil.</p>
-    <p>Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas. Confira sempre o valor final no site do vendedor antes de comprar.</p>
-    <nav class="foot-nav">
-      <a href="/aviso-legal.html">Aviso legal</a>
-      <a href="/termos-de-uso.html">Termos de uso</a>
-      <a href="/politica-de-cookies.html">Política de cookies</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
-</html>
+</ReviewLayout>

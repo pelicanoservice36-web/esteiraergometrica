@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Termos de uso</title>
-<meta name="description" content="Termos de uso do esteiraergometrica.com: uso permitido do conteúdo, isenção de garantias, limitação de responsabilidade e lei aplicável.">
-<link rel="canonical" href="https://esteiraergometrica.com/termos-de-uso.html">
-<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+---
 
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">esteiraergometrica.com</a>
-    <nav class="site-nav">
-      <a href="/#comparativo">Comparativo</a>
-      <a href="/#analises">Análises</a>
-      <a href="/#guias">Guias</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-<article>
-
-  <div class="lead-section">
-    <h1>Termos de uso</h1>
-    <p class="standfirst">Ao acessar e usar o esteiraergometrica.com, você concorda com os termos descritos nesta página.</p>
-    <p class="stamp">Atualizado em setembro de 2026</p>
-  </div>
+<ArticleLayout
+	title="Termos de uso"
+	description="Termos de uso do esteiraergometrica.com: uso permitido do conteúdo, isenção de garantias, limitação de responsabilidade e lei aplicável."
+	path="/termos-de-uso.html"
+	h1="Termos de uso"
+	standfirst="Ao acessar e usar o esteiraergometrica.com, você concorda com os termos descritos nesta página."
+	updated="setembro de 2026"
+>
 
   <h2>Aceitação dos termos</h2>
   <p>O uso deste site implica concordância com estes termos. Se você não concorda com algum ponto, a recomendação é não continuar usando o site.</p>
@@ -57,20 +38,4 @@
   <h2>Contato</h2>
   <p>Dúvidas sobre estes termos: [E-MAIL DE CONTATO].</p>
 
-</article>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap">
-    <p>esteiraergometrica.com — análises independentes de esteiras ergométricas para uso doméstico no Brasil.</p>
-    <p>Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas. Confira sempre o valor final no site do vendedor antes de comprar.</p>
-    <nav class="foot-nav">
-      <a href="/aviso-legal.html">Aviso legal</a>
-      <a href="/termos-de-uso.html">Termos de uso</a>
-      <a href="/politica-de-cookies.html">Política de cookies</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
-</html>
+</ArticleLayout>

@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aviso legal</title>
-<meta name="description" content="Aviso legal do esteiraergometrica.com: natureza do site, isenção de responsabilidade sobre o conteúdo, links de afiliados e tratamento de dados pessoais.">
-<link rel="canonical" href="https://esteiraergometrica.com/aviso-legal.html">
-<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+---
 
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">esteiraergometrica.com</a>
-    <nav class="site-nav">
-      <a href="/#comparativo">Comparativo</a>
-      <a href="/#analises">Análises</a>
-      <a href="/#guias">Guias</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-<article>
-
-  <div class="lead-section">
-    <h1>Aviso legal</h1>
-    <p class="standfirst">Este site é um projeto editorial independente. Não somos loja, fabricante nem distribuidor de nenhum produto que analisamos.</p>
-    <p class="stamp">Atualizado em setembro de 2026</p>
-  </div>
+<ArticleLayout
+	title="Aviso legal"
+	description="Aviso legal do esteiraergometrica.com: natureza do site, isenção de responsabilidade sobre o conteúdo, links de afiliados e tratamento de dados pessoais."
+	path="/aviso-legal.html"
+	h1="Aviso legal"
+	standfirst="Este site é um projeto editorial independente. Não somos loja, fabricante nem distribuidor de nenhum produto que analisamos."
+	updated="setembro de 2026"
+>
 
   <h2>O que este site é</h2>
   <p>O esteiraergometrica.com é um site especialista em ajudar o brasileiro a escolher uma esteira ergométrica para uso doméstico, com análises independentes modelo a modelo. Não vendemos nenhum equipamento diretamente: todo link de compra leva o visitante a uma loja terceira, geralmente o Mercado Livre.</p>
@@ -60,20 +41,4 @@
   <h2>Contato</h2>
   <p>Dúvidas sobre este aviso: [E-MAIL DE CONTATO].</p>
 
-</article>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap">
-    <p>esteiraergometrica.com — análises independentes de esteiras ergométricas para uso doméstico no Brasil.</p>
-    <p>Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas. Confira sempre o valor final no site do vendedor antes de comprar.</p>
-    <nav class="foot-nav">
-      <a href="/aviso-legal.html">Aviso legal</a>
-      <a href="/termos-de-uso.html">Termos de uso</a>
-      <a href="/politica-de-cookies.html">Política de cookies</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
-</html>
+</ArticleLayout>
