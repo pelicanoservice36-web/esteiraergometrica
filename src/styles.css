@@ -595,6 +595,10 @@ a:hover { color: var(--primary-ink); }
   margin-top: 0.15rem;
 }
 
+/* Avaliação por produto: oculta no desktop (a tabela não tem espaço/necessidade),
+   reaparece só no cartão mobile — ver bloco de melhorias mobile no fim do arquivo. */
+.comparativo-table .cell-rating { display: none; margin: 0; }
+
 .comparativo-table .cell-price {
   font-weight: 800;
   font-size: 1.0625rem;
@@ -670,6 +674,7 @@ a:hover { color: var(--primary-ink); }
     letter-spacing: 0.03em;
   }
   .comparativo-table td.cell-price::before { content: none; }
+  .comparativo-table td.cell-cta::before { content: none; }
   .comparativo-table td.cell-price { justify-content: flex-start; padding-top: 0.6rem; border-top: 1px dashed var(--border); }
   .comparativo-table td.cell-cta { justify-content: flex-start; padding-top: 0.4rem; }
 }
@@ -756,6 +761,7 @@ a:hover { color: var(--primary-ink); }
 
 .featured-pick {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   background: var(--primary);
   color: #fff;
@@ -774,9 +780,10 @@ a:hover { color: var(--primary-ink); }
   place-items: center;
   padding: 1.5rem;
   aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
 
-.featured-pick-media img { width: 55%; height: auto; }
+.featured-pick-media img { width: 55%; height: auto; max-height: 78%; object-fit: contain; }
 
 .featured-pick .eyebrow {
   background: rgba(255, 255, 255, 0.14);
@@ -864,11 +871,12 @@ a:hover { color: var(--primary-ink); }
   place-items: center;
   background: var(--surface-sunk);
   aspect-ratio: 4 / 3;
+  overflow: hidden;
   padding: 1.5rem;
   text-decoration: none;
 }
 
-.product-card__media img { width: 60%; height: auto; transition: transform 250ms ease; }
+.product-card__media img { width: 60%; height: auto; max-height: 78%; object-fit: contain; transition: transform 250ms ease; }
 .product-card:hover .product-card__media img { transform: scale(1.04); }
 
 .product-card__badge {
@@ -1159,4 +1167,111 @@ a:hover { color: var(--primary-ink); }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+}
+
+/* ================================================================
+   Melhoria cirúrgica de UX/UI — layout MOBILE (≤767px)
+   Não altera desktop, paleta, identidade visual, conteúdo ou links.
+   ================================================================ */
+
+@media (max-width: 47.9375rem) {
+
+  /* ---- Tipografia: hierarquia um pouco mais forte no mobile ---- */
+  h1 { font-size: clamp(2.375rem, 9vw, 3.25rem); line-height: 1.08; } /* ~38–52px */
+  h2 { font-size: clamp(1.875rem, 5vw, 2.25rem); } /* ~30–36px */
+  h3 { font-size: 1.375rem; } /* ~22px */
+
+  /* ---- Hero: etiqueta discreta acima do H1, texto mais compacto ---- */
+  .hero-content .eyebrow { margin-bottom: 1rem; }
+  .hero-content .standfirst { font-size: 1.125rem; line-height: 1.55; }
+
+  /* Botões do hero: altura confortável ao toque; empilham quando falta espaço */
+  .hero-actions .btn { flex: 1 1 13rem; min-height: 3.375rem; }
+
+  /* Benefícios 2x2: todos os cartões com a mesma altura */
+  .indicator-chip { min-height: 3.375rem; }
+
+  /* Garante respiro mínimo abaixo do header fixo (a etiqueta nunca fica sob o logo) */
+  .hero-video-section > .wrap { padding-top: 6rem; padding-bottom: 3rem; }
+
+  /* Transição hero → comparativo, mais intencional */
+  #comparativo { padding-top: 3.5rem; }
+
+  /* ---- Comparativo: cada produto vira um cartão vertical, não uma tabela ---- */
+  .comparativo-table tr {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .comparativo-table th[scope="row"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.65rem;
+    padding: 0 0 1rem;
+    order: 1;
+  }
+
+  .comparativo-table .cell-product {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .comparativo-table .cell-product > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .comparativo-table .cell-product img { width: 6.5rem; height: 6.5rem; }
+
+  .comparativo-table .cell-product-name { font-size: 1.0625rem; }
+
+  .comparativo-table .badge-mini { margin-top: 0.35rem; text-align: center; }
+
+  .comparativo-table .cell-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .comparativo-table .cell-rating .stars { color: #D97706; letter-spacing: 0.05em; }
+
+  .comparativo-table td.cell-price {
+    order: 2;
+    justify-content: center;
+    padding: 0.25rem 0;
+    font-size: 1.375rem;
+  }
+
+  .comparativo-table td.cell-cta {
+    order: 3;
+    justify-content: center;
+    padding: 0.25rem 0 1.1rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparativo-table td.cell-cta .mini-cta {
+    flex: 1 1 auto;
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.25rem;
+    font-size: 0.9375rem;
+    min-height: 3.125rem;
+    box-sizing: border-box;
+  }
+
+  .comparativo-table td[data-label="Motor"]      { order: 4; padding-top: 0.75rem; }
+  .comparativo-table td[data-label="Velocidade"] { order: 5; }
+  .comparativo-table td[data-label="Lona"]       { order: 6; }
+  .comparativo-table td[data-label="Peso máx."]  { order: 7; }
+  .comparativo-table td[data-label="Dobra"]      { order: 8; }
 }
