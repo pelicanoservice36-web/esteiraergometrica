@@ -1179,14 +1179,17 @@ a:hover { color: var(--primary-ink); }
   h2 { font-size: clamp(1.875rem, 5vw, 2.25rem); } /* ~30–36px */
   h3 { font-size: 1.375rem; } /* ~22px */
 
-  /* ---- Hero: etiqueta discreta acima do H1, texto mais compacto ---- */
+  /* ---- Hero: tudo centralizado como bloco, etiqueta discreta acima do H1, texto mais compacto ---- */
+  .hero-content { text-align: center; margin-inline: auto; }
   .hero-content .eyebrow { margin-bottom: 1rem; }
-  .hero-content .standfirst { font-size: 1.125rem; line-height: 1.55; }
+  .hero-content .standfirst { font-size: 1.125rem; line-height: 1.55; margin-inline: auto; }
 
-  /* Botões do hero: altura confortável ao toque; empilham quando falta espaço */
+  /* Botões do hero: centralizados como grupo, altura confortável ao toque; empilham quando falta espaço */
+  .hero-actions { justify-content: center; }
   .hero-actions .btn { flex: 1 1 13rem; min-height: 3.375rem; }
 
-  /* Benefícios 2x2: todos os cartões com a mesma altura, conteúdo centralizado no bloco */
+  /* Benefícios 2x2: grid centralizado no bloco, todos os cartões com a mesma altura e conteúdo centralizado */
+  .indicators { margin-inline: auto; }
   .indicator-chip { min-height: 3.375rem; justify-content: center; text-align: center; }
 
   /* Garante respiro mínimo abaixo do header fixo (a etiqueta nunca fica sob o logo) */
