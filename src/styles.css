@@ -1188,8 +1188,8 @@ a:hover { color: var(--primary-ink); }
   /* Botões do hero: altura confortável ao toque; empilham quando falta espaço */
   .hero-actions .btn { flex: 1 1 13rem; min-height: 3.375rem; }
 
-  /* Benefícios 2x2: todos os cartões com a mesma altura */
-  .indicator-chip { min-height: 3.375rem; }
+  /* Benefícios 2x2: todos os cartões com a mesma altura, conteúdo centralizado no bloco */
+  .indicator-chip { min-height: 3.375rem; justify-content: center; text-align: center; }
 
   /* Garante respiro mínimo abaixo do header fixo (a etiqueta nunca fica sob o logo) */
   .hero-video-section > .wrap { padding-top: 6rem; padding-bottom: 3rem; }
