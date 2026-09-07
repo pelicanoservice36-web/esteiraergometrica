@@ -1,0 +1,129 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('esteira-eletrica-dobravel-residencial-cardio');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Esteira Elétrica Dobrável Residencial Cardio',
+	category: 'Esteira ergométrica',
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '588.98',
+		highPrice: '640.20',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,5 HP' },
+	{ label: 'Velocidade máxima', value: '10 km/h' },
+	{ label: 'Lona', value: '48 × 90 cm' },
+	{ label: 'Peso máximo', value: '150 kg' },
+	{ label: 'Inclinação', value: 'Não especificada pelo anúncio' },
+	{ label: 'Preço', value: 'R$ 588 a 640' },
+];
+---
+
+<ReviewLayout
+	title="Esteira Dobrável Cardio de R$ 588 vale a pena? Análise"
+	description="Analisamos a esteira elétrica dobrável genérica de R$ 588,98 do Mercado Livre: 2,5 HP, 150 kg e lona de 48×90 cm. O que os números realmente significam sem marca por trás."
+	path="/reviews/esteira-eletrica-dobravel-residencial-cardio.html"
+	ogTitle="Essa esteira de R$ 588 sem marca vale a pena?"
+	ogDescription="150 kg de capacidade e 2,5 HP no papel, mas sem marca identificável e garantia de só 30 dias. O que isso muda na prática."
+	jsonLd={jsonLd}
+	h1="Esteira elétrica dobrável de R$ 588: vale a pena por ser tão barata?"
+	standfirst="É a opção mais barata do nosso comparativo, por larga margem — menos da metade do preço da Polimet EP-1600. Isso é possível, mas vem com trocas reais: nenhuma marca por trás, garantia de 30 dias e uma ficha técnica que só o próprio vendedor assina."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em setembro de 2026, num único vendedor: R$ 588,98 à vista no Pix ou R$ 640,20 em 10x sem juros. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p>No papel, essa esteira supera a Polimet EP-1600 em quase todos os números: motor de 2,5 HP contra 1,6 HP, 150 kg de peso suportado contra 110 kg, 10 km/h contra 9 km/h. E custa menos da metade. Se os números fossem a história inteira, seria a compra óbvia do comparativo.</p>
+    <p>Mas não são. A ficha do próprio anúncio declara a marca como "Genérica" — não existe fabricante identificável, site institucional ou rede de assistência para conferir esses números ou recorrer se algo falhar. A garantia é de 30 dias, dada pelo vendedor, não por um fabricante. Faz sentido como porta de entrada barata para testar se você vai realmente usar uma esteira; não faz sentido se você quer uma compra para durar anos com suporte de verdade por trás.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>O caso de uso mais honesto é o de quem nunca teve esteira em casa e quer descobrir, com o menor risco financeiro possível, se vai manter o hábito. A R$ 588,98, o custo de "comprar e não usar" é uma fração do que seria numa esteira de R$ 1.500.</p>
+  <p>Ela também vale a pena para quem tem pouco espaço: dobrada, ocupa menos área que a Polimet EP-1600, e pesa 18 kg — mais leve, portanto mais fácil de guardar e mover sozinho. E para quem pesa mais de 110 kg, o limite declarado de 150 kg é, no papel, o maior do nosso comparativo.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Se o que você quer é uma compra única para os próximos anos, com fabricante identificável e assistência técnica de verdade, essa não é a esteira — nem essa faixa de preço costuma ser, de forma geral. A Polimet e a Dream Fitness, mesmo custando mais, têm marca com histórico verificável no Brasil. Aqui, "Genérica" é literalmente o que consta na ficha do produto.</p>
+  <p>Repare também num detalhe que os números de velocidade escondem: a lona tem 90 cm de comprimento, <strong>mais curta</strong> que os 100 cm da EP-1600 — mas com velocidade máxima anunciada de 10 km/h, <strong>mais alta</strong> que os 9 km/h da EP-1600. Isso é o oposto do que seria ideal: menos espaço de passada disponível justamente na velocidade mais alta. Se você tem mais de 1,70 m ou pretende usar perto do topo da velocidade, isso deve pesar na decisão.</p>
+
+  <h2>Marca "Genérica": o que isso muda na prática</h2>
+  <p>Não é incomum no Mercado Livre encontrar equipamentos de ginástica vendidos sem marca registrada, geralmente produtos importados por lojistas individuais em vez de por um fabricante com operação própria no Brasil. Isso não torna o produto necessariamente ruim — o vendedor já soma mais de mil unidades vendidas e nota 4,8 — mas muda a natureza do risco.</p>
+  <p>Com a Polimet, por exemplo, existe uma empresa em Caxias do Sul, com rede de assistência, que responde publicamente por especificações divulgadas incorretamente por terceiros. Aqui, quem responde pela ficha técnica é o próprio anúncio. Não temos como cruzar a potência de 2,5 HP ou a velocidade de 10 km/h com nenhuma fonte independente, porque não existe uma.</p>
+
+  <h2>Estrutura leve: 18 kg contra 24 kg da EP-1600</h2>
+  <p>Ser mais leve tem um lado bom óbvio: uma pessoa sozinha reposiciona ou guarda o equipamento sem esforço, e ele cabe em espaços ainda mais apertados. O lado que merece cautela é que, historicamente, equipamentos mais leves nessa categoria tendem a usar estrutura e componentes mais simples — não temos como confirmar isso neste modelo específico sem testá-lo fisicamente, e não testamos.</p>
+
+  <h2>Garantia de 30 dias</h2>
+  <p>É a garantia mais curta do nosso comparativo, de longe — a própria EP-1600, com 6 meses, já é mais curta que a média do mercado de equipamentos de ginástica (12 meses). Aqui, a cobertura vem do vendedor, não de um fabricante, e dura um mês.</p>
+  <p>Na prática: teste o equipamento nos primeiros dias após a entrega, guarde a nota fiscal e a conversa com o vendedor, e não deixe para relatar um defeito depois da terceira semana de uso.</p>
+
+  <h2>Ruído e uso em apartamento</h2>
+  <p>Como em qualquer esteira desta faixa de preço, não existe medição de ruído publicada, e nós não medimos — desconfie de qualquer número em decibéis que você encontrar por aí sobre este modelo. O que ajuda de verdade, independentemente da esteira, é um tapete de borracha ou manta de EVA embaixo do equipamento para absorver o impacto do passo antes que ele chegue ao piso.</p>
+
+  <h2>Espaço e dobra</h2>
+  <p>Montada, ocupa 1,05 m de comprimento por 50 cm de largura, com 98 cm de altura — mais compacta em todas as três dimensões que a Polimet EP-1600 (1,25 m × 50 cm × 1,30 m). Dobrada e com 18 kg, é a mais fácil de guardar entre os modelos que já analisamos.</p>
+  <p>Requer montagem na chegada, segundo o próprio anúncio — reserve um tempo para isso antes do primeiro uso.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Preço muito abaixo de qualquer outro modelo do comparativo</li>
+        <li>Peso máximo de 150 kg, o maior do comparativo</li>
+        <li>Mais leve (18 kg) e compacta que a EP-1600, fácil de guardar</li>
+        <li>Lona mais larga (48 cm) que a EP-1600 (33 cm)</li>
+        <li>Frete grátis e mais de mil vendas no Mercado Livre</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Sem marca estabelecida — a própria ficha declara "Genérica"</li>
+        <li>Garantia de apenas 30 dias, dada pelo vendedor</li>
+        <li>Lona mais curta (90 cm) que a EP-1600, apesar da velocidade maior</li>
+        <li>Vendedor não é loja oficial</li>
+        <li>Potência e velocidade só constam na ficha do próprio anúncio, sem fabricante para conferir</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em setembro de 2026, esta esteira aparecia por R$ 588,98 à vista no Pix (60% de desconto sobre o preço cheio) ou R$ 640,20 em 10x sem juros, com frete grátis, num único vendedor no Mercado Livre — mais de mil unidades vendidas e nota 4,8.</p>
+  <p>Ignore o preço "de R$ 1.499" riscado no anúncio: é âncora de marketing, não um valor pelo qual o produto de fato circulou.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Essa esteira tem marca?</h3>
+  <p>Não. A ficha do próprio anúncio declara a marca como "Genérica" — não há fabricante identificável nem site institucional para consultar em caso de dúvida ou defeito.</p>
+
+  <h3>Ela aguenta mesmo 150 kg?</h3>
+  <p>É o que declara a ficha do anúncio, e é o maior limite entre os modelos que já analisamos. Como não existe fabricante para confirmar esse número de forma independente, compre com folga em relação ao seu peso.</p>
+
+  <h3>Dá para correr nela?</h3>
+  <p>Não de forma confortável. A lona tem só 90 cm de comprimento — mais curta que a da Polimet EP-1600 — mesmo com velocidade máxima anunciada de 10 km/h. É melhor pensar nela como esteira de caminhada rápida, não de corrida.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>30 dias, dados pelo vendedor no Mercado Livre — a mais curta do nosso comparativo. Teste o equipamento assim que ele chegar e guarde a nota fiscal.</p>
+
+  <h3>Ela dobra para guardar?</h3>
+  <p>Sim, e com 18 kg é a mais leve e compacta entre os modelos que já analisamos, o que facilita guardar ou mover sozinho.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> <a href="/reviews/polimet-ep1600.html">nossa análise da Polimet EP-1600</a>, a escolha com marca estabelecida nessa faixa de uso — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e da descrição publicadas no próprio anúncio do Mercado Livre, consultadas em setembro de 2026 — não existe fabricante identificável para conferir os dados de forma independente. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento do vendedor. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

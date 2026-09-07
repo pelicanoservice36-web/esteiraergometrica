@@ -6,11 +6,12 @@
 # trocar o destino no registro tem efeito imediato, sem cache permanente.
 
 # Links de afiliado.
-/go/mercadolivre/dream-fitness-dr1600   https://meli.la/2J8ihmd                 302
-/go/mercadolivre/polimet-ep1600         https://meli.la/1epCpV7                 302
-/go/mercadolivre/polimet-ep1600-senior  https://meli.la/1tSuqej                 302
+/go/mercadolivre/dream-fitness-dr1600                          https://meli.la/2J8ihmd                 302
+/go/mercadolivre/polimet-ep1600                                https://meli.la/1epCpV7                 302
+/go/mercadolivre/polimet-ep1600-senior                         https://meli.la/1tSuqej                 302
+/go/mercadolivre/esteira-eletrica-dobravel-residencial-cardio  https://meli.la/16h15N4                 302
 
 # Rotas curtas antigas — mantidas para links externos já publicados.
-/ml-dream                               /go/mercadolivre/dream-fitness-dr1600   301
-/ml-polimet                             /go/mercadolivre/polimet-ep1600         301
-/ml-polimet-senior                      /go/mercadolivre/polimet-ep1600-senior  301
+/ml-dream                                                      /go/mercadolivre/dream-fitness-dr1600   301
+/ml-polimet                                                    /go/mercadolivre/polimet-ep1600         301
+/ml-polimet-senior                                             /go/mercadolivre/polimet-ep1600-senior  301

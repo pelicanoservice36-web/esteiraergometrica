@@ -110,6 +110,19 @@ export const products = {
 		verifiedAt: '2026-09-07',
 		notes: "Ficha técnica confirma 'É dobrável: Não', validando a hipótese da review.",
 	},
+	'esteira-eletrica-dobravel-residencial-cardio': {
+		merchant: 'mercadolivre',
+		title: 'Esteira Elétrica Dobrável Residencial Cardio',
+		listingId: 'MLB5070173491',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-residencial-cardio/up/MLBU4760101286?pdp_filters=item_id%3AMLB5070173491',
+		affiliateUrl: 'https://meli.la/16h15N4',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-07',
+		notes:
+			'Sem marca (ficha declara "Genérica"), vendedor não é loja oficial, sem idProdutoCatalogo (listagem de vendedor único, não catálogo multi-seller). Comissão 28% informada pelo usuário. Specs vieram da ficha colada pelo usuário, não de scraping — página do anúncio bloqueada por anti-bot em toda tentativa.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

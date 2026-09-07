@@ -5,6 +5,7 @@ import { buyHref } from '../data/affiliates.mjs';
 const mlDream = buyHref('dream-fitness-dr1600');
 const mlPolimet = buyHref('polimet-ep1600');
 const mlPolimetSenior = buyHref('polimet-ep1600-senior');
+const mlCardio = buyHref('esteira-eletrica-dobravel-residencial-cardio');
 // Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
 // exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
@@ -142,6 +143,25 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Preço" class="num cell-price">R$ 1.579</td>
             <td class="cell-cta"><a class="mini-cta" href={mlPolimetSenior} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
+          <tr>
+            <th scope="row">
+              <div class="cell-product">
+                <img src="/assets/images/esteira-eletrica-dobravel-residencial-cardio.webp" alt="" width="44" height="44" loading="lazy">
+                <div>
+                  <span class="cell-product-name">Esteira Dobrável Cardio (genérica)</span>
+                  <span class="badge-mini">💸 Mais barata</span>
+                </div>
+              </div>
+              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (+1.000 vendas)</p>
+            </th>
+            <td data-label="Motor" class="num">2,5 HP</td>
+            <td data-label="Velocidade" class="num">10 km/h</td>
+            <td data-label="Lona" class="num">48 × 90 cm</td>
+            <td data-label="Peso máx." class="num">150 kg</td>
+            <td data-label="Dobra">Sim</td>
+            <td data-label="Preço" class="num cell-price">R$ 588</td>
+            <td class="cell-cta"><a class="mini-cta" href={mlCardio} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -152,6 +172,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
       <p><strong>Peso máximo.</strong> O limite declarado pelo fabricante. Compre com folga em relação ao seu peso: rodar no limite acelera o desgaste do motor e da lona.</p>
       <p><strong>Dobra.</strong> Se o equipamento recolhe para guardar. Determina se ele cabe num apartamento pequeno ou se vira um móvel fixo na sala.</p>
       <p class="stamp">* Na EP-1600 Sênior, a Poli Sports não confirma nem nega dobrabilidade — o "Não" reflete um anúncio de loja que descreve o modelo como não dobrável. Veja a análise completa antes de decidir.</p>
+      <p class="stamp">A esteira dobrável cardio não tem marca registrada — a própria ficha do anúncio a declara como "Genérica". Veja a análise completa antes de decidir.</p>
 
       <p class="disclosure">Este site participa de programas de afiliados. Quando você compra por um link daqui, recebemos uma comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos.</p>
     </div>
@@ -232,6 +253,23 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <a class="product-card__link" href="/reviews/polimet-ep1600-senior.html">Ver análise →</a>
           </div>
           <a class="btn btn-primary btn-block" href={mlPolimetSenior} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <a class="product-card__media" href="/reviews/esteira-eletrica-dobravel-residencial-cardio.html">
+          <span class="product-card__badge">Mais barata</span>
+          <img src="/assets/images/esteira-eletrica-dobravel-residencial-cardio.webp" alt="Esteira elétrica dobrável Cardio, sem marca" width="200" height="200" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <h3 class="product-card__title"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio.html">Esteira Dobrável Cardio (genérica)</a></h3>
+          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (+1.000 vendas)</p>
+          <p class="product-card__specs">2,5 HP • 10 km/h • 150 kg</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">R$ 588</span>
+            <a class="product-card__link" href="/reviews/esteira-eletrica-dobravel-residencial-cardio.html">Ver análise →</a>
+          </div>
+          <a class="btn btn-primary btn-block" href={mlCardio} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
     </div>

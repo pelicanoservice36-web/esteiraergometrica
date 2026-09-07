@@ -250,7 +250,12 @@ if (existsSync(dist)) {
 	const all = html.map(read).join('\n');
 
 	check('T28/T29 contagem de CTAs no dist/ bate com o esperado', () => {
-		const expected = { 'dream-fitness-dr1600': 4, 'polimet-ep1600': 5, 'polimet-ep1600-senior': 4 };
+		const expected = {
+			'dream-fitness-dr1600': 4,
+			'polimet-ep1600': 5,
+			'polimet-ep1600-senior': 4,
+			'esteira-eletrica-dobravel-residencial-cardio': 4,
+		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
 			got[m[1]] = (got[m[1]] ?? 0) + 1;
@@ -259,7 +264,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 13) diff.push(`total de CTAs: esperado 13, encontrado ${total}`);
+		if (total !== 17) diff.push(`total de CTAs: esperado 17, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
