@@ -1,5 +1,8 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('polimet-ep1600');
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -38,7 +41,7 @@ const fichaItems = [
 	standfirst="É uma esteira de caminhada honesta por menos de R$ 1.600 — e não é uma esteira de corrida, por mais que os anúncios sugiram o contrário. A diferença decide se ela serve para você."
 	updated="setembro de 2026"
 	fichaItems={fichaItems}
-	buyHref="/ml-polimet"
+	buyHref={buyUrl}
 	priceNote="Faixa observada em setembro de 2026, considerando quatro vendedores. Link de afiliado."
 >
 
@@ -160,7 +163,7 @@ const fichaItems = [
   <h3>Serve para idoso?</h3>
   <p>A versão padrão tem corrimão curto. Para quem precisa de apoio ao longo de todo o percurso, a versão Sênior é a indicada.</p>
 
-  <p style="margin-top:2.5rem"><a class="buy" href="/ml-polimet" rel="sponsored nofollow" target="_blank">Ver preço no Mercado Livre</a></p>
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
   <p><strong>Leia também:</strong> <a href="/guias/esteira-para-apartamento.html">esteira para apartamento pequeno</a> — o que muda além de dobrar ou não — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 

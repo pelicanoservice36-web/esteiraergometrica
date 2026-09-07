@@ -1,5 +1,8 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('dream-fitness-dr1600');
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -38,7 +41,7 @@ const fichaItems = [
 	standfirst="É a esteira doméstica mais vendida que encontramos com número de vendas verificável — mais de 10 mil unidades pela própria loja da Dream Fitness. Tem inclinação em dois níveis e amortecimento que a concorrência de entrada não tem. Também tem um padrão de reclamação específico que vale conhecer antes de pagar a mais por ela."
 	updated="setembro de 2026"
 	fichaItems={fichaItems}
-	buyHref="/ml-dream"
+	buyHref={buyUrl}
 	priceNote="Faixa observada em setembro de 2026, em dois anúncios da própria Dream Fitness. Link de afiliado."
 >
 
@@ -148,7 +151,7 @@ const fichaItems = [
   <h3>É verdade que dá choque?</h3>
   <p>Há relatos no Reclame Aqui de faísca e choque leve especificamente ao ajustar o parafuso de tensão da lona com o equipamento ligado. Nunca faça esse ajuste com a esteira na tomada, em qualquer marca de esteira.</p>
 
-  <p style="margin-top:2.5rem"><a class="buy" href="/ml-dream" rel="sponsored nofollow" target="_blank">Ver preço no Mercado Livre</a></p>
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
   <p><strong>Leia também:</strong> <a href="/guias/como-escolher.html">como escolher uma esteira</a> — os números que decidem a compra e o que os anúncios costumam inflar — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 

@@ -7,8 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/gen-redirects.mjs",
     "build": "astro build",
     "preview": "astro preview",
+    "redirects": "node scripts/gen-redirects.mjs",
+    "check": "node scripts/check-affiliates.mjs",
     "astro": "astro"
   },
   "dependencies": {

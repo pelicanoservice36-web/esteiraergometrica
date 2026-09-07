@@ -1,5 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { buyHref } from '../data/affiliates.mjs';
+
+const mlDream = buyHref('dream-fitness-dr1600');
+const mlPolimet = buyHref('polimet-ep1600');
+const mlPolimetSenior = buyHref('polimet-ep1600-senior');
+// Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
+// exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
+const mlTitle = 'Ir para o anúncio no Mercado Livre';
 
 const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/>';
 ---
@@ -94,7 +102,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Peso máx." class="num">110 kg</td>
             <td data-label="Dobra">Sim</td>
             <td data-label="Preço" class="num cell-price">R$ 1.449</td>
-            <td class="cell-cta"><a class="mini-cta" href="/ml-polimet" rel="sponsored nofollow" target="_blank">Ver melhor preço →</a></td>
+            <td class="cell-cta"><a class="mini-cta" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
           <tr>
             <th scope="row">
@@ -113,7 +121,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Peso máx." class="num">110 kg</td>
             <td data-label="Dobra">Sim</td>
             <td data-label="Preço" class="num cell-price">R$ 1.939</td>
-            <td class="cell-cta"><a class="mini-cta" href="/ml-dream" rel="sponsored nofollow" target="_blank">Ver melhor preço →</a></td>
+            <td class="cell-cta"><a class="mini-cta" href={mlDream} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
           <tr>
             <th scope="row">
@@ -132,7 +140,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Peso máx." class="num">110 kg</td>
             <td data-label="Dobra">Não*</td>
             <td data-label="Preço" class="num cell-price">R$ 1.579</td>
-            <td class="cell-cta"><a class="mini-cta" href="/ml-polimet-senior" rel="sponsored nofollow" target="_blank">Ver melhor preço →</a></td>
+            <td class="cell-cta"><a class="mini-cta" href={mlPolimetSenior} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
         </tbody>
       </table>
@@ -162,7 +170,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <p class="featured-pick-why">Escolhemos este modelo porque entrega o melhor equilíbrio entre preço, potência, dimensões e capacidade para uso doméstico.</p>
         <p class="featured-pick-price">R$ 1.449<span>Faixa completa: R$ 1.449 a 1.599, em setembro de 2026</span></p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/ml-polimet" rel="sponsored nofollow" target="_blank">Ver melhor preço</a>
+          <a class="btn btn-primary" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço</a>
           <a class="btn btn-secondary-inverse" href="/reviews/polimet-ep1600.html">Ver análise completa</a>
         </div>
       </div>
@@ -189,7 +197,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <span class="product-card__price">R$ 1.449</span>
             <a class="product-card__link" href="/reviews/polimet-ep1600.html">Ver análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href="/ml-polimet" rel="sponsored nofollow" target="_blank">Ver melhor preço →</a>
+          <a class="btn btn-primary btn-block" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -206,7 +214,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <span class="product-card__price">R$ 1.939</span>
             <a class="product-card__link" href="/reviews/dream-fitness-dr1600.html">Ver análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href="/ml-dream" rel="sponsored nofollow" target="_blank">Ver melhor preço →</a>
+          <a class="btn btn-primary btn-block" href={mlDream} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -223,7 +231,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <span class="product-card__price">R$ 1.579</span>
             <a class="product-card__link" href="/reviews/polimet-ep1600-senior.html">Ver análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href="/ml-polimet-senior" rel="sponsored nofollow" target="_blank">Ver melhor preço →</a>
+          <a class="btn btn-primary btn-block" href={mlPolimetSenior} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
     </div>

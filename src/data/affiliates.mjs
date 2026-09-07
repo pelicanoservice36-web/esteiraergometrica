@@ -1,0 +1,216 @@
+/**
+ * Registro central de links de afiliado.
+ *
+ * FONTE ÚNICA DE VERDADE. Nenhuma URL de loja deve aparecer em .astro, em
+ * public/_redirects ou em qualquer outro lugar — só aqui.
+ *
+ * Este arquivo é lido por dois consumidores:
+ *   1. as páginas .astro, via buyHref('<slug>')          → href dos CTAs
+ *   2. scripts/gen-redirects.mjs                          → gera public/_redirects
+ *
+ * É .mjs (e não .ts) de propósito: o gerador roda em Node puro, sem nenhuma
+ * dependência de build, e precisa importar exatamente os mesmos dados que o
+ * Astro importa. Um único arquivo, dois consumidores, zero divergência. Os
+ * tipos vêm de JSDoc, que o editor e o `astro check` entendem.
+ *
+ * Para gerar um link novo: Mercado Livre → Barra de afiliados → "Compartilhar"
+ * → modal "Gerar link / ID de produto". O link curto meli.la é o affiliateUrl.
+ * Não dá para montá-lo por concatenação: o parâmetro `ref` é um token cifrado
+ * gerado pelo servidor do Mercado Livre.
+ */
+
+/** @typedef {'redirect' | 'direct'} LinkMode */
+
+/**
+ * @typedef {object} Merchant
+ * @property {string}   label         Nome exibível do marketplace
+ * @property {string[]} allowedHosts  Hosts aceitos, comparados por IGUALDADE EXATA
+ */
+
+/**
+ * @typedef {object} AffiliateProduct
+ * @property {string}  merchant             Chave em `merchants`
+ * @property {string}  title                Nome do produto (uso interno / mensagens de erro)
+ * @property {string}  listingId            ID do anúncio no marketplace (ex.: MLB14733597)
+ * @property {string}  productUrl           URL não-afiliada, guardada para auditoria
+ * @property {string}  affiliateUrl         Link Especial gerado no painel de afiliados
+ * @property {string} [affiliateProductId]  ID de produto do programa de afiliados
+ * @property {string} [trackingTag]         Etiqueta de rastreamento (matt_word)
+ * @property {boolean} enabled              false = fora do ar, sem apagar o registro
+ * @property {string}  verifiedAt           Data da última conferência (YYYY-MM-DD)
+ * @property {string} [notes]
+ */
+
+/**
+ * Como o CTA aponta para o marketplace.
+ *
+ *   'redirect' → href = /go/<merchant>/<slug>, resolvido por public/_redirects
+ *   'direct'   → href = affiliateUrl, sem camada intermediária
+ *
+ * O modo 'direct' existe por causa da cláusula 1.8 dos Termos do Programa de
+ * Afiliados do Mercado Livre, que trata de manipulação de Links Especiais.
+ * Trocar de modo é uma linha; ver AFFILIATE_IMPLEMENTATION.md §12.1.
+ *
+ * @type {LinkMode}
+ */
+export const linkMode = 'redirect';
+
+/** @type {Record<string, Merchant>} */
+export const merchants = {
+	mercadolivre: {
+		label: 'Mercado Livre',
+		allowedHosts: [
+			'meli.la',
+			'www.mercadolivre.com.br',
+			'mercadolivre.com.br',
+			'produto.mercadolivre.com.br',
+		],
+	},
+};
+
+/** @type {Record<string, AffiliateProduct>} */
+export const products = {
+	'dream-fitness-dr1600': {
+		merchant: 'mercadolivre',
+		title: 'Dream Fitness DR-1600',
+		listingId: 'MLB14733597',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-dream-fitness-dr-1600-110v220v-dobravel-preto-127220v/p/MLB14733597',
+		affiliateUrl: 'https://meli.la/2J8ihmd',
+		affiliateProductId: 'HAPWBH-9U6G',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-07',
+		notes: 'Catálogo/PDP, loja oficial Dream Fitness. Ficha técnica bate 100% com a review.',
+	},
+	'polimet-ep1600': {
+		merchant: 'mercadolivre',
+		title: 'Polimet EP-1600',
+		listingId: 'MLB65492201',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-polimet-dobravel-residencial-5-funcoes-ep-1600-preto/p/MLB65492201',
+		affiliateUrl: 'https://meli.la/1epCpV7',
+		affiliateProductId: 'HAPWBH-48VM',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-07',
+		notes:
+			'Marca Polimet, REDE Marketplace. Mesmo equipamento sob a marca Poli Sports: MLB36882419 (sem link gerado).',
+	},
+	'polimet-ep1600-senior': {
+		merchant: 'mercadolivre',
+		title: 'Polimet EP-1600 Sênior',
+		listingId: 'MLB20620342',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-residencial-ep-1600-senior-16hp-poli-sports/p/MLB20620342',
+		affiliateUrl: 'https://meli.la/1tSuqej',
+		affiliateProductId: 'HAPWBH-U2C9',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-07',
+		notes: "Ficha técnica confirma 'É dobrável: Não', validando a hipótese da review.",
+	},
+};
+
+/** Rotas curtas antigas, mantidas para links externos já publicados. */
+export const legacyRoutes = {
+	'/ml-dream': 'dream-fitness-dr1600',
+	'/ml-polimet': 'polimet-ep1600',
+	'/ml-polimet-senior': 'polimet-ep1600-senior',
+};
+
+export const SLUG_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
+
+/**
+ * Valida um produto. Devolve a lista de problemas encontrados (vazia = ok).
+ * Usada tanto pelo gerador quanto por buyHref, para que um link inválido
+ * quebre o build em vez de ir ao ar.
+ *
+ * @param {string} slug
+ * @param {AffiliateProduct} p
+ * @returns {string[]}
+ */
+export function validateProduct(slug, p) {
+	/** @type {string[]} */
+	const errs = [];
+
+	if (!SLUG_RE.test(slug)) {
+		errs.push(`slug fora do formato permitido: ${JSON.stringify(slug)}`);
+	}
+
+	const merchant = merchants[p.merchant];
+	if (!merchant) {
+		errs.push(`merchant desconhecido: ${JSON.stringify(p.merchant)}`);
+		return errs;
+	}
+
+	if (!p.enabled) return errs;
+
+	if (!p.affiliateUrl) {
+		errs.push('produto habilitado sem affiliateUrl');
+		return errs;
+	}
+
+	let url;
+	try {
+		url = new URL(p.affiliateUrl);
+	} catch {
+		errs.push(`affiliateUrl não é uma URL válida: ${JSON.stringify(p.affiliateUrl)}`);
+		return errs;
+	}
+
+	if (url.protocol !== 'https:') {
+		errs.push(`affiliateUrl precisa usar https: (recebido ${url.protocol})`);
+	}
+
+	// Igualdade exata, sempre. endsWith() aceitaria evilmercadolivre.com.br e
+	// includes() aceitaria https://evil.com/?x=meli.la.
+	const host = url.hostname.toLowerCase();
+	if (!merchant.allowedHosts.includes(host)) {
+		errs.push(
+			`host fora da allowlist de ${p.merchant}: ${host} ` +
+				`(permitidos: ${merchant.allowedHosts.join(', ')})`,
+		);
+	}
+
+	return errs;
+}
+
+/**
+ * Href que o CTA deve usar.
+ *
+ * Lança em build time — de propósito. Um slug errado quebra `npm run build`,
+ * não a produção: é o equivalente estático de um 404.
+ *
+ * @param {string} slug
+ * @returns {string}
+ */
+export function buyHref(slug) {
+	const p = products[slug];
+	if (!p) {
+		throw new Error(
+			`[affiliates] slug desconhecido em CTA: ${JSON.stringify(slug)}. ` +
+				`Conhecidos: ${Object.keys(products).join(', ')}`,
+		);
+	}
+	if (!p.enabled) {
+		throw new Error(`[affiliates] slug desabilitado usado em CTA: ${slug}`);
+	}
+
+	const errs = validateProduct(slug, p);
+	if (errs.length) {
+		throw new Error(`[affiliates] ${slug}: ${errs.join(' | ')}`);
+	}
+
+	return linkMode === 'direct' ? p.affiliateUrl : `/go/${p.merchant}/${slug}`;
+}
+
+/**
+ * Rótulo do marketplace, para o atributo title dos CTAs.
+ * @param {string} slug
+ * @returns {string}
+ */
+export function merchantLabel(slug) {
+	const p = products[slug];
+	return p ? (merchants[p.merchant]?.label ?? p.merchant) : '';
+}

@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Rotas de saída para o marketplace. Não têm conteúdo próprio, são só redirects.
+Disallow: /go/
+Disallow: /ml-
+
 Sitemap: https://esteiraergometrica.com/sitemap.xml

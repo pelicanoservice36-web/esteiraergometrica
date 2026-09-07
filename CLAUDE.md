@@ -100,11 +100,46 @@ featured snippet do Google.
 
 ## Links de afiliado
 
-Todos passam por `public/_redirects`. No `.astro` escreva o caminho curto (`/ml-polimet`),
-nunca a URL da loja. Trocar o destino em um lugar atualiza o site inteiro.
+A fonte única é **`src/data/affiliates.mjs`**. Nenhuma URL de loja pode aparecer em `.astro`,
+em `public/_redirects` ou em qualquer outro lugar.
+
+No `.astro`, importe o helper e chame pelo slug — nunca escreva o caminho à mão:
+
+```astro
+---
+import { buyHref } from '../../data/affiliates.mjs';
+const buyUrl = buyHref('polimet-ep1600');
+---
+<a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a>
+```
+
+`buyHref()` **lança** se o slug não existir ou estiver desabilitado, e valida o host antes
+de devolver. Slug errado quebra `npm run build` em vez de publicar um link morto.
+
+**`public/_redirects` é GERADO — não edite à mão.** `scripts/gen-redirects.mjs` roda sozinho
+no `prebuild`; para regenerar avulso, `npm run redirects`. O gerador recusa host fora da
+allowlist, protocolo diferente de https e qualquer curinga. `npm run check` roda a
+verificação completa (registro, páginas, `_redirects` e, se `dist/` existir, o HTML
+publicado).
+
+Para adicionar um produto: gerar o link no Mercado Livre (Barra de afiliados →
+"Compartilhar"), acrescentar a entrada em `src/data/affiliates.mjs` e rodar `npm run build`.
+Nada mais. O link **não** pode ser montado por concatenação — o parâmetro `ref` é um token
+cifrado gerado pelo servidor do ML.
+
+`linkMode` no registro alterna entre `'redirect'` (padrão, CTA aponta para `/go/…`) e
+`'direct'` (CTA recebe o link do ML direto, sem camada intermediária). Contexto da escolha
+em `AFFILIATE_IMPLEMENTATION.md` §12.1.
 
 Todo link de compra leva `rel="sponsored nofollow"`. Não é opcional: é exigência do
-Google para link pago, e a ausência expõe o site a ação manual.
+Google para link pago, e a ausência expõe o site a ação manual. Com `target="_blank"`,
+acrescente `noopener`. Quando o texto do botão não disser "Mercado Livre" (os CTAs da home
+dizem só "Ver melhor preço"), use `title="Ir para o anúncio no Mercado Livre"` — os Termos do
+Programa exigem que fique claro para onde o link leva.
+
+⚠️ O site só recebe comissão por tráfego vindo de **Mídias cadastradas** no perfil de
+afiliado do Mercado Livre (cláusula 1.3 dos Termos). Confirme que o domínio está cadastrado
+lá antes de contar com receita.
 
 ## SEO
 

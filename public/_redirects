@@ -1,7 +1,16 @@
-# Links de afiliado centralizados.
-# Trocar a URL de destino aqui atualiza o site inteiro de uma vez.
-# 302 = redirecionamento temporário, correto para links comerciais.
+# GERADO AUTOMATICAMENTE por scripts/gen-redirects.mjs — NÃO EDITE À MÃO.
+# Fonte única: src/data/affiliates.mjs
+# Regenerar: npm run redirects  (roda sozinho no prebuild)
+#
+# 302 = redirecionamento temporário, correto para links comerciais:
+# trocar o destino no registro tem efeito imediato, sem cache permanente.
 
-/ml-polimet        https://SUBSTITUIR-PELO-SEU-LINK-DE-AFILIADO   302
-/ml-polimet-senior https://SUBSTITUIR-PELO-SEU-LINK-DE-AFILIADO   302
-/ml-dream          https://SUBSTITUIR-PELO-SEU-LINK-DE-AFILIADO   302
+# Links de afiliado.
+/go/mercadolivre/dream-fitness-dr1600   https://meli.la/2J8ihmd                 302
+/go/mercadolivre/polimet-ep1600         https://meli.la/1epCpV7                 302
+/go/mercadolivre/polimet-ep1600-senior  https://meli.la/1tSuqej                 302
+
+# Rotas curtas antigas — mantidas para links externos já publicados.
+/ml-dream                               /go/mercadolivre/dream-fitness-dr1600   301
+/ml-polimet                             /go/mercadolivre/polimet-ep1600         301
+/ml-polimet-senior                      /go/mercadolivre/polimet-ep1600-senior  301

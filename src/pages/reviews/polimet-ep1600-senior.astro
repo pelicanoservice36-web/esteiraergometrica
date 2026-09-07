@@ -1,5 +1,8 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('polimet-ep1600-senior');
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -38,7 +41,7 @@ const fichaItems = [
 	standfirst="É a EP-1600 padrão redesenhada em volta de um corrimão lateral estendido, pensada para apoio contínuo durante a caminhada. Essa mudança de estrutura tem um preço, e não é só em dinheiro: veja o que muda antes de pagar mais caro por essa versão."
 	updated="setembro de 2026"
 	fichaItems={fichaItems}
-	buyHref="/ml-polimet-senior"
+	buyHref={buyUrl}
 	priceNote="Faixa observada em setembro de 2026, entre quatro vendedores com histórico de vendas no Mercado Livre. Link de afiliado."
 >
 
@@ -153,7 +156,7 @@ const fichaItems = [
   <h3>Serve para reabilitação?</h3>
   <p>É o modelo indicado dentro da linha Polimet para quem precisa de apoio contínuo ao caminhar, incluindo reabilitação. Ainda assim, consulte um profissional de saúde antes de iniciar qualquer programa de caminhada supervisionada.</p>
 
-  <p style="margin-top:2.5rem"><a class="buy" href="/ml-polimet-senior" rel="sponsored nofollow" target="_blank">Ver preço no Mercado Livre</a></p>
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
   <p><strong>Leia também:</strong> <a href="/guias/esteira-para-apartamento.html">esteira para apartamento pequeno</a> — importante aqui, já que o indício é que este modelo não dobra — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 
