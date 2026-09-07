@@ -1,13 +1,26 @@
 ---
+import Logo from './Logo.astro';
 ---
 
 <header class="site-head">
   <div class="wrap">
-    <a class="wordmark" href="/">esteiraergometrica.com</a>
-    <nav class="site-nav">
-      <a href="/#comparativo">Comparativo</a>
+    <Logo />
+
+    <nav class="site-nav" aria-label="Navegação principal">
+      <a href="/#comparativo" class="is-featured">Comparativo</a>
       <a href="/#analises">Análises</a>
       <a href="/#guias">Guias</a>
     </nav>
+
+    <details class="mobile-nav">
+      <summary aria-label="Abrir menu">
+        <span class="hamburger"><span></span><span></span><span></span></span>
+      </summary>
+      <nav class="mobile-nav-panel" aria-label="Navegação principal">
+        <a href="/#comparativo">Comparativo</a>
+        <a href="/#analises">Análises</a>
+        <a href="/#guias">Guias</a>
+      </nav>
+    </details>
   </div>
 </header>

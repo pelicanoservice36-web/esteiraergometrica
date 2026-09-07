@@ -34,6 +34,7 @@ const canonicalURL = new URL(path, Astro.site);
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonicalURL}>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content={ogType}>
 <meta property="og:title" content={ogTitle}>
@@ -42,7 +43,7 @@ const canonicalURL = new URL(path, Astro.site);
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 </head>

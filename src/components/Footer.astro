@@ -1,14 +1,40 @@
 ---
+import Logo from './Logo.astro';
 ---
 
 <footer class="site-foot">
   <div class="wrap">
-    <p>esteiraergometrica.com — análises independentes de esteiras ergométricas para uso doméstico no Brasil.</p>
-    <p>Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas. Confira sempre o valor final no site do vendedor antes de comprar.</p>
-    <nav class="foot-nav">
-      <a href="/aviso-legal.html">Aviso legal</a>
-      <a href="/termos-de-uso.html">Termos de uso</a>
-      <a href="/politica-de-cookies.html">Política de cookies</a>
-    </nav>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <Logo />
+        <p>Análises independentes de esteiras ergométricas para uso doméstico no Brasil — motor, lona, peso suportado e preço, sempre com a fonte de cada dado.</p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="/#comparativo">Comparativo</a></li>
+          <li><a href="/#analises">Análises</a></li>
+          <li><a href="/#guias">Guias</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Sobre o site</h4>
+        <ul>
+          <li><a href="/#como-avaliamos">Como avaliamos</a></li>
+          <li><a href="/aviso-legal.html">Sobre / Aviso legal</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p>Este site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos. Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas.</p>
+      <nav class="foot-nav" aria-label="Links legais">
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/termos-de-uso.html">Termos de uso</a>
+        <a href="/politica-de-cookies.html">Política de cookies</a>
+      </nav>
+    </div>
   </div>
 </footer>
