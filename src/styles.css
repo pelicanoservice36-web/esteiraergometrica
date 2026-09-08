@@ -480,6 +480,8 @@ a:hover { color: var(--primary-ink); }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
   max-width: 30rem;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 30rem) {
@@ -980,6 +982,7 @@ a:hover { color: var(--primary-ink); }
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
   margin: 1.75rem 0 0;
+  padding: 0;
 }
 
 .trust-row li {
