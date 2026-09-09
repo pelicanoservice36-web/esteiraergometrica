@@ -35,10 +35,18 @@ const canonicalURL = new URL(path, Astro.site);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X"></script>
-<script>
+<script is:inline>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
+	window.gtag = gtag;
+	var storedConsent = 'denied';
+	try {
+		if (localStorage.getItem('cookie-consent') === 'accepted') storedConsent = 'granted';
+	} catch (e) {}
+	gtag('consent', 'default', { analytics_storage: storedConsent });
+</script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X"></script>
+<script is:inline>
 	gtag('js', new Date());
 	gtag('config', 'G-F3SC734W1X');
 </script>
@@ -68,6 +76,39 @@ const canonicalURL = new URL(path, Astro.site);
 </main>
 
 <Footer />
+
+<div id="cookie-banner" class="cookie-banner" hidden>
+	<div class="wrap cookie-banner__inner">
+		<p class="cookie-banner__text">Usamos cookies para medir audiência (Google Analytics). Isso não afeta a navegação — você pode aceitar ou recusar. <a href="/politica-de-cookies.html">Saiba mais</a>.</p>
+		<div class="cookie-banner__actions">
+			<button type="button" id="cookie-reject" class="btn btn-secondary">Recusar</button>
+			<button type="button" id="cookie-accept" class="btn btn-primary">Aceitar</button>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+(function () {
+	var KEY = 'cookie-consent';
+	var banner = document.getElementById('cookie-banner');
+	var saved = null;
+	try { saved = localStorage.getItem(KEY); } catch (e) {}
+
+	if (!saved) banner.hidden = false;
+
+	document.getElementById('cookie-accept').addEventListener('click', function () {
+		try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
+		gtag('consent', 'update', { analytics_storage: 'granted' });
+		banner.hidden = true;
+	});
+
+	document.getElementById('cookie-reject').addEventListener('click', function () {
+		try { localStorage.setItem(KEY, 'rejected'); } catch (e) {}
+		gtag('consent', 'update', { analytics_storage: 'denied' });
+		banner.hidden = true;
+	});
+})();
+</script>
 
 </body>
 </html>

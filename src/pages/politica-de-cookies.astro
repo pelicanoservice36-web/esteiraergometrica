@@ -18,6 +18,10 @@ import ArticleLayout from '../layouts/ArticleLayout.astro';
   <p>O esteiraergometrica.com é um site estático, sem login e sem carrinho de compra. Usamos o <strong>Google Analytics</strong> para medir quantas pessoas visitam o site e quais páginas são mais acessadas — essa ferramenta define cookies (da família <code>_ga</code>, como <code>_ga</code> e <code>_ga_G-F3SC734W1X</code>) no seu navegador, com validade de até 2 anos.</p>
   <p>Esses cookies não identificam você pelo nome; servem para o Google Analytics diferenciar visitantes e sessões e gerar estatísticas agregadas de uso do site. O Google processa esses dados como operador independente, sujeito à própria <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidade do Google</a>.</p>
 
+  <h2>Sua escolha sobre cookies</h2>
+  <p>Na sua primeira visita, mostramos um aviso perguntando se você aceita ou recusa o cookie do Google Analytics. Se você recusar, o Google Analytics não define cookie no seu navegador. Você pode mudar de ideia a qualquer momento clicando no botão abaixo, que mostra o aviso de novo.</p>
+  <p><button type="button" id="reset-cookie-consent" class="btn btn-secondary">Alterar minha escolha de cookies</button></p>
+
   <h2>Cookies de terceiros</h2>
   <p>Ao clicar em um link de compra e ser levado a uma loja parceira (como o Mercado Livre), você passa a estar no site dessa loja, que tem sua própria política de cookies, independente da nossa. Não temos controle sobre os cookies definidos por sites de terceiros para os quais este site linka.</p>
   <p>O provedor de hospedagem deste site (Cloudflare) também pode processar dados técnicos de conexão por motivos de segurança e desempenho da rede, de forma independente de cookies de rastreamento.</p>
@@ -33,3 +37,11 @@ import ArticleLayout from '../layouts/ArticleLayout.astro';
   <p>Dúvidas sobre esta política: [E-MAIL DE CONTATO].</p>
 
 </ArticleLayout>
+
+<script is:inline>
+document.getElementById('reset-cookie-consent')?.addEventListener('click', function () {
+	try { localStorage.removeItem('cookie-consent'); } catch (e) {}
+	var banner = document.getElementById('cookie-banner');
+	if (banner) banner.hidden = false;
+});
+</script>
