@@ -1,0 +1,104 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira ergométrica para quem pesa mais de 100 kg',
+	author: { '@type': 'Organization', name: 'esteiraergometrica.com' },
+	datePublished: '2026-09-09',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-acima-de-100kg',
+};
+---
+
+<ArticleLayout
+	title="Esteira ergométrica para quem pesa mais de 100 kg"
+	description="Três dos cinco modelos do nosso catálogo têm limite de 110 kg — sem folga real para quem já pesa perto disso. Veja as duas opções que sobram, e por que o motor importa tanto quanto o número do peso máximo."
+	path="/guias/esteira-acima-de-100kg"
+	ogTitle="Esteira para quem pesa mais de 100 kg"
+	ogDescription="110 kg de limite não dá folga para quem já pesa perto disso. Restam duas opções reais no catálogo — e elas não são equivalentes."
+	jsonLd={jsonLd}
+	h1="Esteira ergométrica para quem pesa mais de 100 kg"
+	standfirst="Comprar no limite do peso máximo declarado acelera o desgaste do motor e da lona — é regra básica, não exagero. Para quem já pesa perto de 100 kg, isso elimina três dos cinco modelos do nosso catálogo antes mesmo de olhar preço."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Três modelos do catálogo — <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, <a href="/reviews/polimet-ep1600-senior">Sênior</a> e <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a> — têm limite de 110 kg, o que não dá folga de verdade para quem já pesa perto disso. Restam duas opções: a <a href="/reviews/athletic-racer">Athletic Racer</a>, com 130 kg confirmados na ficha do fabricante e no manual oficial, ou a <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">esteira Cardio</a>, que declara 150 kg — mas só na ficha do próprio anúncio, sem fabricante identificável para confirmar. Se o orçamento permitir, a Racer é a escolha com menos risco.</p>
+  </div>
+
+  <h2>Por que comprar no limite é uma escolha ruim</h2>
+  <p>O peso máximo declarado por um fabricante não é uma trava de segurança que impede o uso acima dele — é o ponto em que o fabricante testou e garante o funcionamento normal do motor e da estrutura. Rodar perto desse limite, todo dia, acelera o desgaste do motor e da lona muito mais do que rodar com folga. Por isso o critério certo não é "meu peso está abaixo do limite", é "meu peso está com folga confortável abaixo do limite".</p>
+  <p>Isso muda a conta para quem pesa 90, 100 ou 105 kg: um limite de 110 kg tecnicamente comporta, mas sem a margem que faria o equipamento durar o que deveria.</p>
+
+  <h2>As duas opções que sobram — e por que não são equivalentes</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Peso máximo e confiabilidade da fonte, nos cinco modelos do catálogo</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Peso máximo</th>
+        <th scope="col">Fonte do dado</th>
+        <th scope="col">Motor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600">Polimet EP-1600</a></th>
+        <td class="num">110 kg</td>
+        <td>Fabricante (Polimet)</td>
+        <td class="num">1,6 HP</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600-senior">Polimet EP-1600 Sênior</a></th>
+        <td class="num">110 kg</td>
+        <td>Fabricante (Poli Sports)</td>
+        <td class="num">1,6 HP</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></th>
+        <td class="num">110 kg</td>
+        <td>Fabricante (Dream Fitness)</td>
+        <td class="num">1,6 HP</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio (genérica)</a></th>
+        <td class="num">150 kg</td>
+        <td>Só a ficha do anúncio — sem fabricante</td>
+        <td class="num">2,5 HP*</td>
+      </tr>
+      <tr data-best="true">
+        <th scope="row"><a href="/reviews/athletic-racer">Athletic Racer</a></th>
+        <td class="num">130 kg</td>
+        <td>Fabricante + manual oficial em PDF</td>
+        <td class="num">5.0 HPM</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">* Motor da Esteira Cardio confirmado só pela ficha do próprio anúncio — não existe fabricante identificável para conferir de forma independente.</p>
+
+  <p>No papel, a Cardio parece a escolha óbvia: maior peso máximo (150 kg) pelo menor preço do catálogo (R$ 640). Mas o próprio anúncio declara a marca como "Genérica" — não há fabricante para responder por esse número se ele estiver errado, e é exatamente esse tipo de risco que pesa mais quando o uso é mais pesado, não menos. Na nossa <a href="/metodologia">metodologia</a>, esse é o motivo da Cardio ter a nota de confiabilidade mais baixa do comparativo (3,0 em 10).</p>
+  <p>A Athletic Racer custa mais de seis vezes o preço da Cardio, mas o limite de 130 kg vem confirmado na ficha técnica do fabricante <strong>e</strong> no manual de instruções oficial em PDF — a fonte mais confiável que já usamos numa análise deste site. O motor também é proporcional ao uso mais pesado: 5.0 HPM contra os 2,5 HP não confirmados da Cardio.</p>
+
+  <h2>Motor importa tanto quanto o número do peso máximo</h2>
+  <p>Peso maior do usuário significa mais esforço para o motor em cada passo, não só mais carga estática sobre a estrutura. Um motor subdimensionado para o peso real de uso aquece mais e perde força mais cedo — o mesmo problema que já explicamos no <a href="/guias/esteira-para-corrida-ou-caminhada">guia de esteira para corrida</a>, só que aqui o gatilho é o peso do usuário, não a velocidade. É outro motivo para preferir a Athletic Racer, com motor mais forte e confirmado, sobre confiar no número declarado (e não verificável) da Cardio.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Uma esteira de 110 kg de limite aguenta uma pessoa de 105 kg?</h3>
+  <p>Tecnicamente sim, mas sem folga — rodar perto do limite acelera o desgaste do motor e da lona. Prefira um modelo com margem confortável acima do seu peso, não só acima da linha.</p>
+
+  <h3>Qual esteira do catálogo tem o maior peso máximo confirmado por um fabricante?</h3>
+  <p>A Athletic Racer, com 130 kg confirmados na ficha técnica do fabricante e no manual oficial em PDF. A Esteira Cardio declara 150 kg, mas só na ficha do próprio anúncio, sem fabricante para confirmar.</p>
+
+  <h3>Vale a pena a esteira Cardio para quem pesa mais de 100 kg?</h3>
+  <p>É a opção mais barata com peso máximo alto no papel, mas sem fabricante identificável para responder por esse número — o risco é maior justamente no uso mais pesado, onde o motor e a estrutura são mais exigidos.</p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/athletic-racer">análise completa da Athletic Racer</a>, o <a href="/guias/como-escolher">guia de como escolher uma esteira</a> ou o <a href="/#comparativo">comparativo completo</a> com todos os modelos.</p>
+
+  <p class="disclosure">Este guia foi escrito a partir das análises que já publicamos, com dados verificados na ficha do fabricante (e, no caso da Athletic Racer, no manual oficial) ou sinalizados como não verificáveis quando essa fonte não existe. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>
