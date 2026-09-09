@@ -28,7 +28,7 @@ repositório em si.
 │   ├── _headers                    Cache e segurança
 │   ├── robots.txt
 │   └── sitemap.xml                 Mantido manualmente — ver CLAUDE.md
-├── astro.config.mjs                build.format: 'file' preserva URLs .html
+├── astro.config.mjs                build.format: 'file' — ver nota no CLAUDE.md sobre por que as URLs públicas não usam .html mesmo assim
 └── package.json
 ```
 

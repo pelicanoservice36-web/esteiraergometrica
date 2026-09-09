@@ -62,9 +62,17 @@ public/
   _redirects                 Links de afiliado centralizados
   _headers                   Cache e cabeçalhos de segurança
   robots.txt · sitemap.xml   Copiados como estão para dist/ — sitemap é mantido à mão
-astro.config.mjs             build.format: 'file' preserva as URLs .html existentes
+astro.config.mjs             build.format: 'file' gera arquivos .html no dist/ — necessário porque o Cloudflare resolve /rota como /rota.html sem redirect extra; URL pública e canonical NÃO usam .html, ver nota abaixo
 ```
 
+**Sobre `.html` (importante, causa confusão fácil — corrigido em 2026-09-09):** o Cloudflare
+serve `dist/reviews/foo.html` tanto em `/reviews/foo.html` (200) quanto em `/reviews/foo`
+(200), mas **redireciona (307) `/reviews/foo.html` → `/reviews/foo`** — é o `html_handling`
+padrão do Cloudflare Workers Static Assets, não uma configuração deste repositório. Por isso
+toda URL pública, canonical, `path` de layout, entrada de `sitemap.xml` e link interno deste
+site usa a forma **sem** `.html`, mesmo o build continuando a gerar arquivos `.html` em
+`dist/`. Nunca escreva `path="/reviews/algo.html"` nem `href="/algo.html"` — isso cria um
+redirect 307 desnecessário e um canonical que aponta para uma URL que não é a final.
 As três páginas legais (`aviso-legal.astro`, `termos-de-uso.astro`, `politica-de-cookies.astro`)
 são linkadas no rodapé (`.foot-nav`, dentro de `Footer.astro`) de toda página do site
 automaticamente — não precisa repetir isso por página. Se o site ganhar cadastro, formulário
