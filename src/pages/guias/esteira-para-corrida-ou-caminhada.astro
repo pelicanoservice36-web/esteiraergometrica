@@ -1,0 +1,119 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira para corrida ou só para caminhada? Como decidir',
+	author: { '@type': 'Organization', name: 'esteiraergometrica.com' },
+	datePublished: '2026-09-09',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-para-corrida-ou-caminhada',
+};
+---
+
+<ArticleLayout
+	title="Esteira para corrida ou só para caminhada? Como decidir"
+	description="Motor e lona decidem se uma esteira aguenta corrida de verdade ou só caminhada. Veja por que 4 dos 5 modelos do nosso catálogo servem para um uso e só um serve para o outro — e o que acontece se você forçar o errado."
+	path="/guias/esteira-para-corrida-ou-caminhada"
+	ogTitle="Esteira para corrida ou só caminhada?"
+	ogDescription="1,6 HP aguenta caminhada e trote leve. Corrida sustentada precisa de outra faixa de motor e de lona — e só um modelo do nosso catálogo tem os dois."
+	jsonLd={jsonLd}
+	h1="Esteira para corrida ou só para caminhada? Como decidir"
+	standfirst="A resposta muda o preço em até três vezes, então vale a pena acertar antes de comprar. Motor e lona são os dois números que decidem — não a marca, não o design do monitor."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Se o seu uso é caminhada e trote leve — o caso da maioria de quem compra esteira doméstica —, qualquer uma das quatro esteiras de entrada do catálogo serve, e custam menos da metade da alternativa para corrida. Se você pretende correr de verdade, em ritmos sustentados acima de 9–10 km/h ou treino intervalado, só a <a href="/reviews/athletic-racer">Athletic Racer</a> tem motor e lona dimensionados para isso — o resto do catálogo vai forçar o motor e faltar lona na passada.</p>
+  </div>
+
+  <h2>O motor mostra o limite antes de qualquer coisa</h2>
+  <p>1,6 HP contínuo — o motor da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, da <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a> e da <a href="/reviews/polimet-ep1600-senior">Polimet EP-1600 Sênior</a> — é o padrão de entrada do mercado brasileiro. Ele aguenta caminhada e trote leve sem esforço, mas corrida sustentada exige do motor mais do que essa faixa foi projetada para entregar de forma contínua: o motor esquenta mais, perde força para manter velocidade estável, e o desgaste acelera. A <a href="/reviews/athletic-racer">Athletic Racer</a> é a exceção do catálogo, com motor de <strong>5.0 HPM</strong> — mais que o triplo —, capaz de manter ritmo de corrida sem essa perda de força.</p>
+  <p>A <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">esteira Cardio</a> sem marca declara 2,5 HP, mais que o padrão de entrada, mas com uma ressalva: esse número vem só da ficha do próprio anúncio, sem fabricante identificável para confirmar de forma independente — trate como referência, não como garantia.</p>
+
+  <h2>A lona: onde a corrida trava mesmo com motor de sobra</h2>
+  <p>Mesmo que o motor aguentasse, a lona de <strong>33 × 100 cm</strong> — comum às três esteiras de entrada — é curta demais para a passada de corrida, que é naturalmente mais longa que a de caminhada. A Cardio tem lona mais larga (48 × 90 cm), mas ainda mais curta em comprimento. A Athletic Racer é a única com lona pensada para isso: <strong>40 × 126,5 cm</strong>, cerca de 26 cm a mais de comprimento que a faixa de entrada — o espaço que evita pisar fora da lona no meio da passada.</p>
+
+  <h2>Comparando os cinco modelos por esse critério</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Motor, lona e para que uso cada modelo é dimensionado</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Motor</th>
+        <th scope="col">Lona</th>
+        <th scope="col">Indicado para</th>
+        <th scope="col">Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio (genérica)</a></th>
+        <td class="num">2,5 HP*</td>
+        <td class="num">48 × 90 cm</td>
+        <td>Caminhada</td>
+        <td class="num">R$ 640</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600">Polimet EP-1600</a></th>
+        <td class="num">1,6 HP</td>
+        <td class="num">33 × 100 cm</td>
+        <td>Caminhada e trote leve</td>
+        <td class="num">R$ 1.449 – 1.599</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600-senior">Polimet EP-1600 Sênior</a></th>
+        <td class="num">1,6 HP</td>
+        <td class="num">33 × 100 cm</td>
+        <td>Caminhada, com apoio lateral</td>
+        <td class="num">R$ 1.579</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></th>
+        <td class="num">1,6 HP</td>
+        <td class="num">33 × 100 cm</td>
+        <td>Caminhada e trote leve</td>
+        <td class="num">R$ 1.939 – 2.199</td>
+      </tr>
+      <tr data-best="true">
+        <th scope="row"><a href="/reviews/athletic-racer">Athletic Racer</a></th>
+        <td class="num">5.0 HPM</td>
+        <td class="num">40 × 126,5 cm</td>
+        <td>Corrida sustentada, até 16 km/h</td>
+        <td class="num">R$ 4.300</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">* Motor da Esteira Cardio confirmado só pela ficha do próprio anúncio — não existe fabricante identificável para conferir de forma independente.</p>
+
+  <h2>Sinais de que você vai precisar de mais do que uma esteira de caminhada</h2>
+  <ul>
+    <li>Você já corre na rua ou na academia e quer manter o mesmo ritmo em casa, não só se movimentar.</li>
+    <li>Seu treino inclui tiros ou intervalado, com mudanças de velocidade acima de 10 km/h.</li>
+    <li>Você pesa mais de 110 kg — só a Athletic Racer, com limite de 130 kg, aguenta esse peso no catálogo.</li>
+    <li>Mais de uma pessoa vai usar o equipamento e pelo menos uma delas corre de verdade.</li>
+  </ul>
+  <p>Se nenhum desses pontos se aplica, pagar quase três vezes mais numa esteira de corrida é potência que vai ficar sem uso — a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> ou a <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a> cobrem caminhada e trote leve com folga por bem menos.</p>
+
+  <h2>O que você ganha, na prática, pagando R$ 4.300</h2>
+  <p>Conferimos hoje, 9 de setembro de 2026, direto no anúncio da loja oficial da Athletic: preço de R$ 4.300 (o mesmo documentado na nossa análise), mais de 500 unidades vendidas e nota 4,7 com 209 avaliações — volume saudável para um equipamento nessa faixa de preço, mais alta que a das esteiras de entrada. Além do motor e da lona, a Racer também tem o maior limite de peso do catálogo (130 kg) e garantia de 12 meses, o dobro dos 6 meses da EP-1600 e da DR-1600. É a diferença entre comprar uma esteira de caminhada e comprar um equipamento pensado para corrida de verdade — não um upgrade cosmético do mesmo produto.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Uma esteira de 1,6 HP aguenta corrida?</h3>
+  <p>Aguenta corrida ocasional e trote leve, mas não corrida sustentada — o motor perde força para manter velocidade estável e o desgaste acelera com o uso contínuo nesse ritmo. Para corrida de verdade, procure motores a partir de 5.0 HPM, como o da Athletic Racer.</p>
+
+  <h3>Existe opção de esteira para corrida mais barata que a Athletic Racer no catálogo?</h3>
+  <p>Não hoje. As outras quatro esteiras que analisamos são todas dimensionadas para caminhada — nenhuma tem motor e lona no padrão necessário para corrida sustentada, independente do preço.</p>
+
+  <h3>Vale a pena pagar R$ 4.300 numa esteira se eu só vou caminhar?</h3>
+  <p>Não. Se o uso é caminhada, qualquer uma das quatro esteiras de entrada do catálogo entrega o que você precisa por menos da metade do preço — a diferença de potência da Athletic Racer fica sem uso.</p>
+
+  <p><strong>Leia também:</strong> <a href="/guias/como-escolher">como escolher uma esteira</a>, <a href="/guias/polimet-ep1600-ou-dream-fitness-dr1600">Polimet EP-1600 ou Dream Fitness DR-1600</a> se já decidiu que é só caminhada, ou o <a href="/#comparativo">comparativo completo</a> com todos os modelos.</p>
+
+  <p class="disclosure">Este guia foi escrito a partir das análises que já publicamos, com preço e histórico de venda da Athletic Racer conferidos diretamente no anúncio da loja oficial em 9 de setembro de 2026. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>
