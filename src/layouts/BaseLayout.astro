@@ -78,12 +78,11 @@ const canonicalURL = new URL(path, Astro.site);
 <Footer />
 
 <div id="cookie-banner" class="cookie-banner" hidden>
-	<div class="wrap cookie-banner__inner">
-		<p class="cookie-banner__text">Usamos cookies para medir audiência. Isso não afeta a navegação — você pode aceitar ou recusar. <a href="/politica-de-cookies.html">Saiba mais</a>.</p>
-		<div class="cookie-banner__actions">
-			<button type="button" id="cookie-reject" class="btn btn-secondary">Recusar</button>
-			<button type="button" id="cookie-accept" class="btn btn-primary">Aceitar</button>
-		</div>
+	<h2 class="cookie-banner__title">Cookies</h2>
+	<p class="cookie-banner__text">Usamos cookies para entender como você usa o site e melhorar sua experiência. Isso não afeta a navegação. Ao clicar em "Aceitar", você concorda com esse uso, conforme descrito na nossa <a href="/politica-de-cookies.html">Política de Cookies</a>.</p>
+	<div class="cookie-banner__actions">
+		<button type="button" id="cookie-accept" class="btn btn-primary">Aceitar</button>
+		<button type="button" id="cookie-reject" class="btn btn-secondary">Recusar</button>
 	</div>
 </div>
 
