@@ -6,6 +6,7 @@ const mlDream = buyHref('dream-fitness-dr1600');
 const mlPolimet = buyHref('polimet-ep1600');
 const mlPolimetSenior = buyHref('polimet-ep1600-senior');
 const mlCardio = buyHref('esteira-eletrica-dobravel-residencial-cardio');
+const mlRacer = buyHref('athletic-racer');
 // Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
 // exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
@@ -72,7 +73,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
 
       <div class="table-scroll">
       <table class="specs comparativo-table">
-        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 1.200 a R$ 2.500</caption>
+        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 640 a R$ 4.300</caption>
         <thead>
           <tr>
             <th scope="col">Produto</th>
@@ -161,6 +162,25 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Dobra">Sim</td>
             <td data-label="Preço" class="num cell-price">R$ 640</td>
             <td class="cell-cta"><a class="mini-cta" href={mlCardio} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <div class="cell-product">
+                <img src="/assets/images/athletic-racer.webp" alt="" width="44" height="44" loading="lazy">
+                <div>
+                  <span class="cell-product-name">Athletic Racer 16km/h</span>
+                  <span class="badge-mini">🏃 Para quem corre de verdade</span>
+                </div>
+              </div>
+              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> Loja oficial, 500+ vendas</p>
+            </th>
+            <td data-label="Motor" class="num">5.0 HPM</td>
+            <td data-label="Velocidade" class="num">16 km/h</td>
+            <td data-label="Lona" class="num">40 × 126,5 cm</td>
+            <td data-label="Peso máx." class="num">130 kg</td>
+            <td data-label="Dobra">Sim</td>
+            <td data-label="Preço" class="num cell-price">R$ 4.300</td>
+            <td class="cell-cta"><a class="mini-cta" href={mlRacer} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
         </tbody>
       </table>
@@ -270,6 +290,23 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <a class="product-card__link" href="/reviews/esteira-eletrica-dobravel-residencial-cardio.html">Ver análise →</a>
           </div>
           <a class="btn btn-primary btn-block" href={mlCardio} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <a class="product-card__media" href="/reviews/athletic-racer.html">
+          <span class="product-card__badge">Para quem corre de verdade</span>
+          <img src="/assets/images/athletic-racer.webp" alt="Esteira Athletic Racer 16km/h" width="200" height="200" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <h3 class="product-card__title"><a href="/reviews/athletic-racer.html">Athletic Racer 16km/h</a></h3>
+          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> Loja oficial, 500+ vendas</p>
+          <p class="product-card__specs">5.0 HPM • 16 km/h • 130 kg</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">R$ 4.300</span>
+            <a class="product-card__link" href="/reviews/athletic-racer.html">Ver análise →</a>
+          </div>
+          <a class="btn btn-primary btn-block" href={mlRacer} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
     </div>

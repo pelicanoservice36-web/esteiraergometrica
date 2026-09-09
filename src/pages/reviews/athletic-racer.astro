@@ -1,0 +1,163 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('athletic-racer');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Athletic Racer 16km/h',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Athletic' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '4300.00',
+		highPrice: '4300.00',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '5.0 HPM' },
+	{ label: 'Velocidade máxima', value: '16 km/h' },
+	{ label: 'Lona', value: '40 × 126,5 cm' },
+	{ label: 'Peso máximo', value: '130 kg' },
+	{ label: 'Inclinação', value: '2 níveis manuais' },
+	{ label: 'Preço', value: 'R$ 4.300' },
+];
+---
+
+<ReviewLayout
+	title="Athletic Racer 16km/h é boa? Análise, ficha técnica e para quem vale"
+	description="Análise da esteira Athletic Racer: motor 5.0 HPM, 16 km/h, lona de 126,5 cm e até 130 kg. A esteira do catálogo pensada para quem corre de verdade, não só caminha."
+	path="/reviews/athletic-racer.html"
+	ogTitle="Athletic Racer 16km/h é boa? Análise honesta"
+	ogDescription="5.0 HPM, 16 km/h e lona de 126,5 cm — motor e lona de verdade para corrida, não só caminhada. Veja para quem vale o preço mais alto."
+	jsonLd={jsonLd}
+	h1="Athletic Racer 16 km/h é boa?"
+	standfirst="É a única esteira do nosso catálogo com motor e lona dimensionados para corrida de verdade, não só caminhada rápida — e o preço reflete isso. Se você só vai caminhar, está pagando por uma capacidade que não vai usar."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em setembro de 2026, idêntico na loja oficial da Athletic no Mercado Livre e no site oficial do fabricante. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p>Todas as outras esteiras que analisamos até agora — EP-1600, EP-1600 Sênior, DR-1600, a Cardio sem marca — têm o mesmo teto prático: motor em torno de 1,6 HP, velocidade máxima de 9 a 10 km/h e lona de cerca de 100 × 33 cm. Servem bem para caminhada, mas nenhuma aguenta corrida com conforto. A Athletic Racer é a exceção: motor de <strong>5.0 HPM</strong>, até <strong>16 km/h</strong> e lona de <strong>40 × 126,5 cm</strong>, dimensões de esteira feita para quem realmente vai correr em casa.</p>
+    <p>A contrapartida é o preço: R$ 4.300 é quase três vezes o valor da EP-1600. Também é um equipamento maior e bem mais pesado — 42,4 kg líquidos contra os 24 kg da EP-1600 — e a inclinação continua manual em dois níveis, sem motor elétrico, apesar do fabricante chamar o modelo de "residencial premium". Se o seu treino é caminhada em apartamento pequeno, essa diferença toda de potência não compensa o espaço e o preço a mais.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem pretende <strong>correr</strong> em casa — não só caminhar rápido — em ritmos de até 16 km/h, com estabilidade em treino intervalado. O motor de 5.0 HPM (mais que o triplo da faixa de entrada do catálogo) e a lona de 126,5 cm de comprimento dão espaço real para a passada de corrida, algo que nenhuma outra esteira que já analisamos oferece.</p>
+  <p>Também faz sentido para quem pesa até 130 kg — o maior limite do catálogo — ou para quem valoriza garantia mais longa: são 12 meses contra os 6 meses da EP-1600 e da DR-1600.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Se o seu treino é caminhada, a Athletic Racer é potência que você não vai usar. A EP-1600 ou a DR-1600 custam menos da metade e cobrem caminhada e trote leve sem problema.</p>
+  <p>Ela também é fisicamente maior: 73 × 177 × 131 cm montada, contra 125 × 50 × 130 cm da EP-1600, e quase o dobro do peso. Para apartamento pequeno com pouco espaço de manobra, isso pesa na decisão mesmo com o sistema dobrável. E quem espera inclinação eletrônica, ajustada pelo monitor, não vai encontrar aqui — os 2 níveis são ajustados manualmente na estrutura, igual à faixa de entrada.</p>
+
+  <h2>Motor e velocidade: a diferença real para corrida</h2>
+  <p>O motor de <strong>5.0 HPM</strong>, em corrente contínua, é a peça central do que diferencia essa esteira do resto do catálogo. Na prática, motor maior significa manter velocidade estável em vez de perder força quando o esforço aumenta — é o que separa uma esteira "de caminhada que também anda rápido" de uma esteira pensada para corrida. A velocidade vai de 1 a 16 km/h, faixa que cobre desde caminhada lenta até corrida de ritmo moderado a intenso.</p>
+  <p>A lona de <strong>40 × 126,5 cm</strong> acompanha essa proposta: é cerca de 26 cm mais comprida que a da EP-1600 e da DR-1600, espaço que faz diferença real na passada de quem corre, não só caminha.</p>
+
+  <h2>Quantos programas ela tem, na verdade: 19, não 26</h2>
+  <p>O material de marketing do próprio fabricante anuncia "26 programas de treinamento" no texto corrido da página do produto. A tabela de especificações técnicas da mesma página — e o manual de instruções oficial em PDF — dizem outra coisa: <strong>19 programas</strong>, sendo P0 o modo manual, P1 a P15 programas com velocidade pré-definida, e P16 a P18 programas configuráveis pelo usuário. Publicamos 19 porque é o número que bate entre a ficha técnica estruturada e o manual — o "26" parece ser texto de outro produto que não foi atualizado.</p>
+  <p>O monitor mostra velocidade, tempo, distância, calorias e batimentos cardíacos (via sensor no apoio de mão), além de funções extras como IMC e recuperação pós-treino.</p>
+
+  <h2>Amortecimento: 6 pontos, mesma configuração da faixa de entrada</h2>
+  <p>São 6 amortecedores (2 externos e 4 internos), a mesma contagem que a EP-1600 e a DR-1600 já trazem. Não é um diferencial da Racer especificamente — é bom que exista, mas não é motivo isolado para pagar mais.</p>
+
+  <h2>Dobra, mas é maior e mais pesada que o resto do catálogo</h2>
+  <p>A Racer usa o sistema "Guarda-Fácil": a plataforma sobe na vertical com o auxílio de um amortecedor, que reduz o peso percebido ao levantar e trava sozinha na posição fechada. Duas rodinhas dianteiras ajudam a movimentá-la depois de dobrada.</p>
+  <p>Ainda assim, o equipamento montado ocupa 73 × 177 × 131 cm e pesa 42,4 kg líquidos (46,8 kg na caixa) — bem mais que os 125 × 50 × 130 cm e 24 kg da EP-1600. Se o critério principal for esteira compacta para apartamento pequeno, vale conferir <a href="/guias/esteira-para-apartamento.html">o guia de esteira para apartamento pequeno</a> antes de decidir por essa.</p>
+
+  <h2>Voltagem: bivolt automático, sem seleção manual</h2>
+  <p>Ao contrário da EP-1600, cuja fabricante confirmou publicamente que o bivolt exige seleção manual de tensão, a Racer usa <strong>bivolt automático</strong> (110V/220V) — a própria esteira reconhece a tensão da tomada, sem chave física para ajustar. É uma vantagem prática pequena, mas real, na hora de instalar o equipamento.</p>
+
+  <h2>Garantia</h2>
+  <p>São 12 meses de garantia do fabricante — o dobro dos 6 meses da EP-1600 e da DR-1600, e alinhado ao padrão do mercado de equipamentos de ginástica. A Athletic (Merco Fitness da Amazônia Indústria e Comércio de Equipamentos de Ginástica LTDA) mantém rede de assistência técnica autorizada em vários estados e um SAC próprio.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Único modelo do catálogo com motor e lona dimensionados para corrida real</li>
+        <li>Maior limite de peso do catálogo: 130 kg</li>
+        <li>Bivolt automático, sem seleção manual de tensão</li>
+        <li>Garantia de 12 meses, o dobro da faixa de entrada</li>
+        <li>Fabricante nacional com rede de assistência técnica em vários estados</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Custa quase o triplo da Polimet EP-1600</li>
+        <li>Maior e quase o dobro do peso das demais esteiras do catálogo</li>
+        <li>Inclinação manual em 2 níveis, apesar do preço de "linha premium"</li>
+        <li>Marketing do fabricante divulga 26 programas; o real, confirmado no manual, é 19</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em setembro de 2026, a Athletic Racer apareceu por <strong>R$ 4.300</strong> tanto na loja oficial da Athletic no Mercado Livre (mais de 500 unidades vendidas) quanto no site oficial do fabricante — o mesmo preço nas duas fontes, o que dá mais confiança de que não é uma promoção pontual de curta duração.</p>
+  <p>Ignore o preço "de R$ 5.190" riscado no anúncio do Mercado Livre. Como em qualquer esteira, é âncora de marketing, não um valor pelo qual o produto de fato circulou.</p>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Athletic Racer e Polimet EP-1600</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Motor</th>
+        <th scope="col">Velocidade</th>
+        <th scope="col">Peso máx.</th>
+        <th scope="col">Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Athletic Racer</th>
+        <td>5.0 HPM</td>
+        <td>16 km/h</td>
+        <td>130 kg</td>
+        <td class="num">R$ 4.300</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600.html">Polimet EP-1600</a></th>
+        <td>1,6 HP</td>
+        <td>9 km/h</td>
+        <td>110 kg</td>
+        <td class="num">R$ 1.449 – 1.599</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A Athletic Racer aguenta corrida de verdade?</h3>
+  <p>Sim. Com motor de 5.0 HPM, velocidade de até 16 km/h e lona de 126,5 cm de comprimento, é a única esteira do nosso catálogo dimensionada para corrida, não só caminhada.</p>
+
+  <h3>Quantos programas de treino ela tem?</h3>
+  <p>19: um modo manual (P0), 15 programas com velocidade pré-definida (P1 a P15) e 3 programas configuráveis pelo usuário (P16 a P18), conforme o manual oficial. O texto de marketing do fabricante menciona "26", mas esse número não bate com a ficha técnica nem com o manual.</p>
+
+  <h3>Ela dobra para guardar?</h3>
+  <p>Sim, com o sistema Guarda-Fácil, que usa um amortecedor para reduzir o esforço ao levantar a plataforma. Mesmo assim, é maior e mais pesada (42,4 kg) que as demais esteiras do catálogo — confirme o espaço disponível antes de comprar.</p>
+
+  <h3>É bivolt?</h3>
+  <p>Sim, bivolt automático (110V/220V) — a esteira reconhece a tensão sozinha, sem chave de seleção manual.</p>
+
+  <h3>Vale a pena pagar quase o triplo da Polimet EP-1600?</h3>
+  <p>Só se você for usar a diferença: correr de verdade, treinar acima de 110 kg, ou querer garantia mais longa. Para caminhada em espaço pequeno, a EP-1600 entrega o que a maioria das pessoas precisa por bem menos.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> <a href="/guias/como-escolher.html">como escolher uma esteira</a> — os números que decidem a compra — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e do manual de instruções oficial do fabricante, e de anúncios públicos de varejo, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Athletic. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

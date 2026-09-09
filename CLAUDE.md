@@ -160,6 +160,8 @@ Ordem definida por análise de SERP, da menor para a maior dificuldade:
 3. Dream Fitness DR-1600 — publicada
 4. Guia: esteira para apartamento pequeno — publicado
 5. Guia: como escolher uma esteira — publicado
+6. Esteira Elétrica Dobrável Residencial Cardio (sem marca) — publicada
+7. Athletic Racer 16km/h — publicada
 
 Todos os itens da fila original já estão publicados. Próximo passo é decidir a próxima
 frente (novo modelo, ou aprofundar SEO/conversão do que já existe) antes de continuar

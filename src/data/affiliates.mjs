@@ -123,6 +123,19 @@ export const products = {
 		notes:
 			'Sem marca (ficha declara "Genérica"), vendedor não é loja oficial, sem idProdutoCatalogo (listagem de vendedor único, não catálogo multi-seller). Comissão 28% informada pelo usuário. Specs vieram da ficha colada pelo usuário, não de scraping — página do anúncio bloqueada por anti-bot em toda tentativa.',
 	},
+	'athletic-racer': {
+		merchant: 'mercadolivre',
+		title: 'Athletic Racer 16km/h',
+		listingId: 'MLB29724235',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-athletic-racer-16kmh-residencial-suporta-130kg/p/MLB29724235',
+		affiliateUrl: 'https://meli.la/21roffC',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-09',
+		notes:
+			'Loja oficial ATHLETIC, 500 vendidos, R$4.300 (de R$5.190) em setembro/2026 — mesmo preço no site oficial do fabricante (shop.athletic.com.br, de R$4.590). Ficha cruzada com o manual PDF oficial. O texto de marketing do fabricante diz "26 programas de treinamento", mas a tabela de specs do próprio site e o manual (P0 manual + P1-P15 pré-definidos + P16-P18 de usuário) confirmam 19 — usar 19, não 26.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

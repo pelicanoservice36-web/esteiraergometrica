@@ -255,6 +255,7 @@ if (existsSync(dist)) {
 			'polimet-ep1600': 5,
 			'polimet-ep1600-senior': 4,
 			'esteira-eletrica-dobravel-residencial-cardio': 4,
+				'athletic-racer': 4,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -264,7 +265,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 17) diff.push(`total de CTAs: esperado 17, encontrado ${total}`);
+		if (total !== 21) diff.push(`total de CTAs: esperado 21, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
