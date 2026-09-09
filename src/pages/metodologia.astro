@@ -1,0 +1,158 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Como avaliamos: metodologia e nota editorial',
+	author: { '@type': 'Organization', name: 'esteiraergometrica.com' },
+	datePublished: '2026-09-09',
+	mainEntityOfPage: 'https://esteiraergometrica.com/metodologia.html',
+};
+---
+
+<ArticleLayout
+	title="Como avaliamos: metodologia e nota editorial"
+	description="Os sete critérios e pesos que usamos para calcular a nota editorial de cada esteira, com a conta aberta para os cinco modelos já analisados. Nada de nota sem fonte."
+	path="/metodologia.html"
+	ogTitle="Como avaliamos as esteiras"
+	ogDescription="Sete critérios, pesos declarados, conta aberta. A nota editorial de cada modelo, calculada com os mesmos dados já publicados nas análises."
+	jsonLd={jsonLd}
+	h1="Como avaliamos: metodologia e nota editorial"
+	standfirst="A nota editorial de cada análise não é opinião solta — é o resultado de sete critérios, com peso declarado, calculados a partir dos mesmos dados que já aparecem em cada review. Esta página mostra a conta aberta, para você poder discordar dela com informação, não com desconfiança."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resumo rápido</h2>
+    <p>Nota editorial = soma de sete critérios (motor, lona, peso suportado, velocidade, praticidade de dobrar/guardar, custo-benefício e confiabilidade do fabricante/garantia), cada um pesado de forma diferente e calculado numa escala de 0 a 10. O resultado final também vai de 0 a 10. É uma nota <strong>nossa</strong>, não a nota de comprador do Mercado Livre — essa continua identificada separadamente em cada página, como "avaliações no Mercado Livre".</p>
+  </div>
+
+  <h2>Por que existe uma nota, além do texto</h2>
+  <p>Cada análise já explica em texto corrido para quem o produto serve e para quem não serve — isso continua sendo a parte mais importante de cada review, e a nota não substitui essa leitura. A nota existe para resumir a comparação entre modelos de forma rápida, principalmente na tabela comparativa da home, sem esconder o cálculo por trás do número.</p>
+  <p>Diferente da nota de estrelas do Mercado Livre — que mede satisfação de quem comprou — a nossa nota mede <strong>especificação e transparência do fabricante</strong>, sem nenhum peso de opinião de terceiros. As duas coisas respondem perguntas diferentes, e por isso aparecem sempre separadas.</p>
+
+  <h2>Os sete critérios e o peso de cada um</h2>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Peso de cada critério na nota final</caption>
+    <thead>
+      <tr>
+        <th scope="col">Critério</th>
+        <th scope="col">Peso</th>
+        <th scope="col">O que mede</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Motor</th><td class="num">20%</td><td>Potência contínua declarada — decide se a esteira aguenta só caminhada ou também corrida.</td></tr>
+      <tr><th scope="row">Lona</th><td class="num">15%</td><td>Comprimento do tapete — decide se a passada de corrida cabe sem risco de pisar fora.</td></tr>
+      <tr><th scope="row">Peso suportado</th><td class="num">10%</td><td>Limite declarado pelo fabricante para o usuário.</td></tr>
+      <tr><th scope="row">Velocidade máxima</th><td class="num">10%</td><td>Teto real de km/h.</td></tr>
+      <tr><th scope="row">Praticidade (dobra + peso do equipamento)</th><td class="num">10%</td><td>Se dobra de verdade e se uma pessoa consegue mover sozinha.</td></tr>
+      <tr><th scope="row">Custo-benefício</th><td class="num">15%</td><td><strong>Não</strong> é "quanto mais barato, melhor" — é se o preço cobrado é proporcional ao que o equipamento entrega.</td></tr>
+      <tr><th scope="row">Confiabilidade do fabricante e garantia</th><td class="num">20%</td><td>Existe fabricante identificável, com assistência técnica? Qual o prazo de garantia?</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Os pesos refletem o que as próprias análises já mostraram ser mais decisivo: motor e confiabilidade do fabricante somados já são 40% da nota, porque são os dois fatores que mais separam "esteira que decepciona em um ano" de "esteira que dura". Custo-benefício importa, mas pesa menos que os dois — preço baixo não compensa motor fraco ou fabricante inexistente na nossa conta.</p>
+
+  <h2>Como cada critério vira um número de 0 a 10</h2>
+  <p>Cada critério usa faixas fixas, aplicadas igualmente aos cinco modelos — não são impressões, são regras. As faixas de motor e velocidade seguem o que já publicamos no <a href="/guias/como-escolher.html">guia de como escolher uma esteira</a> (1,6 HP é o padrão de entrada; a partir de 2,1 HP dá para pensar em corrida sustentada).</p>
+
+  <h3>Motor</h3>
+  <p>1,6 HP (padrão de entrada) = 6,0 · 2,5 a 3,4 HP = 7,5 · 3,5 a 4,9 HP = 8,5 · 5,0 HP/HPM ou mais = 9,5.</p>
+
+  <h3>Lona (comprimento)</h3>
+  <p>Até 95 cm = 5,5 · 95 a 105 cm (padrão de entrada) = 6,0 · 106 a 120 cm = 7,5 · Acima de 120 cm = 9,0.</p>
+
+  <h3>Peso suportado</h3>
+  <p>Até 110 kg = 6,0 · 111 a 130 kg = 7,5 · Acima de 130 kg = 9,0.</p>
+
+  <h3>Velocidade máxima</h3>
+  <p>Até 9 km/h = 6,0 · 10 km/h = 6,5 · 11 a 13 km/h = 7,5 · 14 km/h ou mais = 9,5.</p>
+
+  <h3>Praticidade</h3>
+  <p>Dobra e pesa até 20 kg = 9,5 · Dobra e pesa de 20 a 27 kg = 8,0 · Dobra mas pesa mais de 35 kg = 5,5 · Indício forte de que não dobra = 3,5.</p>
+
+  <h3>Custo-benefício</h3>
+  <p>Não segue uma faixa numérica fixa — é uma nota qualitativa, justificada caso a caso a partir do veredito de cada review, porque "vale o preço" depende do que o modelo entrega, não só de quanto custa. A conta de cada modelo está detalhada na tabela abaixo.</p>
+
+  <h3>Confiabilidade do fabricante e garantia</h3>
+  <p>Fabricante nacional identificável, com site e assistência técnica, e garantia de 12 meses ou mais = 9,5 · Fabricante identificável, garantia de 6 meses = 7,0 · Sem marca identificável (ficha declara "Genérica"), garantia de 30 dias pelo vendedor = 3,0.</p>
+
+  <h2>A conta aberta para os cinco modelos já analisados</h2>
+  <p>Cada linha é uma nota de 0 a 10 por critério; a coluna final é a soma já multiplicada pelo peso de cada critério.</p>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Nota por critério e nota final — setembro de 2026</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Motor</th>
+        <th scope="col">Lona</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Veloc.</th>
+        <th scope="col">Praticid.</th>
+        <th scope="col">Custo-benef.</th>
+        <th scope="col">Confiab.</th>
+        <th scope="col">Nota final</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600.html">Polimet EP-1600</a></th>
+        <td class="num">6,0</td><td class="num">6,0</td><td class="num">6,0</td><td class="num">6,0</td><td class="num">8,0</td><td class="num">9,0</td><td class="num">7,0</td>
+        <td class="num"><strong>6,9</strong></td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/dream-fitness-dr1600.html">Dream Fitness DR-1600</a></th>
+        <td class="num">6,0</td><td class="num">6,0</td><td class="num">6,0</td><td class="num">6,0</td><td class="num">8,0</td><td class="num">6,5</td><td class="num">7,0</td>
+        <td class="num"><strong>6,5</strong></td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/polimet-ep1600-senior.html">Polimet EP-1600 Sênior</a></th>
+        <td class="num">6,0</td><td class="num">6,0</td><td class="num">6,0</td><td class="num">6,5</td><td class="num">3,5</td><td class="num">6,0</td><td class="num">7,0</td>
+        <td class="num"><strong>6,0</strong></td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio.html">Esteira Cardio (genérica)</a></th>
+        <td class="num">7,5*</td><td class="num">5,5</td><td class="num">9,0*</td><td class="num">6,5</td><td class="num">9,5</td><td class="num">7,0</td><td class="num">3,0</td>
+        <td class="num"><strong>6,5</strong></td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/athletic-racer.html">Athletic Racer</a></th>
+        <td class="num">9,5</td><td class="num">9,0</td><td class="num">7,5</td><td class="num">9,5</td><td class="num">5,5</td><td class="num">8,0</td><td class="num">9,5</td>
+        <td class="num"><strong>8,6</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">* Motor e peso suportado da Esteira Cardio vêm só da ficha do próprio anúncio — não existe fabricante identificável para confirmar esses números de forma independente. Usamos o valor declarado porque é o único disponível, mas isso já reduz a nota de confiabilidade desse modelo (3,0, a mais baixa do comparativo), que é exatamente o critério pensado para capturar esse risco.</p>
+
+  <h2>Como ler um empate</h2>
+  <p>A Dream Fitness DR-1600 e a Esteira Cardio empatam em 6,5, mas por motivos opostos: a Dream Fitness tem fabricante confiável e garantia melhor, mas motor e lona iguais aos da faixa mais barata — você paga mais e ganha praticidade, não desempenho. A Cardio tem números de motor e peso mais altos no papel, mas não tem marca nem garantia de verdade por trás. Duas esteiras com a mesma nota final podem ser recomendações completamente diferentes dependendo do que você valoriza — é por isso que a nota é um resumo, e o texto de cada análise continua sendo onde a decisão de verdade se apoia.</p>
+
+  <h2>O que essa nota não é</h2>
+  <ul>
+    <li>Não é a nota de satisfação de quem comprou — essa vem do Mercado Livre e aparece separadamente, identificada, em cada página.</li>
+    <li>Não é resultado de teste físico do equipamento — nenhuma esteira deste site foi testada fisicamente por nós; a nota vem só de especificação verificada.</li>
+    <li>Não muda por causa de comissão de afiliado — a nota é calculada a partir da ficha técnica antes de qualquer consideração comercial, e o critério de custo-benefício considera o preço, não o valor da comissão que recebemos.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A nota editorial é a mesma coisa que a nota de estrelas que aparece na home?</h3>
+  <p>Não. A nota de estrelas (ex.: "4,5 no Mercado Livre") vem de quem comprou o produto na loja. A nota editorial (ex.: "6,9/10") é calculada por nós, com os sete critérios desta página, e não tem relação com a opinião de compradores.</p>
+
+  <h3>Por que a Athletic Racer, que é mais cara, tem a nota mais alta?</h3>
+  <p>Porque o critério de custo-benefício mede se o preço é proporcional ao que o produto entrega, não se é o mais barato. A Racer custa mais, mas também entrega motor, lona e garantia genuinamente superiores aos outros modelos — a nota reflete isso, não o preço em si.</p>
+
+  <h3>Vocês vão recalcular a nota se um fabricante mudar a ficha do produto?</h3>
+  <p>Sim. A nota é recalculada sempre que uma análise é atualizada com dado novo confirmado. A data no topo desta página e de cada review indica a última revisão.</p>
+
+  <p class="disclosure">Esta metodologia foi escrita a partir das cinco análises já publicadas neste site, com dados verificados na ficha do fabricante e em anúncios de varejo. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você — essa relação comercial não influencia nenhum peso ou nota descrita nesta página.</p>
+
+</ArticleLayout>

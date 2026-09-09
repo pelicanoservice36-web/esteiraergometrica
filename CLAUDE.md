@@ -54,6 +54,7 @@ src/
     index.astro              Home com tabela comparativa
     reviews/*.astro          Uma análise por arquivo, usa ReviewLayout
     guias/*.astro            Usa ArticleLayout
+    metodologia.astro         Critérios, pesos e a conta aberta da nota editorial de cada review
     aviso-legal.astro · termos-de-uso.astro · politica-de-cookies.astro
   styles.css                 Folha de estilo única, importada pelo BaseLayout
 public/
@@ -83,7 +84,7 @@ do `<slot />`:
 
 1. Título, standfirst, data
 2. Ficha técnica (`.ficha`) — antes de qualquer texto corrido
-3. Veredito
+3. Veredito, com a nota editorial logo abaixo do `<h2>` (ver "Nota editorial" abaixo)
 4. Para quem faz sentido
 5. Para quem **não** faz sentido
 6. Seções técnicas específicas do produto
@@ -94,6 +95,17 @@ do `<slot />`:
 
 A seção "para quem não faz sentido" é obrigatória e não é decorativa. Análise que só
 elogia lê como anúncio e não converte.
+
+### Nota editorial
+
+Toda review tem uma nota de 0 a 10 (`<p class="edit-score">`, ver markup nas reviews
+existentes), logo abaixo do `<h2>Veredito</h2>` e antes do primeiro parágrafo. A nota segue os
+sete critérios e pesos documentados em `src/pages/metodologia.astro` (motor, lona, peso
+suportado, velocidade, praticidade, custo-benefício, confiabilidade do fabricante/garantia) —
+ao publicar um produto novo, calcule a nota pelas mesmas faixas e **atualize a tabela de
+`metodologia.astro`** com a linha do novo modelo. Nunca é a mesma coisa que a nota de estrelas
+do Mercado Livre (essa é "avaliação de comprador", sempre rotulada "no Mercado Livre" onde
+aparece — nunca deixe essa atribuição implícita).
 
 Nas perguntas frequentes, responda na primeira frase, sem rodeio — são candidatas a
 featured snippet do Google.

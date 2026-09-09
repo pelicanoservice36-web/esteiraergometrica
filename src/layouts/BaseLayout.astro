@@ -10,6 +10,7 @@ export interface Props {
 	ogTitle?: string;
 	ogDescription?: string;
 	ogType?: 'website' | 'article';
+	ogImage?: string;
 	jsonLd?: Record<string, unknown>;
 	transparentHeader?: boolean;
 }
@@ -21,11 +22,13 @@ const {
 	ogTitle = title,
 	ogDescription = description,
 	ogType = 'website',
+	ogImage = '/video/esteiraergometricahead-poster.webp',
 	jsonLd,
 	transparentHeader = false,
 } = Astro.props;
 
 const canonicalURL = new URL(path, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -60,6 +63,8 @@ const canonicalURL = new URL(path, Astro.site);
 <meta property="og:title" content={ogTitle}>
 <meta property="og:description" content={ogDescription}>
 <meta property="og:url" content={canonicalURL}>
+<meta property="og:image" content={ogImageURL}>
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

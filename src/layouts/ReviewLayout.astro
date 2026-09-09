@@ -12,6 +12,7 @@ export interface Props {
 	path: string;
 	ogTitle?: string;
 	ogDescription?: string;
+	ogImage?: string;
 	jsonLd?: Record<string, unknown>;
 	h1: string;
 	standfirst: string;
@@ -28,6 +29,7 @@ const {
 	path,
 	ogTitle,
 	ogDescription,
+	ogImage,
 	jsonLd,
 	h1,
 	standfirst,
@@ -37,6 +39,12 @@ const {
 	priceNote,
 	buyLabel = 'Ver preço no Mercado Livre',
 } = Astro.props;
+
+// Cada review tem uma foto própria em public/assets/images/<slug>.webp, com o
+// mesmo nome do slug da URL — reaproveita como og:image sem precisar de prop
+// extra em cada página de review.
+const slug = path.replace(/^\/reviews\//, '').replace(/\.html$/, '');
+const defaultOgImage = `/assets/images/${slug}.webp`;
 ---
 
 <BaseLayout
@@ -45,6 +53,7 @@ const {
 	path={path}
 	ogTitle={ogTitle}
 	ogDescription={ogDescription}
+	ogImage={ogImage ?? defaultOgImage}
 	ogType="article"
 	jsonLd={jsonLd}
 >

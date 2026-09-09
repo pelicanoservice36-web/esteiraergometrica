@@ -781,6 +781,37 @@ a:hover { color: var(--primary-ink); }
 .verdict p { margin-bottom: 0.9rem; }
 .verdict p:last-child { margin-bottom: 0; }
 
+.edit-score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem 0.75rem;
+  margin: 0 0 1.1rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(11, 59, 130, 0.15);
+}
+
+.edit-score__value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent-ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.edit-score__max {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.edit-score__label {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.edit-score__label a { color: var(--primary); }
+
 .pros-cons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
