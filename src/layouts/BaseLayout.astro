@@ -48,11 +48,23 @@ const ogImageURL = new URL(ogImage, Astro.site);
 		if (localStorage.getItem('cookie-consent') === 'accepted') storedConsent = 'granted';
 	} catch (e) {}
 	gtag('consent', 'default', { analytics_storage: storedConsent });
-</script>
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X"></script>
-<script is:inline>
 	gtag('js', new Date());
 	gtag('config', 'G-F3SC734W1X');
+
+	// A biblioteca do gtag (166 KiB) só carrega depois do load, pra não competir
+	// com o carregamento crítico da página — os comandos acima já ficam na fila
+	// do dataLayer e são processados assim que o script real chega.
+	function loadGtagScript() {
+		var s = document.createElement('script');
+		s.async = true;
+		s.src = 'https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X';
+		document.head.appendChild(s);
+	}
+	if (document.readyState === 'complete') {
+		loadGtagScript();
+	} else {
+		window.addEventListener('load', loadGtagScript);
+	}
 </script>
 
 <title>{title}</title>
@@ -67,11 +79,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <meta property="og:image" content={ogImageURL}>
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
 
 {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 </head>
