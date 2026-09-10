@@ -313,7 +313,7 @@ a:hover { color: var(--primary-ink); }
 }
 
 .section-head {
-  max-width: 32rem;
+  max-width: 26rem;
   margin: 0 0 2rem;
 }
 
