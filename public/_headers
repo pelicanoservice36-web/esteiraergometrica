@@ -5,6 +5,9 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/video/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Rotas de saída para o marketplace: nunca indexar, nunca cachear.
 # O robots.txt já bloqueia o crawl; isto é a segunda camada, para o caso de a
 # URL ser descoberta por link externo. NÃO É CONFIRMADO que o Cloudflare Pages

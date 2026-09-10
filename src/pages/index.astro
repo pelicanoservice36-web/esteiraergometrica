@@ -26,22 +26,45 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
   <section class="hero-video-section">
     <video
       class="hero-video"
-      autoplay
       muted
       loop
       playsinline
-      preload="metadata"
+      preload="none"
       poster="/video/esteiraergometricahead-poster.webp"
       width="1280"
       height="720"
       aria-hidden="true"
+      fetchpriority="high"
     >
-      <source src="/video/esteiraergometricahead.webm" type="video/webm" />
-      <source src="/video/esteiraergometricahead.mp4" type="video/mp4" />
+      <source data-src="/video/esteiraergometricahead.webm" type="video/webm" />
+      <source data-src="/video/esteiraergometricahead.mp4" type="video/mp4" />
     </video>
     <img class="hero-poster-fallback" src="/video/esteiraergometricahead-poster.webp" alt="" aria-hidden="true" width="1280" height="720" />
 
     <div class="hero-overlay" aria-hidden="true"></div>
+
+    <script is:inline>
+      (function () {
+        // O vídeo não tem `autoplay`/`src` no HTML de propósito: um vídeo autoplay
+        // com src no markup inicial compete por banda com o LCP na conexão simulada
+        // do PageSpeed (e em 3G/4G real). Carregar via JS depois do load mantém o
+        // autoplay mudo (permitido pelos navegadores) sem atrasar o LCP.
+        var video = document.querySelector('.hero-video');
+        if (!video) return;
+        function loadHeroVideo() {
+          video.querySelectorAll('source[data-src]').forEach(function (source) {
+            source.src = source.dataset.src;
+          });
+          video.load();
+          video.play().catch(function () {});
+        }
+        if (document.readyState === 'complete') {
+          loadHeroVideo();
+        } else {
+          window.addEventListener('load', loadHeroVideo);
+        }
+      })();
+    </script>
 
     <div class="wrap">
       <div class="hero-content">
