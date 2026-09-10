@@ -321,7 +321,11 @@ a:hover { color: var(--primary-ink); }
 
 .section-head p { color: var(--muted); margin-bottom: 0; }
 
-.section-alt { background: var(--surface); }
+.section-alt {
+  background: var(--surface);
+  padding-left: clamp(1rem, 3vw, 2.5rem);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
+}
 
 /* ---------- Botões ---------- */
 
