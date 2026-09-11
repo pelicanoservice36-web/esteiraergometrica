@@ -163,6 +163,19 @@ export const products = {
 		notes:
 			'Achada em varredura de baixa concorrência (Apify + checagem de SERP): 500 vendidos, 189 avaliações, nota 4,7, zero review editorial concorrente encontrada (só páginas de loja). Ficha cruzada com o site oficial (importway.com.br) — CUIDADO: a Importway tem dois produtos quase homônimos, "IWEST2X1" (110kg, lona 92×38cm, com inclinação) e "IWEST2X1-10" (120kg, lona 100×41cm, sem inclinação) — este anúncio (MLB34782946) é o IWEST2X1-10. Potência informada só como "máxima" (2.0hp), fabricante não declara contínua separadamente — [VERIFICAR] na review. Garantia de 90 dias.',
 	},
+	'gallant-elite-gee13m29a': {
+		merchant: 'mercadolivre',
+		title: 'Gallant Elite GEE13M29A (2.9HP, 220V)',
+		listingId: 'MLB38668054',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-gallant-elite-29hp-16kmh-130kg-gee13m29a-220pt/p/MLB38668054',
+		affiliateUrl: 'https://meli.la/1YVHsu8',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-11',
+		notes:
+			'Pedido direto do usuário (não veio da varredura de baixa concorrência). Loja oficial GALLANT: 100 vendidos, 269 avaliações, nota 4,8, R$3.609 em setembro/2026. Marca Gallant pertence à Webcontinental. Ficha cruzada com o site oficial (gallantoficial.com.br) — a mais completa do catálogo: motor 2,9HP, 16km/h, lona 122×45cm, 130kg, inclinação manual hidráulica em 3 níveis, dobrável (sistema hidráulico), peso líquido 45kg / bruto 52,2kg, garantia 6 meses. ATENÇÃO: não é bivolt — este anúncio (MLB38668054) é a versão 220V (GEE13M29A-220PT); existe um anúncio separado da versão 127V (GEE13M29A-127PT, MLB66114997) com histórico de vendas bem menor. Não confundir com os outros modelos da linha Elite (GEE12M25A 2,5HP/120kg e GEE12M28A 2,8HP/120kg), que são produtos diferentes.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
