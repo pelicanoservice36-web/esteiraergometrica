@@ -1,0 +1,167 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('wct-fitness-esteira');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'WCT Fitness Esteira Elétrica Ergométrica',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'WCT Fitness' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '1699.00',
+		highPrice: '1720.90',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.8',
+		reviewCount: '3347',
+		bestRating: '5',
+		worstRating: '1',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '0,75 HP contínuo (pico 2,0 HP)' },
+	{ label: 'Velocidade máxima', value: '10 km/h' },
+	{ label: 'Lona', value: '39 × 110 cm' },
+	{ label: 'Peso máximo', value: '110 kg' },
+	{ label: 'Garantia', value: '3 meses' },
+	{ label: 'Preço', value: 'R$ 1.699 a 1.720' },
+];
+---
+
+<ReviewLayout
+	title="WCT Fitness Esteira Elétrica é boa? Análise, preço e o motor real"
+	description="Análise da esteira WCT Fitness: a mais vendida entre as que escaneamos no Mercado Livre (10 mil vendas, 3.347 avaliações), mas com o motor contínuo mais fraco do nosso comparativo. Preço, ficha técnica e para quem vale."
+	path="/reviews/wct-fitness-esteira"
+	ogTitle="WCT Fitness Esteira Elétrica é boa? Análise honesta"
+	ogDescription="10 mil vendas e nota 4,8 — mas a potência contínua real é 0,75 HP, não os 2,0 HP de pico anunciados. O que isso muda na prática."
+	jsonLd={jsonLd}
+	h1="WCT Fitness Esteira Elétrica é boa?"
+	standfirst="É a esteira com mais volume de venda que encontramos numa varredura no Mercado Livre — 10 mil unidades, 3.347 avaliações, nota 4,8. Também é, pela nossa metodologia, a com a nota editorial mais baixa do catálogo. As duas coisas são verdade ao mesmo tempo, e a ficha técnica explica por quê."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em setembro de 2026: R$ 1.699 na loja oficial no Mercado Livre, R$ 1.720,90 (R$ 1.686,48 à vista) no site oficial da WCT Fitness. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">5,8<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>Volume de venda e nota de comprador são reais e bons: 10 mil unidades vendidas e 3.347 avaliações com nota 4,8 é o maior número que encontramos em toda uma varredura de esteiras no Mercado Livre, maior até que a Dream Fitness DR-1600, nossa recomendação com mais histórico até agora. Isso diz que a maioria de quem compra fica satisfeita com o que recebe pelo preço.</p>
+    <p>O que a nota de comprador não mostra é que a ficha técnica da própria WCT Fitness declara potência <strong>contínua de 0,75 HP</strong> — bem abaixo do 1,6 HP que é o padrão de entrada no resto do nosso catálogo. O "2,0 HP" que aparece destacado nos anúncios é potência de <strong>pico</strong>, não contínua. Some a isso a garantia mais curta que já vimos num fabricante identificável (3 meses), e o resultado é o menor equilíbrio entre o que o produto entrega e o que ele promete — mesmo sendo, disparado, o mais vendido.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem vai caminhar em ritmo leve a moderado, ocasionalmente, e prioriza preço e histórico de compra sobre potência de motor — R$ 1.699 é mais barato que a Polimet EP-1600 e a Dream Fitness DR-1600, e o volume de avaliações (3.347) é o maior conforto de "muita gente já comprou e não reclamou" que existe no nosso comparativo inteiro.</p>
+  <p>Também serve para quem pesa até 110 kg e não pretende treinos longos ou intensos — para caminhada leve esporádica, mesmo um motor de 0,75 HP contínuo dá conta, desde que a expectativa seja essa desde o início.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Se você pretende caminhar com regularidade, todos os dias ou quase, um motor de 0,75 HP contínuo vai sofrer mais desgaste do que os de 1,6 HP do resto do catálogo — é fisicamente menos motor rodando pelo mesmo tempo de uso. Para uso frequente, a Polimet EP-1600 ou a Dream Fitness DR-1600 entregam mais que o dobro de potência contínua por um custo não muito maior.</p>
+  <p>Também não faz sentido se garantia longa pesa na sua decisão: 3 meses é um terço do que a Polimet e a Dream Fitness oferecem (6 meses), e um quarto do padrão de mercado em equipamento de ginástica (12 meses).</p>
+
+  <h2>Potência de pico não é potência contínua — e aqui a diferença é grande</h2>
+  <p>A própria ficha técnica da WCT Fitness, no site oficial (wct.com.br), lista os dois números lado a lado: <strong>"Potência de pico 2,0HP"</strong> e <strong>"Potência contínua 0,75HP"</strong>. Isso não é um erro de digitação como o "16 HP" que encontramos na Polimet EP-1600 — os dois números estão corretos e declarados pelo próprio fabricante. O problema é que o destaque nos anúncios costuma ficar com o número de pico (2,0 HP), que é a potência que o motor atinge por instantes, não a que ele sustenta rodando.</p>
+  <p>Potência contínua é a que decide o desgaste no uso real: é o que o motor entrega rodando por 20, 30, 40 minutos seguidos. Nesse critério, 0,75 HP fica abaixo até do "padrão de entrada" (1,6 HP) que já é o piso do resto do nosso catálogo — não existe, hoje, outro modelo que analisamos com potência contínua mais baixa.</p>
+
+  <h2>Lona e peso: aqui ela compete bem</h2>
+  <p>A lona tem <strong>39 × 110 cm</strong> — mais longa que os 100 cm padrão da Polimet e da Dream Fitness, e mais larga que os 33 cm delas também. Isso é um ponto real a favor: mais espaço de passada do que a maioria do catálogo, mesmo sendo uma esteira de caminhada.</p>
+  <p>O peso máximo do usuário é 110 kg, igual à Polimet, Sênior e Dream Fitness — nem o melhor nem o pior do comparativo, só o padrão da faixa de entrada.</p>
+
+  <h2>Dobra, e é leve: 31 kg</h2>
+  <p>Dobrada, ocupa 58 × 61 × 106 cm; montada, 131 × 53 × 109 cm. Com 31 kg, é mais pesada que a Polimet (24 kg) e a esteira Cardio (18 kg), mas ainda dá para uma pessoa reposicionar sozinha com algum esforço — está longe do peso da Athletic Racer (42,4 kg), a única do catálogo onde mover sozinho deixa de ser trivial.</p>
+  <p>Tem rodinhas para facilitar o transporte depois de dobrada, recurso que nem todo modelo do catálogo tem.</p>
+
+  <h2>Garantia: 3 meses, a mais curta entre os fabricantes identificáveis</h2>
+  <p>O site oficial da WCT Fitness declara garantia de 3 meses. É mais curta que os 6 meses da Polimet e da Dream Fitness, e menos de um terço do padrão de mercado em equipamento de ginástica (12 meses). A WCT Fitness é uma empresa real, com site próprio, loja física de atendimento, telefone e WhatsApp — não é o caso "Genérica" da esteira Cardio, sem fabricante nenhum por trás. Mas entre os fabricantes identificáveis do nosso catálogo, é quem oferece menos tempo de cobertura.</p>
+
+  <h2>Voltagem e segurança</h2>
+  <p>É bivolt automático (AC110-120V/60Hz e AC220-240V/50Hz, conforme a ficha oficial) — reconhece a tensão da tomada sozinha, sem seleção manual. O painel tem braços emborrachados de apoio e a ficha menciona "dispositivo de segurança para evitar acidentes", sem detalhar o mecanismo — provavelmente uma chave magnética, padrão do setor, mas não confirmado explicitamente pelo fabricante.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Maior volume de vendas e avaliações que encontramos: 10 mil vendidas, 3.347 avaliações, nota 4,8</li>
+        <li>Lona 39 × 110 cm, mais longa e larga que o padrão de entrada do catálogo</li>
+        <li>Preço mais baixo que a Polimet EP-1600 e a Dream Fitness DR-1600</li>
+        <li>Bivolt automático, sem seleção manual</li>
+        <li>Fabricante identificável, com site próprio e canais de atendimento reais</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Potência contínua de 0,75 HP — a mais baixa do catálogo, abaixo até do padrão de entrada</li>
+        <li>"2,0 HP" nos anúncios é potência de pico, não contínua</li>
+        <li>Garantia de 3 meses, a mais curta entre fabricantes identificáveis do comparativo</li>
+        <li>31 kg — mais pesada que a Polimet e a Cardio para mover sozinho</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em setembro de 2026, a esteira apareceu por <strong>R$ 1.699</strong> na loja oficial da WCT Fitness no Mercado Livre — 10.000 unidades vendidas, nota 4,8 com 3.347 avaliações. No site oficial (wct.com.br), o mesmo modelo custa R$ 1.720,90 (R$ 1.686,48 à vista), de um "de R$ 3.199,90" que funciona como âncora de marketing, não como preço praticado.</p>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>WCT Fitness e Dream Fitness DR-1600 — os dois modelos com mais histórico de venda do catálogo</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Motor contínuo</th>
+        <th scope="col">Vendas / avaliações</th>
+        <th scope="col">Garantia</th>
+        <th scope="col">Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">WCT Fitness</th>
+        <td>0,75 HP</td>
+        <td>10.000 / 3.347</td>
+        <td>3 meses</td>
+        <td class="num">R$ 1.699</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></th>
+        <td>1,6 HP</td>
+        <td>10.000+ / 2.004</td>
+        <td>6 meses</td>
+        <td class="num">R$ 1.939 – 2.199</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A WCT Fitness tem motor de 2,0 HP?</h3>
+  <p>Só de pico. A potência contínua, declarada na mesma ficha oficial, é 0,75 HP — a mais baixa entre os modelos que já analisamos. É a potência contínua que importa para uso regular.</p>
+
+  <h3>Por que ela tem a maior nota de comprador mas a menor nota editorial do catálogo?</h3>
+  <p>São métricas diferentes. A nota de comprador (4,8, 3.347 avaliações) mede satisfação de quem já usa. A nossa nota editorial (5,8/10) mede especificação técnica e garantia — nesses critérios, o motor mais fraco e a garantia mais curta do catálogo pesam contra o produto, mesmo com a maioria dos compradores satisfeita.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>3 meses, direto do fabricante — a mais curta entre os modelos com fabricante identificável do nosso comparativo.</p>
+
+  <h3>Ela dobra para guardar?</h3>
+  <p>Sim, com rodinhas para facilitar o transporte depois de dobrada. Fechada, ocupa 58 × 61 × 106 cm.</p>
+
+  <h3>Vale a pena pelo preço?</h3>
+  <p>Se o uso é leve e ocasional, sim — o preço é competitivo e o histórico de vendas é o maior que já vimos. Para uso frequente, o motor mais fraco do catálogo é uma limitação real a considerar antes de comprar.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> <a href="/reviews/dream-fitness-dr1600">nossa análise da Dream Fitness DR-1600</a>, o modelo com motor mais forte na mesma faixa de preço — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica publicada no site oficial da WCT Fitness (wct.com.br) e de anúncios públicos de varejo, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da WCT Fitness. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

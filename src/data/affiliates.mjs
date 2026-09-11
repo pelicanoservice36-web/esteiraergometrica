@@ -136,6 +136,19 @@ export const products = {
 		notes:
 			'Loja oficial ATHLETIC, 500 vendidos, R$4.300 (de R$5.190) em setembro/2026 — mesmo preço no site oficial do fabricante (shop.athletic.com.br, de R$4.590). Ficha cruzada com o manual PDF oficial. O texto de marketing do fabricante diz "26 programas de treinamento", mas a tabela de specs do próprio site e o manual (P0 manual + P1-P15 pré-definidos + P16-P18 de usuário) confirmam 19 — usar 19, não 26.',
 	},
+	'wct-fitness-esteira': {
+		merchant: 'mercadolivre',
+		title: 'WCT Fitness Esteira Elétrica Ergométrica',
+		listingId: 'MLB26516485',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-ergometrica-bivolt-ginastica-wct-fitness-cor-preto/p/MLB26516485',
+		affiliateUrl: 'https://meli.la/22gN9m9',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-11',
+		notes:
+			'Loja oficial WCT Fitness, maior volume do catálogo: 10.000 vendidos, 3.347 avaliações, nota 4,8. R$1.699 no Mercado Livre em setembro/2026 — mesmo produto no site oficial (wct.com.br) por R$1.720,90 (R$1.686,48 à vista), de R$3.199,90. Ficha técnica cruzada com o site oficial: potência de pico 2,0HP, mas potência CONTÍNUA de só 0,75HP — a mais fraca do catálogo mesmo sendo o maior volume de vendas. Lona 39×110cm, peso máx. 110kg, 31kg de equipamento, bivolt automático.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

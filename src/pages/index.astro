@@ -7,6 +7,7 @@ const mlPolimet = buyHref('polimet-ep1600');
 const mlPolimetSenior = buyHref('polimet-ep1600-senior');
 const mlCardio = buyHref('esteira-eletrica-dobravel-residencial-cardio');
 const mlRacer = buyHref('athletic-racer');
+const mlWct = buyHref('wct-fitness-esteira');
 // Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
 // exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
@@ -205,6 +206,25 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Preço" class="num cell-price">R$ 4.300</td>
             <td class="cell-cta"><a class="mini-cta" href={mlRacer} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
+          <tr>
+            <th scope="row">
+              <div class="cell-product">
+                <img src="/assets/images/wct-fitness-esteira.webp" alt="" width="44" height="44" loading="lazy">
+                <div>
+                  <span class="cell-product-name">WCT Fitness</span>
+                  <span class="badge-mini">📦 Maior volume de vendas</span>
+                </div>
+              </div>
+              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (3.347 avaliações no Mercado Livre)</p>
+            </th>
+            <td data-label="Motor" class="num">0,75 HP</td>
+            <td data-label="Velocidade" class="num">10 km/h</td>
+            <td data-label="Lona" class="num">39 × 110 cm</td>
+            <td data-label="Peso máx." class="num">110 kg</td>
+            <td data-label="Dobra">Sim</td>
+            <td data-label="Preço" class="num cell-price">R$ 1.699</td>
+            <td class="cell-cta"><a class="mini-cta" href={mlWct} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a></td>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -216,6 +236,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
       <p><strong>Dobra.</strong> Se o equipamento recolhe para guardar. Determina se ele cabe num apartamento pequeno ou se vira um móvel fixo na sala.</p>
       <p class="stamp">* Na EP-1600 Sênior, a Poli Sports não confirma nem nega dobrabilidade — o "Não" reflete um anúncio de loja que descreve o modelo como não dobrável. Veja a análise completa antes de decidir.</p>
       <p class="stamp">A esteira dobrável cardio não tem marca registrada — a própria ficha do anúncio a declara como "Genérica". Veja a análise completa antes de decidir.</p>
+      <p class="stamp">O motor da WCT Fitness aparece como "2,0 HP" em muitos anúncios — esse é o valor de pico. A potência contínua, confirmada na ficha do próprio fabricante, é 0,75 HP, a mais baixa do comparativo. Veja a análise completa antes de decidir.</p>
 
       <p class="disclosure">Este site participa de programas de afiliados. Quando você compra por um link daqui, recebemos uma comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos.</p>
     </div>
@@ -330,6 +351,23 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <a class="product-card__link" href="/reviews/athletic-racer">Ver análise →</a>
           </div>
           <a class="btn btn-primary btn-block" href={mlRacer} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <a class="product-card__media" href="/reviews/wct-fitness-esteira">
+          <span class="product-card__badge">Maior volume de vendas</span>
+          <img src="/assets/images/wct-fitness-esteira.webp" alt="Esteira WCT Fitness" width="200" height="200" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <h3 class="product-card__title"><a href="/reviews/wct-fitness-esteira">WCT Fitness</a></h3>
+          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (3.347 avaliações no Mercado Livre)</p>
+          <p class="product-card__specs">0,75 HP contínuo • 10 km/h • 110 kg</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">R$ 1.699</span>
+            <a class="product-card__link" href="/reviews/wct-fitness-esteira">Ver análise →</a>
+          </div>
+          <a class="btn btn-primary btn-block" href={mlWct} rel="sponsored nofollow noopener" target="_blank" title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
     </div>
