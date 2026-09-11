@@ -1,0 +1,142 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('importway-iwest2x1-10');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Importway IWEST2X1-10',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Importway' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '1055.00',
+		highPrice: '1055.00',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.7',
+		reviewCount: '189',
+		bestRating: '5',
+		worstRating: '1',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,0 HP (fabricante não separa contínua de pico)' },
+	{ label: 'Velocidade máxima', value: '10 km/h' },
+	{ label: 'Lona', value: '100 × 41 cm' },
+	{ label: 'Peso máximo', value: '120 kg' },
+	{ label: 'Garantia', value: '90 dias' },
+	{ label: 'Preço', value: 'R$ 1.055' },
+];
+---
+
+<ReviewLayout
+	title="Importway IWEST2X1-10 é boa? Análise, preço e cuidado com o nome"
+	description="Análise da esteira Importway IWEST2X1-10: 120 kg de peso máximo, lona 100×41 cm e R$ 1.055 — e o cuidado real de não confundir com a IWEST2X1 (sem o '-10'), que é um produto diferente. Ficha cruzada com o fabricante."
+	path="/reviews/importway-iwest2x1-10"
+	ogTitle="Importway IWEST2X1-10 é boa? Análise honesta"
+	ogDescription="120 kg suportados e lona 100×41 cm por R$ 1.055 — mas existe uma IWEST2X1 sem o '-10' com ficha diferente. Veja como não confundir as duas."
+	jsonLd={jsonLd}
+	h1="Importway IWEST2X1-10 é boa?"
+	standfirst="Numa varredura pelo Mercado Livre, foi a esteira com mais vendas e nenhuma review dedicada até agora — só páginas de loja. A ficha oficial do fabricante escondia uma pegadinha real: existe outro modelo quase homônimo, com especificações diferentes."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em setembro de 2026, loja oficial Importway no Mercado Livre. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">6,4<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>Pelos números que o fabricante confirma, é uma opção honesta na faixa de entrada: 120 kg de peso máximo é mais do que a Polimet, a Sênior e a Dream Fitness suportam (110 kg cada), e o preço de R$ 1.055 fica abaixo da Polimet EP-1600. A Importway é uma empresa real, com site próprio, telefone e atendimento — não é um vendedor sem marca por trás.</p>
+    <p>A ressalva é sobre transparência, não sobre desempenho: o fabricante não informa o peso do próprio equipamento em nenhum lugar (nem no anúncio, nem no site oficial), e a ficha técnica não separa potência contínua de potência de pico como a WCT Fitness faz — só diz "potência máxima: 2,0 HP", sem dizer se é isso que o motor sustenta rodando. Tratamos os dois pontos como [VERIFICAR] em vez de presumir o melhor cenário.</p>
+  </div>
+
+  <h2>Atenção: existem duas Importway quase com o mesmo nome</h2>
+  <p>Ao pesquisar essa esteira, você vai encontrar dois produtos da Importway com nomes muito parecidos, e não são o mesmo equipamento:</p>
+  <ul>
+    <li><strong>IWEST2X1-10</strong> (esta análise): peso máximo 120 kg, lona 100 × 41 cm, sem inclinação.</li>
+    <li><strong>IWEST2X1</strong> (sem o "-10"): peso máximo 110 kg, lona 92 × 38 cm, com inclinação manual em 2 níveis.</li>
+  </ul>
+  <p>As duas fichas vêm do próprio site oficial da Importway (importway.com.br), então não é erro de terceiro — é uma coincidência de nomenclatura do fabricante mesmo. Confira o código completo do modelo (com ou sem o "-10") no anúncio antes de comprar, principalmente se a inclinação for algo que você quer.</p>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem pesa entre 110 e 120 kg e por isso já está fora do limite da Polimet, da Sênior e da Dream Fitness — aqui é o único modelo do catálogo de entrada (fora a Cardio sem marca) que declara suportar esse peso. Também faz sentido para quem quer uma esteira compacta e dobrável no formato "2 em 1" (baixa, sem carenagem alta), controlável por aplicativo ou controle remoto.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Se pretende correr, 10 km/h e uma lona de 41 cm de largura são limites de caminhada, iguais ao resto da faixa de entrada. Se você valoriza garantia longa, 90 dias é um quarto do padrão de mercado (12 meses) e menos que a metade da Polimet e da Dream Fitness (6 meses cada). E se quer saber exatamente quanto o equipamento pesa antes de comprar — para avaliar se consegue mover sozinho — essa informação simplesmente não existe em nenhuma fonte oficial hoje.</p>
+
+  <h2>Motor: só "potência máxima", sem separar contínua de pico</h2>
+  <p>A ficha oficial da Importway lista uma única especificação de motor: "Potência máxima: 2.0hp". Isso é diferente do que a WCT Fitness faz, por exemplo, que declara pico (2,0 HP) e contínua (0,75 HP) separadamente. Sem essa separação, não dá para saber se os 2,0 HP da Importway são o que o motor sustenta rodando ou só o pico — tratamos isso como informação incompleta, não como confirmação de que é potência contínua real.</p>
+
+  <h2>Peso suportado: o maior da faixa de entrada, depois da Cardio</h2>
+  <p>120 kg é o segundo maior limite do nosso catálogo inteiro, atrás só da Cardio sem marca (150 kg, mas com ficha não verificável de forma independente) e da Athletic Racer (130 kg). Entre os modelos com fabricante identificável nessa faixa de preço, é o que aceita mais peso.</p>
+
+  <h2>Lona: 100 × 41 cm, mais larga que o padrão</h2>
+  <p>Os 41 cm de largura são mais generosos que os 33 cm da Polimet e da Dream Fitness — uma pisada com mais folga lateral, mesmo sendo, como toda a faixa de entrada, dimensionada para caminhada.</p>
+
+  <h2>Dobra, mas o peso do equipamento é [VERIFICAR]</h2>
+  <p>A Importway confirma que o modelo dobra manualmente (com trava e sistema de destravamento simples, segundo o material do fabricante) e vem com rodinhas de transporte. O que não existe em nenhuma fonte oficial é o peso do equipamento em si — nem no anúncio do Mercado Livre, nem no site do fabricante. Sem esse número, não dá para dizer com confiança se uma pessoa sozinha consegue mover a esteira depois de dobrada. Montada, ocupa 108 × 54 × 96 cm, segundo o material oficial do fabricante.</p>
+
+  <h2>Controle por aplicativo e controle remoto</h2>
+  <p>O painel aceita comando por controle remoto físico (ligar/desligar, ajustar velocidade, trocar programa) e por aplicativo de celular via Bluetooth, com apoio para encaixar o telefone na estrutura. O monitor embutido mostra velocidade, tempo, distância e calorias.</p>
+
+  <h2>Garantia: 90 dias</h2>
+  <p>É o mesmo que 3 meses — mais curta que os 6 meses da Polimet e da Dream Fitness, e um quarto do padrão de mercado (12 meses). A Importway é fabricante identificável, com site próprio, telefone fixo, WhatsApp e e-mail de atendimento — mas o prazo de cobertura em si é curto para a categoria.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>120 kg de peso máximo — maior que Polimet, Sênior e Dream Fitness</li>
+        <li>Lona mais larga (41 cm) que o padrão de entrada (33 cm)</li>
+        <li>Preço abaixo da Polimet EP-1600</li>
+        <li>Zero concorrência editorial — nenhuma outra review dedicada encontrada até agora</li>
+        <li>Fabricante identificável, com site, telefone e WhatsApp de atendimento</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Peso do equipamento não informado em nenhuma fonte oficial</li>
+        <li>Motor declarado só como "potência máxima", sem separar de contínua</li>
+        <li>Garantia de 90 dias, a mais curta entre fabricantes identificáveis do catálogo (empatada com a WCT Fitness)</li>
+        <li>Existe um modelo quase homônimo (IWEST2X1, sem "-10") com ficha diferente — fácil de confundir</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em setembro de 2026, a IWEST2X1-10 apareceu por <strong>R$ 1.055</strong> na loja oficial da Importway no Mercado Livre — 500 unidades vendidas, nota 4,7 com 189 avaliações. O mesmo modelo também consta no site oficial do fabricante (importway.com.br), sem preço público de venda direta ali (o site direciona para o Mercado Livre e Magazine Luiza).</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Importway IWEST2X1-10 é a mesma coisa que IWEST2X1?</h3>
+  <p>Não. São dois produtos diferentes do mesmo fabricante, com nomes parecidos: a IWEST2X1-10 suporta 120 kg e tem lona de 100×41 cm; a IWEST2X1 (sem o "-10") suporta 110 kg, tem lona de 92×38 cm e inclinação manual em 2 níveis. Confira o código completo antes de comprar.</p>
+
+  <h3>Qual o peso máximo suportado?</h3>
+  <p>120 kg, segundo a ficha do fabricante — o segundo maior limite do nosso catálogo, atrás só da Cardio sem marca e da Athletic Racer.</p>
+
+  <h3>Quanto pesa o equipamento?</h3>
+  <p>Não é informado em nenhuma fonte oficial que encontramos — nem no anúncio, nem no site do fabricante. Trate essa informação como [VERIFICAR] até confirmar diretamente com o vendedor antes de comprar, se isso for decisivo para você.</p>
+
+  <h3>Ela aguenta corrida?</h3>
+  <p>Não de forma confortável. Velocidade máxima de 10 km/h e lona de 100 cm de comprimento são medidas de caminhada, como a maioria do catálogo.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>90 dias (3 meses), direto do fabricante — abaixo dos 6 meses da Polimet e da Dream Fitness, e de menos de um terço do padrão de mercado em equipamento de ginástica (12 meses).</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> nosso <a href="/guias/esteira-acima-de-100kg">guia de esteira para quem pesa mais de 100 kg</a> — onde esse modelo se encaixa diretamente — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica publicada no site oficial da Importway (importway.com.br) e do anúncio da loja oficial no Mercado Livre, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Importway. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

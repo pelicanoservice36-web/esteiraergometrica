@@ -149,6 +149,20 @@ export const products = {
 		notes:
 			'Loja oficial WCT Fitness, maior volume do catálogo: 10.000 vendidos, 3.347 avaliações, nota 4,8. R$1.699 no Mercado Livre em setembro/2026 — mesmo produto no site oficial (wct.com.br) por R$1.720,90 (R$1.686,48 à vista), de R$3.199,90. Ficha técnica cruzada com o site oficial: potência de pico 2,0HP, mas potência CONTÍNUA de só 0,75HP — a mais fraca do catálogo mesmo sendo o maior volume de vendas. Lona 39×110cm, peso máx. 110kg, 31kg de equipamento, bivolt automático.',
 	},
+	'importway-iwest2x1-10': {
+		merchant: 'mercadolivre',
+		title: 'Importway IWEST2X1-10',
+		listingId: 'MLB34782946',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-ergometrica-dobravel-portatil-2-em-1-120kg-10kmh-20hp-importway-iwest2x1-10/p/MLB34782946',
+		affiliateUrl: 'https://meli.la/1jKzbqr',
+		affiliateProductId: 'HAPWBH-KFSV',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-11',
+		notes:
+			'Achada em varredura de baixa concorrência (Apify + checagem de SERP): 500 vendidos, 189 avaliações, nota 4,7, zero review editorial concorrente encontrada (só páginas de loja). Ficha cruzada com o site oficial (importway.com.br) — CUIDADO: a Importway tem dois produtos quase homônimos, "IWEST2X1" (110kg, lona 92×38cm, com inclinação) e "IWEST2X1-10" (120kg, lona 100×41cm, sem inclinação) — este anúncio (MLB34782946) é o IWEST2X1-10. Potência informada só como "máxima" (2.0hp), fabricante não declara contínua separadamente — [VERIFICAR] na review. Garantia de 90 dias.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

@@ -257,6 +257,7 @@ if (existsSync(dist)) {
 			'esteira-eletrica-dobravel-residencial-cardio': 4,
 				'athletic-racer': 4,
 				'wct-fitness-esteira': 4,
+				'importway-iwest2x1-10': 4,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -266,7 +267,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 25) diff.push(`total de CTAs: esperado 25, encontrado ${total}`);
+		if (total !== 29) diff.push(`total de CTAs: esperado 29, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
