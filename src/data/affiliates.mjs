@@ -176,6 +176,19 @@ export const products = {
 		notes:
 			'Pedido direto do usuário (não veio da varredura de baixa concorrência). Loja oficial GALLANT: 100 vendidos, 269 avaliações, nota 4,8, R$3.609 em setembro/2026. Marca Gallant pertence à Webcontinental. Ficha cruzada com o site oficial (gallantoficial.com.br) — a mais completa do catálogo: motor 2,9HP, 16km/h, lona 122×45cm, 130kg, inclinação manual hidráulica em 3 níveis, dobrável (sistema hidráulico), peso líquido 45kg / bruto 52,2kg, garantia 6 meses. ATENÇÃO: não é bivolt — este anúncio (MLB38668054) é a versão 220V (GEE13M29A-220PT); existe um anúncio separado da versão 127V (GEE13M29A-127PT, MLB66114997) com histórico de vendas bem menor. Não confundir com os outros modelos da linha Elite (GEE12M25A 2,5HP/120kg e GEE12M28A 2,8HP/120kg), que são produtos diferentes.',
 	},
+	'gallant-elite-gee12m28a': {
+		merchant: 'mercadolivre',
+		title: 'Gallant Elite GEE12M28A (2.8HP, 127V)',
+		listingId: 'MLB54762239',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-gallant-elite-28hp-16kmh-120kg-gee12m28a-127pt/p/MLB54762239',
+		affiliateUrl: 'https://meli.la/1R8M9vy',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-11',
+		notes:
+			'Pedido direto do usuário (não veio da varredura de baixa concorrência). Loja oficial GALLANT por Webcontinental: 1000+ vendidos, 242 avaliações, nota 4,8, R$2.498 em setembro/2026. Ficha cruzada com o site oficial (gallantoficial.com.br): motor 2,8HP, 1-16km/h, superfície de caminhada 122×42cm, 120kg, inclinação manual hidráulica em 3 níveis, dobrável (sistema hidráulico), 12 programas + 3 modos de contagem regressiva, display LED (não é o LCD de 5" do GEE13M29A), peso líquido 40,8kg / bruto 47,6kg, dimensões do produto 126,5×70,5×147cm, garantia 6 meses. ATENÇÃO: não é bivolt — este anúncio (MLB54762239) é a versão 127V (GEE12M28A-127PT); existe pelo menos um anúncio separado da versão 220V com histórico de vendas menor. Mesma linha "Elite" do GEE13M29A já publicado (2,9HP/130kg) e do GEE12M25A (2,5HP/120kg) — não confundir os três.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

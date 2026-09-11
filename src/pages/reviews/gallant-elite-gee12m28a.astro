@@ -1,0 +1,144 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('gallant-elite-gee12m28a');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Gallant Elite GEE12M28A',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Gallant' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '2498.00',
+		highPrice: '2498.00',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.8',
+		reviewCount: '242',
+		bestRating: '5',
+		worstRating: '1',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,8 HP' },
+	{ label: 'Velocidade máxima', value: '16 km/h' },
+	{ label: 'Lona', value: '122 × 42 cm' },
+	{ label: 'Peso máximo', value: '120 kg' },
+	{ label: 'Inclinação', value: 'Manual, 3 níveis' },
+	{ label: 'Garantia', value: '6 meses' },
+	{ label: 'Preço', value: 'R$ 2.498' },
+];
+---
+
+<ReviewLayout
+	title="Gallant Elite GEE12M28A é boa? Análise, ficha e preço"
+	description="Análise da esteira Gallant Elite GEE12M28A: motor 2,8 HP, 16 km/h, lona 122×42 cm, 120 kg e inclinação manual em 3 níveis, por R$ 2.498. Ficha cruzada com o site oficial da Gallant (Webcontinental) — a versão mais barata da linha Elite com inclinação, e o cuidado real com a voltagem, que não é bivolt."
+	path="/reviews/gallant-elite-gee12m28a"
+	ogTitle="Gallant Elite GEE12M28A é boa? Análise honesta"
+	ogDescription="2,8 HP, 16 km/h, 120 kg e inclinação manual em 3 níveis por R$ 2.498 — quase o mesmo desempenho da GEE13M29A por bem menos."
+	jsonLd={jsonLd}
+	h1="Gallant Elite GEE12M28A é boa?"
+	standfirst="Motor de 2,8 HP, 16 km/h e inclinação manual em 3 níveis — a mesma combinação que já elogiamos na Gallant Elite GEE13M29A, aqui por mais de R$ 1.100 a menos. A diferença de verdade fica no peso suportado (120 kg em vez de 130 kg) e num display mais simples."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em setembro de 2026, loja oficial GALLANT por Webcontinental no Mercado Livre — versão 127V. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">7,7<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>É a nota mais alta do catálogo depois da Athletic Racer — e, por pouco, até acima da própria irmã de linha, a Gallant Elite GEE13M29A. O motivo é simples: a GEE12M28A mantém os mesmos 16 km/h de velocidade máxima e a mesma inclinação manual em 3 níveis por R$ 2.498, quase R$ 1.100 abaixo da versão 2,9 HP. Você abre mão de 10 kg de peso suportado (120 kg em vez de 130 kg) e de 0,1 HP de motor — uma diferença pequena no papel — em troca de um preço bem mais competitivo.</p>
+    <p>Como a irmã de linha, essa também é uma ficha técnica transparente: a Gallant (marca da Webcontinental) publica peso líquido e bruto, dimensões do produto e da embalagem, sem vazios de dado. A diferença real de acabamento está no display, mais simples (LED, sem o LCD de 5" da versão 2,9 HP) — e, claro, na mesma atenção precisa: não é bivolt.</p>
+  </div>
+
+  <h2>Atenção real: a Gallant Elite não é bivolt</h2>
+  <p>A ficha oficial é explícita: "Voltagem: 127V ou 220V (Não é Bivolt)". Existem anúncios diferentes para o mesmo modelo GEE12M28A — um por voltagem —, e o anúncio desta análise (MLB54762239) é a versão <strong>127V</strong>. Confirme a rede elétrica da sua casa antes de comprar: ligar a versão errada não é um detalhe menor, é o equipamento simplesmente não funcionar.</p>
+  <p>Vale reparar também no código do modelo: a linha "Elite" da Gallant tem outros dois integrantes com nome parecido — o Elite 2.5 HP (GEE12M25A, 120 kg, 14 km/h) e o Elite 2.9 HP (GEE13M29A, 130 kg, 16 km/h, com display LCD de 5"), <a href="/reviews/gallant-elite-gee13m29a">já analisado aqui</a>. São produtos diferentes deste 2,8 HP, com peso suportado e acabamento de painel distintos. Confira o código completo (GEE12M28A) antes de fechar a compra.</p>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem quer a mesma combinação de velocidade máxima e inclinação manual da Gallant Elite GEE13M29A, mas sem precisar pagar o adicional pelos 10 kg extras de peso suportado e pelo display maior. Também faz sentido para quem valoriza inclinação — mesmo que manual — numa faixa de preço mais próxima da faixa intermediária do catálogo. E para quem faz questão de comprar de um fabricante com ficha técnica completa e conferível, sem vazios de informação.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Se você pesa perto do limite de 120 kg ou quer margem de segurança maior, vale pagar a diferença pela GEE13M29A (130 kg). Se seu orçamento está na faixa de R$ 1.000 a R$ 2.000, os modelos de entrada do catálogo entregam caminhada com folga por menos. E se você mora sozinho e vai precisar mover o equipamento sem ajuda, os 40,8 kg de peso líquido continuam pesados para esse cenário — dobrar não é o mesmo que ser fácil de carregar escada acima.</p>
+
+  <h2>Motor: 2,8 HP, praticamente empatado com a versão 2,9 HP</h2>
+  <p>Combinado aos 16 km/h de velocidade máxima — o mesmo teto da GEE13M29A e da Athletic Racer —, é ficha pensada para corrida, não só caminhada. Assim como a irmã de linha, a Gallant declara o motor como um único valor de "2,8 HP", sem separar potência contínua de pico como a WCT Fitness faz, e sem usar a palavra "máxima" para qualificá-lo — um sinal (não uma confirmação) de que o número já é o valor nominal contínuo.</p>
+
+  <h2>Peso suportado: 120 kg, 10 kg abaixo da GEE13M29A</h2>
+  <p>120 kg é a única diferença de especificação realmente relevante para a maioria das pessoas em relação à versão 2,9 HP (130 kg). Ainda fica acima da faixa de entrada do catálogo (110 kg da Polimet, Dream Fitness e WCT Fitness), mas abaixo do teto da Athletic Racer e da própria GEE13M29A.</p>
+
+  <h2>Lona: 122 × 42 cm, quase idêntica à da GEE13M29A</h2>
+  <p>Em comprimento, os 122 cm empatam com a versão 2,9 HP e ficam acima da Athletic Racer (126,5 cm, à frente por pouco) e do resto do catálogo. Em largura, os 42 cm são só 3 cm mais estreitos que os 45 cm da GEE13M29A — ainda assim mais largos que os 40 cm da Racer e bem acima dos 33 cm da Polimet e Dream Fitness.</p>
+
+  <h2>Inclinação manual em 3 níveis, com sistema hidráulico</h2>
+  <p>É o mesmo diferencial da GEE13M29A: o ajuste é manual — feito antes do treino, não pelo painel durante a corrida — mas assistido por um sistema hidráulico, segundo a ficha oficial. O painel em si controla velocidade e liga/desliga, sem botão dedicado de inclinação.</p>
+
+  <h2>Dobra, com 40,8 kg de peso líquido</h2>
+  <p>A Gallant Elite dobra por sistema hidráulico. Com 40,8 kg de peso líquido (47,6 kg com a embalagem), é um pouco mais leve que a GEE13M29A (45 kg), mas segue bem acima de modelos de entrada como a WCT Fitness (31 kg). Depois de dobrada, mover sozinho esse equipamento pela casa exige mais esforço físico do que os modelos de entrada do catálogo. As dimensões do produto montado são 126,5 × 70,5 × 147 cm (AxLxP).</p>
+
+  <h2>Display LED — mais simples que o da GEE13M29A</h2>
+  <p>Essa é a diferença de acabamento mais visível entre as duas versões da linha: a GEE12M28A traz um display de LED com botão de LED, enquanto a GEE13M29A tem um LCD de 5". O monitor de frequência cardíaca continua presente, medido por sensores no apoio de mão, junto com 12 programas pré-definidos, 3 modos de contagem regressiva, entrada auxiliar P2 para música e chave de segurança.</p>
+
+  <h2>Fabricante: Gallant, marca da Webcontinental</h2>
+  <p>A Gallant é uma marca própria da Webcontinental, uma rede varejista brasileira consolidada, com loja oficial tanto no site próprio (gallantoficial.com.br) quanto no Mercado Livre. A garantia é de 6 meses — igual à GEE13M29A, à Polimet e à Dream Fitness, e o dobro da garantia da Importway (90 dias) e da WCT Fitness (3 meses).</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Mesma velocidade máxima (16 km/h) e inclinação manual em 3 níveis da GEE13M29A, por mais de R$ 1.100 a menos</li>
+        <li>Lona quase idêntica à da versão 2,9 HP (122 × 42 cm)</li>
+        <li>Um dos poucos modelos do catálogo com inclinação, nessa faixa de preço</li>
+        <li>Ficha técnica completa e transparente: peso líquido, peso bruto, dimensões do produto e da embalagem, tudo publicado pelo fabricante</li>
+        <li>Fabricante identificável e consolidado (Webcontinental), garantia de 6 meses</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>120 kg de peso suportado — 10 kg abaixo da GEE13M29A</li>
+        <li>Display mais simples (LED), sem o LCD de 5" da versão 2,9 HP</li>
+        <li>40,8 kg de peso líquido — ainda pesada para mover sozinho, mesmo dobrando</li>
+        <li>Inclinação é manual, não elétrica — não dá para ajustar durante o treino</li>
+        <li>Não é bivolt: é preciso escolher o anúncio certo (127V ou 220V) antes de comprar</li>
+        <li>Motor declarado como valor único (2,8 HP), sem separar contínua de pico</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em setembro de 2026, a versão 127V da Gallant Elite GEE12M28A apareceu por <strong>R$ 2.498</strong> na loja oficial GALLANT por Webcontinental no Mercado Livre — mais de 1.000 unidades vendidas, nota 4,8 com 242 avaliações. A mesma linha também é vendida diretamente pela Webcontinental, dona da marca, através do site oficial da Gallant (gallantoficial.com.br) e da loja webcontinental.com.br.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A Gallant Elite GEE12M28A é bivolt?</h3>
+  <p>Não. A ficha oficial confirma: "127V ou 220V, não é bivolt". Existem anúncios separados por voltagem — confirme a rede elétrica da sua casa antes de comprar.</p>
+
+  <h3>Qual a diferença para a GEE13M29A e o Elite 2.5 HP?</h3>
+  <p>São modelos diferentes da mesma linha "Elite", e os três têm inclinação manual em 3 níveis. A <a href="/reviews/gallant-elite-gee13m29a">GEE13M29A</a> (2,9 HP) suporta 130 kg e tem display LCD de 5"; esta GEE12M28A (2,8 HP) suporta 120 kg e tem display LED, por um preço bem menor. O GEE12M25A (2,5 HP) também suporta 120 kg, mas tem velocidade máxima menor (14 km/h) e lona mais curta (110 cm).</p>
+
+  <h3>Tem inclinação elétrica?</h3>
+  <p>Não. A inclinação é manual, em 3 níveis, com sistema hidráulico de apoio. O painel controla velocidade e liga/desliga, sem comando de inclinação.</p>
+
+  <h3>Quanto pesa o equipamento?</h3>
+  <p>40,8 kg líquidos, segundo a ficha oficial (47,6 kg com a embalagem). Ela dobra, mas exige mais esforço para mover do que os modelos de entrada.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>6 meses, direto do fabricante — mesmo prazo da GEE13M29A, da Polimet e da Dream Fitness, e o dobro da garantia da Importway (90 dias) e da WCT Fitness (3 meses).</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> nossa análise da <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a> — a versão com mais peso suportado e display maior da mesma linha — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica publicada no site oficial da Gallant (gallantoficial.com.br) e do anúncio da loja oficial no Mercado Livre, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Gallant ou da Webcontinental. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>
