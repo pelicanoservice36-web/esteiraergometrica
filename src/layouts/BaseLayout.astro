@@ -51,19 +51,30 @@ const ogImageURL = new URL(ogImage, Astro.site);
 	gtag('js', new Date());
 	gtag('config', 'G-F3SC734W1X');
 
-	// A biblioteca do gtag (166 KiB) só carrega depois do load, pra não competir
-	// com o carregamento crítico da página — os comandos acima já ficam na fila
-	// do dataLayer e são processados assim que o script real chega.
+	// A biblioteca do gtag (166 KiB, ~600ms de main thread) só carrega em tempo
+	// ocioso de verdade, não no evento `load` — os comandos acima já ficam na
+	// fila do dataLayer e são processados assim que o script real chega.
+	// requestIdleCallback (em vez de window.load) evita que o parse/execução
+	// pesada do gtag caia bem em cima do carregamento do vídeo hero, que
+	// também dispara no load — as duas coisas competindo no mesmo instante
+	// era a causa real do forced reflow e do Total Blocking Time altos.
 	function loadGtagScript() {
 		var s = document.createElement('script');
 		s.async = true;
 		s.src = 'https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X';
 		document.head.appendChild(s);
 	}
+	function scheduleGtagLoad() {
+		if ('requestIdleCallback' in window) {
+			requestIdleCallback(loadGtagScript, { timeout: 4000 });
+		} else {
+			setTimeout(loadGtagScript, 2000);
+		}
+	}
 	if (document.readyState === 'complete') {
-		loadGtagScript();
+		scheduleGtagLoad();
 	} else {
-		window.addEventListener('load', loadGtagScript);
+		window.addEventListener('load', scheduleGtagLoad);
 	}
 </script>
 
