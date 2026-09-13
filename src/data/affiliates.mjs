@@ -189,6 +189,19 @@ export const products = {
 		notes:
 			'Pedido direto do usuário (não veio da varredura de baixa concorrência). Loja oficial GALLANT por Webcontinental: 1000+ vendidos, 242 avaliações, nota 4,8, R$2.498 em setembro/2026. Ficha cruzada com o site oficial (gallantoficial.com.br): motor 2,8HP, 1-16km/h, superfície de caminhada 122×42cm, 120kg, inclinação manual hidráulica em 3 níveis, dobrável (sistema hidráulico), 12 programas + 3 modos de contagem regressiva, display LED (não é o LCD de 5" do GEE13M29A), peso líquido 40,8kg / bruto 47,6kg, dimensões do produto 126,5×70,5×147cm, garantia 6 meses. ATENÇÃO: não é bivolt — este anúncio (MLB54762239) é a versão 127V (GEE12M28A-127PT); existe pelo menos um anúncio separado da versão 220V com histórico de vendas menor. Mesma linha "Elite" do GEE13M29A já publicado (2,9HP/130kg) e do GEE12M25A (2,5HP/120kg) — não confundir os três.',
 	},
+	'podiumfit-x300': {
+		merchant: 'mercadolivre',
+		title: 'PodiumFit X300',
+		listingId: 'MLB53462403',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-podiumfit-x300-silenciosa-dobravel-12km-preto/p/MLB53462403',
+		affiliateUrl: 'https://meli.la/1zUr5xC',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-13',
+		notes:
+			'Achada em varredura de baixa concorrência. Loja oficial PODIUMFIT: 1000+ vendidos, 385 avaliações, nota 4,7, R$2.534 em setembro/2026. Ficha cruzada com o site oficial (podiumfit.com.br) — completa: motor 2,0 HPM, 1-12km/h, lona 110×40cm, 12 programas, dobrável, dimensões montada 136×60×116cm e dobrada 56×60×126cm, dois porta-objetos, amortecedores, rodízios, peso máximo do usuário 110kg, peso do produto 30kg, bivolt, garantia 90 dias.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

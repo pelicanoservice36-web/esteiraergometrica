@@ -1,0 +1,132 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('podiumfit-x300');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'PodiumFit X300',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'PodiumFit' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '2534.00',
+		highPrice: '2534.00',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.7',
+		reviewCount: '385',
+		bestRating: '5',
+		worstRating: '1',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,0 HPM' },
+	{ label: 'Velocidade máxima', value: '12 km/h' },
+	{ label: 'Lona', value: '110 × 40 cm' },
+	{ label: 'Peso máximo', value: '110 kg' },
+	{ label: 'Peso do equipamento', value: '30 kg' },
+	{ label: 'Garantia', value: '90 dias' },
+	{ label: 'Preço', value: 'R$ 2.534' },
+];
+---
+
+<ReviewLayout
+	title="PodiumFit X300 é boa? Análise, ficha técnica e preço"
+	description="Análise da esteira PodiumFit X300: motor 2,0 HPM, 12 km/h, lona 110×40 cm, 110 kg e 30 kg de peso próprio, por R$ 2.534. Ficha cruzada com o site oficial da PodiumFit — a mais completa entre os modelos de meio de tabela do nosso catálogo."
+	path="/reviews/podiumfit-x300"
+	ogTitle="PodiumFit X300 é boa? Análise honesta"
+	ogDescription="2,0 HPM, 12 km/h e 110 kg por R$ 2.534 — ficha cruzada com o site oficial do fabricante, sem vazios de dado."
+	jsonLd={jsonLd}
+	h1="PodiumFit X300 é boa?"
+	standfirst="Motor de 2,0 HPM e 12 km/h em uma esteira dobrável de 30 kg, com ficha técnica cruzada direto no site oficial da PodiumFit — algo que faltou em boa parte do que pesquisamos nesta rodada. O preço de R$ 2.534 fica acima da faixa de entrada do catálogo, então vale entender exatamente o que ele compra."
+	updated="setembro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em setembro de 2026, loja oficial PODIUMFIT no Mercado Livre. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">6,5<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>É uma esteira de meio de tabela honesta: motor de 2,0 HPM e 12 km/h ficam acima da faixa de entrada do catálogo (1,6 HP e 9-10 km/h), mas abaixo do segundo escalão (Gallant, Importway-não-comparável em preço, Athletic Racer). O que mais pesa a favor dela não é a ficha em si, é a transparência por trás — a PodiumFit publica no próprio site as dimensões montada e dobrada, peso do equipamento e garantia, sem vazios de informação.</p>
+    <p>O ponto de atenção real é o preço frente à concorrência direta: por R$ 2.534, ela custa mais que a WCT Fitness (R$ 1.699, embora com motor contínuo mais fraco) e mais que a Dream Fitness, sem uma vantagem de motor ou velocidade grande o suficiente para justificar sozinha a diferença — o que compra aqui é sobretudo a garantia mais curta (90 dias) mas a marca com loja própria e ficha auditável.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem já pesquisou os modelos de entrada do catálogo (Polimet, Dream Fitness) e quer um degrau a mais de motor e velocidade sem pular direto para a faixa de R$ 3.500+ da Gallant. Também faz sentido para quem valoriza comprar de um fabricante com site próprio, loja oficial consolidada no Mercado Livre e ficha técnica conferível — sem precisar confiar só no que está escrito no anúncio.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Se o orçamento está na faixa de R$ 1.000 a R$ 2.000, os modelos de entrada do catálogo entregam caminhada com folga por bem menos. Se você pesa perto do limite de 110 kg, vale considerar um modelo com capacidade maior (Importway ou Gallant, ambos com 120 kg). E a garantia de 90 dias é a segunda mais curta do catálogo, atrás só da WCT Fitness (3 meses) — quem valoriza cobertura mais longa encontra 6 meses ou mais em outros modelos por preço parecido ou menor.</p>
+
+  <h2>Motor: 2,0 HPM, acima da faixa de entrada</h2>
+  <p>O site oficial declara "Motor: 2.0 HPM (Silencioso)" — sem separar potência contínua de pico, mas também sem qualificar o número como "máxima", o mesmo padrão que já vimos em outras fichas do catálogo e que tratamos como sinal (não confirmação) de que é o valor nominal contínuo. Combinado aos 12 km/h de velocidade máxima, é ficha pensada para caminhada rápida e trote leve, não para corrida sustentada.</p>
+
+  <h2>Lona: 110 × 40 cm, dentro da média</h2>
+  <p>Os 110 cm de comprimento ficam na faixa intermediária do catálogo — mais curta que a Gallant (122 cm) e a Athletic Racer (126,5 cm), mas mais longa que a faixa de entrada (95-100 cm da Polimet e Importway). Os 40 cm de largura acompanham o padrão da Athletic Racer.</p>
+
+  <h2>Peso máximo: 110 kg, o mesmo da faixa de entrada</h2>
+  <p>Apesar do motor mais forte, o limite de peso do usuário fica igual ao dos modelos de entrada (Polimet, Dream Fitness, WCT Fitness) — não acompanha o salto de motor e velocidade. Quem pesa perto desse limite não ganha folga extra pagando mais por este modelo.</p>
+
+  <h2>Dobrável, com 30 kg — leve para a categoria</h2>
+  <p>Com 30 kg, é mais leve que a Gallant Elite (40,8-45 kg) e fica na faixa da Importway. O site oficial declara dimensões montada (136 × 60 × 116 cm) e dobrada (56 × 60 × 126 cm), além de rodízios para ajudar na locomoção — informação que faltou em vários outros modelos desta rodada.</p>
+
+  <h2>Painel, programas e acessórios</h2>
+  <p>Display LCD azul com velocidade, tempo, distância, calorias e função scan. Vem com 12 programas pré-definidos, dois porta-objetos e amortecedores para reduzir o impacto durante o treino. Bivolt automático.</p>
+
+  <h2>Fabricante: PodiumFit, com site próprio e loja oficial</h2>
+  <p>A PodiumFit vende tanto pelo site próprio (podiumfit.com.br) quanto por loja oficial no Mercado Livre, com histórico de mais de 1.000 vendas nesse anúncio específico e 385 avaliações (nota 4,7). A garantia declarada é de 90 dias — mais curta que a maioria do catálogo, exceto a WCT Fitness (3 meses, empatada).</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Motor de 2,0 HPM e 12 km/h — acima da faixa de entrada do catálogo</li>
+        <li>Ficha técnica completa e transparente: dimensões montada e dobrada, peso do equipamento e garantia, tudo publicado pelo fabricante</li>
+        <li>30 kg de peso próprio — leve para a categoria, com rodízios para movimentação</li>
+        <li>Fabricante com site próprio e loja oficial consolidada, mais de 1.000 vendas no anúncio</li>
+        <li>Dois porta-objetos e amortecedores de impacto</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Peso máximo de 110 kg não acompanha o salto de motor — mesmo limite dos modelos de entrada</li>
+        <li>Garantia de 90 dias, a segunda mais curta do catálogo</li>
+        <li>Preço acima da WCT Fitness e Dream Fitness sem vantagem de motor grande o suficiente para justificar isso sozinho</li>
+        <li>Motor declarado como valor único (2,0 HPM), sem separar contínua de pico</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em setembro de 2026, a PodiumFit X300 apareceu por <strong>R$ 2.534</strong> na loja oficial PODIUMFIT no Mercado Livre — mais de 1.000 unidades vendidas, nota 4,7 com 385 avaliações. A mesma linha também é vendida pelo site oficial da marca (podiumfit.com.br).</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A PodiumFit X300 é boa para corrida?</h3>
+  <p>Não é o foco dela. Com 12 km/h de velocidade máxima, é uma esteira pensada para caminhada rápida e trote leve — para corrida sustentada, a Athletic Racer ou a Gallant Elite entregam mais.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>90 dias, direto do fabricante — a segunda garantia mais curta do nosso catálogo, à frente só da WCT Fitness (3 meses).</p>
+
+  <h3>Quanto pesa o equipamento?</h3>
+  <p>30 kg, segundo o site oficial — mais leve que a maioria dos modelos de motor equivalente ou superior no catálogo, com rodízios para facilitar a movimentação.</p>
+
+  <h3>É bivolt?</h3>
+  <p>Sim, bivolt automático, segundo a ficha do fabricante.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> nosso <a href="/guias/como-escolher">guia de como escolher uma esteira</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica publicada no site oficial da PodiumFit (podiumfit.com.br) e do anúncio da loja oficial no Mercado Livre, consultados em setembro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da PodiumFit. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>
