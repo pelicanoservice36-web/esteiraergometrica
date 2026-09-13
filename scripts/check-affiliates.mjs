@@ -265,7 +265,7 @@ if (existsSync(dist)) {
 				'strive-25hp-16kmh': 3,
 				'redfin-150kg': 3,
 				'health-herald-lcd': 3,
-				'antuvi-mesa': 3,
+				'antuvi-mesa': 4,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -275,7 +275,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 56) diff.push(`total de CTAs: esperado 56, encontrado ${total}`);
+		if (total !== 57) diff.push(`total de CTAs: esperado 57, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

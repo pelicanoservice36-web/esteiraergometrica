@@ -256,7 +256,7 @@ export const products = {
 	},
 	'antuvi-mesa': {
 		merchant: 'mercadolivre',
-		title: 'Antuvi Esteira Elétrica de Mesa (Dobrável)',
+		title: 'Antuvi Esteira Elétrica Ergométrica (marca declarada "Geral")',
 		listingId: 'MLB63778249',
 		productUrl: 'https://www.mercadolivre.com.br/p/MLB63778249',
 		affiliateUrl: 'https://meli.la/1tgCGPc',
@@ -264,7 +264,7 @@ export const products = {
 		enabled: true,
 		verifiedAt: '2026-09-13',
 		notes:
-			'Última pendência da varredura de baixa concorrência — dados capturados antes da cota do Apify travar, link e imagem enviados pelo usuário depois. Loja oficial "GERAL por Antuvi": 500 vendidos, 319 avaliações, nota 4,7, R$1.453 em setembro/2026. Não foi possível recuperar o título completo do anúncio (Apify bloqueado; API pública do ML e URL direta também bloqueadas por antibot). [VERIFICAR] motor, velocidade máxima, lona, peso suportado, inclinação e garantia — nenhum confirmado em texto. Formato aparente nas fotos: esteira de mesa/walking pad de perfil baixo, dobradiça visível, controle remoto, mostrador com tempo/velocidade/distância/calorias, chamada gráfica de "6°" de inclinação (marketing, não confirmado em texto — mesmo tratamento dado ao "15% Auto Incline" da Strive). Publicada SEM nota editorial e FORA da tabela comparativa da home — ficha ainda mais incompleta que as outras 4 parciais desta rodada.',
+			'Última pendência da varredura de baixa concorrência. Apify travado a sessão toda (cota mensal); usuário enviou link, imagem e depois a ficha técnica e um screenshot do anúncio direto, o que permitiu completar os dados. Título do anúncio: "Esteira Elétrica Ergométrica Ginástica Inclinação 12km 2.5hp Preto". Loja "Antuvi" no Mercado Livre — a ficha técnica declara a MARCA como "Geral" (não "Antuvi"; mesmo padrão sem marca real da Esteira Cardio/"Genérica"). +500 vendidos, nota 4,7, 280 avaliações (número revisado — uma captura anterior, antes do bloqueio do Apify, tinha registrado 319, divergência não explicada, usar 280 por vir de screenshot direto do anúncio), selo "Mais vendido" (14º em Esteira Ergométrica), R$1.580,24 em setembro/2026 (revisado de uma captura anterior de R$1.453, também superada pelo screenshot direto). CONFIRMADO pela ficha técnica do próprio anúncio: motor 2,5 HP (não separa contínua de pico), velocidade máxima 12km/h, superfície para correr 100×38cm, peso máximo do usuário 100kg, peso do equipamento 15kg, NÃO é dobrável (tem rodas), tem tela com tempo/velocidade/distância/calorias, função adicional "Stepper" (não detalhada), não requer montagem, modelo HD020, voltagem por seleção (visto 220V como opção, não confirmado bivolt automático). Inclinação confirmada como existente pelo título do anúncio, mas grau não especificado em texto — a imagem promocional usa uma chamada gráfica de "6°" que NÃO tratamos como confirmado (mesmo critério da Strive/"15% Auto Incline"). [VERIFICAR] apenas garantia — não encontrada em nenhuma fonte. Dado o quanto foi confirmado (só garantia falta), promovida de "parcial sem nota" para análise completa com nota editorial (5,5/10) — ver cálculo em metodologia.astro. NA tabela comparativa da home e em metodologia.astro.',
 	},
 };
 
