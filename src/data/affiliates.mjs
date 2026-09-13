@@ -254,6 +254,18 @@ export const products = {
 		notes:
 			'Achada em varredura de baixa concorrência. Loja oficial HEALTH HERALD: 1000+ vendidos, 697 avaliações (maior número da rodada), nota 4,8, R$719,70 em setembro/2026. Confirmado pelo título: dobrável, painel LCD, controle remoto. [VERIFICAR] motor, velocidade máxima, lona, peso suportado e garantia — nenhum divulgado no anúncio, sem site de fabricante independente localizado. É a ficha mais incompleta do catálogo — publicada mesmo assim pelo volume de avaliações, SEM nota editorial e FORA da tabela comparativa da home.',
 	},
+	'antuvi-mesa': {
+		merchant: 'mercadolivre',
+		title: 'Antuvi Esteira Elétrica de Mesa (Dobrável)',
+		listingId: 'MLB63778249',
+		productUrl: 'https://www.mercadolivre.com.br/p/MLB63778249',
+		affiliateUrl: 'https://meli.la/1tgCGPc',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-13',
+		notes:
+			'Última pendência da varredura de baixa concorrência — dados capturados antes da cota do Apify travar, link e imagem enviados pelo usuário depois. Loja oficial "GERAL por Antuvi": 500 vendidos, 319 avaliações, nota 4,7, R$1.453 em setembro/2026. Não foi possível recuperar o título completo do anúncio (Apify bloqueado; API pública do ML e URL direta também bloqueadas por antibot). [VERIFICAR] motor, velocidade máxima, lona, peso suportado, inclinação e garantia — nenhum confirmado em texto. Formato aparente nas fotos: esteira de mesa/walking pad de perfil baixo, dobradiça visível, controle remoto, mostrador com tempo/velocidade/distância/calorias, chamada gráfica de "6°" de inclinação (marketing, não confirmado em texto — mesmo tratamento dado ao "15% Auto Incline" da Strive). Publicada SEM nota editorial e FORA da tabela comparativa da home — ficha ainda mais incompleta que as outras 4 parciais desta rodada.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
