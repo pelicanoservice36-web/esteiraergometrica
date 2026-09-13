@@ -202,6 +202,58 @@ export const products = {
 		notes:
 			'Achada em varredura de baixa concorrência. Loja oficial PODIUMFIT: 1000+ vendidos, 385 avaliações, nota 4,7, R$2.534 em setembro/2026. Ficha cruzada com o site oficial (podiumfit.com.br) — completa: motor 2,0 HPM, 1-12km/h, lona 110×40cm, 12 programas, dobrável, dimensões montada 136×60×116cm e dobrada 56×60×126cm, dois porta-objetos, amortecedores, rodízios, peso máximo do usuário 110kg, peso do produto 30kg, bivolt, garantia 90 dias.',
 	},
+	'qbuen-150kg': {
+		merchant: 'mercadolivre',
+		title: 'QBuen Esteira Elétrica (até 150 kg)',
+		listingId: 'MLB65525774',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-qbuen-para-casa-com-inclinacao-de-0-6-e-suporte-ate-150-kg/p/MLB65525774',
+		affiliateUrl: 'https://meli.la/2yycfWx',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-13',
+		notes:
+			'Achada em varredura de baixa concorrência. Loja oficial QBUEN: 500+ vendidos, 257 avaliações, nota 4,6, R$1.325 em setembro/2026. [VERIFICAR] motor, velocidade máxima, lona e garantia — não divulgados no anúncio nem em site de fabricante independente (não localizado). Título do anúncio confirma só "inclinação de 0-6%" e "suporte até 150kg". Uma fonte externa citou ficha de um produto QBuen diferente (Amazon, modelo AT-1379, 2,5HP, 120kg) que NÃO usamos por declarar capacidade diferente (120kg vs 150kg deste anúncio), indicando ser modelo distinto. Publicada SEM nota editorial e FORA da tabela comparativa da home — só na grade de análises.',
+	},
+	'strive-25hp-16kmh': {
+		merchant: 'mercadolivre',
+		title: 'Strive 2.5HP 16km/h (New Speed)',
+		listingId: 'MLB68421626',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-strive-25hp-16kmh-com-inclinacao-preto/p/MLB68421626',
+		affiliateUrl: 'https://meli.la/2fQyqer',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-13',
+		notes:
+			'Achada em varredura de baixa concorrência. Loja oficial "STRIVE por New Speed": 100 vendidos, 27 avaliações, nota 5,0, R$2.658 (24% off de R$3.499) em setembro/2026. Confirmado pelo título: motor 2,5HP e 16km/h. [VERIFICAR] lona, peso suportado e garantia — não divulgados. Imagem promocional alega "15% Auto Incline" mas isso NÃO está confirmado em nenhuma fonte independente — não usar como fato. ATENÇÃO: reclamação pública no Reclame Aqui contra a New Speed (modelo FT400, não a Strive) sobre dificuldade de acionar garantia — não confirmado se se aplica a esta linha, mas registrado na review. Publicada SEM nota editorial e FORA da tabela comparativa da home.',
+	},
+	'redfin-150kg': {
+		merchant: 'mercadolivre',
+		title: 'Redfin Esteira Elétrica (até 150 kg)',
+		listingId: 'MLB73035446',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-com-controle-remoto-treino-cardio-caminhada-casa-academia-150kg/p/MLB73035446',
+		affiliateUrl: 'https://meli.la/1GbL3gp',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-13',
+		notes:
+			'Achada em varredura de baixa concorrência. Loja oficial "REDFIN por Alpha Ecom": 1000+ vendidos, 423 avaliações, nota 4,8 (maior volume da rodada), R$716,66 em setembro/2026. Confirmado pelo título: "150kg" e controle remoto. [VERIFICAR] motor, velocidade máxima, lona e garantia — não divulgados. CUIDADO: existem múltiplos anúncios "Redfin"/"Redfin Ideal"/"Sevenfit Redfin Kamaré" de lojas diferentes com fichas que não batem entre si — uma variante relacionada ("Redfin Ideal IDL-227") aparece em comparador de preços com ficha de 2,5HP/6km/h/90x40cm, mas NÃO confirmamos que é o mesmo produto deste anúncio específico, então não usamos esse dado aqui. Publicada SEM nota editorial e FORA da tabela comparativa da home.',
+	},
+	'health-herald-lcd': {
+		merchant: 'mercadolivre',
+		title: 'Health Herald Esteira Elétrica (Painel LCD)',
+		listingId: 'MLB65574846',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-dobravel-eletrica-com-painel-lcd-e-controle-remoto-para-casa-academia-preta/p/MLB65574846',
+		affiliateUrl: 'https://meli.la/2Rif86M',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-13',
+		notes:
+			'Achada em varredura de baixa concorrência. Loja oficial HEALTH HERALD: 1000+ vendidos, 697 avaliações (maior número da rodada), nota 4,8, R$719,70 em setembro/2026. Confirmado pelo título: dobrável, painel LCD, controle remoto. [VERIFICAR] motor, velocidade máxima, lona, peso suportado e garantia — nenhum divulgado no anúncio, sem site de fabricante independente localizado. É a ficha mais incompleta do catálogo — publicada mesmo assim pelo volume de avaliações, SEM nota editorial e FORA da tabela comparativa da home.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
