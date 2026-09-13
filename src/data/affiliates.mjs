@@ -230,7 +230,7 @@ export const products = {
 	},
 	'redfin-150kg': {
 		merchant: 'mercadolivre',
-		title: 'Redfin Esteira Elétrica (até 150 kg)',
+		title: 'Redfin Ideal DL-227 (até 150 kg)',
 		listingId: 'MLB73035446',
 		productUrl:
 			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-com-controle-remoto-treino-cardio-caminhada-casa-academia-150kg/p/MLB73035446',
@@ -239,7 +239,7 @@ export const products = {
 		enabled: true,
 		verifiedAt: '2026-09-13',
 		notes:
-			'Achada em varredura de baixa concorrência. Loja oficial "REDFIN por Alpha Ecom": 1000+ vendidos, 423 avaliações, nota 4,8 (maior volume da rodada), R$716,66 em setembro/2026. Confirmado pelo título: "150kg" e controle remoto. [VERIFICAR] motor, velocidade máxima, lona e garantia — não divulgados. CUIDADO: existem múltiplos anúncios "Redfin"/"Redfin Ideal"/"Sevenfit Redfin Kamaré" de lojas diferentes com fichas que não batem entre si — uma variante relacionada ("Redfin Ideal IDL-227") aparece em comparador de preços com ficha de 2,5HP/6km/h/90x40cm, mas NÃO confirmamos que é o mesmo produto deste anúncio específico, então não usamos esse dado aqui. Publicada SEM nota editorial e FORA da tabela comparativa da home.',
+			'Achada em varredura de baixa concorrência. Loja "Redfin": 1000+ vendidos, R$716,66 (40% off de R$1.199) em setembro/2026 (screenshot direto do anúncio enviado pelo usuário) — o segundo menor preço do catálogo, atrás só da Esteira Cardio genérica (R$640). Avaliações revisadas para 4,8/426 (captura anterior tinha 423, divergência mínima). Usuário enviou ficha técnica completa, confirmando: linha "Ideal", modelo "DL-227", motor 2,5HP (não separa contínua de pico), velocidade máxima 6km/h (a mais baixa do catálogo), peso máximo 150kg, lona 90×40cm (a mais curta confirmada do catálogo), peso do equipamento 18kg, É dobrável: Sim (o mais leve entre os dobráveis do catálogo), inclinação MANUAL de 1 posição só. Ficha do anúncio é CONTRADITÓRIA: declara "Inclui display: Não" e "Com tela: Não", mas também lista "Informações do painel: Calorias, Distância, Passos, Tempo, Velocidade" — não resolvido, registrado na review. [VERIFICAR] apenas garantia — não divulgada em nenhuma fonte. IMPORTANTE: a ficha confirma que a variante "Redfin Ideal DL-227" (nome ligeiramente diferente do "IDL-227" citado por uma fonte externa antes) é de fato este anúncio (MLB73035446) — a cautela anterior sobre não usar dados de uma fonte externa não confirmada estava correta como precaução, mas o próprio anúncio agora confirma os mesmos números. CUIDADO mantido: existem múltiplas lojas "Redfin"/"Sevenfit Redfin Kamaré" no ML vendendo produtos diferentes — confirmar que é este anúncio específico antes de comprar. Promovida de "parcial sem nota" para análise completa com nota editorial (6,7/10) — ver metodologia.astro. NA tabela comparativa da home e em metodologia.astro.',
 	},
 	'health-herald-lcd': {
 		merchant: 'mercadolivre',

@@ -263,7 +263,7 @@ if (existsSync(dist)) {
 				'podiumfit-x300': 4,
 				'qbuen-150kg': 4,
 				'strive-25hp-16kmh': 4,
-				'redfin-150kg': 3,
+				'redfin-150kg': 4,
 				'health-herald-lcd': 3,
 				'antuvi-mesa': 4,
 		};
@@ -275,7 +275,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 59) diff.push(`total de CTAs: esperado 59, encontrado ${total}`);
+		if (total !== 60) diff.push(`total de CTAs: esperado 60, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
