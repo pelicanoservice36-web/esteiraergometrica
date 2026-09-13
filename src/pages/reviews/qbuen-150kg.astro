@@ -7,46 +7,48 @@ const buyUrl = buyHref('qbuen-150kg');
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
-	name: 'QBuen Esteira Elétrica (até 150 kg)',
+	name: 'QBuen Esteira Elétrica AT-1271 (até 150 kg)',
 	category: 'Esteira ergométrica',
 	brand: { '@type': 'Brand', name: 'QBuen' },
 	offers: {
 		'@type': 'AggregateOffer',
 		priceCurrency: 'BRL',
-		lowPrice: '1325.00',
-		highPrice: '1325.00',
+		lowPrice: '1325.99',
+		highPrice: '1325.99',
 		offerCount: '1',
 		availability: 'https://schema.org/InStock',
 	},
 	aggregateRating: {
 		'@type': 'AggregateRating',
 		ratingValue: '4.6',
-		reviewCount: '257',
+		reviewCount: '237',
 		bestRating: '5',
 		worstRating: '1',
 	},
 };
 
 const fichaItems = [
-	{ label: 'Motor', value: '[VERIFICAR]' },
-	{ label: 'Velocidade máxima', value: '[VERIFICAR]' },
-	{ label: 'Lona', value: '[VERIFICAR]' },
+	{ label: 'Motor', value: '2 HP (anúncio não separa contínua de pico)' },
+	{ label: 'Velocidade máxima', value: '12 km/h' },
+	{ label: 'Lona', value: 'Largura 40 cm confirmada; comprimento não divulgado' },
 	{ label: 'Peso máximo', value: '150 kg' },
-	{ label: 'Inclinação', value: '0 a 6% (mecanismo não especificado)' },
+	{ label: 'Peso do equipamento', value: '24,5 kg' },
+	{ label: 'É dobrável', value: 'Sim' },
+	{ label: 'Inclinação', value: '0 a 6%, elétrica (motorizada, pelo painel)' },
 	{ label: 'Garantia', value: '[VERIFICAR]' },
-	{ label: 'Preço', value: 'R$ 1.325' },
+	{ label: 'Preço', value: 'R$ 1.325,99' },
 ];
 ---
 
 <ReviewLayout
-	title="QBuen esteira 150kg é boa? O que sabemos e o que falta"
-	description="Análise honesta da esteira QBuen com inclinação de 0 a 6% e suporte até 150 kg, por R$ 1.325 na loja oficial. Motor, velocidade e lona não são divulgados pelo vendedor — explicamos exatamente o que confirmamos e o que fica em aberto."
+	title="QBuen AT-1271 é boa? Ficha técnica e nota editorial"
+	description="Análise da esteira QBuen AT-1271: motor 2 HP, 12 km/h, até 150 kg, dobrável (24,5 kg), inclinação elétrica de 0 a 6%, por R$ 1.325,99. Comprimento da lona e garantia não são divulgados."
 	path="/reviews/qbuen-150kg"
-	ogTitle="QBuen esteira 150kg: o que dá pra confirmar"
-	ogDescription="150 kg de capacidade e inclinação até 6% por R$ 1.325 — mas motor, velocidade e lona não aparecem em nenhuma fonte confiável. Análise sem nota editorial até termos ficha completa."
+	ogTitle="QBuen AT-1271: análise honesta"
+	ogDescription="2 HP, 12 km/h, até 150 kg e inclinação elétrica por R$ 1.325,99 — mas o comprimento da lona e a garantia não aparecem em nenhuma fonte."
 	jsonLd={jsonLd}
-	h1="QBuen esteira 150kg é boa?"
-	standfirst="A QBuen se destaca no catálogo por dois números que o próprio anúncio confirma: suporta até 150 kg e tem inclinação ajustável de 0 a 6%. O problema é tudo o que vem depois — motor, velocidade máxima e tamanho da lona não aparecem em nenhuma fonte que conseguimos verificar, nem no anúncio, nem no fabricante."
+	h1="QBuen AT-1271 é boa?"
+	standfirst="A QBuen (modelo AT-1271) já tinha dois diferenciais confirmados desde o título do anúncio: até 150 kg de peso suportado e inclinação de 0 a 6%. Com a ficha técnica completa, dá pra confirmar mais: motor de 2 HP, 12 km/h, dobrável com 24,5 kg, inclinação elétrica (motorizada). Falta só o comprimento da lona e a garantia — dado suficiente para calcular nota editorial pela primeira vez nesta análise."
 	updated="setembro de 2026"
 	fichaItems={fichaItems}
 	buyHref={buyUrl}
@@ -55,71 +57,77 @@ const fichaItems = [
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
-    <p>Esta análise não tem nota editorial. Nossa metodologia calcula a nota a partir de sete critérios — e três deles (motor, velocidade e lona) dependem de dados que a QBuen simplesmente não divulga neste anúncio, nem no restante do que conseguimos pesquisar sobre a marca. Preferimos publicar sem nota a estimar um número sem base real: <a href="/metodologia">veja como calculamos</a> para entender por quê.</p>
-    <p>O que dá pra afirmar com confiança: é uma esteira de loja oficial (QBUEN, mais de 500 vendas e 257 avaliações com nota 4,6), com dois diferenciais reais frente à faixa de entrada do catálogo — suporta até 150 kg (acima do limite de 110-120 kg da maioria) e tem inclinação ajustável de 0 a 6%, recurso raro nessa faixa de preço.</p>
+    <p class="edit-score"><span class="edit-score__value">6,4<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>Com a ficha técnica em mãos, a QBuen sobe de "análise sem nota" para uma nota de meio de tabela, puxada pra cima pelos 150 kg de peso suportado (o maior confirmado com clareza no nosso catálogo) e pela praticidade — dobra e pesa só 24,5 kg. O que segura a nota é o critério de confiabilidade: a marca é identificável (QBuen, modelo AT-1271, mais transparente que um anúncio "Genérica"), mas a garantia não aparece em nenhuma fonte e não localizamos site de fabricante independente.</p>
+    <p>O comprimento da lona também não é informado — só a largura (40 cm). Usamos a banda mais conservadora da nossa metodologia para esse critério em vez de presumir um valor melhor sem confirmação, o que significa que a nota real pode ser um pouco mais alta do que calculamos aqui, nunca mais baixa.</p>
   </div>
 
-  <h2>O que confirmamos — e o que não confirmamos</h2>
-  <p>O título do próprio anúncio garante dois dados: "Com Inclinação de 0-6%" e "Suporte Até 150 kg". Fomos atrás de uma ficha técnica completa e não encontramos: o anúncio não lista potência do motor, velocidade máxima nem dimensões da lona em nenhum lugar que conseguimos acessar, e a QBuen não tem site de fabricante próprio identificável. Uma busca externa encontrou uma "ficha técnica" citando um produto QBuen vendido na Amazon (modelo AT-1379, motor 2,5HP, lona 95×39cm) — mas esse produto declara capacidade de 120 kg, não os 150 kg deste anúncio, o que indica que é um modelo diferente, não a mesma esteira. Por isso não usamos esses números aqui: aplicá-los seria arriscar publicar a ficha errada.</p>
-
-  <h2>Para quem essa esteira pode fazer sentido</h2>
-  <p>Para quem precisa especificamente de uma esteira que suporte mais de 130 kg e valoriza inclinação ajustável, e está disposto a comprar sem uma ficha técnica completa — apoiado só no histórico de vendas (500+) e avaliações (257, nota 4,6) da loja oficial. Se motor e velocidade forem decisivos para sua escolha, vale perguntar diretamente ao vendedor antes de comprar, ou considerar um modelo com ficha mais transparente, como a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite</a> ou a <a href="/reviews/podiumfit-x300">PodiumFit X300</a>.</p>
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem precisa especificamente de uma esteira que suporte mais de 130 kg, valoriza inclinação elétrica ajustável pelo painel (não manual) e quer um modelo dobrável e leve de mover (24,5 kg) por um preço de entrada (R$ 1.325,99). É uma combinação de peso suportado + praticidade que não aparece junta em nenhum outro modelo desta faixa de preço no catálogo.</p>
 
   <h2>Para quem não faz sentido</h2>
-  <p>Se você quer comparar motor e velocidade antes de decidir — o critério mais importante para quem corre, não só caminha — este anúncio não dá material para isso. E se prefere comprar de um fabricante com site próprio e assistência técnica identificável, a QBuen não tem essa transparência hoje.</p>
+  <p>Para quem quer confirmar o comprimento da lona antes de comprar — decisivo se você corre, não só caminha — ou que valoriza garantia declarada e fabricante com site próprio e assistência técnica. Nenhuma dessas três informações aparece no anúncio nem em fonte externa confiável que localizamos. Para isso, a <a href="/reviews/podiumfit-x300">PodiumFit X300</a> ou a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite</a> têm ficha auditável e garantia declarada.</p>
 
-  <h2>Peso suportado: 150 kg, acima da maioria do catálogo</h2>
-  <p>É o segundo maior limite do nosso catálogo depois da Esteira Cardio genérica (também sem fabricante identificável) — acima dos 130 kg da Gallant Elite GEE13M29A e da Athletic Racer.</p>
+  <h2>Motor e velocidade: 2 HP, 12 km/h</h2>
+  <p>A ficha declara "Potência: 2 hp" como valor único, sem separar contínua de pico — a mesma limitação de transparência que já vimos na Importway e na Antuvi. Com 12 km/h de velocidade máxima, é ficha para caminhada rápida e trote leve.</p>
 
-  <h2>Inclinação de 0 a 6%, sem confirmar o mecanismo</h2>
-  <p>O anúncio garante a faixa de ajuste (0 a 6%), mas não diz se é manual (ajustada antes do treino, como na Gallant Elite) ou motorizada (ajustada pelo painel durante o treino). Sem essa confirmação, trate como um diferencial real mas de operação desconhecida.</p>
+  <h2>Peso suportado: 150 kg, o maior confirmado do catálogo</h2>
+  <p>Entre os modelos com peso máximo confirmado por ficha técnica clara (não só por uma fonte única sem fabricante, como a Esteira Cardio), os 150 kg da QBuen são o maior número do nosso catálogo — acima dos 130 kg da Gallant Elite GEE13M29A e da Athletic Racer, e bem acima dos 100-120 kg da faixa de entrada.</p>
 
-  <h2>Fabricante: loja oficial no Mercado Livre, sem site próprio localizado</h2>
-  <p>A QBuen vende como loja oficial no Mercado Livre (500+ vendas, 257 avaliações, nota 4,6 neste anúncio), mas não localizamos um site de fabricante independente com CNPJ, assistência técnica ou manual de instruções — diferente de marcas como PodiumFit, Gallant ou Athletic, que têm essa estrutura.</p>
+  <h2>Lona: largura confirmada, comprimento em aberto</h2>
+  <p>A ficha técnica confirma 40 cm de largura da superfície para correr, mas não declara o comprimento em nenhum lugar — só as dimensões externas do produto montado (1,16 m × 60 cm × 91 cm), que não equivalem ao tamanho da lona. Sem esse número, não sabemos se a passada de corrida cabe com folga; tratamos isso como uma lacuna real, não como um problema resolvido.</p>
+
+  <h2>Dobrável e leve: 24,5 kg</h2>
+  <p>Dobra e pesa 24,5 kg — mais leve que a Gallant Elite (40,8-45 kg) e a WCT Fitness (31 kg), embora mais pesada que a PodiumFit X300 (30 kg) e muito mais pesada que a Antuvi (15 kg, que não dobra). Tem rodas para ajudar a mover.</p>
+
+  <h2>Inclinação elétrica de 0 a 6%</h2>
+  <p>A ficha confirma "Tipo de inclinação: Elétrica" — ou seja, motorizada e ajustada pelo painel durante o treino, não manual como a Gallant Elite. É um recurso raro nessa faixa de preço, e agora com o mecanismo confirmado (não sabíamos antes se era elétrica ou manual).</p>
+
+  <h2>Fabricante: marca identificável, mas sem site próprio localizado</h2>
+  <p>A QBuen vende como loja oficial no Mercado Livre, com o modelo declarado como "AT-1271" (linha AT-1271) — mais de 500 vendas e nota 4,6 (237 avaliações) neste anúncio. Diferente da Antuvi ("Geral") ou da Esteira Cardio ("Genérica"), a QBuen é uma marca com nome e modelo identificáveis, mas não localizamos um site de fabricante independente com CNPJ, manual ou assistência técnica própria, e a garantia não é informada em nenhuma fonte. Uma busca externa encontrou uma ficha citando um produto QBuen vendido na Amazon (modelo <strong>AT-1379</strong>, diferente deste AT-1271, com capacidade de 120 kg) — não usamos esses números aqui porque é um modelo distinto.</p>
 
   <div class="pros-cons">
     <div>
-      <h3>Pontos fortes (confirmados)</h3>
+      <h3>Pontos fortes</h3>
       <ul>
-        <li>150 kg de peso suportado — acima da maioria do catálogo</li>
-        <li>Inclinação ajustável de 0 a 6%, raro nessa faixa de preço</li>
-        <li>Loja oficial com volume de vendas real (500+) e 257 avaliações, nota 4,6</li>
+        <li>150 kg de peso suportado — o maior confirmado com clareza do catálogo</li>
+        <li>Dobra e pesa só 24,5 kg, com rodas</li>
+        <li>Inclinação elétrica (motorizada) de 0 a 6%, ajustada pelo painel</li>
+        <li>Marca e modelo identificáveis (QBuen AT-1271), mais de 500 vendas e nota 4,6</li>
       </ul>
     </div>
     <div>
-      <h3>Limitações (o que não conseguimos confirmar)</h3>
+      <h3>Limitações</h3>
       <ul>
-        <li>Potência do motor não divulgada em nenhuma fonte confiável</li>
-        <li>Velocidade máxima não divulgada</li>
-        <li>Tamanho da lona não divulgado</li>
-        <li>Garantia não divulgada</li>
-        <li>Sem fabricante independente identificável (site próprio, assistência técnica)</li>
-        <li>Sem nota editorial nesta análise, por falta de dado suficiente</li>
+        <li>Comprimento da lona não divulgado — só a largura (40 cm)</li>
+        <li>Garantia não informada em nenhuma fonte</li>
+        <li>Sem site de fabricante independente ou assistência técnica própria localizados</li>
+        <li>Motor declarado como valor único (2 HP), sem separar contínua de pico</li>
       </ul>
     </div>
   </div>
 
   <h2>Onde comprar e por quanto</h2>
-  <p>Em setembro de 2026, a QBuen apareceu por <strong>R$ 1.325</strong> na loja oficial QBUEN no Mercado Livre — mais de 500 unidades vendidas, nota 4,6 com 257 avaliações.</p>
+  <p>Em setembro de 2026, a QBuen AT-1271 apareceu por <strong>R$ 1.325,99</strong> na loja oficial QBUEN no Mercado Livre — mais de 500 unidades vendidas, nota 4,6 com 237 avaliações.</p>
 
   <h2>Perguntas frequentes</h2>
 
-  <h3>Qual a potência do motor da QBuen?</h3>
-  <p>Não conseguimos confirmar. O anúncio não divulga esse dado, e não há site de fabricante independente com ficha técnica. Recomendamos perguntar diretamente ao vendedor antes de comprar se isso for decisivo para você.</p>
-
-  <h3>Por que essa análise não tem nota editorial?</h3>
-  <p>Nossa nota depende de sete critérios, três dos quais (motor, velocidade, lona) não têm dado confirmado para este produto. Preferimos não publicar uma nota estimada sem base real — veja nossa <a href="/metodologia">metodologia</a>.</p>
+  <h3>Qual o comprimento da lona da QBuen?</h3>
+  <p>Não divulgado. A ficha confirma só a largura (40 cm); o comprimento não aparece nem no anúncio nem em fonte externa confiável.</p>
 
   <h3>A inclinação é elétrica ou manual?</h3>
-  <p>Não sabemos. O anúncio confirma a faixa de ajuste (0 a 6%) mas não o mecanismo.</p>
+  <p>Elétrica — a ficha técnica confirma que é motorizada, ajustada pelo painel, não manual.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>Não encontramos essa informação em nenhuma fonte. Recomendamos perguntar diretamente ao vendedor antes de comprar.</p>
 
   <h3>Até quantos kg a QBuen suporta?</h3>
-  <p>150 kg, segundo o próprio título do anúncio da loja oficial.</p>
+  <p>150 kg, confirmado na ficha técnica do anúncio — o maior valor confirmado com clareza no nosso catálogo.</p>
 
   <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
-  <p><strong>Leia também:</strong> nosso <a href="/guias/como-escolher">guia de como escolher uma esteira</a> — onde motor e lona pesam mais que preço — e o <a href="/#comparativo">comparativo completo</a> com os modelos que já analisamos com ficha completa.</p>
+  <p><strong>Leia também:</strong> nosso <a href="/guias/como-escolher">guia de como escolher uma esteira</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 
-  <p class="disclosure">Esta análise foi feita a partir do anúncio da loja oficial QBuen no Mercado Livre, consultado em setembro de 2026 — não localizamos site de fabricante independente. Por isso, motor, velocidade, lona e garantia estão marcados como não confirmados, e esta análise não recebeu nota editorial. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da QBuen. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e do título do anúncio da loja oficial QBuen no Mercado Livre, consultados em setembro de 2026 — não localizamos site de fabricante independente. Por isso, o comprimento da lona e a garantia estão marcados como não confirmados. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da QBuen. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </ReviewLayout>
