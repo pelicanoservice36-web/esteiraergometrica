@@ -7,123 +7,125 @@ const buyUrl = buyHref('strive-25hp-16kmh');
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
-	name: 'Strive 2.5HP 16km/h (New Speed)',
+	name: 'Strive TM16 (2,5 HP, 16 km/h)',
 	category: 'Esteira ergométrica',
 	brand: { '@type': 'Brand', name: 'Strive' },
 	offers: {
 		'@type': 'AggregateOffer',
 		priceCurrency: 'BRL',
-		lowPrice: '2658.00',
-		highPrice: '2658.00',
+		lowPrice: '2658.70',
+		highPrice: '2658.70',
 		offerCount: '1',
 		availability: 'https://schema.org/InStock',
 	},
 	aggregateRating: {
 		'@type': 'AggregateRating',
 		ratingValue: '5.0',
-		reviewCount: '27',
+		reviewCount: '28',
 		bestRating: '5',
 		worstRating: '1',
 	},
 };
 
 const fichaItems = [
-	{ label: 'Motor', value: '2,5 HP' },
-	{ label: 'Velocidade máxima', value: '16 km/h' },
-	{ label: 'Lona', value: '[VERIFICAR]' },
-	{ label: 'Peso máximo', value: '[VERIFICAR]' },
-	{ label: 'Inclinação', value: 'Sim (nível e mecanismo não especificados)' },
+	{ label: 'Motor', value: '2,5 HP (anúncio não separa contínua de pico)' },
+	{ label: 'Velocidade máxima', value: '16 km/h — a maior confirmada do catálogo' },
+	{ label: 'Lona', value: '110 × 40 cm' },
+	{ label: 'Peso máximo', value: '120 kg' },
+	{ label: 'Peso do equipamento', value: '37 kg' },
+	{ label: 'É dobrável', value: 'Não (tem rodas para mover)' },
+	{ label: 'Inclinação', value: 'Elétrica (motorizada); grau não especificado' },
 	{ label: 'Garantia', value: '[VERIFICAR]' },
-	{ label: 'Preço', value: 'R$ 2.658' },
+	{ label: 'Preço', value: 'R$ 2.658,70' },
 ];
 ---
 
 <ReviewLayout
-	title="Strive 2.5HP 16km/h é boa? O que dá pra confirmar"
-	description="Análise honesta da esteira Strive 2,5HP 16km/h com inclinação (marca New Speed): motor e velocidade confirmados, mas lona, peso suportado e garantia não são divulgados pelo vendedor. R$ 2.658 na loja oficial."
+	title="Strive TM16 é boa? Ficha técnica e nota editorial"
+	description="Análise da esteira Strive TM16: motor 2,5 HP, 16 km/h (a mais rápida do catálogo), lona 110×40 cm, até 120 kg, inclinação elétrica, por R$ 2.658,70. Não dobra e a garantia não é divulgada."
 	path="/reviews/strive-25hp-16kmh"
-	ogTitle="Strive 2.5HP 16km/h: o que confirmamos"
-	ogDescription="Motor 2,5HP e 16km/h confirmados — mas lona, peso suportado e garantia ficam em aberto. Análise sem nota editorial até termos ficha completa."
+	ogTitle="Strive TM16: análise honesta"
+	ogDescription="16 km/h, 2,5 HP e 120 kg por R$ 2.658,70 — mas não dobra, a garantia não é divulgada, e a loja está associada a uma reclamação pública em outro modelo."
 	jsonLd={jsonLd}
-	h1="Strive 2.5HP 16km/h é boa?"
-	standfirst="A Strive, vendida pela loja oficial da New Speed, chama atenção por dois números fortes: motor de 2,5 HP e 16 km/h de velocidade máxima — o mesmo teto da Athletic Racer e da Gallant Elite, por um preço no meio do caminho entre as duas. O problema é que lona, peso suportado e garantia não aparecem em nenhuma fonte que conseguimos confirmar."
+	h1="Strive TM16 é boa?"
+	standfirst='A Strive TM16 tem a maior velocidade confirmada do nosso catálogo — 16 km/h — com motor de 2,5 HP, lona de 110 × 40 cm e até 120 kg de peso suportado, por R$ 2.658,70. A ficha técnica agora está completa o bastante para nota editorial, mas ela não dobra, pesa 37 kg, a garantia não aparece em nenhum lugar do anúncio, e a loja ("STRIVE por New Speed") está associada a uma reclamação pública sobre dificuldade de acionar garantia em outro modelo da mesma empresa.'
 	updated="setembro de 2026"
 	fichaItems={fichaItems}
 	buyHref={buyUrl}
-	priceNote="Preço observado em setembro de 2026, loja oficial STRIVE por New Speed no Mercado Livre. Link de afiliado."
+	priceNote='Preço observado em setembro de 2026, loja "STRIVE por New Speed" no Mercado Livre. Link de afiliado.'
 >
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
-    <p>Esta análise não tem nota editorial. Confirmamos motor (2,5 HP) e velocidade (16 km/h) pelo próprio título do anúncio, mas lona, peso suportado e garantia — três dos sete critérios da nossa metodologia — não têm fonte confiável. Publicar uma nota com metade dos critérios estimados não seria honesto: <a href="/metodologia">veja como calculamos</a>.</p>
-    <p>O que dá pra dizer com confiança: motor e velocidade colocam a Strive no mesmo patamar de uso da Athletic Racer e da Gallant Elite (pensada para corrida, não só caminhada), por R$ 2.658 — entre o preço da Gallant Elite GEE12M28A (R$ 2.498) e a GEE13M29A (R$ 3.609). A loja oficial (New Speed) tem volume de vendas ainda modesto neste anúncio específico (100 vendidos, 27 avaliações, nota 5,0).</p>
+    <p class="edit-score"><span class="edit-score__value">6,0<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>Com a ficha completa, a Strive TM16 entra no comparativo com a maior velocidade máxima confirmada do catálogo (16 km/h) e uma lona de bom tamanho (110 × 40 cm) — motor e peso suportado ficam na faixa intermediária. O que segura bastante a nota é confiabilidade: a marca é identificável (Strive, modelo TM16), mas a garantia não aparece em lugar nenhum, e a mesma loja que vende este anúncio ("STRIVE por New Speed") tem uma reclamação pública no Reclame Aqui contra a New Speed sobre dificuldade de acionar garantia — em outro modelo, não este, mas o suficiente para pesar contra, não a favor.</p>
+    <p>Também não dobra e pesa 37 kg — o segundo mais pesado do catálogo depois da Gallant Elite — o que derruba o critério de praticidade. Por R$ 2.658,70, vale comparar direto com a Gallant Elite GEE12M28A (R$ 2.498, motor mais forte, lona maior, garantia declarada de 6 meses): a Strive só ganha em velocidade máxima.</p>
   </div>
 
-  <h2>Atenção real: uma reclamação pública sobre a marca</h2>
-  <p>Durante a pesquisa, encontramos uma reclamação registrada no Reclame Aqui contra a New Speed sobre outro modelo (FT400): um cliente relatou dificuldade para acionar a garantia depois de um defeito, incluindo não conseguir contato direto com o fabricante. Não temos como confirmar se isso se repete com a linha Strive especificamente — pode ser um caso isolado ou um problema mais amplo de suporte pós-venda da marca. Registramos aqui porque é o tipo de informação que pesa numa decisão de compra, mesmo sem confirmação definitiva.</p>
-
-  <h2>O que confirmamos — e o que não confirmamos</h2>
-  <p>O título do anúncio da loja oficial garante "2,5hp" e "16km/h" e menciona inclinação, sem especificar o nível ou se é manual ou motorizada. A imagem promocional do produto traz o texto "15% Auto Incline" — mas essa informação não aparece no título nem em nenhuma fonte que conseguimos verificar de forma independente, então tratamos como não confirmada, não como fato. Não encontramos site de fabricante próprio para a New Speed com ficha técnica detalhada da linha Strive — o que existe é a loja oficial dentro do Mercado Livre.</p>
-
-  <h2>Para quem essa esteira pode fazer sentido</h2>
-  <p>Para quem já pesquisou a Athletic Racer e a Gallant Elite, quer motor e velocidade de corrida (16 km/h) por um preço no meio das duas, e está disposto a comprar com uma ficha parcialmente confirmada — apoiado no histórico de avaliações da loja oficial. Vale considerar contatar o vendedor para confirmar peso suportado e garantia antes de comprar.</p>
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem prioriza velocidade máxima acima de tudo — 16 km/h é o teto do catálogo, empatado só com as Gallant Elite — e já decidiu que não precisa dobrar o equipamento para guardar. Também exige aceitar comprar sem garantia declarada, de uma loja com histórico de reclamação (em outro modelo) sobre suporte pós-venda.</p>
 
   <h2>Para quem não faz sentido</h2>
-  <p>Se peso suportado é decisivo — por exemplo, se você está perto do limite de 110-130 kg comum no catálogo — este anúncio não informa esse número, então não dá para confirmar se a Strive atende sua necessidade. E dada a reclamação encontrada sobre suporte pós-venda de outro modelo da marca, quem valoriza muito a certeza de assistência técnica pode preferir um fabricante com histórico mais consolidado, como a Gallant/Webcontinental.</p>
+  <p>Para quem valoriza garantia declarada e um histórico de suporte sem reclamações públicas: a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a> custa menos (R$ 2.498), tem motor mais forte (2,8 HP), lona maior (122 × 42 cm) e garantia de 6 meses — a mesma velocidade de 16 km/h com uma ficha melhor em quase tudo, exceto que dobra em vez de ficar fixa. Também não faz sentido para quem precisa dobrar o equipamento para guardar: a Strive não dobra e pesa 37 kg.</p>
 
-  <h2>Motor e velocidade: 2,5 HP e 16 km/h, patamar de corrida</h2>
-  <p>Combinados, colocam a Strive no mesmo grupo da Athletic Racer e da Gallant Elite — ficha pensada para quem corre, não só caminha. Como em outras fichas do catálogo, a potência é declarada como valor único, sem separar contínua de pico.</p>
+  <h2>Motor e velocidade: 2,5 HP e 16 km/h, a mais rápida do catálogo</h2>
+  <p>A ficha declara "Potência: 2,5 hp" como valor único, sem separar contínua de pico — a mesma limitação de transparência já vista na Importway, Antuvi e QBuen. Os 16 km/h de velocidade máxima, porém, são o maior número confirmado do nosso catálogo, empatado com as duas Gallant Elite — ficha pensada para quem corre de verdade, não só caminha.</p>
 
-  <h2>Inclinação presente, mas sem detalhe confirmado</h2>
-  <p>O anúncio menciona inclinação no título, mas não especifica níveis nem mecanismo. A alegação de "15% Auto Incline" que aparece na imagem promocional do produto não está confirmada em texto oficial — se for real, seria a única esteira do catálogo com inclinação motorizada (todas as outras que têm inclinação, como a linha Gallant Elite, são manuais). Não recomendamos comprar assumindo essa informação sem confirmar diretamente com o vendedor.</p>
+  <h2>Lona e peso máximo: 110 × 40 cm, até 120 kg</h2>
+  <p>Os 110 cm de comprimento ficam acima da faixa de entrada e perto da PodiumFit X300 (110 cm também), mas abaixo das Gallant Elite (122 cm). O limite de 120 kg é intermediário — igual ao da Gallant Elite GEE12M28A, abaixo dos 130 kg da GEE13M29A e da Athletic Racer.</p>
 
-  <h2>Fabricante: New Speed, loja oficial no Mercado Livre</h2>
-  <p>A Strive é vendida pela loja oficial "STRIVE por New Speed" no Mercado Livre, com 100 unidades vendidas e 27 avaliações (nota 5,0) neste anúncio — volume mais modesto que a maioria dos outros modelos do catálogo. A New Speed também vende outras linhas (bicicletas ergométricas Q20/Q30/Q40, outras esteiras Strive com motor menor) pela mesma loja.</p>
+  <h2>Não dobra, e pesa 37 kg</h2>
+  <p>A ficha confirma "É dobrável: Não". Com 37 kg, é o segundo equipamento mais pesado do nosso catálogo, atrás só da Gallant Elite (40,8-45 kg) — e sem dobrar, ocupa espaço fixo permanente. Tem rodas para ajudar a mover, mas isso não substitui poder guardar em pé ou embaixo de um móvel.</p>
+
+  <h2>Inclinação elétrica, grau não confirmado</h2>
+  <p>A ficha confirma "Tipo de inclinação: Elétrica" — motorizada, ajustada durante o treino, como na QBuen. O que a ficha <strong>não</strong> confirma é o grau de inclinação: a imagem promocional do anúncio usa a chamada "15% Auto Incline", mas isso é texto de marketing, não um campo da ficha técnica — tratamos como não confirmado, o mesmo critério aplicado ao "6°" da Antuvi.</p>
+
+  <h2>Fabricante: marca identificável, mas com reclamação pública em outro modelo</h2>
+  <p>A Strive vende como "STRIVE por New Speed" no Mercado Livre, com o modelo declarado como "TM16" — 100 vendas e nota 5,0 (28 avaliações) neste anúncio. A marca é identificável, o que já é mais transparente que a Antuvi ("Geral") ou a Cardio ("Genérica"). Mas encontramos uma reclamação pública no Reclame Aqui contra a New Speed — a empresa por trás da loja — sobre dificuldade de acionar garantia, referente a outro modelo (FT400, não este TM16). Não confirmamos se o mesmo problema se estende a esta linha, mas é um sinal real de risco que pesa contra a nota de confiabilidade, junto com a ausência total de informação sobre garantia neste anúncio específico.</p>
 
   <div class="pros-cons">
     <div>
-      <h3>Pontos fortes (confirmados)</h3>
+      <h3>Pontos fortes</h3>
       <ul>
-        <li>Motor de 2,5 HP e 16 km/h — mesmo teto de velocidade da Athletic Racer e da Gallant Elite</li>
-        <li>Preço intermediário entre as duas versões da Gallant Elite</li>
-        <li>Loja oficial (New Speed), nota 5,0 nas 27 avaliações registradas</li>
+        <li>16 km/h de velocidade máxima — a maior confirmada do catálogo</li>
+        <li>Lona de 110 × 40 cm, acima da faixa de entrada</li>
+        <li>Inclinação elétrica (motorizada), confirmada na ficha</li>
+        <li>Monitor de frequência cardíaca e 12 programas</li>
       </ul>
     </div>
     <div>
-      <h3>Limitações (o que não conseguimos confirmar)</h3>
+      <h3>Limitações</h3>
       <ul>
-        <li>Peso suportado não divulgado</li>
-        <li>Tamanho da lona não divulgado</li>
-        <li>Garantia não divulgada</li>
-        <li>Alegação de inclinação motorizada não confirmada por fonte independente</li>
-        <li>Reclamação pública sobre dificuldade de garantia em outro modelo da mesma marca (New Speed FT400)</li>
-        <li>Volume de vendas e avaliações ainda modesto (100 vendidos, 27 avaliações)</li>
-        <li>Sem nota editorial nesta análise, por falta de dado suficiente</li>
+        <li>Não dobra e pesa 37 kg — segundo mais pesado do catálogo</li>
+        <li>Garantia não informada em nenhuma fonte</li>
+        <li>Loja associada a reclamação pública no Reclame Aqui (em outro modelo da New Speed)</li>
+        <li>Motor declarado como valor único (2,5 HP), sem separar contínua de pico</li>
+        <li>Grau de inclinação anunciado em imagem de marketing ("15%"), não confirmado em ficha</li>
       </ul>
     </div>
   </div>
 
   <h2>Onde comprar e por quanto</h2>
-  <p>Em setembro de 2026, a Strive 2,5HP 16km/h apareceu por <strong>R$ 2.658</strong> (24% de desconto sobre R$ 3.499) na loja oficial STRIVE por New Speed no Mercado Livre — 100 unidades vendidas, nota 5,0 com 27 avaliações.</p>
+  <p>Em setembro de 2026, a Strive TM16 apareceu por <strong>R$ 2.658,70</strong> na loja "STRIVE por New Speed" no Mercado Livre — 100 unidades vendidas, nota 5,0 com 28 avaliações.</p>
 
   <h2>Perguntas frequentes</h2>
 
-  <h3>Qual o peso máximo suportado pela Strive?</h3>
-  <p>Não conseguimos confirmar. O anúncio não divulga esse dado — recomendamos perguntar diretamente ao vendedor antes de comprar.</p>
+  <h3>A inclinação de "15%" é confirmada?</h3>
+  <p>Não em texto. A ficha técnica confirma que a inclinação é elétrica (motorizada), mas não especifica o grau — "15% Auto Incline" aparece só na imagem de marketing do vendedor.</p>
 
-  <h3>A inclinação é elétrica ou manual?</h3>
-  <p>Não confirmado. O anúncio menciona inclinação sem detalhar o mecanismo; uma imagem promocional cita "15% Auto Incline", mas não tratamos isso como confirmado por não aparecer em nenhuma fonte independente.</p>
+  <h3>Ela dobra?</h3>
+  <p>Não. A ficha técnica confirma "É dobrável: Não". Tem rodas para ajudar a mover.</p>
 
-  <h3>Por que essa análise não tem nota editorial?</h3>
-  <p>Três dos sete critérios da nossa metodologia (lona, peso suportado, garantia) não têm dado confirmado para este produto — veja nossa <a href="/metodologia">metodologia</a>.</p>
+  <h3>Qual a garantia?</h3>
+  <p>Não encontramos essa informação em nenhuma fonte. Há uma reclamação pública contra a New Speed (a empresa por trás desta loja) sobre dificuldade de acionar garantia em outro modelo — recomendamos perguntar diretamente ao vendedor antes de comprar.</p>
 
-  <h3>A New Speed tem boa reputação de garantia?</h3>
-  <p>Encontramos uma reclamação pública sobre dificuldade de acionar garantia em outro modelo da marca (FT400). Não temos confirmação de que isso se aplica à linha Strive, mas é um ponto de atenção real sobre o suporte pós-venda.</p>
+  <h3>É a esteira mais rápida do catálogo?</h3>
+  <p>Sim, empatada com as duas Gallant Elite: 16 km/h é a maior velocidade máxima confirmada entre os modelos que já analisamos.</p>
 
   <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
-  <p><strong>Leia também:</strong> nossas análises da <a href="/reviews/athletic-racer">Athletic Racer</a> e da <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a> — ambas com ficha técnica completa e nota editorial — e o <a href="/#comparativo">comparativo completo</a>.</p>
+  <p><strong>Leia também:</strong> nosso <a href="/guias/como-escolher">guia de como escolher uma esteira</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 
-  <p class="disclosure">Esta análise foi feita a partir do anúncio da loja oficial da New Speed no Mercado Livre e de uma reclamação pública sobre outro modelo da marca, consultados em setembro de 2026 — não localizamos site de fabricante com ficha técnica completa da linha Strive. Por isso, lona, peso suportado e garantia estão marcados como não confirmados, e esta análise não recebeu nota editorial. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da New Speed. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e do título do anúncio da loja "STRIVE por New Speed" no Mercado Livre, consultados em setembro de 2026. A garantia não é informada em nenhuma fonte, e o grau de inclinação aparece só em imagem de marketing, não confirmado em texto. A reclamação citada contra a New Speed refere-se a outro modelo (FT400), não a este TM16 — não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Strive ou da New Speed. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </ReviewLayout>
