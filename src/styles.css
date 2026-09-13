@@ -21,7 +21,7 @@
   --surface:       #FFFFFF;
   --surface-sunk:  #F1F5F9;
   --ink:           #111827;
-  --muted:         #64748B;
+  --muted:         #475569;
   --muted-2:       #94A3B8;
   --border:        #E2E8F0;
   --border-strong: #CBD5E1;
@@ -1190,7 +1190,7 @@ a:hover { color: var(--primary-ink); }
   margin: 1rem 0 0;
 }
 
-.foot-col h4 {
+.foot-col h3 {
   font-family: var(--sans);
   font-size: 0.75rem;
   font-weight: 800;
