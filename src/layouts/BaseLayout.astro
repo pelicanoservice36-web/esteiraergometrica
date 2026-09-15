@@ -51,30 +51,43 @@ const ogImageURL = new URL(ogImage, Astro.site);
 	gtag('js', new Date());
 	gtag('config', 'G-F3SC734W1X');
 
-	// A biblioteca do gtag (166 KiB, ~600ms de main thread) só carrega em tempo
-	// ocioso de verdade, não no evento `load` — os comandos acima já ficam na
-	// fila do dataLayer e são processados assim que o script real chega.
-	// requestIdleCallback (em vez de window.load) evita que o parse/execução
-	// pesada do gtag caia bem em cima do carregamento do vídeo hero, que
-	// também dispara no load — as duas coisas competindo no mesmo instante
-	// era a causa real do forced reflow e do Total Blocking Time altos.
+	// A biblioteca do gtag (166 KiB, ~430ms de main thread) só entra depois da
+	// primeira interação real do visitante (scroll, toque, tecla, clique,
+	// mouse) ou, na ausência de qualquer interação, num atraso fixo de 7s —
+	// os comandos gtag() acima já ficam na fila do dataLayer e são
+	// processados assim que o script real chega, então nenhum evento de
+	// analytics é perdido, só adiado.
+	//
+	// Tentamos requestIdleCallback antes disso (com timeout de 4s, depois
+	// 8s) e não funcionou: numa página estática como esta, o navegador se
+	// considera "ocioso" quase imediatamente após o `load` — sem trabalho
+	// contínuo de verdade no main thread, o requestIdleCallback disparava a
+	// poucas centenas de ms do load, timeout ou não, e o gtag continuava
+	// caindo dentro da janela de TBT/Total Blocking Time do PageSpeed.
+	// setTimeout com atraso fixo é determinístico e realmente empurra a
+	// carga do gtag para depois da janela de medição.
+	var gtagLoaded = false;
+	var INTERACTION_EVENTS = ['scroll', 'keydown', 'click', 'touchstart', 'mousemove'];
 	function loadGtagScript() {
+		if (gtagLoaded) return;
+		gtagLoaded = true;
+		INTERACTION_EVENTS.forEach(function (evt) {
+			window.removeEventListener(evt, loadGtagScript);
+		});
 		var s = document.createElement('script');
 		s.async = true;
 		s.src = 'https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X';
 		document.head.appendChild(s);
 	}
-	function scheduleGtagLoad() {
-		if ('requestIdleCallback' in window) {
-			requestIdleCallback(loadGtagScript, { timeout: 4000 });
-		} else {
-			setTimeout(loadGtagScript, 2000);
-		}
-	}
+	INTERACTION_EVENTS.forEach(function (evt) {
+		window.addEventListener(evt, loadGtagScript, { passive: true, once: true });
+	});
 	if (document.readyState === 'complete') {
-		scheduleGtagLoad();
+		setTimeout(loadGtagScript, 7000);
 	} else {
-		window.addEventListener('load', scheduleGtagLoad);
+		window.addEventListener('load', function () {
+			setTimeout(loadGtagScript, 7000);
+		});
 	}
 </script>
 
