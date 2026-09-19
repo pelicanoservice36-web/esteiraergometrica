@@ -1,0 +1,65 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'O que é uma esteira ergométrica e como ela funciona',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-09-19',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/o-que-e-uma-esteira-ergometrica',
+};
+---
+
+<ArticleLayout
+	title="O que é uma esteira ergométrica e como funciona"
+	description="Motor, lona, console e estrutura: como uma esteira ergométrica funciona por dentro, para que serve de verdade, e o que ela não faz sozinha."
+	path="/guias/o-que-e-uma-esteira-ergometrica"
+	ogTitle="O que é uma esteira ergométrica"
+	ogDescription="Como funciona por dentro, para que serve e o que ela não resolve sozinha — a base antes de escolher qualquer modelo."
+	jsonLd={jsonLd}
+	h1="O que é uma esteira ergométrica e como ela funciona"
+	standfirst="Antes de comparar modelo, vale entender o que o equipamento realmente faz — e o que ele não faz sozinho, por mais que o anúncio sugira o contrário."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Esteira ergométrica é um equipamento de exercício com uma superfície móvel (a lona) movida por um motor elétrico, que permite caminhar ou correr no lugar, em casa, em qualquer clima ou horário. Serve para cardio, condicionamento físico e caminhada supervisionada — mas, como qualquer equipamento, não emagrece nem melhora condicionamento sozinha: depende do uso consistente ao longo do tempo.</p>
+  </div>
+
+  <h2>Como funciona, por dentro</h2>
+  <p>Quatro partes decidem o que uma esteira faz e para quem ela serve:</p>
+  <p><strong>Motor.</strong> Move a lona numa velocidade constante e ajustável, medida em HP (cavalo-mecânico) ou km/h de teto. É o que separa uma esteira que aguenta só caminhada de uma que aguenta corrida sustentada — veja o <a href="/guias/como-escolher">guia de como escolher</a> para os números que importam.</p>
+  <p><strong>Lona.</strong> A superfície onde você pisa, apoiada sobre uma base com algum grau de amortecimento. Largura e comprimento decidem se cabe a sua passada, principalmente correndo.</p>
+  <p><strong>Console.</strong> O painel que mostra velocidade, tempo, distância e, em modelos mais completos, frequência cardíaca e programas pré-definidos. Controla também a inclinação, quando o modelo tem esse recurso.</p>
+  <p><strong>Estrutura.</strong> A base e as laterais que sustentam o equipamento — decide o peso máximo suportado e, em modelos dobráveis, se e como ela se recolhe para guardar.</p>
+
+  <h2>Esteira com motor ou sem motor</h2>
+  <p>Todos os quinze modelos que já analisamos neste site são motorizados: o motor move a lona, e você regula a velocidade no console. Existem também esteiras sem motor (mecânicas ou curvas), em que é o seu próprio movimento que faz a lona girar — elas existem no mercado, mas não analisamos nenhuma até hoje, então não temos recomendação de modelo específico para esse tipo aqui.</p>
+
+  <h2>Para que serve de verdade</h2>
+  <p>Cardio em casa sem depender de clima, trânsito ou horário de academia — essa é a vantagem central, detalhada no <a href="/guias/esteira-ou-rua-bike-ou-eliptico">comparativo com rua, bike e elíptico</a>. Também serve para caminhada supervisionada em processo de reabilitação ou para quem precisa de apoio (veja o <a href="/guias/esteira-para-idosos">guia para idosos</a>), e para treino de corrida estruturado, quando o motor e a lona são dimensionados para isso.</p>
+
+  <h2>O que ela não faz sozinha</h2>
+  <p>Nenhuma esteira emagrece ou melhora condicionamento por si só — o resultado depende de uso consistente ao longo de semanas e meses, e no caso de perda de peso, também de alimentação. Detalhamos isso, sem prometer resultado nem inventar número de caloria, no <a href="/guias/esteira-para-emagrecer">guia de esteira para emagrecer</a>. Se você está começando do zero, o <a href="/guias/como-comecar-a-usar-a-esteira">plano de quatro semanas para iniciante</a> é o próximo passo depois deste guia.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Para que serve uma esteira ergométrica?</h3>
+  <p>Para caminhar ou correr no lugar, em casa, sem depender de clima ou horário — usada para cardio, condicionamento físico ou caminhada supervisionada em reabilitação.</p>
+
+  <h3>Esteira ergométrica ajuda a perder barriga?</h3>
+  <p>Ajuda como parte de um plano de exercício consistente, mas não emagrece uma região específica do corpo sozinha — perda de gordura localizada não funciona assim, independente do equipamento usado.</p>
+
+  <h3>Esteira pode ser usada todos os dias?</h3>
+  <p>Caminhada é atividade de baixo impacto e pode ser diária; quem está começando costuma se beneficiar de algum descanso entre sessões mais intensas. Veja o <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a> para uma progressão mais detalhada.</p>
+
+  <h3>Esteira é boa para fazer cardio?</h3>
+  <p>Sim — caminhar ou correr eleva a frequência cardíaca de forma sustentada, que é a base de qualquer treino cardiovascular, com a vantagem de não depender de clima ou trânsito.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-escolher">guia de como escolher uma esteira</a> ou o <a href="/guias/melhor-esteira-ergometrica-residencial">comparativo por categoria</a>.</p>
+
+  <p class="disclosure">Este guia é orientação geral, não prescrição de treino, e não substitui avaliação de um profissional de saúde ou educação física. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

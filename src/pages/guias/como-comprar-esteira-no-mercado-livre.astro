@@ -1,0 +1,82 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Como comprar esteira ergométrica com segurança no Mercado Livre',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-09-19',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/como-comprar-esteira-no-mercado-livre',
+};
+---
+
+<ArticleLayout
+	title="Como comprar esteira no Mercado Livre com segurança"
+	description="Loja oficial ou vendedor comum, preço riscado, nomes de modelo parecidos com fichas diferentes: o que aprendemos verificando 15 anúncios reais antes de recomendar qualquer um deles."
+	path="/guias/como-comprar-esteira-no-mercado-livre"
+	ogTitle="Como comprar esteira no Mercado Livre com segurança"
+	ogDescription="O que 15 anúncios verificados nos ensinaram sobre loja oficial, preço riscado e modelos com nome quase idêntico e ficha técnica diferente."
+	jsonLd={jsonLd}
+	h1="Como comprar esteira no Mercado Livre com segurança"
+	standfirst="Este guia não é teórico: é o que aprendemos verificando os anúncios reais das quinze esteiras que já analisamos, incluindo os erros que quase nos fizeram publicar um dado errado antes de cruzar a fonte."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Checklist antes de finalizar a compra</h2>
+    <ul>
+      <li>Confirme se é <strong>loja oficial do fabricante</strong> ou um vendedor comum — muda a quem você recorre em caso de defeito.</li>
+      <li>Ignore o preço "de R$ X" riscado — é âncora de marketing, não desconto real.</li>
+      <li>Confirme o <strong>modelo exato</strong> do anúncio, não só o nome da linha — variantes quase idênticas têm fichas diferentes.</li>
+      <li>Leia a ficha técnica estruturada do anúncio ("ver mais características"), não a imagem promocional.</li>
+      <li>Veja o número de avaliações, não só a nota — nota alta com poucas avaliações é menos confiável.</li>
+      <li>Confirme garantia e voltagem no anúncio específico antes de comprar, nunca pelo nome do produto.</li>
+    </ul>
+  </div>
+
+  <h2>Loja oficial ou vendedor comum: por que isso muda sua garantia</h2>
+  <p>No nosso comparativo, os modelos vendidos por loja oficial do fabricante — <a href="/reviews/athletic-racer">Athletic Racer</a>, <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite</a>, <a href="/reviews/wct-fitness-esteira">WCT Fitness</a>, <a href="/reviews/health-herald-lcd">Health Herald</a> — têm garantia e assistência técnica identificável por trás. Já a <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a> e a <a href="/reviews/antuvi-mesa">Antuvi</a> declaram a própria marca como "Genérica" ou "Geral" na ficha técnica — não existe fabricante para acionar se o motor falhar fora do prazo do vendedor. Isso não significa que vendedor comum seja sempre ruim, mas é o primeiro dado a checar, porque muda quem responde pelo produto depois da compra.</p>
+
+  <h2>O preço "de R$ X" riscado quase nunca é o desconto que parece</h2>
+  <p>Em mais de uma das nossas análises, o preço "de" era o dobro do preço efetivamente cobrado, ao lado de um "por" que parece desconto generoso mas está próximo do preço de mercado real. Compare o preço final entre pelo menos três vendedores — nunca o desconto anunciado — antes de decidir se é uma boa oferta.</p>
+
+  <h2>Nomes parecidos, produtos diferentes: confirme o modelo exato</h2>
+  <p>Isso já nos confundiu mais de uma vez pesquisando este catálogo, e é o erro mais fácil de cometer como comprador:</p>
+  <ul>
+    <li>A linha <strong>Gallant Elite</strong> tem pelo menos três variantes com ficha técnica diferente — <a href="/reviews/gallant-elite-gee12m28a">GEE12M28A</a> (2,8 HP, 120 kg), <a href="/reviews/gallant-elite-gee13m29a">GEE13M29A</a> (2,9 HP, 130 kg) e uma terceira, GEE12M25A (2,5 HP) — além de versões separadas por voltagem (127V e 220V) dentro da mesma linha. O nome "Gallant Elite" sozinho não diz qual delas você está comprando.</li>
+    <li>A <strong>QBuen</strong> tem pelo menos dois modelos que aparecem confundidos entre fontes — AT-1271 (a que analisamos) e AT-1379, com potência e peso máximo diferentes. Confirme o código do modelo, não só a marca.</li>
+    <li>Existem múltiplas lojas com nome "Redfin" no Mercado Livre vendendo produtos distintos entre si — confira se é o vendedor e o anúncio específico da <a href="/reviews/redfin-150kg">análise que fizemos</a>, não outro com nome parecido.</li>
+  </ul>
+
+  <h2>Onde a ficha "mente" por omissão, não por erro</h2>
+  <p>Alguns dos problemas mais comuns não são dado errado — são dado que falta ou marketing misturado com especificação:</p>
+  <ul>
+    <li><strong>Potência de pico apresentada como se fosse contínua.</strong> A <a href="/reviews/wct-fitness-esteira">WCT Fitness</a> anuncia "2,0 HP" em vários lugares; a potência contínua real, confirmada na ficha do fabricante, é 0,75 HP.</li>
+    <li><strong>"Bivolt" que exige seleção manual.</strong> Vários anúncios de entrada usam essa palavra sugerindo troca automática; no caso da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, o próprio fabricante esclareceu que a seleção é manual entre 127V e 220V.</li>
+    <li><strong>Chamadas promocionais não confirmadas na ficha estruturada.</strong> Encontramos imagens de anúncio alegando "15% Auto Incline" (Strive) e "inclinação de 6°" (Antuvi) que não aparecem confirmadas em nenhuma ficha técnica ou fonte independente — tratamos como marketing, não como dado, e você deveria fazer o mesmo.</li>
+  </ul>
+  <p>A ficha técnica estruturada do anúncio ("ver mais características") costuma ser mais confiável que a descrição em texto corrido ou as imagens promocionais — é para lá que olhamos primeiro em toda análise deste site.</p>
+
+  <h2>Como ler avaliações e vendas sem se enganar</h2>
+  <p>Nota alta com poucas avaliações (ex: 5,0 com 28 avaliações) é estatisticamente menos confiável que uma nota levemente menor com centenas ou milhares de avaliações — poucas pessoas avaliando ainda não filtrou os casos de problema que aparecem com o tempo de uso. Cruze nota, número de avaliações e volume de vendas juntos, não cada um isolado.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Vale a pena comprar esteira no Mercado Livre?</h3>
+  <p>Sim, é o canal que usamos para verificar todos os quinze modelos deste site — mas "no Mercado Livre" sozinho não garante nada. O que decide é o vendedor, a loja e o anúncio específico, não a plataforma.</p>
+
+  <h3>Como saber se o vendedor da esteira é confiável?</h3>
+  <p>Verifique se é loja oficial do fabricante (aparece identificado no anúncio), o histórico de vendas e avaliações da loja, e se a marca declarada na ficha técnica é identificável — "Genérica" ou "Geral" no campo marca é sinal de que não há fabricante para recorrer depois.</p>
+
+  <h3>Como comparar esteiras diferentes no Mercado Livre?</h3>
+  <p>Compare pela ficha técnica estruturada do anúncio, não pela descrição em texto ou imagem promocional — e confirme se o código do modelo bate exatamente, já que nomes de linha parecidos costumam esconder fichas técnicas diferentes.</p>
+
+  <h3>O que verificar antes de finalizar a compra?</h3>
+  <p>Modelo exato do anúncio, voltagem, garantia e se é loja oficial ou vendedor comum — nessa ordem. Esses quatro pontos resolvem a maioria dos arrependimentos de compra que encontramos pesquisando este catálogo.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-escolher">guia de como escolher uma esteira</a> ou o <a href="/guias/melhor-esteira-ergometrica-residencial">comparativo por categoria</a>.</p>
+
+  <p class="disclosure">Este guia foi escrito a partir da experiência real de verificar os anúncios das quinze esteiras já analisadas neste site, não de uma pesquisa genérica sobre o Mercado Livre. O site participa do programa de afiliados do Mercado Livre: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você — essa relação não influencia as recomendações deste guia.</p>
+
+</ArticleLayout>
