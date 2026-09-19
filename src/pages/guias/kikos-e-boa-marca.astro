@@ -1,0 +1,56 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Kikos é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-09-19',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/kikos-e-boa-marca',
+};
+---
+
+<ArticleLayout
+	title="Kikos é uma boa marca de esteira?"
+	description="Ainda não analisamos nenhum modelo Kikos com a mesma profundidade dos outros 15 do catálogo. Isto é o que encontramos pesquisando reputação pública: nota no Reclame Aqui, garantia declarada e reclamações reais."
+	path="/guias/kikos-e-boa-marca"
+	ogTitle="Kikos é uma boa marca?"
+	ogDescription="Sem modelo Kikos verificado no nosso catálogo ainda — isto é reputação pública (Reclame Aqui, site oficial), não a mesma verificação profunda que fazemos com fabricante e manual cruzados."
+	jsonLd={jsonLd}
+	h1="Kikos é uma boa marca de esteira?"
+	standfirst="Diferente das outras páginas de marca deste site, esta não é baseada em um modelo Kikos que já analisamos — ainda não temos nenhum no catálogo. É pesquisa de reputação pública, com fonte citada em cada ponto, não a mesma verificação cruzada de ficha técnica e manual que fazemos nas nossas 15 análises."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Mista, com dados reais dos dois lados. A Kikos é fabricante brasileira estabelecida, com site próprio, catálogo amplo (do residencial ao profissional) e nota 8,3/10 no Reclame Aqui — um resultado bom. Mas tem 233 reclamações registradas na mesma plataforma, com queixas recorrentes de assistência técnica (incluindo cobrança antecipada de R$ 250 pela visita técnica) e defeito antes de completar um ano de uso. Sem ter analisado um modelo específico com a nossa metodologia, não damos nota editorial — mas a reputação pública, pelo que encontramos, não é unânime.</p>
+  </div>
+
+  <h2>O que encontramos de positivo</h2>
+  <p>A Kikos tem site oficial (kikos.com.br) com catálogo amplo, de esteiras residenciais compactas a modelos profissionais para academia, condomínio e hotel — presença de mercado mais ampla que a maioria das marcas do nosso catálogo, que são focadas só no residencial de entrada. A garantia declarada no site varia entre 2 e 5 anos dependendo do modelo, bem acima do padrão de 6 a 12 meses que confirmamos nas marcas que já analisamos — se esse número se confirmar no modelo específico que você for comprar, é um diferencial real. A empresa tem assistência técnica nacional com telefone de atendimento divulgado.</p>
+
+  <h2>Reclamações reais que encontramos</h2>
+  <p>No Reclame Aqui, a Kikos Fitness tem nota 8,3 de 10, com 233 reclamações registradas. Entre os problemas relatados com mais frequência: equipamentos travando ou parando de funcionar com menos de um ano de uso, cobrança antecipada de R$ 250 pela visita técnica com atraso de mais de uma semana no atendimento, e peças faltantes na entrega com demora de vários dias para contato. Uma reclamação específica também alega que a capacidade de peso declarada em alguns modelos é medida em condição diferente do uso real — não confirmamos essa alegação de forma independente, então trate como o que é: uma reclamação de consumidor, não um dado técnico verificado por nós.</p>
+
+  <h2>Um detalhe importante: fabricante ou importadora?</h2>
+  <p>Segundo relatos públicos, a Kikos importa parte dos equipamentos e aplica a própria marca quando chegam ao Brasil, em vez de fabricar internamente — não confirmamos esse processo em fonte oficial da empresa. Isso não é necessariamente negativo (várias marcas de eletrônico e equipamento fitness no mundo operam assim), mas muda a expectativa: a garantia e a assistência técnica nacional dependem inteiramente da estrutura de pós-venda da Kikos no Brasil, não de um fabricante com fábrica local.</p>
+
+  <h2>Por que ainda não temos nota editorial para nenhum modelo Kikos</h2>
+  <p>Nossa <a href="/metodologia">metodologia</a> exige cruzar a ficha técnica do anúncio com a do fabricante, e sempre que possível com manual oficial — o mesmo processo que já aplicamos aos quinze modelos do catálogo. Ainda não fizemos isso para nenhum modelo específico da Kikos, então não atribuímos nota. Se isso mudar, esta página será atualizada com a análise completa do modelo.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Kikos vale a pena?</h3>
+  <p>Não temos um modelo específico analisado para responder com a mesma confiança que respondemos sobre as marcas do nosso catálogo. A reputação pública é mista: boa nota no Reclame Aqui (8,3/10) ao lado de reclamações reais sobre assistência técnica e durabilidade.</p>
+
+  <h3>A Kikos fabrica no Brasil?</h3>
+  <p>Tem site e assistência técnica nacional, mas relatos públicos indicam que parte dos equipamentos é importada e recebe a marca Kikos no Brasil, não fabricada internamente do zero — não confirmamos esse processo em fonte oficial da empresa.</p>
+
+  <h3>Qual a garantia da Kikos?</h3>
+  <p>O site oficial declara entre 2 e 5 anos dependendo do modelo — bem acima do padrão de 6 a 12 meses que confirmamos nas marcas do nosso catálogo. Confirme o prazo exato no modelo e anúncio específico antes de comprar.</p>
+
+  <p class="disclosure">Esta página é baseada em pesquisa de reputação pública (Reclame Aqui e site oficial da Kikos), não na mesma verificação cruzada de ficha técnica e manual que fazemos nos quinze modelos já analisados neste site. Nenhum modelo Kikos foi testado ou recebeu nota editorial. O site participa de programas de afiliados, mas não tem link de afiliado para nenhum produto Kikos até o momento.</p>
+
+</ArticleLayout>
