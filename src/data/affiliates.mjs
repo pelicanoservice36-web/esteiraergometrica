@@ -254,6 +254,32 @@ export const products = {
 		notes:
 			'Achada em varredura de baixa concorrência. Loja oficial Health Herald: 1000+ vendidos, R$719,70 em setembro/2026 (preço confirmado igual à captura anterior). Avaliações revisadas para 4,8/704 (screenshot direto do anúncio; captura anterior tinha 697, divergência mínima), maior número de avaliações do catálogo. Usuário enviou ficha técnica completa, confirmando: modelo SP0501, motor 0,65HP (o mais fraco confirmado do catálogo, mais fraco que os 0,75HP contínuo da WCT Fitness), velocidade máxima 6km/h (empatada com a Redfin como a mais baixa), peso máximo 110kg, lona 90×37cm, peso do equipamento 13,5kg (o mais leve do catálogo), É dobrável: Sim, inclinação MANUAL (quantidade de posições não especificada), monitor de frequência cardíaca, tela, função "Stepper" (não detalhada), não requer montagem. [VERIFICAR] apenas garantia — não divulgada em nenhuma fonte, sem site de fabricante independente localizado. Promovida de "parcial sem nota" (a mais vazia das 4 parciais) para análise completa com nota editorial (5,5/10) — ver metodologia.astro. Nota baixa apesar da ótima praticidade, por causa do motor mais fraco do catálogo. NA tabela comparativa da home e em metodologia.astro. Com isso, as 5 análises da varredura de baixa concorrência (PodiumFit, QBuen, Strive, Redfin, Health Herald) mais a Antuvi (pendência resolvida à parte) estão todas com nota editorial completa.',
 	},
+	'gallant-elite-gee12m25a-220v': {
+		merchant: 'mercadolivre',
+		title: 'Gallant Elite GEE12M25A (2.5HP, 220V)',
+		listingId: 'MLB6864120796',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-gallant-elite-25hp-14km-preto/p/MLB66341270',
+		affiliateUrl: 'https://meli.la/29iFMNZ',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-19',
+		notes:
+			'Pedido direto do usuário (mesma origem da GEE12M28A/GEE13M29A). Ficha técnica cruzada com o site oficial (gallantoficial.com.br): motor 2,5HP, 1-14km/h, lona 110×42cm, 120kg, inclinação manual hidráulica em 3 níveis, dobrável (sistema hidráulico), peso líquido 35,20kg / bruto 40,40kg, dimensões montada 117×65,5×139cm, display LCD 3.5", 12 programas + 3 modos de contagem regressiva, garantia 6 meses. Ficha idêntica à variante 127V (gallant-elite-gee12m25a-127v), só muda voltagem/preço/histórico de venda. R$2.453,13, +100 vendidos, nota 5,0 (23 avaliações — volume baixo comparado às outras duas Gallant Elite, sinalizado na review). Usuário enviou print do anúncio direto. ATENÇÃO: "Conferir mais produtos da marca Gallant" aparece no anúncio, mas não confirmamos explicitamente o selo "Loja Oficial" como nos outros dois Gallant Elite — sinalizado como [VERIFICAR] na review. Não é bivolt — este é o anúncio 220V.',
+	},
+	'gallant-elite-gee12m25a-127v': {
+		merchant: 'mercadolivre',
+		title: 'Gallant Elite GEE12M25A (2.5HP, 127V)',
+		listingId: 'MLB3801040505',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-gallant-elite-25hp-14kmh-120kg-gee12m25a-127pt/p/MLB38669848',
+		affiliateUrl: 'https://meli.la/1xeQRiL',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-09-19',
+		notes:
+			'Pedido direto do usuário (mesma origem da GEE12M28A/GEE13M29A). Ficha técnica cruzada com o site oficial (gallantoficial.com.br): motor 2,5HP, 1-14km/h, lona 110×42cm, 120kg, inclinação manual hidráulica em 3 níveis, dobrável (sistema hidráulico), peso líquido 35,20kg / bruto 40,40kg, dimensões montada 117×65,5×139cm, display LCD 3.5", 12 programas + 3 modos de contagem regressiva, garantia 6 meses. Ficha idêntica à variante 220V (gallant-elite-gee12m25a-220v), só muda voltagem/preço/histórico de venda. R$2.529, +100 vendidos, nota 4,5 (28 avaliações — volume baixo comparado às outras duas Gallant Elite, sinalizado na review). Usuário enviou print do anúncio direto. ATENÇÃO: não confirmamos explicitamente o selo "Loja Oficial" como nos outros dois Gallant Elite — sinalizado como [VERIFICAR] na review. Não é bivolt — este é o anúncio 127V.',
+	},
 	'antuvi-mesa': {
 		merchant: 'mercadolivre',
 		title: 'Antuvi Esteira Elétrica Ergométrica (marca declarada "Geral")',

@@ -266,6 +266,8 @@ if (existsSync(dist)) {
 				'redfin-150kg': 4,
 				'health-herald-lcd': 4,
 				'antuvi-mesa': 4,
+				'gallant-elite-gee12m25a-220v': 2,
+				'gallant-elite-gee12m25a-127v': 2,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -275,7 +277,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 61) diff.push(`total de CTAs: esperado 61, encontrado ${total}`);
+		if (total !== 65) diff.push(`total de CTAs: esperado 65, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
