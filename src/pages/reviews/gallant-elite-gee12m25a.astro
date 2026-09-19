@@ -2,26 +2,26 @@
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
-const buyUrl = buyHref('gallant-elite-gee12m25a-220v');
+const buyUrl = buyHref('gallant-elite-gee12m25a');
 
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
-	name: 'Gallant Elite GEE12M25A (220V)',
+	name: 'Gallant Elite GEE12M25A',
 	category: 'Esteira ergométrica',
 	brand: { '@type': 'Brand', name: 'Gallant' },
 	offers: {
 		'@type': 'AggregateOffer',
 		priceCurrency: 'BRL',
 		lowPrice: '2453.13',
-		highPrice: '2453.13',
-		offerCount: '1',
+		highPrice: '2529.00',
+		offerCount: '2',
 		availability: 'https://schema.org/InStock',
 	},
 	aggregateRating: {
 		'@type': 'AggregateRating',
-		ratingValue: '5.0',
-		reviewCount: '23',
+		ratingValue: '4.5',
+		reviewCount: '28',
 		bestRating: '5',
 		worstRating: '1',
 	},
@@ -45,34 +45,34 @@ const fichaItems = [
 	{ label: 'Peso máximo', value: '120 kg' },
 	{ label: 'Inclinação', value: 'Manual, 3 níveis' },
 	{ label: 'Garantia', value: '6 meses' },
-	{ label: 'Preço', value: 'R$ 2.453,13' },
+	{ label: 'Preço', value: 'R$ 2.453,13 a 2.529' },
 ];
 ---
 
 <ReviewLayout
 	title="Gallant Elite GEE12M25A é boa? Análise, ficha e preço"
-	description="Análise da esteira Gallant Elite GEE12M25A (220V): motor 2,5 HP, 14 km/h, lona 110×42 cm, 120 kg e inclinação manual em 3 níveis, por R$ 2.453,13. Ficha cruzada com o site oficial da Gallant — a versão de entrada da linha Elite, com poucas avaliações ainda."
-	path="/reviews/gallant-elite-gee12m25a-220v"
+	description="Análise da esteira Gallant Elite GEE12M25A: motor 2,5 HP, 14 km/h, lona 110×42 cm, 120 kg e inclinação manual em 3 níveis, por R$ 2.453,13 a 2.529. Ficha cruzada com o site oficial da Gallant — a versão de entrada da linha Elite, com voltagem selecionável no próprio anúncio."
+	path="/reviews/gallant-elite-gee12m25a"
 	ogTitle="Gallant Elite GEE12M25A é boa? Análise honesta"
-	ogDescription="2,5 HP, 14 km/h, 120 kg e inclinação manual em 3 níveis por R$ 2.453,13 — a entrada da linha Elite, com histórico de venda ainda pequeno."
+	ogDescription="2,5 HP, 14 km/h, 120 kg e inclinação manual em 3 níveis por R$ 2.453,13 a 2.529 — a entrada da linha Elite, com histórico de venda ainda pequeno."
 	jsonLd={jsonLd}
 	h1="Gallant Elite GEE12M25A é boa?"
 	standfirst="É a versão de entrada da linha Elite da Gallant — mesmo fabricante, mesma inclinação manual em 3 níveis das outras duas, mas com motor e velocidade menores e um histórico de avaliações ainda bem mais curto. Ficha técnica sólida, mas vale entender exatamente o que muda antes de pagar por essa entrada em vez das outras duas."
 	updated="setembro de 2026"
 	fichaItems={fichaItems}
 	buyHref={buyUrl}
-	priceNote="Preço observado em setembro de 2026, anúncio da versão 220V no Mercado Livre. Link de afiliado."
+	priceNote="Preço observado em setembro de 2026, varia conforme a voltagem selecionada no anúncio (127V ou 220V). Link de afiliado."
 >
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
     <p class="edit-score"><span class="edit-score__value">7,4<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
     <p>A GEE12M25A é a entrada da linha Elite: mesma inclinação manual em 3 níveis e o mesmo fabricante identificável das outras duas Gallant Elite que já analisamos, por um preço ainda menor — mas com motor de 2,5 HP (contra 2,8 e 2,9 HP das irmãs) e velocidade máxima de 14 km/h, a mais baixa das três. A ficha técnica, cruzada com o site oficial da Gallant, é tão completa quanto a das outras duas: peso líquido e bruto, dimensões do produto, garantia de 6 meses.</p>
-    <p>A ressalva real está no histórico: só 23 avaliações no anúncio que analisamos, bem abaixo das 242 e 269 avaliações das outras duas Gallant Elite. Não é sinal de problema — é só uma amostra pequena para tirar conclusão estatística sólida sobre o produto em uso real.</p>
+    <p>A ressalva real está no histórico: só 28 avaliações no anúncio que analisamos, bem abaixo das 242 e 269 avaliações das outras duas Gallant Elite. Não é sinal de problema — é só uma amostra pequena para tirar conclusão estatística sólida sobre o produto em uso real.</p>
   </div>
 
-  <h2>Atenção real: a Gallant Elite não é bivolt</h2>
-  <p>A ficha oficial é explícita: "127V ou 220V (Não é Bivolt)". Este anúncio é a versão <strong>220V</strong> — existe uma versão 127V separada, <a href="/reviews/gallant-elite-gee12m25a-127v">também analisada aqui</a>, com preço e histórico de avaliações diferentes. Confirme a rede elétrica da sua casa antes de comprar.</p>
+  <h2>Um anúncio, duas voltagens: preço muda conforme a escolha</h2>
+  <p>Diferente das outras duas Gallant Elite — que têm anúncios inteiramente separados por voltagem —, este modelo tem <strong>127V e 220V selecionáveis dentro do mesmo anúncio</strong>. O preço muda conforme a opção: no nosso levantamento, a seleção 127V apareceu por R$ 2.529 (4,5★, 28 avaliações) e a 220V por R$ 2.453,13 (5,0★, 23 avaliações) — trate os dois como faixa de referência, não como valor fixo, e confirme o preço e a voltagem exatos antes de fechar a compra. Continua não sendo bivolt automático: é uma escolha manual entre as duas opções, feita no próprio anúncio, não uma troca automática de tensão pelo equipamento.</p>
   <p>Vale reparar também no código do modelo: a linha "Elite" da Gallant tem outros dois integrantes com nome parecido — o <a href="/reviews/gallant-elite-gee12m28a">Elite 2.8 HP (GEE12M28A)</a>, 120 kg e 16 km/h, e o <a href="/reviews/gallant-elite-gee13m29a">Elite 2.9 HP (GEE13M29A)</a>, 130 kg e 16 km/h com display LCD de 5". São produtos diferentes deste 2,5 HP, com motor, velocidade e histórico de venda distintos. Confira o código completo (GEE12M25A) antes de fechar a compra.</p>
 
   <h2>Para quem essa esteira faz sentido</h2>
@@ -100,7 +100,7 @@ const fichaItems = [
   <p>Display LCD de 3,5", com 12 programas pré-definidos, 3 modos de contagem regressiva, entrada auxiliar P2 para música e chave de segurança — o mesmo conjunto de recursos das outras duas Gallant Elite, segundo a ficha oficial.</p>
 
   <h2>Fabricante: Gallant, marca da Webcontinental</h2>
-  <p>A Gallant é uma marca própria da Webcontinental, uma rede varejista brasileira consolidada, com site oficial próprio (gallantoficial.com.br). A garantia é de 6 meses — igual às outras duas Gallant Elite, à Polimet e à Dream Fitness. Diferente das outras duas análises da linha, não confirmamos de forma explícita o selo "Loja Oficial" no anúncio específico que verificamos — o anúncio traz um módulo "Conferir mais produtos da marca Gallant", mas isso não é a mesma coisa que o selo. <a href="/guias/athletic-e-boa-marca">Veja aqui</a> por que essa distinção importa antes de comprar.</p>
+  <p>A Gallant é uma marca própria da Webcontinental, uma rede varejista brasileira consolidada, com site oficial próprio (gallantoficial.com.br). A garantia é de 6 meses — igual às outras duas Gallant Elite, à Polimet e à Dream Fitness. Diferente das outras duas análises da linha, não confirmamos de forma explícita o selo "Loja Oficial" no anúncio que verificamos — ele traz um módulo "Conferir mais produtos da marca Gallant", mas isso não é a mesma coisa que o selo. <a href="/guias/athletic-e-boa-marca">Veja aqui</a> por que essa distinção importa antes de comprar.</p>
 
   <div class="pros-cons">
     <div>
@@ -110,7 +110,7 @@ const fichaItems = [
         <li>Ficha técnica completa e transparente, cruzada com o site oficial da Gallant</li>
         <li>Fabricante identificável e consolidado (Webcontinental), garantia de 6 meses</li>
         <li>A mais leve das três Gallant Elite (35,20 kg líquidos)</li>
-        <li>O menor preço da linha Elite</li>
+        <li>O menor preço da linha Elite, com 127V e 220V no mesmo anúncio</li>
       </ul>
     </div>
     <div>
@@ -118,21 +118,21 @@ const fichaItems = [
       <ul>
         <li>Motor (2,5 HP) e velocidade (14 km/h) mais baixos da linha Elite</li>
         <li>Lona mais curta das três (110 cm de comprimento)</li>
-        <li>Só 23 avaliações no anúncio verificado — amostra pequena</li>
+        <li>Só 28 avaliações no anúncio verificado — amostra pequena</li>
         <li>Não confirmamos explicitamente o selo "Loja Oficial" neste anúncio</li>
-        <li>Não é bivolt: é preciso escolher o anúncio certo (127V ou 220V) antes de comprar</li>
+        <li>Não é bivolt automático: é preciso confirmar a voltagem certa (127V ou 220V) antes de finalizar a compra</li>
         <li>Motor declarado como valor único (2,5 HP), sem separar contínua de pico</li>
       </ul>
     </div>
   </div>
 
   <h2>Onde comprar e por quanto</h2>
-  <p>Em setembro de 2026, a versão 220V da Gallant Elite GEE12M25A apareceu por <strong>R$ 2.453,13</strong>, com mais de 100 unidades vendidas e nota 5,0 (23 avaliações). Não confirmamos de forma explícita o selo "Loja Oficial" neste anúncio específico — o módulo "Conferir mais produtos da marca Gallant" aparece na página, mas trate essa diferença como real antes de comprar, e confirme você mesmo no anúncio atual.</p>
+  <p>Em setembro de 2026, a Gallant Elite GEE12M25A apareceu por <strong>R$ 2.453,13 a 2.529</strong>, dependendo da voltagem selecionada no anúncio, com mais de 100 unidades vendidas. Não confirmamos de forma explícita o selo "Loja Oficial" neste anúncio específico — o módulo "Conferir mais produtos da marca Gallant" aparece na página, mas confirme você mesmo no anúncio atual antes de comprar.</p>
 
   <h2>Perguntas frequentes</h2>
 
   <h3>A Gallant Elite GEE12M25A é bivolt?</h3>
-  <p>Não. A ficha oficial confirma: "127V ou 220V, não é bivolt". Este anúncio é a versão 220V; existe uma <a href="/reviews/gallant-elite-gee12m25a-127v">versão 127V separada</a>. Confirme a rede elétrica da sua casa antes de comprar.</p>
+  <p>Não automaticamente. O mesmo anúncio permite escolher entre 127V e 220V, mas a seleção é manual, feita antes da compra — confirme a voltagem certa para a rede elétrica da sua casa.</p>
 
   <h3>Qual a diferença para a GEE12M28A e a GEE13M29A?</h3>
   <p>São três modelos diferentes da mesma linha "Elite", todos com inclinação manual em 3 níveis. Esta GEE12M25A (2,5 HP) tem o motor e a velocidade mais baixos (14 km/h) e a lona mais curta (110 cm) das três. A <a href="/reviews/gallant-elite-gee12m28a">GEE12M28A</a> (2,8 HP) e a <a href="/reviews/gallant-elite-gee13m29a">GEE13M29A</a> (2,9 HP) chegam a 16 km/h, com peso suportado de 120 kg e 130 kg respectivamente.</p>
@@ -145,7 +145,7 @@ const fichaItems = [
 
   <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
-  <p><strong>Leia também:</strong> a <a href="/reviews/gallant-elite-gee12m25a-127v">versão 127V deste mesmo modelo</a>, a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a>, a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a>, e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+  <p><strong>Leia também:</strong> a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a>, a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a>, e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 
   <p class="disclosure">Esta análise foi feita a partir da ficha técnica publicada no site oficial da Gallant (gallantoficial.com.br) e de um anúncio no Mercado Livre enviado pelo usuário, consultados em setembro de 2026. Não confirmamos de forma independente o selo "Loja Oficial" para este anúncio específico. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Gallant ou da Webcontinental. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
