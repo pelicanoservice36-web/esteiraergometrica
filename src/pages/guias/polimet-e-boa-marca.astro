@@ -1,0 +1,56 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Polimet é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-09-19',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/polimet-e-boa-marca',
+};
+---
+
+<ArticleLayout
+	title="Polimet é uma boa marca de esteira?"
+	description="O que verificamos sobre a Polimet (também vendida como Poli Sports) a partir das análises da EP-1600 e da EP-1600 Sênior: preço, garantia e o erro de '16 HP' que não é culpa do fabricante."
+	path="/guias/polimet-e-boa-marca"
+	ogTitle="Polimet é uma boa marca?"
+	ogDescription="Dois modelos analisados, a mesma marca vendida sob dois nomes — e um erro de potência espalhado pelo varejo que não veio do fabricante."
+	jsonLd={jsonLd}
+	h1="Polimet é uma boa marca de esteira?"
+	standfirst="Esta resposta é baseada no que verificamos analisando os dois modelos da marca que já cobrimos — a EP-1600 e a EP-1600 Sênior — não numa auditoria institucional da empresa."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Sim, dentro do que verificamos. A Polimet tem os dois modelos mais cobertos do nosso catálogo (EP-1600 e EP-1600 Sênior), com mais de 530 e 219 avaliações respectivamente, e o fabricante respondeu publicamente a uma dúvida de comprador sobre a tensão bivolt — sinal de que existe alguém real respondendo pelo produto. A única confusão relevante que encontramos (um erro de "16 HP" espalhado por vários anúncios) veio de terceiros, não da ficha oficial do fabricante.</p>
+  </div>
+
+  <h2>Um detalhe que vale saber antes: dois nomes, mesma fabricante</h2>
+  <p>A mesma linha de produto aparece no mercado sob dois nomes — Polimet e Poli Sports. A <a href="/reviews/polimet-ep1600">EP-1600</a> é vendida com a marca Polimet; a <a href="/reviews/polimet-ep1600-senior">EP-1600 Sênior</a>, com a marca Poli Sports. Isso não é sinal de produto sem procedência — é a mesma fabricante usando nomes diferentes em linhas diferentes —, mas é o tipo de coisa que pode confundir quem está comparando anúncios sem saber que são a mesma empresa.</p>
+
+  <h2>O erro de "16 HP" não é culpa do fabricante</h2>
+  <p>Vários anúncios grandes de terceiros informaram a EP-1600 como tendo "16 HP" de potência. A ficha oficial do fabricante confirma 1,6 HP — o padrão real da faixa de entrada do mercado brasileiro. O erro parece ter se originado de um erro de digitação (falta de vírgula) que se espalhou pelo varejo, não de uma alegação da própria Polimet. Ainda assim, é um exemplo de como o nome de uma marca pode ficar associado a um número que ela nunca declarou — confirme sempre a ficha oficial, não o primeiro anúncio que aparecer.</p>
+
+  <h2>Um sinal positivo: resposta pública sobre bivolt</h2>
+  <p>Na ficha da EP-1600, o próprio fabricante esclareceu, em resposta pública a uma pergunta de comprador, que a tensão é 127V/220V com seleção manual, não automática — corrigindo uma confusão comum em anúncios de esteiras de entrada. Isso é um dado a favor: existe alguém da marca respondendo dúvida real de comprador publicamente, não só um anúncio estático.</p>
+
+  <h2>Modelos que já analisamos</h2>
+  <p>Cobrimos a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> (nota editorial 6,9/10, a maior entre os fabricantes estabelecidos da faixa de entrada) e a <a href="/reviews/polimet-ep1600-senior">EP-1600 Sênior</a> (nota 6,0/10, com corrimão lateral estendido para apoio contínuo). Veja o <a href="/guias/polimet-ep1600-ou-dream-fitness-dr1600">comparativo com a Dream Fitness DR-1600</a> se estiver em dúvida entre marcas equivalentes em especificação.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Polimet vale a pena?</h3>
+  <p>Pelos dois modelos que já analisamos, sim — é a maior nota editorial da faixa de entrada do nosso catálogo, com fabricante respondendo publicamente dúvidas de compradores.</p>
+
+  <h3>Polimet e Poli Sports são a mesma marca?</h3>
+  <p>Sim, é a mesma fabricante vendendo linhas diferentes sob nomes diferentes — a EP-1600 como Polimet, a EP-1600 Sênior como Poli Sports.</p>
+
+  <h3>A Polimet EP-1600 tem mesmo 16 HP?</h3>
+  <p>Não — esse número circula em anúncios de terceiros, mas é um erro. A ficha oficial do fabricante confirma 1,6 HP, o padrão real da faixa de entrada do mercado brasileiro.</p>
+
+  <p class="disclosure">Esta página é baseada no que verificamos analisando a Polimet EP-1600 e a EP-1600 Sênior, não em pesquisa institucional completa sobre a empresa. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você — essa relação não influencia a avaliação feita aqui.</p>
+
+</ArticleLayout>

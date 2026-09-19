@@ -1,0 +1,51 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Athletic é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-09-19',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/athletic-e-boa-marca',
+};
+---
+
+<ArticleLayout
+	title="Athletic é uma boa marca de esteira?"
+	description="O que verificamos sobre a Athletic a partir da análise da Racer 16km/h: site oficial, manual em PDF, garantia de 12 meses e a maior nota editorial do nosso catálogo."
+	path="/guias/athletic-e-boa-marca"
+	ogTitle="Athletic é uma boa marca?"
+	ogDescription="A marca com a ficha técnica mais verificável do nosso catálogo — cruzada com manual oficial em PDF, não só com o anúncio de loja."
+	jsonLd={jsonLd}
+	h1="Athletic é uma boa marca de esteira?"
+	standfirst="Esta resposta é baseada no que verificamos analisando a Athletic Racer 16km/h, o único modelo da marca que já cobrimos — não numa auditoria institucional da empresa."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Sim — é a marca com a verificação mais completa de todo o nosso catálogo. A Athletic tem loja oficial no Mercado Livre, site próprio (shop.athletic.com.br) com o mesmo preço praticado, e manual de instruções em PDF que cruzamos diretamente com a ficha técnica do anúncio. O único modelo que analisamos, a Racer 16km/h, tem a maior nota editorial (8,6/10) e a maior garantia (12 meses) do nosso comparativo inteiro.</p>
+  </div>
+
+  <h2>O que já verificamos</h2>
+  <p>A <a href="/reviews/athletic-racer">Athletic Racer</a> é vendida pela loja oficial ATHLETIC no Mercado Livre, com mais de 500 unidades vendidas. Encontramos o mesmo produto no site oficial do fabricante, por um preço equivalente (R$ 4.590 na época, contra os R$ 4.300 do Mercado Livre) — sinal de que o anúncio não é uma oferta isolada desalinhada do que a própria marca pratica.</p>
+  <p>O diferencial real é a fonte: conseguimos cruzar a ficha técnica do anúncio com o manual de instruções oficial em PDF, disponibilizado pela própria marca — o nível de verificação mais alto que já alcançamos em qualquer análise deste site. Foi esse cruzamento que revelou, por exemplo, que o material de marketing do fabricante menciona "26 programas de treinamento" mas a tabela de especificações e o próprio manual confirmam 19 — publicamos o número confirmado pelo manual, não o do texto promocional.</p>
+
+  <h2>Garantia e confiabilidade</h2>
+  <p>12 meses de garantia — o dobro da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> e da <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a>, e a maior confirmada em todo o nosso catálogo. Combinado com fabricante identificável, site próprio e manual técnico público, isso resultou na nota de confiabilidade mais alta (9,5/10) que já atribuímos a uma marca na nossa <a href="/metodologia">metodologia</a>.</p>
+
+  <h2>Modelo que já analisamos</h2>
+  <p>Até hoje, cobrimos só a <a href="/reviews/athletic-racer">Athletic Racer 16km/h</a> (nota editorial 8,6/10) — a única esteira do nosso catálogo inteiro dimensionada para corrida sustentada, não só caminhada. Veja o <a href="/guias/dream-fitness-dr1600-ou-athletic-racer">comparativo com a Dream Fitness DR-1600</a> para saber se esse é o seu caso, ou o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de corrida ou caminhada</a> para os sinais de que você precisa desse tipo de equipamento.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Athletic vale a pena?</h3>
+  <p>Pelo único modelo que já analisamos (Racer 16km/h), sim — é a marca com a ficha técnica mais verificável e a maior garantia do nosso catálogo. A ressalva é de preço: só vale o investimento se o seu uso pedir motor e lona de corrida, não caminhada.</p>
+
+  <h3>A Athletic tem site oficial próprio?</h3>
+  <p>Sim, shop.athletic.com.br, com o mesmo produto e preço equivalente ao anúncio do Mercado Livre — o que reforça que o preço praticado não é uma promoção isolada de loja.</p>
+
+  <p class="disclosure">Esta página é baseada no que verificamos analisando a Athletic Racer 16km/h, não em pesquisa institucional completa sobre a empresa. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você — essa relação não influencia a avaliação feita aqui.</p>
+
+</ArticleLayout>
