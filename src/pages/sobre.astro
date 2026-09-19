@@ -1,0 +1,46 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfilePage',
+	mainEntity: {
+		'@type': 'Person',
+		name: 'Rafael Rodrigues',
+		url: 'https://esteiraergometrica.com/sobre',
+		jobTitle: 'Autor e editor do esteiraergometrica.com',
+		email: 'mailto:pelicanoservice36@gmail.com',
+		worksFor: { '@type': 'Organization', name: 'esteiraergometrica.com' },
+	},
+};
+---
+
+<ArticleLayout
+	title="Sobre: quem escreve o esteiraergometrica.com"
+	description="O esteiraergometrica.com é escrito por Rafael Rodrigues, sem formação em educação física ou engenharia. O que este site oferece é ficha técnica conferida na fonte, não autoridade emprestada."
+	path="/sobre"
+	ogTitle="Sobre o esteiraergometrica.com"
+	ogDescription="Escrito por uma pessoa só, sem credencial técnica formal — o diferencial é conferir a fonte de cada dado, não uma bio impressionante."
+	jsonLd={jsonLd}
+	h1="Sobre o esteiraergometrica.com"
+	standfirst="Este site é escrito e mantido por uma pessoa, não por uma redação. Não tenho formação em educação física, fisioterapia ou engenharia — e prefiro deixar isso claro a fingir uma credencial que não tenho."
+	updated="setembro de 2026"
+>
+
+  <h2>Quem escreve</h2>
+  <p>Meu nome é Rafael Rodrigues. Não sou personal trainer, engenheiro nem tenho vínculo com nenhum fabricante de esteira — sou a pessoa que pesquisa, confere e escreve cada análise deste site, sozinho. Se você está procurando o currículo de um especialista em biomecânica, não é isso que vai encontrar aqui.</p>
+  <p>O que ofereço em troca é tempo: cada especificação publicada foi conferida na ficha do fabricante ou num anúncio de varejo verificado, não copiada do primeiro resultado do Google. Quando não consigo confirmar um dado — garantia não informada, comprimento de lona não divulgado, potência contínua que o fabricante não separa da de pico — isso aparece escrito no texto, não escondido atrás de um número que parece profissional.</p>
+
+  <h2>Por que este site existe</h2>
+  <p>Comecei a pesquisar esteiras domésticas para uso próprio e encontrei o mesmo problema em anúncio após anúncio: potência de motor divulgada errada (um erro de "1,6 HP" virando "16 HP" que se espalhou pelo varejo inteiro), preço "de" riscado que não corresponde a nada que a loja realmente cobrou, "bivolt" que na prática exige troca manual de tensão. Nenhum site que encontrei separava esse ruído de forma clara. Este site é a tentativa de resolver esse problema para quem passar pela mesma pesquisa depois de mim.</p>
+
+  <h2>Como decido o que publicar</h2>
+  <p>Toda análise segue a mesma metodologia, com sete critérios e peso declarado para cada um — motor, lona, peso suportado, velocidade, praticidade, custo-benefício e confiabilidade do fabricante. A conta de cada modelo está aberta, não escondida atrás de uma nota genérica. Veja a <a href="/metodologia">metodologia completa</a> se quiser conferir o cálculo por trás de qualquer nota que aparece numa análise.</p>
+
+  <h2>Relação comercial</h2>
+  <p>Este site participa de programas de afiliados, principalmente do Mercado Livre: se você compra por um link publicado aqui, recebo uma comissão da loja, sem custo adicional para você. Essa comissão não muda o preço que você paga, e o veredito de cada análise é escrito antes de qualquer consideração sobre quanto ela paga — os detalhes completos estão no <a href="/aviso-legal">aviso legal</a>.</p>
+
+  <h2>Contato</h2>
+  <p>Encontrou um dado desatualizado, um erro ou quer sugerir um modelo para eu analisar? Escreva para <a href="mailto:pelicanoservice36@gmail.com">pelicanoservice36@gmail.com</a>.</p>
+
+</ArticleLayout>
