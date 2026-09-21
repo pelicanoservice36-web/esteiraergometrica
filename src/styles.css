@@ -1172,6 +1172,10 @@ a:hover { color: var(--primary-ink); }
   margin-top: 4rem;
   padding: 3rem 0 2.5rem;
   background: var(--surface);
+  /* Aqui a wordmark aparece dentro de texto corrido (ao lado da tagline), não como
+     logotipo isolado — por isso usa --accent (~5,2:1 sobre branco) em vez do
+     --brand-green vivo (~2:1), que só é seguro como símbolo/ícone. */
+  --logo-green: var(--accent);
 }
 
 .foot-grid {
