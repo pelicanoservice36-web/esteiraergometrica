@@ -106,6 +106,13 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
 <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
 
+{transparentHeader && (
+	// O poster do vídeo do hero é o elemento de LCP da home, mas fetchpriority="high"
+	// na tag <video> não se propaga pro fetch do atributo poster (limitação conhecida
+	// dos navegadores) — precisa desse preload dedicado pra imagem ser priorizada de fato.
+	<link rel="preload" as="image" href="/video/esteiraergometricahead-poster.webp" fetchpriority="high">
+)}
+
 {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 </head>
 <body>
