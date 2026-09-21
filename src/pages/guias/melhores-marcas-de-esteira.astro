@@ -1,0 +1,156 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Melhores marcas de esteira ergométrica: o que confirmamos de cada uma',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-09-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/melhores-marcas-de-esteira',
+};
+---
+
+<ArticleLayout
+	title="Melhores marcas de esteira ergométrica (2026)"
+	description="Treze marcas, ranqueadas pelo mesmo critério de confiabilidade que usamos em cada análise: fabricante identificável, garantia declarada e histórico de reclamação — não opinião solta."
+	path="/guias/melhores-marcas-de-esteira"
+	ogTitle="Melhores marcas de esteira ergométrica"
+	ogDescription="Nem toda 'marca' numa ficha de anúncio é uma empresa de verdade. Veja o que confirmamos — e o que não confirmamos — de cada uma das treze marcas do nosso catálogo."
+	jsonLd={jsonLd}
+	h1="Melhores marcas de esteira ergométrica: o que confirmamos de cada uma"
+	standfirst="'Melhor marca' não é opinião aqui — é o mesmo critério de confiabilidade que já aplicamos nas dezesseis análises deste site: existe fabricante identificável? Qual a garantia declarada, e por quem? Há reclamação pública real associada? Organizamos as treze marcas do nosso catálogo por esse critério, com a fonte de cada ponto."
+	updated="setembro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Entre as marcas que já analisamos a fundo, a <a href="/guias/athletic-e-boa-marca">Athletic</a> tem a maior confiabilidade (nota 9,5/10 no nosso critério): garantia de 12 meses, assistência técnica em vários estados e SAC próprio. Logo atrás, empatadas em 7,0, estão a <a href="/guias/polimet-e-boa-marca">Polimet</a> (brasileira, assistência autorizada), a <a href="/guias/dream-fitness-e-boa-marca">Dream Fitness</a> (garantia própria, mas com reclamações reais de segurança) e a Gallant — marca da Webcontinental, com a ficha técnica mais transparente do catálogo, ainda sem página dedicada própria. No fundo da tabela estão duas fichas que nem chegam a declarar uma marca real: "Genérica" e "Geral".</p>
+  </div>
+
+  <h2>Como classificamos uma marca</h2>
+  <p>Usamos o mesmo critério de "Confiabilidade do fabricante e garantia" da nossa <a href="/metodologia">nota editorial</a>, aplicado por marca em vez de por modelo: existe fabricante nacional identificável, com site e assistência técnica, e qual o prazo de garantia? Fabricante identificável com 12 meses ou mais pontua o máximo (9,5); com 6 meses pontua 7,0; com 3 meses pontua 5,5; sem marca real (a ficha declara algo como "Genérica" ou "Geral") pontua o mínimo (3,0). Quando a marca é identificável mas a garantia não é informada em nenhuma fonte, a nota fica no meio dessas faixas, caso a caso — a mesma lógica já usada em cada análise individual.</p>
+
+  <h2>As treze marcas, por confiabilidade</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Marca, produtos no catálogo, garantia e nota de confiabilidade — setembro de 2026</caption>
+    <thead>
+      <tr>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo(s) no catálogo</th>
+        <th scope="col">Garantia</th>
+        <th scope="col">Confiabilidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-best="true">
+        <th scope="row"><a href="/guias/athletic-e-boa-marca">Athletic</a></th>
+        <td><a href="/reviews/athletic-racer">Racer</a></td>
+        <td>12 meses (fabricante)</td>
+        <td class="num">9,5</td>
+      </tr>
+      <tr>
+        <th scope="row">Gallant (Webcontinental)</th>
+        <td><a href="/reviews/gallant-elite-gee12m25a">GEE12M25A</a>, <a href="/reviews/gallant-elite-gee12m28a">GEE12M28A</a>, <a href="/reviews/gallant-elite-gee13m29a">GEE13M29A</a></td>
+        <td>6 meses (fabricante)</td>
+        <td class="num">7,0</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/guias/polimet-e-boa-marca">Polimet (Poli Sports)</a></th>
+        <td><a href="/reviews/polimet-ep1600">EP-1600</a>, <a href="/reviews/polimet-ep1600-senior">EP-1600 Sênior</a></td>
+        <td>6 meses (fornecedor)</td>
+        <td class="num">7,0</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/guias/dream-fitness-e-boa-marca">Dream Fitness</a></th>
+        <td><a href="/reviews/dream-fitness-dr1600">DR-1600</a></td>
+        <td>6 meses (fornecedor)</td>
+        <td class="num">7,0</td>
+      </tr>
+      <tr>
+        <th scope="row">WCT Fitness</th>
+        <td><a href="/reviews/wct-fitness-esteira">Esteira WCT</a></td>
+        <td>3 meses (fabricante)</td>
+        <td class="num">5,5</td>
+      </tr>
+      <tr>
+        <th scope="row">PodiumFit</th>
+        <td><a href="/reviews/podiumfit-x300">X300</a></td>
+        <td>90 dias (fabricante)</td>
+        <td class="num">5,5</td>
+      </tr>
+      <tr>
+        <th scope="row">Importway</th>
+        <td><a href="/reviews/importway-iwest2x1-10">IWEST2X1-10</a></td>
+        <td>90 dias (fabricante)</td>
+        <td class="num">5,5</td>
+      </tr>
+      <tr>
+        <th scope="row">QBuen</th>
+        <td><a href="/reviews/qbuen-150kg">AT-1271</a></td>
+        <td>Não informada</td>
+        <td class="num">4,0</td>
+      </tr>
+      <tr>
+        <th scope="row">Health Herald</th>
+        <td><a href="/reviews/health-herald-lcd">SP0501</a></td>
+        <td>Não informada</td>
+        <td class="num">4,0</td>
+      </tr>
+      <tr>
+        <th scope="row">Redfin</th>
+        <td><a href="/reviews/redfin-150kg">Ideal DL-227</a></td>
+        <td>Não informada</td>
+        <td class="num">3,5</td>
+      </tr>
+      <tr>
+        <th scope="row">Strive</th>
+        <td><a href="/reviews/strive-25hp-16kmh">TM16</a></td>
+        <td>Não informada</td>
+        <td class="num">3,0</td>
+      </tr>
+      <tr>
+        <th scope="row">"Genérica" (sem marca)</th>
+        <td><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a></td>
+        <td>30 dias (vendedor)</td>
+        <td class="num">3,0</td>
+      </tr>
+      <tr>
+        <th scope="row">"Geral" (sem marca)</th>
+        <td><a href="/reviews/antuvi-mesa">Antuvi</a></td>
+        <td>Não informada</td>
+        <td class="num">3,0</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>A marca com a ficha mais transparente ainda não tem página própria: Gallant</h2>
+  <p>A Gallant — marca da Webcontinental, uma das maiores varejistas do Brasil — publica a ficha técnica mais completa que já cruzamos neste site: peso líquido <strong>e</strong> peso bruto do equipamento, dimensões montada e da embalagem, e garantia, sem os vazios de dado que marcam a maioria das outras análises. As três Gallant Elite do nosso catálogo (GEE12M25A, GEE12M28A e GEE13M29A) têm loja oficial Webcontinental confirmada, com selo verificado. É a marca com mais produtos analisados aqui (três) e a segunda maior confiabilidade, empatada com Polimet e Dream Fitness.</p>
+
+  <h2>Duas fichas que nem declaram uma marca real</h2>
+  <p>"Genérica" e "Geral" não são nomes de fabricante — são o que os próprios anúncios da <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a> e da <a href="/reviews/antuvi-mesa">Antuvi</a> declaram no campo de marca. Isso não significa que o produto seja necessariamente ruim (o vendedor da Cardio, por exemplo, já soma mais de mil unidades vendidas com nota 4,8), mas muda a natureza do risco: não existe empresa identificável para responder se a ficha técnica declarada estiver errada, ou para acionar em caso de defeito além do prazo curto de garantia do vendedor.</p>
+
+  <h2>Uma marca que pesquisamos, mas ainda não analisamos: Kikos</h2>
+  <p>A Kikos aparece com frequência em buscas por marca de esteira, mas nenhum modelo específico dela está no nosso catálogo ainda — por isso não entra na tabela acima, que só ranqueia marcas com produto já analisado pela nossa metodologia. Pesquisamos a reputação pública mesmo assim: é fabricante brasileira estabelecida, com nota 8,3/10 no Reclame Aqui, mas também 233 reclamações registradas, com queixas recorrentes sobre assistência técnica. Veja a <a href="/guias/kikos-e-boa-marca">apuração completa</a>.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Qual a melhor marca de esteira do Brasil?</h3>
+  <p>Entre as marcas que já analisamos com a nossa metodologia completa, a Athletic tem a maior confiabilidade: garantia de 12 meses, assistência técnica em vários estados e SAC próprio, confirmados na ficha do fabricante e no manual oficial.</p>
+
+  <h3>Marca nacional é sempre melhor que marca importada?</h3>
+  <p>Não necessariamente — o que decide é se existe estrutura de pós-venda real por trás, não a origem do produto. A Importway e a PodiumFit, por exemplo, têm site próprio e atendimento, mas garantia mais curta (90 dias) que marcas nacionais como Polimet e Dream Fitness (6 meses).</p>
+
+  <h3>Existe alguma marca do catálogo que devo evitar?</h3>
+  <p>Não classificamos isso como "evitar", mas dois casos pedem mais cautela: produtos vendidos sem marca real declarada ("Genérica" ou "Geral"), e a Strive, cuja loja ("STRIVE por New Speed") está associada a uma reclamação pública no Reclame Aqui sobre dificuldade de acionar garantia em outro modelo da mesma empresa.</p>
+
+  <h3>Essa nota de marca é a mesma nota editorial de cada review?</h3>
+  <p>Não é idêntica — é o mesmo critério de confiabilidade isolado, sem os outros seis critérios (motor, lona, peso suportado, velocidade, praticidade e custo-benefício) que compõem a nota editorial completa de cada modelo. Veja a <a href="/metodologia">metodologia</a> para a conta inteira.</p>
+
+  <p><strong>Leia também:</strong> as análises individuais de marca — <a href="/guias/athletic-e-boa-marca">Athletic</a>, <a href="/guias/polimet-e-boa-marca">Polimet</a>, <a href="/guias/dream-fitness-e-boa-marca">Dream Fitness</a> e <a href="/guias/kikos-e-boa-marca">Kikos</a> —, o <a href="/guias/melhor-esteira-ergometrica-residencial">comparativo por categoria</a> ou o <a href="/#comparativo">comparativo completo</a> com todos os modelos.</p>
+
+  <p class="disclosure">Esta página foi escrita a partir das dezesseis análises já publicadas neste site, com garantia e fabricante verificados na ficha oficial de cada marca quando disponível, em setembro de 2026. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você — essa relação comercial não influencia a ordem desta tabela.</p>
+
+</ArticleLayout>
