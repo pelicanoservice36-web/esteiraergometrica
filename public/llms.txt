@@ -1,0 +1,65 @@
+# esteiraergometrica.com
+
+> Site brasileiro de análises independentes de esteiras ergométricas para uso residencial. Cada análise traz ficha técnica conferida na fonte (fabricante ou anúncio verificado) e uma nota editorial de 0 a 10 com a conta aberta. São 16 modelos analisados, vendidos no Mercado Livre.
+
+Regras editoriais do site, úteis para quem cita o conteúdo:
+- Nenhum dado técnico é inventado. Quando uma especificação não foi confirmada (garantia, comprimento da lona, decibéis), a página diz que não existe em vez de estimar.
+- O site não tem laboratório: não publica medições próprias de ruído, temperatura de motor ou teste de carga.
+- Preços são sempre faixas com mês de referência, porque variam entre vendedores. Consulte a página para o valor atual.
+- A nota editorial segue sete critérios com pesos fixos, documentados em /metodologia. Não é a nota de estrelas do Mercado Livre.
+- O site participa do programa de afiliados do Mercado Livre e recebe comissão por compras feitas pelos links de compra, sem custo adicional para o leitor. Isso não altera a nota nem a posição de nenhum modelo.
+
+## Comparativos e guias de compra
+
+- [Comparativo completo de esteiras ergométricas](https://esteiraergometrica.com/): tabela com os 16 modelos analisados, com motor, lona, peso suportado e nota editorial.
+- [Melhor esteira ergométrica residencial](https://esteiraergometrica.com/guias/melhor-esteira-ergometrica-residencial): os modelos organizados por categoria, como custo-benefício, corrida, idosos e apartamento.
+- [Como escolher uma esteira ergométrica para casa](https://esteiraergometrica.com/guias/como-escolher): os números que decidem a compra e as especificações que os anúncios costumam inflar.
+- [Como comprar esteira ergométrica com segurança](https://esteiraergometrica.com/guias/como-comprar-esteira-com-seguranca): loja oficial ou vendedor comum, preço riscado e nomes de modelo parecidos com fichas diferentes.
+- [Esteira ergométrica por orçamento](https://esteiraergometrica.com/guias/esteira-por-orcamento): o que cada faixa de orçamento permite, com a nota editorial de cada modelo.
+- [Esteira para apartamento pequeno](https://esteiraergometrica.com/guias/esteira-para-apartamento): se dobra, peso do equipamento, ruído para o vizinho e espaço de segurança.
+- [Esteira dobrável: qual escolher](https://esteiraergometrica.com/guias/esteira-dobravel): peso do equipamento dos modelos dobráveis, de 13,5 kg a 45 kg.
+- [Esteira silenciosa: o que realmente importa](https://esteiraergometrica.com/guias/esteira-silenciosa): nenhum modelo do catálogo tem decibéis publicados; explica o que de fato reduz o ruído.
+- [Esteira para quem pesa mais de 100 kg](https://esteiraergometrica.com/guias/esteira-acima-de-100kg): peso máximo por faixa, de 100 kg a 150 kg, e a fonte de cada dado.
+- [Esteira para caminhada ou corrida](https://esteiraergometrica.com/guias/esteira-para-corrida-ou-caminhada): melhor opção para caminhada por critério e quando vale migrar para um modelo de corrida.
+- [Esteira ergométrica para idosos](https://esteiraergometrica.com/guias/esteira-para-idosos): por que o corrimão importa mais que motor ou velocidade nesse caso.
+- [Esteira para emagrecer](https://esteiraergometrica.com/guias/esteira-para-emagrecer): o que decide o resultado e qual modelo do catálogo faz sentido para esse objetivo.
+- [Como começar a usar a esteira](https://esteiraergometrica.com/guias/como-comecar-a-usar-a-esteira): plano de quatro semanas para iniciantes.
+- [Esteira, rua, bike ou elíptico](https://esteiraergometrica.com/guias/esteira-ou-rua-bike-ou-eliptico): comparação por impacto, custo, espaço e efeito no treino.
+- [O que é uma esteira ergométrica e como funciona](https://esteiraergometrica.com/guias/o-que-e-uma-esteira-ergometrica): motor, lona, console e estrutura.
+- [Metodologia e nota editorial](https://esteiraergometrica.com/metodologia): os sete critérios, os pesos e a conta aberta da nota de cada modelo.
+
+## Marcas
+
+- [Melhores marcas de esteira ergométrica](https://esteiraergometrica.com/guias/melhores-marcas-de-esteira): treze marcas ranqueadas por confiabilidade do fabricante, garantia declarada e histórico de reclamações.
+- [Polimet é uma boa marca?](https://esteiraergometrica.com/guias/polimet-e-boa-marca): também vendida como Poli Sports.
+- [Dream Fitness é uma boa marca?](https://esteiraergometrica.com/guias/dream-fitness-e-boa-marca)
+- [Athletic é uma boa marca?](https://esteiraergometrica.com/guias/athletic-e-boa-marca)
+- [Kikos é uma boa marca?](https://esteiraergometrica.com/guias/kikos-e-boa-marca): apenas pesquisa de reputação pública, nenhum modelo Kikos foi analisado.
+- [Polimet EP-1600 ou Dream Fitness DR-1600](https://esteiraergometrica.com/guias/polimet-ep1600-ou-dream-fitness-dr1600)
+- [Dream Fitness DR-1600 ou Athletic Racer](https://esteiraergometrica.com/guias/dream-fitness-dr1600-ou-athletic-racer)
+
+## Análises de modelos
+
+- [Polimet EP-1600](https://esteiraergometrica.com/reviews/polimet-ep1600): motor 1,6 HP, lona 33×100 cm, 9 km/h.
+- [Polimet EP-1600 Sênior](https://esteiraergometrica.com/reviews/polimet-ep1600-senior): corrimão lateral estendido, 110 kg de peso máximo.
+- [Dream Fitness DR-1600](https://esteiraergometrica.com/reviews/dream-fitness-dr1600): motor 1,6 HP, 2 níveis de inclinação, 110 kg.
+- [Athletic Racer 16km/h](https://esteiraergometrica.com/reviews/athletic-racer): motor 5.0 HPM, 16 km/h, lona de 126,5 cm, 130 kg. Modelo do catálogo pensado para corrida.
+- [Esteira Dobrável Residencial Cardio (sem marca)](https://esteiraergometrica.com/reviews/esteira-eletrica-dobravel-residencial-cardio): 2,5 HP, 150 kg, 18 kg de equipamento.
+- [WCT Fitness](https://esteiraergometrica.com/reviews/wct-fitness-esteira): o modelo de maior volume de vendas do catálogo, com motor contínuo entre os mais fracos do catálogo.
+- [Importway IWEST2X1-10](https://esteiraergometrica.com/reviews/importway-iwest2x1-10): 120 kg, lona 100×41 cm. Não confundir com a IWEST2X1, que é outro produto.
+- [Gallant Elite GEE13M29A](https://esteiraergometrica.com/reviews/gallant-elite-gee13m29a): 2,9 HP, 16 km/h, lona 122×45 cm, 130 kg. Versão 220V, não bivolt.
+- [Gallant Elite GEE12M28A](https://esteiraergometrica.com/reviews/gallant-elite-gee12m28a): 2,8 HP, 16 km/h, lona 122×42 cm, 120 kg. Versão 127V, não bivolt.
+- [Gallant Elite GEE12M25A](https://esteiraergometrica.com/reviews/gallant-elite-gee12m25a): 2,5 HP, 14 km/h, lona 110×42 cm, 120 kg. Voltagem selecionável no anúncio.
+- [PodiumFit X300](https://esteiraergometrica.com/reviews/podiumfit-x300): 2,0 HPM, 12 km/h, lona 110×40 cm, 110 kg.
+- [QBuen AT-1271](https://esteiraergometrica.com/reviews/qbuen-150kg): 2 HP, 12 km/h, até 150 kg, dobrável, inclinação elétrica de 0 a 6%.
+- [Strive TM16](https://esteiraergometrica.com/reviews/strive-25hp-16kmh): 2,5 HP, 16 km/h, lona 110×40 cm, 120 kg, inclinação elétrica, não dobra.
+- [Redfin Ideal DL-227](https://esteiraergometrica.com/reviews/redfin-150kg): 2,5 HP, até 150 kg, dobrável, velocidade máxima de 6 km/h.
+- [Health Herald SP0501](https://esteiraergometrica.com/reviews/health-herald-lcd): 0,65 HP, 110 kg, dobrável e leve (13,5 kg), 6 km/h.
+- [Antuvi (marca declarada "Geral")](https://esteiraergometrica.com/reviews/antuvi-mesa): 2,5 HP, 12 km/h, lona 100×38 cm, 100 kg, não dobra.
+
+## Optional
+
+- [Sobre o site](https://esteiraergometrica.com/sobre): quem escreve e o que o site oferece e não oferece.
+- [Aviso legal](https://esteiraergometrica.com/aviso-legal)
+- [Termos de uso](https://esteiraergometrica.com/termos-de-uso)
+- [Política de cookies](https://esteiraergometrica.com/politica-de-cookies)
