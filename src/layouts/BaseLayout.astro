@@ -13,6 +13,7 @@ export interface Props {
 	ogImage?: string;
 	jsonLd?: Record<string, unknown>;
 	transparentHeader?: boolean;
+	noindex?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
 	ogImage = '/video/esteiraergometricahead-poster.webp',
 	jsonLd,
 	transparentHeader = false,
+	noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(path, Astro.site);
@@ -36,7 +38,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="max-image-preview:large">
+<meta name="robots" content={noindex ? 'noindex, follow' : 'max-image-preview:large'}>
 
 <!-- Google tag (gtag.js) -->
 <script is:inline>

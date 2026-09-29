@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Link do checkout (Hotmart, Kiwify etc.). Enquanto estiver vazio, a página
+// sai com noindex e o botão de compra fica desativado ("Vendas abrem em breve").
+// Ao colar o link aqui, lembre de adicionar /plano-30-dias ao public/sitemap.xml.
+const CHECKOUT_URL = '';
+const PRECO = 'R$ 27';
+
+const hasCheckout = CHECKOUT_URL.startsWith('https://');
+// Link do próprio produto, não de afiliado: nofollow (checkout não precisa ser rastreado),
+// sem "sponsored". Passado por spread para não cair na checagem T19b de CTAs de afiliado.
+const checkoutAttrs = { href: CHECKOUT_URL, rel: 'nofollow noopener' };
+const IMG = '/assets/images/plano-30-dias';
+
+const inside = [
+	{ t: '30 treinos prontos', d: 'Cada dia informa duração, inclinação e nível de esforço, bloco a bloco.' },
+	{ t: 'Progressão gradual', d: 'A dificuldade sobe por tempo, inclinação e intervalos. Nada de velocidade obrigatória.' },
+	{ t: 'Guia de esforço de 1 a 10', d: 'Você adapta a velocidade à sua condição do dia, em qualquer modelo de esteira.' },
+	{ t: 'Teste de 20 minutos', d: 'No Dia 1 e no Dia 30. Comparação objetiva de distância e esforço.' },
+	{ t: 'Planilha de progresso', d: 'Uma página para imprimir e marcar cada treino feito, com distância e sensação.' },
+	{ t: 'Extras que fazem diferença', d: 'Segurança, alongamento pós-treino, alimentação, dúvidas frequentes e como continuar depois.' },
+];
+
+const weeks = [
+	{ n: 'Semana 1', t: 'Adaptação', d: 'Criar o hábito, fazer o teste inicial e aprender a controlar o esforço.', m: '15 a 26 min' },
+	{ n: 'Semana 2', t: 'Consistência', d: 'Mais tempo de treino e as primeiras subidas controladas.', m: '20 a 30 min' },
+	{ n: 'Semana 3', t: 'Intensidade', d: 'Intervalos e pirâmides de inclinação, sempre com recuperação.', m: '20 a 35 min' },
+	{ n: 'Semana 4', t: 'Consolidação', d: 'Os treinos mais longos e o teste final para medir sua evolução.', m: 'até 40 min' },
+];
+
+const faq = [
+	{ q: 'Minha esteira não tem inclinação. Serve?', a: 'Serve. O plano é guiado pelo esforço: sem inclinação, você ajusta a velocidade para chegar à mesma sensação.' },
+	{ q: 'Sou iniciante. Consigo seguir?', a: 'Consegue. A primeira semana tem treinos de 15 a 26 minutos em ritmo controlado, pensados para quem está começando.' },
+	{ q: 'Quanto tempo por dia?', a: 'De 15 a 40 minutos, com 4 dias de descanso no mês.' },
+	{ q: 'Como recebo o ebook?', a: 'Por e-mail, logo após a confirmação do pagamento. É um PDF que abre no celular, no tablet ou no computador, e dá para imprimir.' },
+	{ q: 'Vou emagrecer com o plano?', a: 'O plano ajuda a criar rotina e aumentar o gasto de energia. O resultado no peso depende também de alimentação, sono e constância.' },
+	{ q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia e pede o reembolso direto pela plataforma de pagamento.' },
+];
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<BaseLayout
+	title="Plano 30 Dias na Esteira: treinos prontos para casa"
+	description="Ebook com 30 treinos de esteira prontos, do primeiro passo a 40 minutos. Guia de esforço, teste de evolução e planilha. Funciona com ou sem inclinação."
+	path="/plano-30-dias"
+	ogTitle="Plano 30 Dias na Esteira"
+	ogDescription="Do primeiro passo a 40 minutos de treino. Um plano por dia, sem academia, no seu ritmo."
+	ogImage={`${IMG}/og-plano-30-dias.jpg`}
+	jsonLd={jsonLd}
+	noindex={!hasCheckout}
+>
+
+<section class="lp-band lp-dark lp-hero">
+	<div class="lp-hero-text">
+		<span class="lp-tag">Guia prático em PDF</span>
+		<h1>Sua esteira parada virou cabide? Em 30 dias ela vira rotina.</h1>
+		<p class="lp-lead">Um treino pronto para cada dia: do primeiro passo a 40 minutos de caminhada com inclinação e intervalos. Sem academia, sem planilha complicada, no seu ritmo.</p>
+		<ul class="lp-checks lp-checks--light">
+			<li>30 treinos com tempo, inclinação e esforço definidos</li>
+			<li>Funciona com qualquer esteira, com ou sem inclinação</li>
+			<li>Teste no Dia 1 e no Dia 30 para você ver a evolução</li>
+		</ul>
+		<div class="lp-cta-row">
+			<a class="lp-btn" href="#oferta">Quero começar hoje</a>
+			<p class="lp-cta-note">Acesso imediato por e-mail<br>Garantia de 7 dias</p>
+		</div>
+	</div>
+	<div class="lp-hero-media">
+		<img class="lp-hero-photo" src={`${IMG}/instrutora.webp`} width="640" height="1147" alt="Instrutora do Plano 30 Dias em casa, ao lado da esteira" fetchpriority="high">
+		<img class="lp-hero-cover" src={`${IMG}/capa.webp`} width="520" height="736" alt="Capa do ebook Plano 30 Dias na Esteira">
+	</div>
+</section>
+
+<section class="lp-sec">
+	<p class="lp-eyebrow">Se você se identifica…</p>
+	<h2>Ter esteira em casa não é o problema. Saber o que fazer nela é.</h2>
+	<div class="lp-grid lp-grid--3">
+		<div class="lp-card"><span class="lp-num">01</span><h3>Sobe e caminha sem rumo</h3><p>Sempre a mesma velocidade, o mesmo tempo, e a sensação de que não está saindo do lugar.</p></div>
+		<div class="lp-card"><span class="lp-num">02</span><h3>Começa animado e para na 2ª semana</h3><p>Exagera nos primeiros dias, cansa, perde o ritmo e a esteira volta a juntar poeira.</p></div>
+		<div class="lp-card"><span class="lp-num">03</span><h3>Não sabe se está evoluindo</h3><p>Sem um ponto de partida medido, fica impossível saber se o esforço está valendo a pena.</p></div>
+	</div>
+</section>
+
+<section class="lp-band lp-white lp-sec">
+	<p class="lp-eyebrow">O que você recebe</p>
+	<h2>Tudo decidido para você. Só apertar o play da esteira.</h2>
+	<div class="lp-grid lp-grid--3">
+		{inside.map((i) => (
+			<div class="lp-card lp-card--sunk"><h3>{i.t}</h3><p>{i.d}</p></div>
+		))}
+	</div>
+</section>
+
+<section class="lp-sec">
+	<p class="lp-eyebrow">Como funciona</p>
+	<h2>4 semanas, uma evolução de cada vez.</h2>
+	<div class="lp-grid lp-grid--4">
+		{weeks.map((w, i) => (
+			<div class:list={['lp-card', 'lp-week', { 'lp-week--last': i === 3 }]}>
+				<span class="lp-week-n">{w.n}</span>
+				<h3>{w.t}</h3>
+				<p>{w.d}</p>
+				<strong>{w.m}</strong>
+			</div>
+		))}
+	</div>
+</section>
+
+<section class="lp-band lp-dark lp-sec">
+	<p class="lp-eyebrow">Por dentro do ebook</p>
+	<h2>Claro de ler, fácil de seguir no celular ou impresso.</h2>
+	<div class="lp-grid lp-grid--3">
+		<figure class="lp-shot"><img src={`${IMG}/pagina-esforco.webp`} width="720" height="1018" loading="lazy" alt="Página do ebook com a regra de ouro do esforço"><figcaption>A regra de ouro: esforço antes da velocidade</figcaption></figure>
+		<figure class="lp-shot"><img src={`${IMG}/pagina-treinos.webp`} width="720" height="1018" loading="lazy" alt="Página do ebook com os treinos da Semana 1"><figcaption>Treino do dia, bloco a bloco</figcaption></figure>
+		<figure class="lp-shot"><img src={`${IMG}/pagina-planilha.webp`} width="720" height="1018" loading="lazy" alt="Planilha de progresso de 30 dias"><figcaption>Planilha para marcar cada dia</figcaption></figure>
+	</div>
+</section>
+
+<section class="lp-sec lp-grid lp-grid--2">
+	<div class="lp-card lp-card--pad">
+		<h3 class="lp-h3">É para você se…</h3>
+		<ul class="lp-checks">
+			<li>tem esteira em casa e quer usar de verdade</li>
+			<li>está começando ou voltando depois de um tempo parado</li>
+			<li>prefere caminhar a correr</li>
+			<li>quer um plano com começo, meio e fim</li>
+		</ul>
+	</div>
+	<div class="lp-card lp-card--pad">
+		<h3 class="lp-h3">Não é para você se…</h3>
+		<ul class="lp-checks lp-checks--no">
+			<li>procura um treino de corrida para provas</li>
+			<li>espera resultado sem constância</li>
+			<li>tem restrição médica e ainda não conversou com um profissional</li>
+		</ul>
+	</div>
+</section>
+
+<section id="oferta" class="lp-offer-wrap">
+	<div class="lp-offer">
+		<img src={`${IMG}/capa.webp`} width="520" height="736" loading="lazy" alt="Capa do ebook Plano 30 Dias na Esteira">
+		<h2>Plano 30 Dias na Esteira</h2>
+		<ul class="lp-checks">
+			<li>Ebook completo em PDF (17 páginas)</li>
+			<li>30 treinos + guia de esforço</li>
+			<li>Planilha de progresso para imprimir</li>
+			<li>Alongamento pós-treino, alimentação e perguntas frequentes</li>
+		</ul>
+		<p class="lp-price"><span>pagamento único</span><strong>{PRECO}</strong><span>no Pix ou cartão</span></p>
+		{hasCheckout
+			? <a class="lp-btn lp-btn--full" {...checkoutAttrs}>Quero meu Plano 30 Dias</a>
+			: <span class="lp-btn lp-btn--full lp-btn--off" aria-disabled="true">Vendas abrem em breve</span>}
+		<p class="lp-guarantee">Garantia de 7 dias: não gostou, devolvemos seu dinheiro.</p>
+	</div>
+</section>
+
+<section class="lp-band lp-white lp-sec">
+	<h2>Perguntas frequentes</h2>
+	<div class="lp-grid lp-grid--2">
+		{faq.map((f) => (
+			<div class="lp-card lp-card--sunk"><h3>{f.q}</h3><p>{f.a}</p></div>
+		))}
+	</div>
+	<p class="lp-center"><a class="lp-btn" href="#oferta">Começar meus 30 dias</a></p>
+</section>
+
+<p class="lp-disclaimer">Material educativo. Não substitui avaliação médica nem orientação individual de um profissional de educação física. Resultados variam de pessoa para pessoa. A instrutora exibida é uma personagem criada com inteligência artificial.</p>
+
+</BaseLayout>
+
+<style>
+	/* Paleta própria do produto (a mesma do ebook), isolada nesta página.
+	   CSS escopado aqui em vez de src/styles.css porque o CSS global é inline em
+	   toda página do site — estas regras só servem a esta URL. */
+	.lp-band, .lp-offer-wrap, .lp-sec, .lp-disclaimer {
+		--lp-navy: #0B2545;
+		--lp-orange: #F26A1B;
+		--lp-btn: #C2410C;
+		--lp-btn-hover: #9A3412;
+		--lp-cream: #F6F4EF;
+		--lp-muted: #4A5568;
+		--lp-light: #C9D4E5;
+	}
+	/* Faixa de largura total sem estourar a rolagem horizontal. */
+	.lp-band { position: relative; background: var(--lp-bg); box-shadow: 0 0 0 100vmax var(--lp-bg); clip-path: inset(0 -100vmax); }
+	.lp-dark { --lp-bg: #0B2545; color: #fff; }
+	.lp-white { --lp-bg: #fff; }
+
+	.lp-sec { padding: 4rem 0; }
+	.lp-sec h2, .lp-offer h2 { margin: 0 0 2rem; font-size: clamp(1.75rem, 3.6vw, 2.75rem); line-height: 1.15; font-weight: 800; color: var(--lp-navy); letter-spacing: -0.02em; max-width: 52rem; }
+	.lp-dark h2, .lp-dark h1 { color: #fff; }
+	.lp-eyebrow { margin: 0 0 0.75rem; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lp-btn); }
+	.lp-dark .lp-eyebrow { color: var(--lp-orange); }
+
+	.lp-hero { display: grid; gap: 2.5rem; padding: 3rem 0 4rem; align-items: center; }
+	.lp-tag { display: inline-block; background: var(--lp-orange); color: var(--lp-navy); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.8rem; border-radius: 6px; }
+	.lp-hero h1 { margin: 1.25rem 0 1rem; font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; }
+	.lp-lead { margin: 0 0 1.5rem; font-size: 1.15rem; line-height: 1.6; color: var(--lp-light); }
+	.lp-hero-media { position: relative; min-height: 26rem; }
+	.lp-hero-photo { position: absolute; right: 0; top: 0; width: 72%; height: 100%; object-fit: cover; object-position: center top; border-radius: 20px; }
+	.lp-hero-cover { position: absolute; left: 0; bottom: 1.5rem; width: 46%; height: auto; border-radius: 8px; box-shadow: 0 24px 48px rgba(0,0,0,0.45); transform: rotate(-4deg); }
+	@media (min-width: 56rem) {
+		.lp-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 4rem; padding: 4.5rem 0 5.5rem; }
+		.lp-hero-media { min-height: 36rem; }
+	}
+
+	.lp-checks { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 0.7rem; }
+	.lp-checks li { position: relative; padding-left: 2rem; line-height: 1.55; }
+	.lp-checks li::before { content: ''; position: absolute; left: 0; top: 0.2rem; width: 1.25rem; height: 1.25rem; background: #1E7A4E; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center / contain no-repeat; }
+	.lp-checks--light li { color: #fff; font-size: 1.05rem; }
+	.lp-checks--light li::before { background: var(--lp-orange); }
+	.lp-checks--no li::before { background: #9A3412; -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); }
+
+	.lp-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3.5rem; padding: 0 2rem; background: var(--lp-btn); color: #fff; font-size: 1.1rem; font-weight: 800; border-radius: 12px; text-decoration: none; transition: background 0.15s; }
+	.lp-btn:hover { background: var(--lp-btn-hover); color: #fff; }
+	.lp-btn--full { display: flex; width: 100%; }
+	.lp-btn--off { background: #64748B; cursor: not-allowed; }
+	.lp-btn--off:hover { background: #64748B; }
+	.lp-cta-row { display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; align-items: center; }
+	.lp-cta-note { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--lp-light); }
+
+	.lp-grid { display: grid; gap: 1.25rem; }
+	@media (min-width: 48rem) {
+		.lp-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.lp-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.lp-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	@media (min-width: 64rem) { .lp-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+	.lp-card { background: #fff; border-radius: 16px; padding: 1.5rem; box-shadow: 0 1px 2px rgba(17,24,39,0.04); }
+	.lp-card--sunk { background: var(--lp-cream); box-shadow: none; }
+	.lp-card--pad { padding: 2rem; }
+	.lp-card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; font-weight: 800; color: var(--lp-navy); }
+	.lp-card p { margin: 0; font-size: 0.98rem; line-height: 1.6; color: var(--lp-muted); }
+	.lp-h3 { font-size: 1.5rem !important; margin-bottom: 1.25rem !important; }
+	.lp-num { display: block; font-size: 2.25rem; font-weight: 800; line-height: 1; color: var(--lp-orange); margin-bottom: 0.75rem; }
+
+	.lp-week { display: flex; flex-direction: column; gap: 0.4rem; border-top: 6px solid var(--lp-orange); }
+	.lp-week-n { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lp-btn); }
+	.lp-week h3 { font-size: 1.35rem; margin: 0; }
+	.lp-week strong { margin-top: auto; padding-top: 0.5rem; color: var(--lp-navy); }
+	.lp-week--last { background: var(--lp-navy); }
+	.lp-week--last h3, .lp-week--last strong { color: #fff; }
+	.lp-week--last p { color: var(--lp-light); }
+	.lp-week--last .lp-week-n { color: var(--lp-orange); }
+
+	.lp-shot { margin: 0; }
+	.lp-shot img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border-radius: 10px; }
+	.lp-shot figcaption { margin-top: 0.75rem; font-weight: 700; color: #fff; }
+
+	.lp-offer-wrap { padding: 1rem 0 4.5rem; scroll-margin-top: 1rem; }
+	.lp-offer { max-width: 42rem; margin: 0 auto; background: #fff; border: 2px solid var(--lp-navy); border-radius: 24px; padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+	.lp-offer img { width: 10rem; height: auto; border-radius: 6px; box-shadow: 0 16px 32px rgba(11,37,69,0.3); margin-bottom: 1.5rem; }
+	.lp-offer h2 { margin-bottom: 1.25rem; }
+	.lp-offer .lp-checks { text-align: left; }
+	.lp-price { margin: 0 0 1.5rem; display: flex; flex-direction: column; align-items: center; color: var(--lp-muted); font-size: 0.95rem; }
+	.lp-price strong { font-size: 3.5rem; line-height: 1.1; font-weight: 800; color: var(--lp-navy); letter-spacing: -0.02em; }
+	.lp-guarantee { margin: 1rem 0 0; font-size: 0.9rem; color: var(--lp-muted); }
+	@media (min-width: 48rem) { .lp-offer { padding: 3.5rem; } }
+
+	.lp-center { text-align: center; margin: 2.5rem 0 0; }
+	.lp-disclaimer { margin: 0; padding: 2rem 0; font-size: 0.82rem; line-height: 1.6; color: var(--lp-muted); max-width: 56rem; }
+</style>
