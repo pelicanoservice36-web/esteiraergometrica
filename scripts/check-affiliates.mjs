@@ -255,7 +255,7 @@ if (existsSync(dist)) {
 			'polimet-ep1600': 5,
 			'polimet-ep1600-senior': 4,
 			'esteira-eletrica-dobravel-residencial-cardio': 4,
-				'athletic-racer': 4,
+				'athletic-racer': 5,
 				'wct-fitness-esteira': 4,
 				'importway-iwest2x1-10': 4,
 				'gallant-elite-gee13m29a': 4,
@@ -267,7 +267,7 @@ if (existsSync(dist)) {
 				'health-herald-lcd': 4,
 				'antuvi-mesa': 4,
 				'gallant-elite-gee12m25a': 4,
-				'speedo-tr5': 4,
+				'speedo-tr5': 5,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -277,7 +277,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 69) diff.push(`total de CTAs: esperado 69, encontrado ${total}`);
+		if (total !== 71) diff.push(`total de CTAs: esperado 71, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
