@@ -1,0 +1,135 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('kht-gts7');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'KHT GTS-7',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'KHT' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '17172.15',
+		highPrice: '17172.15',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '6.9',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-01',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,5 HP, corrente contínua (DC) — não é motor AC' },
+	{ label: 'Velocidade máxima', value: '18,8 km/h' },
+	{ label: 'Lona', value: '135 × 52 cm' },
+	{ label: 'Peso máximo do usuário', value: '150 kg' },
+	{ label: 'Peso do equipamento', value: '103 kg' },
+	{ label: 'É dobrável', value: 'Sim — requer montagem' },
+	{ label: 'Inclinação', value: '0-15° ou até 15% (ficha contraditória) — automática' },
+	{ label: 'Tela', value: 'LED Android 18,5", Wi-Fi, Netflix, YouTube, Spotify' },
+	{ label: 'Garantia', value: '3 meses de fábrica' },
+	{ label: 'Preço', value: 'R$ 17.172,15' },
+];
+---
+
+<ReviewLayout
+	title="KHT GTS-7 é boa? Ficha e nota editorial"
+	description="KHT GTS-7: motor 2,5 HP DC (não AC), 150 kg, até 18,8 km/h, tela Android 18,5'' com Netflix e YouTube. R$ 17.172,15 — a mais cara do catálogo, com garantia de só 3 meses."
+	path="/reviews/kht-gts7"
+	ogTitle="KHT GTS-7: análise honesta"
+	ogDescription="A esteira mais cara que já analisamos, com uma tela Android de 18,5'' como diferencial real — mas motor mais fraco que a irmã GTS-6, e explicitamente DC, não AC."
+	jsonLd={jsonLd}
+	h1="KHT GTS-7 é boa?"
+	standfirst="A KHT GTS-7 é a esteira mais cara do nosso catálogo (R$ 17.172,15) — e, apesar do título do anúncio dizer 'profissional', a própria ficha declara o motor como '2,5 hp DC': corrente contínua, não alternada. É irmã da KHT GTS-6, que já analisamos, mas com motor mais fraco (2,5 HP contra 4,0 HP) pelo mesmo tipo de garantia curta. O diferencial real é outro: uma tela Android de 18,5 polegadas com Wi-Fi, Netflix, YouTube e Spotify — recurso que nenhum outro modelo do nosso catálogo tem."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em outubro de 2026, loja MODULAUTO (MercadoLíder Gold) no Mercado Livre. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">6,9<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>Os números de lona, peso suportado e velocidade são excelentes — iguais aos da <a href="/reviews/kht-gts6">KHT GTS-6</a> (135 × 52 cm, 150 kg, 18,8 km/h) — e a tela Android de 18,5" com Netflix, YouTube e Spotify é um recurso genuinamente único no nosso catálogo. Mas o preço não acompanha: R$ 17.172,15 é quase R$ 6.000 a mais que a própria GTS-6, por um motor mais fraco (2,5 HP contra 4,0 HP) e explicitamente de corrente contínua (DC) — a ficha não deixa dúvida nessa, ao contrário da GTS-6. "Profissional" no título do anúncio não se sustenta aqui.</p>
+    <p>A garantia é a mesma de toda a linha KHT que já vimos (3 meses de fábrica), e, diferente da GTS-6, essa exige montagem. É o pior custo-benefício que já calculamos no catálogo — o que não significa produto ruim, significa que o preço pede mais do que a ficha entrega.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem valoriza especificamente a tela Android de 18,5" — assistir Netflix, YouTube ou ouvir Spotify direto na esteira, sem depender do celular — e está disposto a pagar um prêmio alto só por esse recurso. Os números de lona, peso e velocidade são tão bons quanto os da GTS-6.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem busca esteira profissional de verdade: o motor aqui é DC, declarado sem ambiguidade — o oposto do que define equipamento comercial (veja o <a href="/guias/esteira-profissional-para-academia">guia sobre esteira profissional</a>). Também não faz sentido para quem quer o melhor custo-benefício: pelo mesmo preço de uma GTS-7, dá quase para comprar a <a href="/reviews/kht-gts6">GTS-6</a> (motor mais forte, claim de AC) e ainda sobrar dinheiro, ou a <a href="/reviews/speedo-tr5">Speedo TR5</a> com troco considerável.</p>
+
+  <h2>Motor DC, não AC — ao contrário da irmã GTS-6</h2>
+  <p>A ficha deste anúncio é inequívoca: "Motor: 2.5 hp DC", sem nenhuma menção a corrente alternada em lugar nenhum — nem na descrição, nem no FAQ, nem nas especificações técnicas. Isso contrasta diretamente com a <a href="/reviews/kht-gts6">KHT GTS-6</a>, que declara "AC 4.0 hp" de forma consistente em toda a ficha. Mesmo título de anúncio usando "profissional", mesma marca, mesmo vendedor (MODULAUTO) — mas motores de tipos diferentes, e a GTS-7 é explicitamente a residencial das duas.</p>
+
+  <h2>Inclinação: a mesma contradição da GTS-6</h2>
+  <p>De novo, a ficha técnica diz "0 até 15 graus" de inclinação, mas o FAQ do mesmo anúncio diz "ajuste eletrônico permite inclinação de até 15%" — graus e porcentagem não são a mesma medida. Não temos como confirmar qual das duas está correta.</p>
+
+  <h2>Tela Android de 18,5": o diferencial real</h2>
+  <p>Esse é o ponto genuinamente forte do anúncio: tela LED Android de 18,5 polegadas, memória interna de 8GB, com Wi-Fi e acesso a Netflix, YouTube, Spotify, Facebook, Amazon Video e Chrome. Nenhum outro modelo do nosso catálogo tem uma tela nesse nível — é mais parecido com um tablet acoplado do que com o painel LED comum da maioria das esteiras que já analisamos. Se isso for decisivo para você, é o único lugar do catálogo onde encontra esse recurso.</p>
+
+  <h2>Por que o custo-benefício é o mais baixo que já calculamos</h2>
+  <p>R$ 17.172,15 é quase R$ 6.000 a mais que a KHT GTS-6 (R$ 11.499) — pelo mesmo peso suportado, mesma lona, mesma velocidade, só que com motor mais fraco (2,5 HP DC contra 4,0 HP AC declarado) e exigindo montagem. A tela Android é um recurso real, mas não parece justificar sozinha uma diferença de preço desse tamanho frente ao resto do nosso catálogo.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Tela Android de 18,5" com Wi-Fi, Netflix, YouTube, Spotify — único no catálogo</li>
+        <li>Lona de 135 × 52 cm e velocidade de 18,8 km/h — entre os maiores números já confirmados</li>
+        <li>150 kg de peso máximo do usuário</li>
+        <li>Vendedor com selo MercadoLíder Gold e mais de 5 mil vendas na loja</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>A esteira mais cara do catálogo por uma margem grande (R$ 17.172,15)</li>
+        <li>Motor declarado como DC, não AC — apesar do "profissional" no título do anúncio</li>
+        <li>Motor mais fraco (2,5 HP) que a irmã GTS-6 (4,0 HP), pelo mesmo preço-base da linha</li>
+        <li>Garantia de fábrica de só 3 meses</li>
+        <li>Requer montagem</li>
+        <li>Ficha contraditória sobre o grau de inclinação (15° ou 15%)</li>
+        <li>Este anúncio não mostra avaliações registradas ainda</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em outubro de 2026, a KHT GTS-7 apareceu por <strong>R$ 17.172,15</strong> (de R$ 18.999, 9% de desconto, ou 10× de R$ 1.717,22 sem juros) na loja MODULAUTO no Mercado Livre — selo MercadoLíder Gold, mais de 5 mil vendas na loja, 5 unidades vendidas neste anúncio específico.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>O motor da KHT GTS-7 é AC (profissional)?</h3>
+  <p>Não. A ficha declara explicitamente "Motor: 2.5 hp DC" — corrente contínua, o mesmo tipo de motor usado em equipamento residencial comum. Diferente da <a href="/reviews/kht-gts6">KHT GTS-6</a>, que declara motor AC.</p>
+
+  <h3>Vale a pena pagar mais caro pela GTS-7 em vez da GTS-6?</h3>
+  <p>Só se a tela Android de 18,5" com Netflix e YouTube for decisiva para você. Em todo o resto — motor, garantia, preço — a GTS-6 sai na frente.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>3 meses de garantia de fábrica, confirmados no FAQ do próprio anúncio.</p>
+
+  <h3>Requer montagem?</h3>
+  <p>Sim, segundo a ficha do anúncio — diferente da GTS-6, que declara não precisar de montagem.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/kht-gts6">KHT GTS-6</a> (motor AC declarado, quase R$ 6.000 mais barata), a <a href="/reviews/speedo-tr5">Speedo TR5</a> e o <a href="/guias/esteira-profissional-para-academia">guia sobre esteira profissional para academia</a>.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica do próprio anúncio da loja MODULAUTO no Mercado Livre, consultada em outubro de 2026. O anúncio não mostra avaliações registradas até o momento da consulta. A ficha do anúncio é contraditória sobre o grau de inclinação. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da KHT ou da MODULAUTO. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

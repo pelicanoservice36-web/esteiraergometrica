@@ -305,6 +305,19 @@ export const products = {
 		notes:
 			'Achada em pedido direto do usuário, investigando a keyword "esteira profissional" depois de publicarmos o guia sobre o tema. Loja MODULAUTO (MercadoLíder Gold, +5 mil vendas na loja, +590 seguidores, +100 produtos) — este anúncio específico: +5 vendidos, nota 5,0 (2 avaliações, amostra pequena). R$11.499 (de R$14.990, 23% off) em outubro de 2026. Ficha técnica confirmada via texto colado pelo usuário (Apify indisponível nesta sessão, acesso direto ao ML bloqueado por login-wall): motor "AC 4.0 hp" declarado de forma CONSISTENTE em toda a ficha (características, especificações e descrição), sem a contradição "dc...AC" que encontramos num anúncio quase idêntico da mesma marca (modelo 8008AC, mesma lona/peso/velocidade, NÃO publicado por causa dessa contradição — ver notas desse outro produto se reativado). Mesmo consistente, o claim AC não foi confirmado por fonte independente — KHT não parece ter site institucional. Lona 135×52cm, peso máx. usuário 150kg, peso do equipamento 103kg (campo próprio, não duplicado com peso suportado — diferente da 8008AC), velocidade 18,8km/h, dobrável (dobramento automático), não requer montagem, certificação CE/RoHS/EN957, bivolt por seleção. ATENÇÃO: ficha contraditória sobre inclinação — especificações dizem "0-15 graus", FAQ diz "até 15%" (não são a mesma medida), não resolvido. Garantia de fábrica: 3 meses (confirmado no FAQ) — a mais curta do catálogo entre modelos com marca, empatada com WCT Fitness. Nota editorial 7,3/10 — ver metodologia.astro. Linkada no guia /guias/esteira-profissional-para-academia como a opção mais próxima de "profissional" confirmada no catálogo.',
 	},
+	'kht-gts7': {
+		merchant: 'mercadolivre',
+		title: 'KHT GTS-7',
+		listingId: 'MLB4089032989',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-4089032989-esteira-profissional-eletrica-inclinavel-academia-tela-led-_JM',
+		affiliateUrl: 'https://meli.la/2vQpZZX',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-01',
+		notes:
+			'Achada em pedido direto do usuário, mesma investigação da linha KHT "profissional". Loja MODULAUTO (mesmo vendedor da GTS-6): MercadoLíder Gold, +5 mil vendas na loja. Este anúncio específico: +5 vendidos, sem avaliações registradas ainda. R$17.172,15 (de R$18.999, 9% off) em outubro de 2026 — a mais cara do catálogo. Ficha técnica confirmada via texto colado pelo usuário: DIFERENTE da GTS-6, aqui o motor é declarado explicitamente "2.5 hp DC" (corrente contínua), sem nenhuma menção a AC em lugar nenhum da ficha — por isso NÃO foi linkada no guia de esteira profissional, só no catálogo residencial normal. Lona 135×52cm (mesma base de hardware da GTS-6/8008AC), peso máx. usuário 150kg, peso do equipamento 103kg, dobrável mas REQUER montagem (diferente da GTS-6), certificação CE/RoHS/EN957, bivolt por seleção. Diferencial real: tela Android 18,5" com Wi-Fi, Netflix, YouTube, Spotify, Chrome, memória 8GB — único no catálogo. ATENÇÃO: ficha contraditória sobre inclinação, mesma ambiguidade "graus vs %" da GTS-6, não resolvida. Garantia de fábrica: 3 meses (confirmado no FAQ). Nota editorial 6,9/10 — o pior custo-benefício calculado no catálogo até agora (3,5), por custar quase R$6.000 a mais que a GTS-6 com motor mais fraco — ver metodologia.astro.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
