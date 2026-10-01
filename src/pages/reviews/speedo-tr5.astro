@@ -1,0 +1,149 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('speedo-tr5');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Speedo TR5',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Speedo' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '10990.00',
+		highPrice: '10990.00',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '5.0',
+		reviewCount: '12',
+		bestRating: '5',
+		worstRating: '1',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '6.2',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-01',
+	},
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '4,0 HP de pico* (DC) — potência contínua não informada' },
+	{ label: 'Velocidade máxima', value: '18 km/h — a maior do catálogo' },
+	{ label: 'Lona', value: '140 × 50 cm — a maior confirmada do catálogo' },
+	{ label: 'Peso máximo do usuário', value: '150 kg' },
+	{ label: 'Peso do equipamento', value: '89 kg — o mais pesado do catálogo' },
+	{ label: 'É dobrável', value: 'Sim' },
+	{ label: 'Inclinação', value: '15 níveis, elétrica' },
+	{ label: 'Garantia', value: '[VERIFICAR] — não informada neste anúncio' },
+	{ label: 'Preço', value: 'R$ 10.990' },
+];
+---
+
+<ReviewLayout
+	title="Speedo TR5 é boa? Ficha e nota editorial"
+	description="Speedo TR5: motor 4 HP de pico, 150 kg, até 18 km/h, lona de 140×50 cm (a maior do catálogo). R$ 10.990, mas dobrada pesa 89 kg e a potência contínua não é informada."
+	path="/reviews/speedo-tr5"
+	ogTitle="Speedo TR5: análise honesta"
+	ogDescription="A maior lona e a maior velocidade do nosso catálogo, com Bluetooth e 15 níveis de inclinação elétrica — mas a potência contínua do motor não é informada, e dobrada ela pesa 89 kg."
+	jsonLd={jsonLd}
+	h1="Speedo TR5 é boa?"
+	standfirst="A Speedo TR5 tem a maior lona (140 × 50 cm) e a maior velocidade máxima (18 km/h) do nosso catálogo inteiro, com 15 níveis de inclinação elétrica e conexão Bluetooth para apps de corrida. Também é a mais cara (R$ 10.990) e a mais pesada mesmo dobrada (89 kg). O motor é anunciado como 4 HP, mas o próprio fabricante avisa que esse número é potência de pico, não contínua — e não encontramos em nenhuma fonte qual é a potência contínua real."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em outubro de 2026, loja oficial Casa do Fitness no Mercado Livre. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">6,2<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial — <a href="/metodologia">como calculamos</a></span></p>
+    <p>A Speedo TR5 entrega, confirmado por duas fontes independentes, os melhores números de lona (140 × 50 cm) e velocidade (18 km/h) do nosso catálogo inteiro — à frente até da <a href="/reviews/athletic-racer">Athletic Racer</a>, que até aqui era a referência para quem corre de verdade. Some a isso 15 níveis de inclinação elétrica, Bluetooth com certificação Anatel e uma marca internacional reconhecida, vendida por loja oficial no Mercado Livre.</p>
+    <p>O que segura a nota: o próprio fabricante declara que os "4 HP" do motor são potência <strong>de pico</strong>, não contínua — e a potência contínua, que é o que pesa nesse critério, não aparece em nenhuma fonte que encontramos. A garantia também não é informada neste anúncio específico. E, apesar de dobrar, a TR5 pesa 89 kg — quase o dobro do próximo mais pesado do catálogo. Com um preço 2,5× maior que o da Athletic Racer, essas lacunas pesam mais do que pesariam num produto mais barato.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem já corre com regularidade e quer lona e velocidade de sobra: 140 × 50 cm e até 18 km/h são os maiores números que já vimos em um anúncio de esteira residencial no Mercado Livre. Faz sentido também para quem valoriza treinar conectado — Bluetooth com certificação Anatel, compatível com apps como Fitshow, que mostram pace em tempo real — e para quem prioriza uma marca internacionalmente reconhecida com loja oficial confirmada.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem tem orçamento limitado: é a esteira mais cara que já analisamos, por uma margem grande (2,5× o preço da Athletic Racer, a segunda mais cara). Também não faz sentido para quem precisa mover o equipamento sozinho com frequência — mesmo dobrável, 89 kg é muito peso para uma pessoa só, mesmo com rodas. E se a potência contínua real do motor for decisiva para sua decisão, essa informação simplesmente não existe em nenhuma fonte até agora — nem no anúncio, nem no site do representante oficial da marca.</p>
+
+  <h2>Motor: 4 HP de pico, mas a potência contínua não é informada</h2>
+  <p>Tanto a ficha do próprio anúncio quanto o site da Decathlon (que vende o mesmo modelo TR5 através da Defitness, representante oficial da Speedo Fitness no Brasil) trazem o mesmo texto: "4.0 HP* de potência, com corrente contínua (DC)" — com o asterisco remetendo explicitamente a "potência de pico". Isso é diferente da maioria dos outros modelos do nosso catálogo, que normalmente nem separam pico de contínua: aqui o próprio fabricante confirma que 4 HP não é o número que deveria entrar no nosso critério de motor, que mede especificamente potência contínua.</p>
+  <p>O problema é que a potência contínua real não aparece em lugar nenhum. Até o FAQ do próprio anúncio foge da pergunta: "Posso correr nessa esteira mesmo com o motor de corrente contínua?" é respondido com "Sim! […] com 4HP de potência a TR5 é ideal para corridas" — reforçando o número de pico, sem nunca informar o contínuo. Já vimos esse padrão antes: a <a href="/reviews/wct-fitness-esteira">WCT Fitness</a> também anuncia pico (2,0 HP) separado de contínuo (0,75 HP), mas naquele caso o fabricante publica os dois números. Aqui, só temos o de pico. Como não temos como confirmar o número que realmente importa, usamos a banda mais conservadora da nossa metodologia para esse critério — o que significa que a nota real de motor pode ser mais alta do que a calculada aqui, nunca mais baixa, mas só publicamos o que dá para confirmar.</p>
+
+  <h2>Lona e velocidade: os dois melhores números do catálogo</h2>
+  <p>140 × 50 cm de lona e até 18 km/h de velocidade — confirmados de forma idêntica tanto na ficha técnica estruturada do próprio anúncio no Mercado Livre quanto no site da Decathlon para o mesmo modelo. É mais lona que a Athletic Racer (126,5 × 40 cm) e mais velocidade que a própria Racer e a <a href="/reviews/strive-25hp-16kmh">Strive TM16</a> (ambas com 16 km/h, até aqui o teto do catálogo). A inclinação eletrônica de 15 níveis também é a mais granular que já vimos — a Gallant Elite, a próxima melhor nesse quesito, tem inclinação manual hidráulica em só 3 posições.</p>
+
+  <h2>Peso: 89 kg mesmo dobrável — quase o dobro do resto do catálogo</h2>
+  <p>A TR5 dobra de verdade e tem rodas para ajudar a mover, mas pesa 89 kg — bem mais que o dobro da Gallant Elite GEE13M29A (45 kg líquido), que até aqui era a mais pesada entre os modelos dobráveis do nosso catálogo. Nossa escala de praticidade não distingue entre "pesa 45 kg" e "pesa 89 kg" — a faixa "dobra mas pesa mais de 35 kg" não tem teto definido, então as duas recebem a mesma nota (5,5). Na prática, isso significa que mover ou guardar a TR5 sozinho é consideravelmente mais difícil do que em qualquer outro modelo dobrável que já analisamos, mesmo os dois tendo a mesma nota nesse critério.</p>
+
+  <h2>Confiabilidade: marca Speedo e loja oficial confirmadas, mas garantia não aparece neste anúncio</h2>
+  <p>O vendedor é a Casa do Fitness, loja oficial no Mercado Livre (selo verificado, reputação "5 verde", mais de 500 vendas), com a marca Speedo confirmada no campo oficial de marca do anúncio — um sinal de confiabilidade mais forte que a maioria dos modelos do nosso catálogo, que costumam ser marcas de nicho brasileiras. Mesmo assim, nem a ficha técnica nem a descrição deste anúncio específico informam o prazo de garantia.</p>
+  <p>Encontramos a informação em outro lugar: o site da Decathlon, que vende o mesmo modelo TR5 através da Defitness — declarada "representante oficial da Speedo Fitness no Brasil" —, especifica garantia de 3 anos no motor, 1 ano na estrutura e 3 meses nas demais peças. É um prazo muito acima de qualquer coisa no nosso catálogo. O problema é que a Defitness/Decathlon e a Casa do Fitness (vendedor deste anúncio no Mercado Livre) são canais de venda diferentes, e não temos confirmação de que os mesmos termos de garantia valem para uma compra feita aqui. Por isso tratamos a garantia como não confirmada para este anúncio específico — a mesma nota de confiabilidade que já aplicamos a outros modelos com marca identificável mas sem garantia confirmada na fonte que estamos linkando, como a <a href="/reviews/qbuen-150kg">QBuen</a> e a <a href="/reviews/health-herald-lcd">Health Herald</a>. Recomendamos confirmar o prazo de garantia diretamente com a Casa do Fitness antes de comprar.</p>
+
+  <h2>Uma contradição na ficha: 15 ou 30 programas?</h2>
+  <p>A descrição do anúncio traz uma ficha técnica detalhada que especifica "12 Programas pré-definidos e 3 programas customizáveis" — ou seja, 15 no total. Só que o campo estruturado "Quantidade de programas" do mesmo anúncio declara "30". Não temos como resolver essa contradição com as fontes disponíveis, então registramos as duas versões aqui em vez de escolher uma — mesmo padrão que já adotamos em outras fichas contraditórias do catálogo, como a da <a href="/reviews/redfin-150kg">Redfin</a>.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Lona de 140 × 50 cm — a maior confirmada do catálogo</li>
+        <li>Velocidade máxima de 18 km/h — a maior do catálogo</li>
+        <li>15 níveis de inclinação elétrica — a mais granular do catálogo</li>
+        <li>Bluetooth com certificação Anatel, compatível com apps de corrida (pace)</li>
+        <li>Marca internacional (Speedo) e loja oficial confirmada no Mercado Livre</li>
+        <li>150 kg de peso máximo do usuário</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>A esteira mais cara do catálogo, por uma margem grande (2,5× a Athletic Racer)</li>
+        <li>Potência contínua do motor não informada em nenhuma fonte — só o valor de pico (4 HP)</li>
+        <li>89 kg mesmo dobrável — quase o dobro do modelo dobrável mais pesado já analisado</li>
+        <li>Garantia não informada neste anúncio (a Decathlon declara 3 anos para o mesmo modelo, mas por outro vendedor)</li>
+        <li>Ficha contraditória sobre a quantidade de programas (15 ou 30)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em outubro de 2026, a Speedo TR5 apareceu por <strong>R$ 10.990</strong> (de R$ 14.990, 26% de desconto, ou 10× de R$ 1.099 sem juros) na loja oficial Casa do Fitness no Mercado Livre — mais de 500 vendas na loja, nota 5,0 com 12 avaliações neste anúncio específico.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Dá pra correr na Speedo TR5?</h3>
+  <p>Sim — é a esteira do nosso catálogo com a maior lona (140 × 50 cm) e a maior velocidade máxima (18 km/h), as duas medidas mais relevantes para quem corre. A ressalva é que não conseguimos confirmar a potência contínua real do motor, só a de pico (4 HP).</p>
+
+  <h3>Qual é a potência real do motor?</h3>
+  <p>O fabricante anuncia 4 HP, mas deixa claro que é potência de pico, não contínua — e não encontramos a potência contínua em nenhuma fonte, nem no anúncio nem no site do representante oficial da marca no Brasil.</p>
+
+  <h3>Ela dobra? Quanto pesa?</h3>
+  <p>Sim, dobra e tem rodas para ajudar a mover. Mas pesa 89 kg — bem mais que o dobro de qualquer outro modelo dobrável do nosso catálogo, o que torna mover ou guardar sozinho mais difícil na prática.</p>
+
+  <h3>Qual a garantia?</h3>
+  <p>Não é informada neste anúncio. A Decathlon, que vende o mesmo modelo através de outro vendedor (Defitness, representante oficial da Speedo Fitness no Brasil), declara 3 anos no motor e 1 ano na estrutura — mas não confirmamos se esse prazo vale para uma compra feita no anúncio que linkamos. Confirme diretamente com o vendedor antes de comprar.</p>
+
+  <h3>Tem Bluetooth e conecta com aplicativos de corrida?</h3>
+  <p>Sim, com certificação Anatel, compatível com apps como o Fitshow que mostram o pace (ritmo) do treino. Também tem entrada P2 e alto-falantes integrados.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/athletic-racer">Athletic Racer</a> — até aqui nossa referência para quem corre de verdade, com motor contínuo confirmado (5,0 HPM) e menos da metade do preço — e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica do próprio anúncio da loja oficial Casa do Fitness no Mercado Livre, cruzada com o site da Decathlon (vendedor Defitness, representante oficial da Speedo Fitness no Brasil) para o mesmo modelo TR5, consultados em outubro de 2026. A potência contínua do motor e a garantia deste anúncio específico não são informadas em nenhuma fonte que encontramos. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Speedo. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

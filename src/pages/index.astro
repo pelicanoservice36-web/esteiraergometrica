@@ -18,6 +18,7 @@ const mlRedfin = buyHref('redfin-150kg');
 const mlHealthHerald = buyHref('health-herald-lcd');
 const mlAntuvi = buyHref('antuvi-mesa');
 const mlGallant25 = buyHref('gallant-elite-gee12m25a');
+const mlSpeedo = buyHref('speedo-tr5');
 // Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
 // exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
@@ -107,7 +108,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
 
       <div class="table-scroll">
       <table class="specs comparativo-table">
-        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 640 a R$ 4.300</caption>
+        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 640 a R$ 10.990</caption>
         <thead>
           <tr>
             <th scope="col">Produto</th>
@@ -425,6 +426,25 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Preço" class="num cell-price">R$ 719,70</td>
             <td class="cell-cta"><a class="mini-cta" href={mlHealthHerald} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Health Herald SP0501 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
+          <tr>
+            <th scope="row">
+              <div class="cell-product">
+                <img src="/assets/images/speedo-tr5.webp" alt="Esteira ergométrica Speedo TR5" width="44" height="44" loading="lazy">
+                <div>
+                  <span class="cell-product-name">Speedo TR5</span>
+                  <span class="badge-mini">🚀 Maior lona e velocidade do catálogo</span>
+                </div>
+              </div>
+              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (12 avaliações no Mercado Livre)</p>
+            </th>
+            <td data-label="Motor" class="num">4,0 HP pico</td>
+            <td data-label="Velocidade" class="num">18 km/h</td>
+            <td data-label="Lona" class="num">50 × 140 cm</td>
+            <td data-label="Peso máx." class="num">150 kg</td>
+            <td data-label="Dobra">Sim</td>
+            <td data-label="Preço" class="num cell-price">R$ 10.990</td>
+            <td class="cell-cta"><a class="mini-cta" href={mlSpeedo} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Speedo TR5 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a></td>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -443,6 +463,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
       <p class="stamp">A Importway declara os 2,0 HP da IWEST2X1-10 só como "potência máxima", sem informar a potência contínua separadamente — e não publica o peso do próprio equipamento em nenhuma fonte oficial. Veja a análise completa antes de decidir.</p>
       <p class="stamp">A Gallant Elite GEE13M29A não é bivolt (127V ou 220V) — este anúncio é a versão 220V. Confirme a rede elétrica da sua casa antes de comprar. Veja a análise completa antes de decidir.</p>
       <p class="stamp">A Gallant Elite GEE12M28A também não é bivolt (127V ou 220V) — este anúncio é a versão 127V. Confirme a rede elétrica da sua casa antes de comprar. Veja a análise completa antes de decidir.</p>
+      <p class="stamp">Os "4,0 HP" da Speedo TR5 são potência de pico, confirmado pelo próprio fabricante — a potência contínua não é informada em nenhuma fonte. Dobrável, mas pesa 89 kg, quase o dobro do modelo dobrável mais pesado do restante do catálogo. Garantia não informada neste anúncio. Veja a análise completa antes de decidir.</p>
 
       <p class="disclosure">Este site participa de programas de afiliados. Quando você compra por um link daqui, recebemos uma comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos.</p>
     </div>
@@ -746,6 +767,23 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
           <a class="btn btn-primary btn-block" href={mlAntuvi} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Antuvi no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
+
+      <article class="product-card">
+        <a class="product-card__media" href="/reviews/speedo-tr5">
+          <span class="product-card__badge">Maior lona e velocidade do catálogo</span>
+          <img src="/assets/images/speedo-tr5.webp" alt="Esteira ergométrica Speedo TR5" width="200" height="200" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <h3 class="product-card__title"><a href="/reviews/speedo-tr5">Speedo TR5</a></h3>
+          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (12 avaliações no Mercado Livre)</p>
+          <p class="product-card__specs">4,0 HP pico • 18 km/h • 150 kg • dobra (89 kg)</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">R$ 10.990</span>
+            <a class="product-card__link" href="/reviews/speedo-tr5">Ver análise →</a>
+          </div>
+          <a class="btn btn-primary btn-block" href={mlSpeedo} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Speedo TR5 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -810,7 +848,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <div>
           <span class="guide-card__eyebrow">Comparativo</span>
           <h3 class="guide-card__title">Melhor esteira ergométrica residencial</h3>
-          <p>As dezesseis esteiras que já analisamos, organizadas por categoria: custo-benefício, corrida, idosos, apartamento.</p>
+          <p>As dezessete esteiras que já analisamos, organizadas por categoria: custo-benefício, corrida, idosos, apartamento.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>
@@ -894,7 +932,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <div>
           <span class="guide-card__eyebrow">Guia de compra</span>
           <h3 class="guide-card__title">Esteira para quem pesa mais de 100 kg</h3>
-          <p>Seis dos dezesseis modelos têm limite de 110 kg — veja o que existe em cada faixa acima disso.</p>
+          <p>Seis dos dezessete modelos têm limite de 110 kg — veja o que existe em cada faixa acima disso.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>

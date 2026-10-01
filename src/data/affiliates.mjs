@@ -279,6 +279,19 @@ export const products = {
 		notes:
 			'Última pendência da varredura de baixa concorrência. Apify travado a sessão toda (cota mensal); usuário enviou link, imagem e depois a ficha técnica e um screenshot do anúncio direto, o que permitiu completar os dados. Título do anúncio: "Esteira Elétrica Ergométrica Ginástica Inclinação 12km 2.5hp Preto". Loja "Antuvi" no Mercado Livre — a ficha técnica declara a MARCA como "Geral" (não "Antuvi"; mesmo padrão sem marca real da Esteira Cardio/"Genérica"). +500 vendidos, nota 4,7, 280 avaliações (número revisado — uma captura anterior, antes do bloqueio do Apify, tinha registrado 319, divergência não explicada, usar 280 por vir de screenshot direto do anúncio), selo "Mais vendido" (14º em Esteira Ergométrica), R$1.580,24 em setembro/2026 (revisado de uma captura anterior de R$1.453, também superada pelo screenshot direto). CONFIRMADO pela ficha técnica do próprio anúncio: motor 2,5 HP (não separa contínua de pico), velocidade máxima 12km/h, superfície para correr 100×38cm, peso máximo do usuário 100kg, peso do equipamento 15kg, NÃO é dobrável (tem rodas), tem tela com tempo/velocidade/distância/calorias, função adicional "Stepper" (não detalhada), não requer montagem, modelo HD020, voltagem por seleção (visto 220V como opção, não confirmado bivolt automático). Inclinação confirmada como existente pelo título do anúncio, mas grau não especificado em texto — a imagem promocional usa uma chamada gráfica de "6°" que NÃO tratamos como confirmado (mesmo critério da Strive/"15% Auto Incline"). [VERIFICAR] apenas garantia — não encontrada em nenhuma fonte. Dado o quanto foi confirmado (só garantia falta), promovida de "parcial sem nota" para análise completa com nota editorial (5,5/10) — ver cálculo em metodologia.astro. NA tabela comparativa da home e em metodologia.astro.',
 	},
+	'speedo-tr5': {
+		merchant: 'mercadolivre',
+		title: 'Speedo TR5',
+		listingId: 'MLB36730790',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-speedo-tr5-residencial-4hp-ate-18km/p/MLB36730790',
+		affiliateUrl: 'https://meli.la/1Gpr6K1',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-01',
+		notes:
+			'Achada em pedido direto do usuário (investigação de "esteira profissional" que não deu em produto comercial real, mas levou a esta linha residencial premium da Speedo). Loja oficial Casa do Fitness: reputação 5_green, +500 vendas na loja, este anúncio específico com 25 unidades vendidas e nota 5,0 (12 avaliações). Ficha cruzada com o site da Decathlon (vendedor Defitness, representante oficial da Speedo Fitness no Brasil) para o mesmo modelo TR5 — specs batem: motor 4,0HP de pico (DC, explicitamente rotulado como pico em ambas as fontes, contínua NÃO informada em nenhuma), velocidade até 18km/h, lona 140×50cm, peso máx. usuário 150kg, peso do equipamento 89kg (a mais pesada do catálogo, quase o dobro da próxima), dobrável, 15 níveis de inclinação elétrica, Bluetooth com certificação Anatel. R$10.990 (de R$14.990, 26% off) em outubro de 2026. ATENÇÃO: garantia NÃO aparece neste anúncio (nem ficha nem descrição) — a Decathlon/Defitness declara 3 anos motor/1 ano estrutura para o mesmo modelo, mas é um vendedor diferente (Defitness, não Casa do Fitness), então tratamos como não confirmado para este anúncio. Ficha do próprio anúncio é contraditória sobre quantidade de programas: descrição diz "12 pré-definidos + 3 customizáveis" (=15), campo estruturado diz "30" — não resolvido. É a esteira mais cara do catálogo (2,5× a Athletic Racer). Nota editorial 6,2/10 — ver metodologia.astro.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
