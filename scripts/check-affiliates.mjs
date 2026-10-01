@@ -268,6 +268,7 @@ if (existsSync(dist)) {
 				'antuvi-mesa': 4,
 				'gallant-elite-gee12m25a': 4,
 				'speedo-tr5': 5,
+				'kht-gts6': 5,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -277,7 +278,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 71) diff.push(`total de CTAs: esperado 71, encontrado ${total}`);
+		if (total !== 76) diff.push(`total de CTAs: esperado 76, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

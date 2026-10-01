@@ -292,6 +292,19 @@ export const products = {
 		notes:
 			'Achada em pedido direto do usuário (investigação de "esteira profissional" que não deu em produto comercial real, mas levou a esta linha residencial premium da Speedo). Loja oficial Casa do Fitness: reputação 5_green, +500 vendas na loja, este anúncio específico com 25 unidades vendidas e nota 5,0 (12 avaliações). Ficha cruzada com o site da Decathlon (vendedor Defitness, representante oficial da Speedo Fitness no Brasil) para o mesmo modelo TR5 — specs batem: motor 4,0HP de pico (DC, explicitamente rotulado como pico em ambas as fontes, contínua NÃO informada em nenhuma), velocidade até 18km/h, lona 140×50cm, peso máx. usuário 150kg, peso do equipamento 89kg (a mais pesada do catálogo, quase o dobro da próxima), dobrável, 15 níveis de inclinação elétrica, Bluetooth com certificação Anatel. R$10.990 (de R$14.990, 26% off) em outubro de 2026. ATENÇÃO: garantia NÃO aparece neste anúncio (nem ficha nem descrição) — a Decathlon/Defitness declara 3 anos motor/1 ano estrutura para o mesmo modelo, mas é um vendedor diferente (Defitness, não Casa do Fitness), então tratamos como não confirmado para este anúncio. Ficha do próprio anúncio é contraditória sobre quantidade de programas: descrição diz "12 pré-definidos + 3 customizáveis" (=15), campo estruturado diz "30" — não resolvido. É a esteira mais cara do catálogo (2,5× a Athletic Racer). Nota editorial 6,2/10 — ver metodologia.astro.',
 	},
+	'kht-gts6': {
+		merchant: 'mercadolivre',
+		title: 'KHT GTS-6',
+		listingId: 'MLB5422027204',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-5422027204-esteira-profissional-academia-inclinavel-tela-led-kht-6-gts-_JM',
+		affiliateUrl: 'https://meli.la/2tWcSYi',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-01',
+		notes:
+			'Achada em pedido direto do usuário, investigando a keyword "esteira profissional" depois de publicarmos o guia sobre o tema. Loja MODULAUTO (MercadoLíder Gold, +5 mil vendas na loja, +590 seguidores, +100 produtos) — este anúncio específico: +5 vendidos, nota 5,0 (2 avaliações, amostra pequena). R$11.499 (de R$14.990, 23% off) em outubro de 2026. Ficha técnica confirmada via texto colado pelo usuário (Apify indisponível nesta sessão, acesso direto ao ML bloqueado por login-wall): motor "AC 4.0 hp" declarado de forma CONSISTENTE em toda a ficha (características, especificações e descrição), sem a contradição "dc...AC" que encontramos num anúncio quase idêntico da mesma marca (modelo 8008AC, mesma lona/peso/velocidade, NÃO publicado por causa dessa contradição — ver notas desse outro produto se reativado). Mesmo consistente, o claim AC não foi confirmado por fonte independente — KHT não parece ter site institucional. Lona 135×52cm, peso máx. usuário 150kg, peso do equipamento 103kg (campo próprio, não duplicado com peso suportado — diferente da 8008AC), velocidade 18,8km/h, dobrável (dobramento automático), não requer montagem, certificação CE/RoHS/EN957, bivolt por seleção. ATENÇÃO: ficha contraditória sobre inclinação — especificações dizem "0-15 graus", FAQ diz "até 15%" (não são a mesma medida), não resolvido. Garantia de fábrica: 3 meses (confirmado no FAQ) — a mais curta do catálogo entre modelos com marca, empatada com WCT Fitness. Nota editorial 7,3/10 — ver metodologia.astro. Linkada no guia /guias/esteira-profissional-para-academia como a opção mais próxima de "profissional" confirmada no catálogo.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

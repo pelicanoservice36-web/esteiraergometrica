@@ -19,6 +19,7 @@ const mlHealthHerald = buyHref('health-herald-lcd');
 const mlAntuvi = buyHref('antuvi-mesa');
 const mlGallant25 = buyHref('gallant-elite-gee12m25a');
 const mlSpeedo = buyHref('speedo-tr5');
+const mlKht = buyHref('kht-gts6');
 // Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
 // exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
@@ -108,7 +109,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
 
       <div class="table-scroll">
       <table class="specs comparativo-table">
-        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 640 a R$ 10.990</caption>
+        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 640 a R$ 11.499</caption>
         <thead>
           <tr>
             <th scope="col">Produto</th>
@@ -445,6 +446,25 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Preço" class="num cell-price">R$ 10.990</td>
             <td class="cell-cta"><a class="mini-cta" href={mlSpeedo} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Speedo TR5 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
+          <tr>
+            <th scope="row">
+              <div class="cell-product">
+                <img src="/assets/images/kht-gts6.webp" alt="Esteira ergométrica KHT GTS-6" width="44" height="44" loading="lazy">
+                <div>
+                  <span class="cell-product-name">KHT GTS-6</span>
+                  <span class="badge-mini">⚡ Único com motor AC declarado</span>
+                </div>
+              </div>
+              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+            </th>
+            <td data-label="Motor" class="num">4,0 HP AC*</td>
+            <td data-label="Velocidade" class="num">18,8 km/h</td>
+            <td data-label="Lona" class="num">52 × 135 cm</td>
+            <td data-label="Peso máx." class="num">150 kg</td>
+            <td data-label="Dobra">Sim</td>
+            <td data-label="Preço" class="num cell-price">R$ 11.499</td>
+            <td class="cell-cta"><a class="mini-cta" href={mlKht} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da KHT GTS-6 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a></td>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -464,6 +484,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
       <p class="stamp">A Gallant Elite GEE13M29A não é bivolt (127V ou 220V) — este anúncio é a versão 220V. Confirme a rede elétrica da sua casa antes de comprar. Veja a análise completa antes de decidir.</p>
       <p class="stamp">A Gallant Elite GEE12M28A também não é bivolt (127V ou 220V) — este anúncio é a versão 127V. Confirme a rede elétrica da sua casa antes de comprar. Veja a análise completa antes de decidir.</p>
       <p class="stamp">Os "4,0 HP" da Speedo TR5 são potência de pico, confirmado pelo próprio fabricante — a potência contínua não é informada em nenhuma fonte. Dobrável, mas pesa 89 kg, quase o dobro do modelo dobrável mais pesado do restante do catálogo. Garantia não informada neste anúncio. Veja a análise completa antes de decidir.</p>
+      <p class="stamp">* O motor AC da KHT GTS-6 é declarado de forma consistente no anúncio, mas não confirmado por site de fabricante independente — a KHT não parece ter site institucional. Garantia de só 3 meses, a mais curta do catálogo entre modelos com marca. Veja a análise completa antes de decidir.</p>
 
       <p class="disclosure">Este site participa de programas de afiliados. Quando você compra por um link daqui, recebemos uma comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos.</p>
     </div>
@@ -784,6 +805,23 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
           <a class="btn btn-primary btn-block" href={mlSpeedo} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Speedo TR5 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
+
+      <article class="product-card">
+        <a class="product-card__media" href="/reviews/kht-gts6">
+          <span class="product-card__badge">Único com motor AC declarado</span>
+          <img src="/assets/images/kht-gts6.webp" alt="Esteira ergométrica KHT GTS-6" width="200" height="200" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <h3 class="product-card__title"><a href="/reviews/kht-gts6">KHT GTS-6</a></h3>
+          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+          <p class="product-card__specs">4,0 HP AC* • 18,8 km/h • 150 kg • dobra (103 kg)</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">R$ 11.499</span>
+            <a class="product-card__link" href="/reviews/kht-gts6">Ver análise →</a>
+          </div>
+          <a class="btn btn-primary btn-block" href={mlKht} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da KHT GTS-6 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -848,7 +886,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <div>
           <span class="guide-card__eyebrow">Comparativo</span>
           <h3 class="guide-card__title">Melhor esteira ergométrica residencial</h3>
-          <p>As dezessete esteiras que já analisamos, organizadas por categoria: custo-benefício, corrida, idosos, apartamento.</p>
+          <p>As dezoito esteiras que já analisamos, organizadas por categoria: custo-benefício, corrida, idosos, apartamento.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>
@@ -932,7 +970,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <div>
           <span class="guide-card__eyebrow">Guia de compra</span>
           <h3 class="guide-card__title">Esteira para quem pesa mais de 100 kg</h3>
-          <p>Seis dos dezessete modelos têm limite de 110 kg — veja o que existe em cada faixa acima disso.</p>
+          <p>Seis dos dezoito modelos têm limite de 110 kg — veja o que existe em cada faixa acima disso.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>
