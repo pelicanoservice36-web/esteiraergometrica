@@ -1194,6 +1194,19 @@ a:hover { color: var(--primary-ink); }
   margin: 1rem 0 0;
 }
 
+.foot-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.foot-social:hover { color: var(--primary); }
+
 .foot-col h3 {
   font-family: var(--sans);
   font-size: 0.75rem;
