@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Dá pra correr na Speedo TR5?', a: 'Sim: é a esteira do nosso catálogo com a maior lona (140 × 50 cm) e a maior velocidade máxima (18 km/h), as duas medidas mais relevantes para quem corre. A ressalva é que não conseguimos confirmar a potência contínua real do motor, só a de pico (4 HP).' },
+	{ q: 'Qual é a potência real do motor?', a: 'O fabricante anuncia 4 HP, mas deixa claro que é potência de pico, não contínua, e não encontramos a potência contínua em nenhuma fonte, nem no anúncio nem no site do representante oficial da marca no Brasil.' },
+	{ q: 'Ela dobra? Quanto pesa?', a: 'Sim, dobra e tem rodas para ajudar a mover. Mas pesa 89 kg: bem mais que o dobro de qualquer outro modelo dobrável do nosso catálogo, o que torna mover ou guardar sozinho mais difícil na prática.' },
+	{ q: 'Qual a garantia?', a: 'Não é informada neste anúncio. A Decathlon, que vende o mesmo modelo através de outro vendedor (Defitness, representante oficial da Speedo Fitness no Brasil), declara 3 anos no motor e 1 ano na estrutura, mas não confirmamos se esse prazo vale para uma compra feita no anúncio que linkamos. Confirme diretamente com o vendedor antes de comprar.' },
+	{ q: 'Tem Bluetooth e conecta com aplicativos de corrida?', a: 'Sim, com certificação Anatel, compatível com apps como o Fitshow que mostram o pace (ritmo) do treino. Também tem entrada P2 e alto-falantes integrados.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '4,0 HP de pico* (DC): potência contínua não informada' },
 	{ label: 'Velocidade máxima', value: '18 km/h: a maior do catálogo' },
@@ -57,7 +75,7 @@ const fichaItems = [
 	path="/reviews/speedo-tr5"
 	ogTitle="Speedo TR5: análise honesta"
 	ogDescription="A maior lona e a maior velocidade do nosso catálogo, com Bluetooth e 15 níveis de inclinação elétrica, mas a potência contínua do motor não é informada, e dobrada ela pesa 89 kg."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Speedo TR5 é boa?"
 	standfirst="A Speedo TR5 tem a maior lona (140 × 50 cm) e a maior velocidade máxima (18 km/h) do nosso catálogo inteiro, com 15 níveis de inclinação elétrica e conexão Bluetooth para apps de corrida. Também é a mais cara (R$ 10.990) e a mais pesada mesmo dobrada (89 kg). O motor é anunciado como 4 HP, mas o próprio fabricante avisa que esse número é potência de pico, não contínua, e não encontramos em nenhuma fonte qual é a potência contínua real."
 	updated="outubro de 2026"

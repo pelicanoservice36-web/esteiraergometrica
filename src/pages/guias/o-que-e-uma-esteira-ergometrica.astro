@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/o-que-e-uma-esteira-ergometrica',
 };
+
+const faq = [
+	{ q: 'Para que serve uma esteira ergométrica?', a: 'Para caminhar ou correr no lugar, em casa, sem depender de clima ou horário, usada para cardio, condicionamento físico ou caminhada supervisionada em reabilitação.' },
+	{ q: 'Esteira ergométrica ajuda a perder barriga?', a: 'Ajuda como parte de um plano de exercício consistente, mas não emagrece uma região específica do corpo sozinha: perda de gordura localizada não funciona assim, independente do equipamento usado.' },
+	{ q: 'Esteira pode ser usada todos os dias?', a: 'Caminhada é atividade de baixo impacto e pode ser diária; quem está começando costuma se beneficiar de algum descanso entre sessões mais intensas. Veja o plano para iniciante para uma progressão mais detalhada.' },
+	{ q: 'Esteira é boa para fazer cardio?', a: 'Sim: caminhar ou correr eleva a frequência cardíaca de forma sustentada, que é a base de qualquer treino cardiovascular, com a vantagem de não depender de clima ou trânsito.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/o-que-e-uma-esteira-ergometrica"
 	ogTitle="O que é uma esteira ergométrica"
 	ogDescription="Como funciona por dentro, para que serve e o que ela não resolve sozinha: a base antes de escolher qualquer modelo."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="O que é uma esteira ergométrica e como ela funciona"
 	standfirst="Antes de comparar modelo, vale entender o que o equipamento realmente faz, e o que ele não faz sozinho, por mais que o anúncio sugira o contrário."
 	updated="setembro de 2026"

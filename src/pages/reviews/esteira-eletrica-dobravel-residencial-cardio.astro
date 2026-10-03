@@ -30,6 +30,25 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Essa esteira tem marca?', a: 'Não. A ficha do próprio anúncio declara a marca como "Genérica": não há fabricante identificável nem site institucional para consultar em caso de dúvida ou defeito.' },
+	{ q: 'Ela aguenta mesmo 150 kg?', a: 'É o que declara a ficha do anúncio, e é o maior limite entre os modelos que já analisamos. Como não existe fabricante para confirmar esse número de forma independente, compre com folga em relação ao seu peso.' },
+	{ q: 'Dá para correr nela?', a: 'Não de forma confortável. A lona tem só 90 cm de comprimento (mais curta que a da Polimet EP-1600) mesmo com velocidade máxima anunciada de 10 km/h. É melhor pensar nela como esteira de caminhada rápida, não de corrida.' },
+	{ q: 'Qual a garantia?', a: '30 dias, dados pelo vendedor no Mercado Livre: a mais curta do nosso comparativo. Teste o equipamento assim que ele chegar e guarde a nota fiscal.' },
+	{ q: 'Ela dobra para guardar?', a: 'Sim, e com 18 kg é a mais leve e compacta entre os modelos que já analisamos, o que facilita guardar ou mover sozinho.' },
+	{ q: 'É uma esteira portátil?', a: 'Dentro do que existe em esteira elétrica (não é uma esteira de mala, tipo mini, sem motor), sim: com 18 kg e dobrável, é a mais fácil de carregar e mudar de cômodo entre os modelos que já analisamos: a Polimet EP-1600, por comparação, pesa 24 kg.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,5 HP' },
 	{ label: 'Velocidade máxima', value: '10 km/h' },
@@ -46,7 +65,7 @@ const fichaItems = [
 	path="/reviews/esteira-eletrica-dobravel-residencial-cardio"
 	ogTitle="Essa esteira de R$ 640 sem marca vale a pena?"
 	ogDescription="150 kg de capacidade e 2,5 HP no papel, mas sem marca identificável e garantia de só 30 dias. O que isso muda na prática."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira elétrica dobrável de R$ 640: vale a pena por ser tão barata?"
 	standfirst="É a opção mais barata do nosso comparativo, por larga margem: menos da metade do preço da Polimet EP-1600. Isso é possível, mas vem com trocas reais: nenhuma marca por trás, garantia de 30 dias e uma ficha técnica que só o próprio vendedor assina."
 	updated="setembro de 2026"

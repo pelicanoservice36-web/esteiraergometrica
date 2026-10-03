@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Qual a diferença entre a EP-1600 e a EP-1600 Sênior?', a: 'O corrimão. A Sênior tem apoio lateral estendido ao longo da lona; a padrão tem corrimão curto e frontal. Motor, velocidade máxima e lona são praticamente os mesmos nas duas versões.' },
+	{ q: 'A EP-1600 Sênior dobra para guardar?', a: 'Provavelmente não. A ficha do fabricante não confirma nem nega, mas um anúncio de loja descreve o modelo especificamente como não dobrável e sem rodas de transporte. Confirme no anúncio específico antes de comprar, e reserve espaço permanente para o equipamento.' },
+	{ q: 'Qual o peso máximo do usuário?', a: '110 kg, conforme a ficha da Poli Sports, o mesmo limite da versão padrão.' },
+	{ q: 'É bivolt?', a: 'O fabricante anuncia como bivolt, mas não temos confirmação de que a tensão troca automaticamente. Na versão padrão, a Poli Sports esclareceu que a seleção é manual entre 127V e 220V; confirme a configuração no anúncio específico antes de ligar.' },
+	{ q: 'Serve para reabilitação?', a: 'É o modelo indicado dentro da linha Polimet para quem precisa de apoio contínuo ao caminhar, incluindo reabilitação. Ainda assim, consulte um profissional de saúde antes de iniciar qualquer programa de caminhada supervisionada.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '1,6 HP' },
 	{ label: 'Velocidade máxima', value: '10 km/h' },
@@ -54,7 +72,7 @@ const fichaItems = [
 	path="/reviews/polimet-ep1600-senior"
 	ogTitle="Polimet EP-1600 Sênior é boa? Análise honesta"
 	ogDescription="Corrimão lateral estendido para apoio contínuo, 110 kg e uma estrutura que pode não dobrar. A diferença real para a EP-1600 padrão."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Polimet EP-1600 Sênior é boa?"
 	standfirst="É a EP-1600 padrão redesenhada em volta de um corrimão lateral estendido, pensada para apoio contínuo durante a caminhada. Essa mudança de estrutura tem um preço, e não é só em dinheiro: veja o que muda antes de pagar mais caro por essa versão."
 	updated="setembro de 2026"

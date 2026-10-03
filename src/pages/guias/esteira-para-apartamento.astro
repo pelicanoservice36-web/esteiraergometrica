@@ -9,6 +9,25 @@ const jsonLd = {
 	datePublished: '2026-09-05',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-para-apartamento',
 };
+
+const faq = [
+	{ q: 'Esteira dobrável cabe em qualquer apartamento?', a: 'Dobrar ajuda, mas o que decide é a combinação de espaço dobrado, peso do equipamento e os 60 cm de segurança atrás dela durante o uso. Meça o cômodo com esses três números antes de comprar, não só a largura da esteira.' },
+	{ q: 'Esteira faz barulho para o vizinho de baixo?', a: 'O motor raramente é o problema: é o impacto do pé na lona, transmitido pelo piso. Um tapete de borracha ou manta de EVA embaixo do equipamento resolve a maior parte disso.' },
+	{ q: 'Preciso de quanto espaço livre atrás da esteira?', a: 'Pelo menos 60 cm, além da lona. É a distância de segurança para onde você é projetado se tropeçar. Reserve esse espaço mesmo com a esteira dobrada e guardada, para quando for usá-la.' },
+	{ q: 'Uma pessoa sozinha consegue mover a esteira?', a: 'Até cerca de 26 kg, dá para reposicionar sozinho com algum esforço: são seis modelos do nosso catálogo, da Health Herald (13,5 kg, a mais leve) à Dream Fitness DR-1600 (≈ 25,6 kg). A partir de 30 kg, como a Athletic Racer (42,4 kg) e a Gallant Elite GEE13M29A (45 kg), prefira ter ajuda de outra pessoa ou verificar se o modelo tem rodas de transporte.' },
+	{ q: 'Qual a melhor esteira para apartamento pequeno?', a: 'Priorize o peso do equipamento antes de motor ou velocidade: a Health Herald (13,5 kg) é a mais leve do catálogo, e a Redfin Ideal DL-227 (18 kg) une leveza a suporte de até 150 kg. Se preferir fabricante estabelecido e a melhor nota editorial entre as leves, a Polimet EP-1600 (24 kg, nota 6,9/10) é a escolha mais equilibrada.' },
+	{ q: 'Moro em apartamento, qual esteira comprar?', a: 'Além do peso do equipamento (veja a pergunta anterior), em apartamento o ruído para o vizinho de baixo pesa mais. Nenhuma esteira resolve isso sozinha, mas um tapete de borracha ou manta de EVA embaixo ajuda mais que qualquer especificação técnica. Reserve também 60 cm livres atrás do equipamento, mesmo guardado dobrado. Qualquer um dos modelos dobráveis do comparativo por categoria serve, desde que você meça esses três números antes de comprar.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +36,7 @@ const jsonLd = {
 	path="/guias/esteira-para-apartamento"
 	ogTitle="Esteira para apartamento pequeno: o que olhar"
 	ogDescription="Dobra não é a única pergunta que importa. Peso do equipamento, ruído de impacto e espaço de segurança decidem se ela cabe de verdade."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira para apartamento pequeno"
 	standfirst={'"Dobra ou não dobra" é a pergunta errada de se fazer sozinha. Peso do equipamento, ruído transmitido pelo piso e espaço de segurança atrás da esteira decidem se ela cabe de verdade na sua rotina, não só no seu closet.'}
 	updated="setembro de 2026"

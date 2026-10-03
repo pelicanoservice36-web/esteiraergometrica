@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-ou-rua-bike-ou-eliptico',
 };
+
+const faq = [
+	{ q: 'Esteira ou correr na rua: o que é melhor para emagrecer?', a: 'Para esse objetivo, o que importa é o gasto calórico total ao longo do tempo, não o equipamento, e isso depende mais de manter a rotina do que de qual das duas opções você escolhe. A pergunta mais útil é qual das duas você realmente vai manter fazendo por meses, não semanas.' },
+	{ q: 'Elíptico ou esteira: qual machuca menos o joelho?', a: 'Elíptico, porque o pé nunca perde contato total com o pedal: isso reduz o impacto repetitivo que a esteira (e a rua) geram a cada passada. Se você já tem dor de joelho recorrente, essa diferença costuma pesar mais que qualquer outro critério.' },
+	{ q: 'Bike ergométrica substitui caminhada na esteira?', a: 'Para gasto cardiovascular, sim, de forma parecida. Para o padrão de movimento de caminhar ou correr no dia a dia, não: a transferência da bike para "andar melhor" é menor que a da esteira, porque o movimento pedalado é diferente do movimento de passada.' },
+	{ q: 'Vale a pena ter esteira e ir à academia também?', a: 'Só se os dois resolverem problemas diferentes para você: por exemplo, esteira para os dias de chuva ou pouco tempo, academia para musculação ou variedade. Comprar os dois sem uma razão clara para cada um costuma significar pagar duas vezes pelo mesmo objetivo.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/esteira-ou-rua-bike-ou-eliptico"
 	ogTitle="Esteira, rua, bike ou elíptico: qual escolher"
 	ogDescription="Não existe resposta única. Existe a opção certa para o seu espaço, seu joelho e sua rotina. Comparamos as quatro por impacto, custo e conveniência."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira, rua, bike ou elíptico: qual escolher"
 	standfirst="Não existe um vencedor universal entre esteira em casa, caminhada ou corrida na rua, bike ergométrica e elíptico: existe a opção certa para o seu espaço, sua articulação e a rotina que você realmente vai manter. Comparamos as quatro pelo que muda de verdade na prática, não pela que parece mais impressionante no papel."
 	updated="setembro de 2026"

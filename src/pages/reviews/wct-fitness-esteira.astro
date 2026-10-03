@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A WCT Fitness tem motor de 2,0 HP?', a: 'Só de pico. A potência contínua, declarada na mesma ficha oficial, é 0,75 HP: a mais baixa entre os modelos que já analisamos. É a potência contínua que importa para uso regular.' },
+	{ q: 'Por que ela tem a maior nota de comprador mas a menor nota editorial do catálogo?', a: 'São métricas diferentes. A nota de comprador (4,8, 3.347 avaliações) mede satisfação de quem já usa. A nossa nota editorial (5,8/10) mede especificação técnica e garantia: nesses critérios, um motor fraco (0,75 HP contínuo, o segundo mais fraco do catálogo) e a garantia mais curta pesam contra o produto, mesmo com a maioria dos compradores satisfeita.' },
+	{ q: 'Qual a garantia?', a: '3 meses, direto do fabricante: a mais curta entre os modelos com fabricante identificável do nosso comparativo.' },
+	{ q: 'Ela dobra para guardar?', a: 'Sim, com rodinhas para facilitar o transporte depois de dobrada. Fechada, ocupa 58 × 61 × 106 cm.' },
+	{ q: 'Vale a pena pelo preço?', a: 'Se o uso é leve e ocasional, sim: o preço é competitivo e o histórico de vendas é o maior que já vimos. Para uso frequente, o motor fraco (0,75 HP contínuo) é uma limitação real a considerar antes de comprar.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '0,75 HP contínuo (pico 2,0 HP)' },
 	{ label: 'Velocidade máxima', value: '10 km/h' },
@@ -54,7 +72,7 @@ const fichaItems = [
 	path="/reviews/wct-fitness-esteira"
 	ogTitle="WCT Fitness Esteira Elétrica é boa? Análise honesta"
 	ogDescription="10 mil vendas e nota 4,8, mas a potência contínua real é 0,75 HP, não os 2,0 HP de pico anunciados. O que isso muda na prática."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="WCT Fitness Esteira Elétrica é boa?"
 	standfirst="É a esteira com mais volume de venda que encontramos numa varredura no Mercado Livre: 10 mil unidades, 3.347 avaliações, nota 4,8. Também é, pela nossa metodologia, a com a nota editorial mais baixa do catálogo. As duas coisas são verdade ao mesmo tempo, e a ficha técnica explica por quê."
 	updated="setembro de 2026"

@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/como-comprar-esteira-com-seguranca',
 };
+
+const faq = [
+	{ q: 'Vale a pena comprar esteira pela internet?', a: 'Sim, é o canal que usamos para verificar todos os dezesseis modelos deste site, mas a plataforma sozinha não garante nada. O que decide é o vendedor, a loja e o anúncio específico, não onde ele está publicado.' },
+	{ q: 'Como saber se o vendedor da esteira é confiável?', a: 'Verifique se é loja oficial do fabricante (aparece identificado no anúncio), o histórico de vendas e avaliações da loja, e se a marca declarada na ficha técnica é identificável: "Genérica" ou "Geral" no campo marca é sinal de que não há fabricante para recorrer depois.' },
+	{ q: 'Como comparar esteiras diferentes antes de comprar?', a: 'Compare pela ficha técnica estruturada do anúncio, não pela descrição em texto ou imagem promocional, e confirme se o código do modelo bate exatamente, já que nomes de linha parecidos costumam esconder fichas técnicas diferentes.' },
+	{ q: 'O que verificar antes de finalizar a compra?', a: 'Modelo exato do anúncio, voltagem, garantia e se é loja oficial ou vendedor comum (nessa ordem). Esses quatro pontos resolvem a maioria dos arrependimentos de compra que encontramos pesquisando este catálogo.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/como-comprar-esteira-com-seguranca"
 	ogTitle="Como comprar esteira ergométrica com segurança"
 	ogDescription="O que 15 anúncios verificados nos ensinaram sobre loja oficial, preço riscado e modelos com nome quase idêntico e ficha técnica diferente."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Como comprar esteira ergométrica com segurança"
 	standfirst="Este guia não é teórico: é o que aprendemos verificando os anúncios reais das dezesseis esteiras que já analisamos, incluindo os erros que quase nos fizeram publicar um dado errado antes de cruzar a fonte."
 	updated="setembro de 2026"

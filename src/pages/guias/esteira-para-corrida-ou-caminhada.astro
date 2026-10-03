@@ -9,6 +9,25 @@ const jsonLd = {
 	datePublished: '2026-09-09',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-para-corrida-ou-caminhada',
 };
+
+const faq = [
+	{ q: 'Uma esteira de 1,6 HP aguenta corrida?', a: 'Aguenta corrida ocasional e trote leve, mas não corrida sustentada: o motor perde força para manter velocidade estável e o desgaste acelera com o uso contínuo nesse ritmo. Para corrida de verdade, procure motores a partir de 5.0 HPM, como o da Athletic Racer.' },
+	{ q: 'Existe opção de esteira para corrida mais barata que a Athletic Racer no catálogo?', a: 'Para corrida ocasional e trote, sim: as três Gallant Elite e a Strive TM16 chegam aos mesmos 16 km/h por bem menos, mas nenhuma tem o motor (2,5 a 2,9 HP contra 5.0 HPM) ou a lona da Racer, então servem para corrida leve, não sustentada. Para corrida sustentada de verdade, continua sendo só a Athletic Racer.' },
+	{ q: 'Vale a pena pagar R$ 4.300 numa esteira se eu só vou caminhar?', a: 'Não. Se o uso é caminhada, qualquer um dos treze modelos dimensionados para isso entrega o que você precisa por bem menos: a diferença de potência da Athletic Racer fica sem uso.' },
+	{ q: 'Qual a melhor esteira para caminhada?', a: 'Pela nota editorial, a Polimet EP-1600 (R$ 1.449 a 1.599, nota 6,9/10): fabricante identificável, assistência técnica e dobra pesando 24 kg. Se o critério for peso suportado, a Redfin Ideal DL-227 aguenta 150 kg por R$ 716,66. Veja a comparação completa por critério mais acima nesta página.' },
+	{ q: 'Qual a melhor esteira para caminhada em casa, no dia a dia?', a: 'Para uso diário só de caminhada, priorize um modelo que dobre e seja leve o bastante para guardar sem esforço, com fabricante identificável para garantia real: a Polimet EP-1600 (24 kg, nota 6,9) segue sendo a referência. Não é preciso pagar por velocidade ou motor acima de 10 km/h se o uso é só caminhada: essa potência simplesmente não vai ser usada no dia a dia.' },
+	{ q: 'Quero correr 5 km por dia, qual esteira comprar?', a: 'Correr 5 km por dia é uso de corrida sustentada, não trote ocasional, e nesse padrão, só a Athletic Racer do catálogo tem motor (5.0 HPM) e lona (126,5 cm de comprimento) confirmados para aguentar sem perder força nem faltar espaço na passada. Rodar esse volume numa esteira de motor menor acelera o desgaste, mesmo que funcione por um tempo.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +36,7 @@ const jsonLd = {
 	path="/guias/esteira-para-corrida-ou-caminhada"
 	ogTitle="Melhor esteira para caminhada ou corrida?"
 	ogDescription="1,6 HP aguenta caminhada e trote leve com folga. Corrida sustentada precisa de outra faixa de motor e de lona: veja qual modelo serve pra cada uso, entre os dezesseis do catálogo."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Melhor esteira para caminhada ou corrida? Como decidir"
 	standfirst="A resposta muda o preço em até seis vezes, então vale a pena acertar antes de comprar. Treze dos dezesseis modelos que já analisamos são dimensionados para caminhada: a pergunta real não é 'existe uma boa esteira pra caminhar', é qual delas entrega mais pelo seu critério específico."
 	updated="setembro de 2026"

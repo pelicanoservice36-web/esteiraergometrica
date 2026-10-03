@@ -31,6 +31,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'O motor da KHT GTS-7 é AC (profissional)?', a: 'Não. A ficha declara explicitamente "Motor: 2.5 hp DC": corrente contínua, o mesmo tipo de motor usado em equipamento residencial comum. Diferente da KHT GTS-6, que declara motor AC.' },
+	{ q: 'Vale a pena pagar mais caro pela GTS-7 em vez da GTS-6?', a: 'Só se a tela Android de 18,5" com Netflix e YouTube for decisiva para você. Em todo o resto (motor, garantia, preço), a GTS-6 sai na frente.' },
+	{ q: 'Qual a garantia?', a: '3 meses de garantia de fábrica, confirmados no FAQ do próprio anúncio.' },
+	{ q: 'Requer montagem?', a: 'Sim, segundo a ficha do anúncio, diferente da GTS-6, que declara não precisar de montagem.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,5 HP, corrente contínua (DC): não é motor AC' },
 	{ label: 'Velocidade máxima', value: '18,8 km/h' },
@@ -51,7 +68,7 @@ const fichaItems = [
 	path="/reviews/kht-gts7"
 	ogTitle="KHT GTS-7: análise honesta"
 	ogDescription="A esteira mais cara que já analisamos, com uma tela Android de 18,5'' como diferencial real, mas motor mais fraco que a irmã GTS-6, e explicitamente DC, não AC."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="KHT GTS-7 é boa?"
 	standfirst="A KHT GTS-7 é a esteira mais cara do nosso catálogo (R$ 17.172,15). Apesar do título do anúncio dizer 'profissional', a própria ficha declara o motor como '2,5 hp DC': corrente contínua, não alternada. É irmã da KHT GTS-6, que já analisamos, mas com motor mais fraco (2,5 HP contra 4,0 HP) pelo mesmo tipo de garantia curta. O diferencial real é outro: uma tela Android de 18,5 polegadas com Wi-Fi, Netflix, YouTube e Spotify, recurso que nenhum outro modelo do nosso catálogo tem."
 	updated="outubro de 2026"

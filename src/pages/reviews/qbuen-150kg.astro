@@ -38,6 +38,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Qual o comprimento da lona da QBuen?', a: 'Não divulgado. A ficha confirma só a largura (40 cm); o comprimento não aparece nem no anúncio nem em fonte externa confiável.' },
+	{ q: 'A inclinação é elétrica ou manual?', a: 'Elétrica: a ficha técnica confirma que é motorizada, ajustada pelo painel, não manual.' },
+	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
+	{ q: 'Até quantos kg a QBuen suporta?', a: '150 kg, confirmado na ficha técnica do anúncio, o maior valor confirmado com clareza no nosso catálogo.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2 HP (anúncio não separa contínua de pico)' },
 	{ label: 'Velocidade máxima', value: '12 km/h' },
@@ -57,7 +74,7 @@ const fichaItems = [
 	path="/reviews/qbuen-150kg"
 	ogTitle="QBuen AT-1271: análise honesta"
 	ogDescription="2 HP, 12 km/h, até 150 kg e inclinação elétrica por R$ 1.325,99, mas o comprimento da lona e a garantia não aparecem em nenhuma fonte."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="QBuen AT-1271 é boa?"
 	standfirst="A QBuen (modelo AT-1271) já tinha dois diferenciais confirmados desde o título do anúncio: até 150 kg de peso suportado e inclinação de 0 a 6%. Com a ficha técnica completa, dá pra confirmar mais: motor de 2 HP, 12 km/h, dobrável com 24,5 kg, inclinação elétrica (motorizada). Falta só o comprimento da lona e a garantia, dado suficiente para calcular nota editorial pela primeira vez nesta análise."
 	updated="setembro de 2026"

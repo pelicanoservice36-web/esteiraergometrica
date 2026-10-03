@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Importway IWEST2X1-10 é a mesma coisa que IWEST2X1?', a: 'Não. São dois produtos diferentes do mesmo fabricante, com nomes parecidos: a IWEST2X1-10 suporta 120 kg e tem lona de 100×41 cm; a IWEST2X1 (sem o "-10") suporta 110 kg, tem lona de 92×38 cm e inclinação manual em 2 níveis. Confira o código completo antes de comprar.' },
+	{ q: 'Qual o peso máximo suportado?', a: '120 kg, segundo a ficha do fabricante: o segundo maior limite do nosso catálogo, atrás só da Cardio sem marca e da Athletic Racer.' },
+	{ q: 'Quanto pesa o equipamento?', a: 'Não é informado em nenhuma fonte oficial que encontramos: nem no anúncio, nem no site do fabricante. Trate essa informação como [VERIFICAR] até confirmar diretamente com o vendedor antes de comprar, se isso for decisivo para você.' },
+	{ q: 'Ela aguenta corrida?', a: 'Não de forma confortável. Velocidade máxima de 10 km/h e lona de 100 cm de comprimento são medidas de caminhada, como a maioria do catálogo.' },
+	{ q: 'Qual a garantia?', a: '90 dias (3 meses), direto do fabricante, abaixo dos 6 meses da Polimet e da Dream Fitness, e de menos de um terço do padrão de mercado em equipamento de ginástica (12 meses).' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,0 HP (fabricante não separa contínua de pico)' },
 	{ label: 'Velocidade máxima', value: '10 km/h' },
@@ -54,7 +72,7 @@ const fichaItems = [
 	path="/reviews/importway-iwest2x1-10"
 	ogTitle="Importway IWEST2X1-10 é boa? Análise honesta"
 	ogDescription="120 kg suportados e lona 100×41 cm por R$ 1.055, mas existe uma IWEST2X1 sem o '-10' com ficha diferente. Veja como não confundir as duas."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Importway IWEST2X1-10 é boa?"
 	standfirst="Numa varredura pelo Mercado Livre, foi a esteira com mais vendas e nenhuma review dedicada até agora. Só páginas de loja. A ficha oficial do fabricante escondia uma pegadinha real: existe outro modelo quase homônimo, com especificações diferentes."
 	updated="setembro de 2026"

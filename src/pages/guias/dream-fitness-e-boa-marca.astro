@@ -9,6 +9,21 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/dream-fitness-e-boa-marca',
 };
+
+const faq = [
+	{ q: 'Dream Fitness vale a pena?', a: 'Pelo único modelo que já analisamos (DR-1600), sim: loja oficial, ficha técnica confirmada e histórico de mais de 2.000 avaliações. A ressalva é de preço: a Polimet EP-1600 entrega especificação idêntica por menos, se histórico de marca pesar menos na sua decisão.' },
+	{ q: 'A Dream Fitness tem assistência técnica?', a: 'Sim, com garantia de 6 meses confirmada e loja oficial identificável no Mercado Livre: o canal de contato para acionar garantia é essa loja.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +32,7 @@ const jsonLd = {
 	path="/guias/dream-fitness-e-boa-marca"
 	ogTitle="Dream Fitness é uma boa marca?"
 	ogDescription="Baseado no que verificamos na Dream Fitness DR-1600 (o único modelo da marca que já analisamos), não em pesquisa institucional sobre a empresa."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Dream Fitness é uma boa marca de esteira?"
 	standfirst="Esta resposta é baseada no que verificamos analisando a Dream Fitness DR-1600, o único modelo da marca que já cobrimos, não numa auditoria institucional da empresa. Se isso não for suficiente para sua decisão, trate como um dado a mais, não como veredito final."
 	updated="setembro de 2026"

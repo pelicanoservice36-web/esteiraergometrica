@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-29',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/melhor-esteira-custo-beneficio',
 };
+
+const faq = [
+	{ q: 'Qual a esteira com melhor custo-benefício do catálogo?', a: 'A Polimet EP-1600, com nota 9,0/10 no critério de custo-benefício, por R$ 1.449 a 1.599. É a maior nota de custo-benefício entre as dezesseis esteiras que já analisamos.' },
+	{ q: 'A esteira mais barata sempre tem o melhor custo-benefício?', a: 'Não. A Esteira Cardio genérica (R$ 640, a mais barata do catálogo) tem nota de custo-benefício 7,0, abaixo da Polimet EP-1600 (R$ 1.449 a 1.599, nota 9,0), porque não tem fabricante identificável nem garantia real por trás do preço baixo.' },
+	{ q: 'Custo-benefício é a mesma coisa que a nota editorial geral?', a: 'Não. Custo-benefício é um dos sete critérios que compõem a nota geral, com peso de 15%: os outros seis (motor, lona, peso suportado, velocidade, praticidade e confiabilidade do fabricante) também entram na conta. Uma esteira pode ter ótimo custo-benefício e nota geral mediana, como a Redfin Ideal DL-227 (8,0 em custo-benefício, 6,7 na nota geral).' },
+	{ q: 'Vale pagar mais por uma esteira com nota de custo-benefício mais alta?', a: 'Depende do que "mais alta" significa no seu caso. A Athletic Racer custa R$ 4.300 e tem a mesma nota de custo-benefício (8,0) da Redfin, de R$ 716,66: a diferença é o que cada uma entrega por esse preço, não qual delas "vale mais a pena" em termos absolutos. Vale pagar mais só se você precisa do que o preço maior realmente compra, como motor para corrida ou garantia mais longa.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/melhor-esteira-custo-beneficio"
 	ogTitle="Melhor esteira custo-benefício para ter em casa"
 	ogDescription="Custo-benefício não é sinônimo de barata. É o preço ser proporcional ao que o equipamento entrega, e isso muda a resposta."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Melhor esteira custo-benefício para ter em casa"
 	standfirst={'"Custo-benefício" não quer dizer "mais barata". Quer dizer que o preço cobrado é proporcional ao que a esteira entrega, e por esse critério, uma esteira de R$ 4.300 pode valer tanto quanto uma de R$ 717. Ranqueamos as dezesseis esteiras que já analisamos pela nota específica desse critério, não pela nota geral nem pelo preço.'}
 	updated="setembro de 2026"

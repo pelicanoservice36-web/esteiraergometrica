@@ -9,6 +9,22 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/polimet-e-boa-marca',
 };
+
+const faq = [
+	{ q: 'Polimet vale a pena?', a: 'Pelos dois modelos que já analisamos, sim: é a maior nota editorial da faixa de entrada do nosso catálogo, com fabricante respondendo publicamente dúvidas de compradores.' },
+	{ q: 'Polimet e Poli Sports são a mesma marca?', a: 'Sim, é a mesma fabricante vendendo linhas diferentes sob nomes diferentes: a EP-1600 como Polimet, a EP-1600 Sênior como Poli Sports.' },
+	{ q: 'A Polimet EP-1600 tem mesmo 16 HP?', a: 'Não: esse número circula em anúncios de terceiros, mas é um erro. A ficha oficial do fabricante confirma 1,6 HP, o padrão real da faixa de entrada do mercado brasileiro.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +33,7 @@ const jsonLd = {
 	path="/guias/polimet-e-boa-marca"
 	ogTitle="Polimet é uma boa marca?"
 	ogDescription="Dois modelos analisados, a mesma marca vendida sob dois nomes, e um erro de potência espalhado pelo varejo que não veio do fabricante."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Polimet é uma boa marca de esteira?"
 	standfirst="Esta resposta é baseada no que verificamos analisando os dois modelos da marca que já cobrimos (a EP-1600 e a EP-1600 Sênior), não numa auditoria institucional da empresa."
 	updated="setembro de 2026"

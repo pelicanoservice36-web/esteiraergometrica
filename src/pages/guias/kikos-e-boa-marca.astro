@@ -9,6 +9,22 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/kikos-e-boa-marca',
 };
+
+const faq = [
+	{ q: 'Kikos vale a pena?', a: 'Não temos um modelo específico analisado para responder com a mesma confiança que respondemos sobre as marcas do nosso catálogo. A reputação pública é mista: boa nota no Reclame Aqui (8,3/10) ao lado de reclamações reais sobre assistência técnica e durabilidade.' },
+	{ q: 'A Kikos fabrica no Brasil?', a: 'Tem site e assistência técnica nacional, mas relatos públicos indicam que parte dos equipamentos é importada e recebe a marca Kikos no Brasil, não fabricada internamente do zero. Não confirmamos esse processo em fonte oficial da empresa.' },
+	{ q: 'Qual a garantia da Kikos?', a: 'O site oficial declara entre 2 e 5 anos dependendo do modelo: bem acima do padrão de 6 a 12 meses que confirmamos nas marcas do nosso catálogo. Confirme o prazo exato no modelo e anúncio específico antes de comprar.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +33,7 @@ const jsonLd = {
 	path="/guias/kikos-e-boa-marca"
 	ogTitle="Kikos é uma boa marca?"
 	ogDescription="Sem modelo Kikos verificado no nosso catálogo ainda: isto é reputação pública (Reclame Aqui, site oficial), não a mesma verificação profunda que fazemos com fabricante e manual cruzados."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Kikos é uma boa marca de esteira?"
 	standfirst="Diferente das outras páginas de marca deste site, esta não é baseada em um modelo Kikos que já analisamos: ainda não temos nenhum no catálogo. É pesquisa de reputação pública, com fonte citada em cada ponto, não a mesma verificação cruzada de ficha técnica e manual que fazemos nas nossas 16 análises."
 	updated="setembro de 2026"

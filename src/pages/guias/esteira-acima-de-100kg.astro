@@ -9,6 +9,27 @@ const jsonLd = {
 	datePublished: '2026-09-09',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-acima-de-100kg',
 };
+
+const faq = [
+	{ q: 'Uma esteira de 110 kg de limite aguenta uma pessoa de 105 kg?', a: 'Tecnicamente sim, mas sem folga: rodar perto do limite acelera o desgaste do motor e da lona. Prefira um modelo com margem confortável acima do seu peso, não só acima da linha.' },
+	{ q: 'Qual esteira do catálogo tem o maior peso máximo confirmado por um fabricante?', a: 'A Athletic Racer e a Gallant Elite GEE13M29A empatam em 130 kg, ambas confirmadas na ficha técnica do respectivo fabricante. A Racer também no manual oficial em PDF, o que a deixa com a fonte mais forte das duas. Os modelos que declaram 150 kg (Esteira Cardio, QBuen, Redfin) vêm só da ficha do próprio anúncio, sem esse mesmo nível de confirmação.' },
+	{ q: 'Vale a pena a esteira Cardio para quem pesa mais de 100 kg?', a: 'É a opção mais barata com peso máximo alto no papel, mas sem fabricante identificável para responder por esse número: o risco é maior justamente no uso mais pesado, onde o motor e a estrutura são mais exigidos.' },
+	{ q: 'Tenho 80 kg, qual esteira comprar?', a: 'Nesse peso, o limite máximo não é o seu fator decisivo: qualquer um dos dezesseis modelos do catálogo aguenta 80 kg com folga real, inclusive os de limite mais baixo (100-110 kg). Decida por outro critério: veja o comparativo por categoria pelo seu uso, espaço ou orçamento.' },
+	{ q: 'Tenho 100 kg, qual esteira comprar?', a: 'Nesse peso, os seis modelos com limite de 110 kg (Polimet EP-1600, Sênior, Dream Fitness DR-1600, WCT Fitness, PodiumFit X300 e Health Herald) tecnicamente comportam, mas sem folga confortável, e a Antuvi (limite de 100 kg) já fica no talo. Para folga de verdade, um modelo de 120 kg ou mais, como a Gallant Elite GEE12M28A, dá mais margem sem exigir o salto de preço da Athletic Racer.' },
+	{ q: 'Tenho 120 kg, qual esteira comprar?', a: 'Nesse peso, os modelos de 110 kg de limite já saem da conta. Quatro modelos declaram 120 kg: a Gallant Elite GEE12M28A e a GEE12M25A (fabricante confirmado, ficha técnica mais completa do catálogo depois da Racer), a Importway IWEST2X1-10 (fabricante confirmado, mas peso do equipamento não informado) e a Strive TM16 (só ficha do anúncio). Nesse peso específico, prefira as duas Gallant Elite pela confirmação mais forte, mas sem folga de sobra, já que 120 kg é o limite, não uma margem confortável acima do seu peso.' },
+	{ q: 'Tenho 130 kg, qual esteira comprar?', a: 'Nesse peso, a Athletic Racer e a Gallant Elite GEE13M29A são as únicas opções com esse limite confirmado por fabricante, mas ambas exatamente no teto, sem folga confortável. As opções que declaram 150 kg (Esteira Cardio, Redfin e QBuen) vêm só da ficha do próprio anúncio, sem fabricante para confirmar. Nesse peso específico, temos menos confiança para recomendar qualquer modelo do nosso catálogo doméstico sem essa ressalva.' },
+	{ q: 'Tenho 140 kg ou 150 kg, qual esteira comprar?', a: 'Com honestidade: nenhum modelo do nosso catálogo tem peso máximo confirmado por fabricante acima de 130 kg (o limite da Athletic Racer). As opções que declaram 150 kg vêm só da ficha do próprio anúncio, sem fabricante identificável para confirmar: usar qualquer uma delas nesse peso é aceitar um risco real, sem verificação independente por trás do número. Para esse peso, vale considerar equipamento comercial ou de academia, dimensionado para uso mais pesado, o que foge do escopo deste catálogo doméstico.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +38,7 @@ const jsonLd = {
 	path="/guias/esteira-acima-de-100kg"
 	ogTitle="Esteira para quem pesa mais de 100 kg"
 	ogDescription="110 kg de limite não dá folga para quem já pesa perto disso. Veja o que existe em cada faixa acima disso, e quais números vêm confirmados por fabricante."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira ergométrica para quem pesa mais de 100 kg"
 	standfirst="Comprar no limite do peso máximo declarado acelera o desgaste do motor e da lona: é regra básica, não exagero. Seis dos dezesseis modelos do nosso catálogo têm limite de 110 kg, o padrão da faixa de entrada, sem folga real para quem já pesa perto disso."
 	updated="setembro de 2026"

@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A Polimet EP-1600 aguenta corrida?', a: 'Não de forma confortável. A velocidade máxima é 9 km/h e a lona tem 100 cm, o que restringe o uso a caminhada e trote leve. Para corrida, procure modelos a partir de 2,1 HP com lona acima de 120 cm.' },
+	{ q: 'Ela dobra para guardar?', a: 'Sim. A estrutura recolhe e o equipamento pesa 24 kg, o que permite encostar na parede ou guardar em vão estreito.' },
+	{ q: 'Qual o peso máximo do usuário?', a: '110 kg, conforme o fabricante. Você vai encontrar a informação de 120 kg em alguns sites; a ficha oficial da Poli Sports indica 110 kg. Use com folga em relação ao limite para preservar motor e lona.' },
+	{ q: 'É bivolt?', a: 'Funciona em 127V e 220V, mas com seleção manual de tensão, não automática. Confirme a configuração antes de ligar.' },
+	{ q: 'Serve para idoso?', a: 'A versão padrão tem corrimão curto. Para quem precisa de apoio ao longo de todo o percurso, a versão Sênior é a indicada.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '1,6 HP' },
 	{ label: 'Velocidade máxima', value: '9 km/h' },
@@ -54,7 +72,7 @@ const fichaItems = [
 	path="/reviews/polimet-ep1600"
 	ogTitle="Polimet EP-1600 é boa? Análise honesta"
 	ogDescription="1,6 HP, 9 km/h e lona de 100 cm. É esteira de caminhada, não de corrida, e isso muda quem deve comprar."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Polimet EP-1600 é boa?"
 	standfirst="É uma esteira de caminhada honesta por menos de R$ 1.600, e não é uma esteira de corrida, por mais que os anúncios sugiram o contrário. A diferença decide se ela serve para você."
 	updated="setembro de 2026"

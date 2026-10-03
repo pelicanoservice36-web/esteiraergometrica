@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A Athletic Racer aguenta corrida de verdade?', a: 'Sim. Com motor de 5.0 HPM, velocidade de até 16 km/h e lona de 126,5 cm de comprimento, é a única esteira do nosso catálogo dimensionada para corrida, não só caminhada.' },
+	{ q: 'Quantos programas de treino ela tem?', a: '19: um modo manual (P0), 15 programas com velocidade pré-definida (P1 a P15) e 3 programas configuráveis pelo usuário (P16 a P18), conforme o manual oficial. O texto de marketing do fabricante menciona "26", mas esse número não bate com a ficha técnica nem com o manual.' },
+	{ q: 'Ela dobra para guardar?', a: 'Sim, com o sistema Guarda-Fácil, que usa um amortecedor para reduzir o esforço ao levantar a plataforma. Mesmo assim, é maior e mais pesada (42,4 kg) que as demais esteiras do catálogo. Confirme o espaço disponível antes de comprar.' },
+	{ q: 'É bivolt?', a: 'Sim, bivolt automático (110V/220V): a esteira reconhece a tensão sozinha, sem chave de seleção manual.' },
+	{ q: 'Vale a pena pagar quase o triplo da Polimet EP-1600?', a: 'Só se você for usar a diferença: correr de verdade, treinar acima de 110 kg, ou querer garantia mais longa. Para caminhada em espaço pequeno, a EP-1600 entrega o que a maioria das pessoas precisa por bem menos.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '5.0 HPM' },
 	{ label: 'Velocidade máxima', value: '16 km/h' },
@@ -54,7 +72,7 @@ const fichaItems = [
 	path="/reviews/athletic-racer"
 	ogTitle="Athletic Racer 16km/h é boa? Análise honesta"
 	ogDescription="5.0 HPM, 16 km/h e lona de 126,5 cm: motor e lona de verdade para corrida, não só caminhada. Veja para quem vale o preço mais alto."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Athletic Racer 16 km/h é boa?"
 	standfirst="É a única esteira do nosso catálogo com motor e lona dimensionados para corrida de verdade, não só caminhada rápida, e o preço reflete isso. Se você só vai caminhar, está pagando por uma capacidade que não vai usar."
 	updated="setembro de 2026"

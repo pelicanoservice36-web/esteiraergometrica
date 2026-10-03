@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-09',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-para-idosos',
 };
+
+const faq = [
+	{ q: 'Qual esteira do catálogo é indicada para idosos?', a: 'A Polimet EP-1600 Sênior, pelo corrimão lateral estendido que dá apoio contínuo durante toda a caminhada, recurso que nenhuma outra esteira do catálogo tem.' },
+	{ q: 'A esteira para idosos dobra para guardar?', a: 'Provavelmente não. Há indício forte, de anúncio de loja, de que a estrutura reforçada para suportar o corrimão contínuo sacrifica a dobra. Confirme no anúncio específico antes de comprar e planeje um espaço fixo.' },
+	{ q: 'Preciso de orientação médica antes de usar?', a: 'Se o uso é para reabilitação ou existe condição de saúde relevante, sim: consulte um profissional de saúde antes de iniciar qualquer programa de caminhada supervisionada.' },
+	{ q: 'A esteira para idosos aguenta mais peso que as outras?', a: 'Não. O limite é 110 kg, igual à EP-1600 padrão. Para peso acima disso, veja o guia de esteira para quem pesa mais de 100 kg.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/esteira-para-idosos"
 	ogTitle="Esteira ergométrica para idosos"
 	ogDescription="Corrimão lateral contínuo, não motor ou velocidade, é o que decide essa escolha. E a troca por esse apoio não é só em dinheiro."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira ergométrica para idosos: o que muda na escolha"
 	standfirst="Para quem precisa de apoio para caminhar com segurança, o critério que decide não é motor nem velocidade máxima: é o tipo de corrimão. E a esteira do nosso catálogo pensada para isso vem com uma troca que poucos anúncios deixam clara."
 	updated="setembro de 2026"

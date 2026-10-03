@@ -38,6 +38,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Qual a potência do motor da Health Herald?', a: '0,65 HP, segundo a ficha técnica do anúncio: o motor mais fraco confirmado entre todos os modelos que já analisamos.' },
+	{ q: 'Ela dobra?', a: 'Sim, e pesa só 13,5 kg dobrada, a mais leve do nosso catálogo.' },
+	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
+	{ q: 'Dá pra correr nela?', a: 'Não é recomendado. Com motor de 0,65 HP e velocidade máxima de 6 km/h, é equipamento para caminhada leve, não para trote ou corrida.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '0,65 HP: o mais fraco confirmado do catálogo' },
 	{ label: 'Velocidade máxima', value: '6 km/h: empatada com a mais baixa do catálogo' },
@@ -57,7 +74,7 @@ const fichaItems = [
 	path="/reviews/health-herald-lcd"
 	ogTitle="Health Herald SP0501: análise honesta"
 	ogDescription="A esteira mais leve do catálogo (13,5 kg, dobrável) por R$ 719,70, mas o motor de 0,65 HP é o mais fraco entre todos os modelos que já analisamos."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Health Herald SP0501 é boa?"
 	standfirst="A Health Herald SP0501 tem quase 700 avaliações e o selo de 2ª mais vendida da categoria no Mercado Livre, por R$ 719,70. Com a ficha completa, dois números se destacam em direções opostas: é a esteira mais leve e mais fácil de guardar do nosso catálogo (13,5 kg, dobrável), mas também tem o motor mais fraco confirmado entre todos os modelos já analisados: 0,65 HP."
 	updated="setembro de 2026"

@@ -9,6 +9,22 @@ const jsonLd = {
 	datePublished: '2026-09-09',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/polimet-ep1600-ou-dream-fitness-dr1600',
 };
+
+const faq = [
+	{ q: 'Polimet EP-1600 e Dream Fitness DR-1600 têm o mesmo motor?', a: 'Sim. As duas usam motor de 1,6 HP com velocidade máxima de 9 km/h: a mesma faixa de entrada do mercado brasileiro, suficiente para caminhada e trote leve, não para corrida sustentada.' },
+	{ q: 'Vale a pena pagar mais caro na Dream Fitness DR-1600?', a: 'Só se o que você está comprando é tranquilidade, não desempenho: a Dream Fitness tem mais de 10 mil vendas e 2 mil avaliações registradas, contra 530 da Polimet EP-1600. A ficha técnica das duas é idêntica.' },
+	{ q: 'Qual das duas dobra mais fácil?', a: 'A Dream Fitness DR-1600 usa pistão para controlar a descida da estrutura ao dobrar, evitando o solavanco de deixar cair sozinha. A Polimet EP-1600 dobra normalmente, mas sem esse mecanismo assistido.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +33,7 @@ const jsonLd = {
 	path="/guias/polimet-ep1600-ou-dream-fitness-dr1600"
 	ogTitle="Polimet EP-1600 ou Dream Fitness DR-1600?"
 	ogDescription="Mesmo motor, mesma lona, mesmo peso máximo. A diferença de R$ 490 entre as duas não é especificação: é histórico de vendas. Veja quando cada uma vale a pena."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Polimet EP-1600 ou Dream Fitness DR-1600: qual comprar"
 	standfirst="No papel, são a mesma esteira: mesmo motor, mesma lona, mesmo peso máximo suportado. A diferença que separa as duas não é técnica: é preço e quanto histórico de compra existe por trás de cada uma."
 	updated="setembro de 2026"

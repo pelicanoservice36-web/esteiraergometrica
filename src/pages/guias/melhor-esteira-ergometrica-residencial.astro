@@ -9,6 +9,26 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/melhor-esteira-ergometrica-residencial',
 };
+
+const faq = [
+	{ q: 'Qual a melhor esteira ergométrica residencial em 2026?', a: 'Depende do uso, mas para a maioria de quem compra esteira para casa, a Polimet EP-1600 tem o melhor equilíbrio entre preço (R$ 1.449 a 1.599) e o que entrega: motor de 1,6 HP e fabricante com assistência técnica nacional. Para quem corre de verdade, a Athletic Racer (R$ 4.300) é a única do nosso comparativo com motor e lona dimensionados para isso.' },
+	{ q: 'Esteira ergométrica residencial aguenta corrida?', a: 'A maioria não: o padrão de entrada do mercado brasileiro tem motor de 1,6 HP e lona de 100 cm, suficiente para caminhada e trote leve, insuficiente para corrida sustentada. No nosso comparativo, só a Athletic Racer (5.0 HPM, lona de 126,5 cm, 16 km/h) foi dimensionada especificamente para corrida.' },
+	{ q: 'Quanto custa uma esteira ergométrica boa para uso doméstico?', a: 'No nosso catálogo, os preços vão de R$ 640 a R$ 17.172,15, em setembro e outubro de 2026. A faixa mais comum entre os modelos com fabricante identificável e garantia real fica entre R$ 1.300 e R$ 2.700 (os poucos modelos acima de R$ 10.000 são exceção, não a norma, e nem sempre têm o melhor custo-benefício): veja a nota de custo-benefício de cada um antes de decidir só pelo preço mais alto.' },
+	{ q: 'Qual esteira ergométrica é indicada para residência?', a: 'Depende do espaço e do uso: para apartamento pequeno, a Health Herald SP0501 (13,5 kg, dobrável) é a mais fácil de guardar; para quem tem mais espaço e quer o melhor equilíbrio entre preço e o que entrega, a Polimet EP-1600 segue sendo a referência. Nenhuma das esteiras deste comparativo foi pensada para uso comercial: são todas residenciais, mesmo as mais caras.' },
+	{ q: 'Esteira sem marca (genérica) vale a pena?', a: 'Só se o preço baixo compensar o risco. A Esteira Cardio genérica, por R$ 640, tem a nota de confiabilidade mais baixa do nosso comparativo (3,0 de 10) porque não existe fabricante identificável nem garantia além de 30 dias pelo vendedor. Compare sempre com o que uma marca estabelecida oferece pelo mesmo uso antes de decidir só pelo preço.' },
+	{ q: 'Esteira com inclinação faz diferença no treino em casa?', a: 'Aumenta o gasto calórico e simula subida sem precisar de mais velocidade, útil para variar o treino sem correr. Das que já analisamos com inclinação confirmada, a Gallant Elite tem inclinação manual hidráulica em 3 níveis; a QBuen AT-1271 tem inclinação elétrica motorizada de 0 a 6%.' },
+	{ q: 'Todas essas esteiras são bivolt automático?', a: 'Não. Várias exigem seleção manual entre 127V e 220V, e as duas Gallant Elite deste comparativo são vendidas como anúncios separados por voltagem, não bivolt. Confirme a voltagem do anúncio específico antes de comprar, mais detalhes no guia de como escolher uma esteira.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +37,7 @@ const jsonLd = {
 	path="/guias/melhor-esteira-ergometrica-residencial"
 	ogTitle="Melhor esteira ergométrica residencial: o comparativo"
 	ogDescription="19 modelos comparados por categoria de uso, com nota editorial aberta e a fonte de cada especificação: não é opinião solta."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Melhor esteira ergométrica residencial: comparativo completo"
 	standfirst="Não existe uma única 'melhor esteira ergométrica para residência': existe a melhor para o seu uso, seu peso e seu espaço. Organizamos as dezenove esteiras que já analisamos por categoria, cada indicação linkando para a análise completa, com a fonte de cada especificação e a mesma nota editorial de sete critérios aplicada a todos os modelos."
 	updated="outubro de 2026"

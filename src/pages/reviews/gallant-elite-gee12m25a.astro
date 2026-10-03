@@ -38,6 +38,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A Gallant Elite GEE12M25A é bivolt?', a: 'Não automaticamente. O mesmo anúncio permite escolher entre 127V e 220V, mas a seleção é manual, feita antes da compra: confirme a voltagem certa para a rede elétrica da sua casa.' },
+	{ q: 'Qual a diferença para a GEE12M28A e a GEE13M29A?', a: 'São três modelos diferentes da mesma linha "Elite", todos com inclinação manual em 3 níveis. Esta GEE12M25A (2,5 HP) tem o motor e a velocidade mais baixos (14 km/h) e a lona mais curta (110 cm) das três. A GEE12M28A (2,8 HP) e a GEE13M29A (2,9 HP) chegam a 16 km/h, com peso suportado de 120 kg e 130 kg respectivamente.' },
+	{ q: 'É loja oficial da Gallant?', a: 'Sim: o anúncio traz o selo verificado "Loja oficial Webcontinental", com mais de 50 mil vendas registradas na loja, o mesmo padrão de confiabilidade das outras duas Gallant Elite.' },
+	{ q: 'Quanto pesa o equipamento?', a: '35,20 kg líquidos, segundo a ficha oficial (40,40 kg com a embalagem): a mais leve das três Gallant Elite.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,5 HP' },
 	{ label: 'Velocidade máxima', value: '14 km/h' },
@@ -55,7 +72,7 @@ const fichaItems = [
 	path="/reviews/gallant-elite-gee12m25a"
 	ogTitle="Gallant Elite GEE12M25A é boa? Análise honesta"
 	ogDescription="2,5 HP, 14 km/h, 120 kg e inclinação manual em 3 níveis por R$ 2.453,13 a 2.529: a entrada da linha Elite, com histórico de venda ainda pequeno."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Gallant Elite GEE12M25A é boa?"
 	standfirst="É a versão de entrada da linha Elite da Gallant: mesmo fabricante, mesma inclinação manual em 3 níveis das outras duas, mas com motor e velocidade menores e um histórico de avaliações ainda bem mais curto. Ficha técnica sólida, mas vale entender exatamente o que muda antes de pagar por essa entrada em vez das outras duas."
 	updated="setembro de 2026"

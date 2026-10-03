@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'Antuvi é uma marca de verdade?', a: 'A própria ficha técnica do anúncio declara a marca como "Geral", não "Antuvi": esse é o nome do vendedor no Mercado Livre. Não localizamos fabricante com site, manual ou assistência técnica própria.' },
+	{ q: 'Ela dobra?', a: 'Não. A ficha técnica do anúncio confirma "É dobrável: Não". Tem rodas para ajudar a mover, mas não dobra ao meio para guardar.' },
+	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte: nem no anúncio, nem em site de fabricante independente. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
+	{ q: 'Serve para correr?', a: 'Não é o foco dela. Com 12 km/h de velocidade máxima e motor de 2,5 HP (sem separar contínua de pico), é mais indicada para caminhada rápida e trote leve.' },
+	{ q: 'A inclinação de "6°" que aparece na imagem é confirmada?', a: 'Não. É uma chamada gráfica na imagem de marketing do próprio vendedor. O título do anúncio confirma que existe algum mecanismo de inclinação, mas nenhuma fonte em texto especifica o grau: veja nossa metodologia.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,5 HP (anúncio não separa contínua de pico)' },
 	{ label: 'Velocidade máxima', value: '12 km/h' },
@@ -57,7 +75,7 @@ const fichaItems = [
 	path="/reviews/antuvi-mesa"
 	ogTitle="Antuvi esteira ergométrica: análise honesta"
 	ogDescription="2,5 HP, 12 km/h, 100 kg e lona 100×38 cm por R$ 1.580, mas marca genérica ('Geral') e sem garantia divulgada em lugar nenhum."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Antuvi esteira ergométrica é boa?"
 	standfirst='A Antuvi é vendida no Mercado Livre com a marca do próprio fabricante declarada apenas como "Geral", mesmo padrão de anúncio sem marca real que já vimos na Esteira Cardio. Motor de 2,5 HP, 12 km/h e até 100 kg de peso suportado, numa esteira de só 15 kg, por R$ 1.580. Ficha completa o bastante para nota editorial, mas ela não dobra e a garantia não aparece em lugar nenhum do anúncio.'
 	updated="setembro de 2026"

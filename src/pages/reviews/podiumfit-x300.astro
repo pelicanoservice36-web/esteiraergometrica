@@ -38,6 +38,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A PodiumFit X300 é boa para corrida?', a: 'Não é o foco dela. Com 12 km/h de velocidade máxima, é uma esteira pensada para caminhada rápida e trote leve. Para corrida sustentada, a Athletic Racer ou a Gallant Elite entregam mais.' },
+	{ q: 'Qual a garantia?', a: '90 dias, direto do fabricante, a segunda garantia mais curta do nosso catálogo, à frente só da WCT Fitness (3 meses).' },
+	{ q: 'Quanto pesa o equipamento?', a: '30 kg, segundo o site oficial, mais leve que a maioria dos modelos de motor equivalente ou superior no catálogo, com rodízios para facilitar a movimentação.' },
+	{ q: 'É bivolt?', a: 'Sim, bivolt automático, segundo a ficha do fabricante.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,0 HPM' },
 	{ label: 'Velocidade máxima', value: '12 km/h' },
@@ -55,7 +72,7 @@ const fichaItems = [
 	path="/reviews/podiumfit-x300"
 	ogTitle="PodiumFit X300 é boa? Análise honesta"
 	ogDescription="2,0 HPM, 12 km/h e 110 kg por R$ 2.534, ficha cruzada com o site oficial do fabricante, sem vazios de dado."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="PodiumFit X300 é boa?"
 	standfirst="Motor de 2,0 HPM e 12 km/h em uma esteira dobrável de 30 kg, com ficha técnica cruzada direto no site oficial da PodiumFit: algo que faltou em boa parte do que pesquisamos nesta rodada. O preço de R$ 2.534 fica acima da faixa de entrada do catálogo, então vale entender exatamente o que ele compra."
 	updated="setembro de 2026"

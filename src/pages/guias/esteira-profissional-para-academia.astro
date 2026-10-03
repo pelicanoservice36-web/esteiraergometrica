@@ -14,6 +14,23 @@ const jsonLd = {
 	datePublished: '2026-10-01',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-profissional-para-academia',
 };
+
+const faq = [
+	{ q: 'Qual a diferença entre esteira profissional e residencial?', a: 'A principal é o motor: esteira profissional usa motor AC (corrente alternada), feito para sustentar potência constante em uso intensivo contínuo; esteira residencial usa motor DC (corrente contínua), mais barato mas não projetado para esse regime. Também costuma mudar capacidade de peso (120 kg+), lona maior e preço bem mais alto.' },
+	{ q: 'Quanto custa uma esteira profissional para academia?', a: 'De R$ 5 mil a mais de R$ 50 mil por unidade, dependendo da marca e do modelo. Conferimos, por exemplo, a linha profissional da Athletic variando de R$ 8.300 a R$ 39.745. E uma academia normalmente precisa de várias unidades, não uma só.' },
+	{ q: 'Dá para comprar esteira profissional no Mercado Livre?', a: 'Raramente com ficha técnica confiável. A maioria dos anúncios com "profissional" no título é equipamento residencial (motor DC) com esse termo usado como marketing. Encontramos uma exceção parcial, a KHT GTS-6, com declaração de motor AC consistente, mas sem confirmação independente de fabricante. Equipamento comercial de verdade costuma ser vendido direto pelo fabricante ou por um distribuidor, não por anúncio avulso de e-commerce.' },
+	{ q: 'Vale a pena comprar uma esteira "profissional" para uso doméstico?', a: 'Só se o preço fizer sentido para o seu uso. Para casa, o motor AC de uma esteira comercial de verdade é exagero: o ganho real está em lona maior, motor mais robusto e garantia melhor, que você encontra em modelos residenciais de ponta como a Speedo TR5 por uma fração do preço de uma esteira de academia de verdade.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -22,7 +39,7 @@ const jsonLd = {
 	path="/guias/esteira-profissional-para-academia"
 	ogTitle="Esteira profissional para academia: o que significa de verdade"
 	ogDescription="Motor AC, 120 kg+, R$ 5 mil a R$ 50 mil por unidade, e por que isso quase nunca aparece como anúncio comum no Mercado Livre."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira profissional para academia: o que isso significa de verdade"
 	standfirst="'Esteira profissional' é um termo usado de dois jeitos muito diferentes: fabricantes residenciais usam como palavra de marketing, e o mercado de equipamento de academia usa como categoria técnica real, com motor diferente (AC, não DC), preço de R$ 5 mil a mais de R$ 50 mil por unidade e um canal de venda que normalmente não passa por um anúncio comum de Mercado Livre. Este guia separa as duas coisas e mostra as alternativas reais para cada caso."
 	updated="outubro de 2026"

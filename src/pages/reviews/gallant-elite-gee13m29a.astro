@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A Gallant Elite GEE13M29A é bivolt?', a: 'Não. A ficha oficial confirma: "127V ou 220V, não é bivolt". Existem anúncios separados para cada voltagem. Confirme a rede elétrica da sua casa antes de comprar.' },
+	{ q: 'Qual a diferença para o Gallant Elite 2.5 HP e o 2.8 HP?', a: 'São modelos diferentes da mesma linha "Elite", e os três têm inclinação manual em 3 níveis. O GEE12M25A (2,5 HP) e o GEE12M28A (2,8 HP) suportam até 120 kg; o GEE13M29A desta análise suporta 130 kg e tem motor mais forte (2,9 HP). A velocidade máxima também varia: 14 km/h no 2,5 HP, 16 km/h nos outros dois.' },
+	{ q: 'Tem inclinação elétrica?', a: 'Não. A inclinação é manual, em 3 níveis, com sistema hidráulico de apoio. O painel controla velocidade e liga/desliga, sem comando de inclinação.' },
+	{ q: 'Quanto pesa o equipamento?', a: '45 kg líquidos, segundo a ficha oficial (52,2 kg com a embalagem). É a esteira mais pesada do nosso catálogo. Ela dobra, mas exige mais esforço para mover do que os modelos de entrada.' },
+	{ q: 'Qual a garantia?', a: '6 meses, direto do fabricante, mesmo prazo da Polimet e da Dream Fitness, e o dobro da garantia da Importway (90 dias) e da WCT Fitness (3 meses).' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,9 HP' },
 	{ label: 'Velocidade máxima', value: '16 km/h' },
@@ -55,7 +73,7 @@ const fichaItems = [
 	path="/reviews/gallant-elite-gee13m29a"
 	ogTitle="Gallant Elite GEE13M29A é boa? Análise honesta"
 	ogDescription="2,9 HP, 16 km/h, 130 kg e inclinação manual em 3 níveis por R$ 3.609, a ficha mais completa do nosso catálogo, com um cuidado real: não é bivolt."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Gallant Elite GEE13M29A é boa?"
 	standfirst="Motor de 2,9 HP, 16 km/h e inclinação manual em 3 níveis colocam essa esteira num degrau acima da faixa de entrada, por um preço ainda abaixo da Athletic Racer. A Gallant também é a marca com a ficha técnica mais completa e transparente do nosso catálogo até agora."
 	updated="setembro de 2026"

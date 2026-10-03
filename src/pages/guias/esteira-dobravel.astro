@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-21',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-dobravel',
 };
+
+const faq = [
+	{ q: 'Qual a esteira dobrável mais barata do catálogo?', a: 'A Esteira Cardio genérica, por R$ 640, mas sem fabricante identificável por trás (a ficha declara a marca como "Genérica"), o que derruba sua nota de confiabilidade. Se quiser uma opção dobrável e barata com marca real por trás, a Redfin Ideal DL-227 (R$ 716,66) é a alternativa mais próxima.' },
+	{ q: 'Esteira dobrável ocupa quanto espaço depois de guardada?', a: 'Varia por modelo, e nem toda ficha publica essa medida: quando publica, costuma vir como altura ou profundidade "guardada". A Health Herald, por exemplo, tem só 12,5 cm de altura dobrada, uma das mais finas do catálogo. Confirme essa medida no anúncio específico antes de reservar o espaço.' },
+	{ q: 'Toda esteira dobrável é fácil de guardar sozinho?', a: 'Não. "Dobra" só descreve o mecanismo; o peso do equipamento decide se é fácil na prática. A Gallant Elite GEE13M29A dobra, mas pesa 45 kg: mover sozinho depois de dobrada exige esforço real, bem diferente dos 13,5 kg da Health Herald.' },
+	{ q: 'Preciso de uma esteira dobrável se moro em apartamento?', a: 'Ajuda, mas não é o único fator. Peso do equipamento, ruído transmitido pelo piso e espaço de segurança atrás da esteira também decidem se ela cabe de verdade na sua rotina. Veja o guia específico de esteira para apartamento pequeno para o raciocínio completo.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/esteira-dobravel"
 	ogTitle="Esteira dobrável: qual escolher"
 	ogDescription="'Dobra' não é sim ou não binário na prática: o peso do equipamento varia mais de três vezes entre os modelos dobráveis do nosso catálogo."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira dobrável: qual escolher e o que realmente importa"
 	standfirst="Doze dos dezesseis modelos que já analisamos dobram para guardar. Mas 'dobra' é uma resposta binária para uma pergunta que não é binária: o peso do equipamento, que decide se você consegue mover e guardar sozinho, varia de 13,5 kg a 45 kg entre eles."
 	updated="setembro de 2026"

@@ -38,6 +38,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'O motor da KHT GTS-6 é realmente AC (profissional)?', a: 'O anúncio declara motor de corrente alternada (AC) de forma consistente, sem contradição em nenhuma parte da ficha, o que é raro nesse tipo de anúncio. Mas é uma declaração do vendedor, não confirmada por um site de fabricante independente, já que não encontramos um site institucional da KHT.' },
+	{ q: 'Qual a diferença para a KHT 8008AC?', a: 'Hardware praticamente idêntico (mesma lona, peso e potência declarada), mas a ficha da 8008AC se contradizia sobre o tipo de motor ("dc" e "AC" na mesma frase), por isso não a publicamos. A 8008AC também custa menos e tem garantia de 12 meses, contra 3 meses da GTS-6.' },
+	{ q: 'Qual a garantia?', a: '3 meses de garantia de fábrica, confirmados no FAQ do próprio anúncio, a mais curta entre os modelos com marca do nosso catálogo.' },
+	{ q: 'A inclinação é de 15 graus ou 15%?', a: 'A ficha técnica do anúncio se contradiz nesse ponto: a seção de especificações diz "15 graus", o FAQ diz "15%". Não temos como confirmar qual está correto.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '4,0 HP, corrente alternada (AC) declarada: não confirmado por fabricante independente' },
 	{ label: 'Velocidade máxima', value: '18,8 km/h' },
@@ -57,7 +74,7 @@ const fichaItems = [
 	path="/reviews/kht-gts6"
 	ogTitle="KHT GTS-6: análise honesta"
 	ogDescription="O único anúncio do nosso catálogo com claim de motor AC consistente, sem contradição na própria ficha, mas ainda sem confirmação independente, com garantia curta (3 meses) e preço alto (R$ 11.499)."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="KHT GTS-6 é boa?"
 	standfirst="A KHT GTS-6 é o anúncio mais interessante que já analisamos para quem busca 'esteira profissional': a ficha declara motor de corrente alternada (AC) de forma consistente, sem a contradição que encontramos em outro anúncio quase idêntico da mesma marca. Isso não significa confirmação (continua sendo a palavra do vendedor, sem fabricante independente para cruzar), mas é o mais perto que chegamos. Em troca, é a esteira mais cara do nosso catálogo (R$ 11.499), com a garantia mais curta (3 meses) e pouquíssimo histórico de venda neste anúncio específico."
 	updated="outubro de 2026"

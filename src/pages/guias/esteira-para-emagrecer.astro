@@ -9,6 +9,23 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-para-emagrecer',
 };
+
+const faq = [
+	{ q: 'Esteira emagrece sozinha?', a: 'Não. Perda de peso depende de déficit calórico sustentado, que vem principalmente da alimentação e da consistência do exercício ao longo de meses: a esteira é uma ferramenta para o exercício, não uma solução isolada.' },
+	{ q: 'Preciso correr para emagrecer, ou caminhar já serve?', a: 'Caminhada sustentada e consistente já gera gasto calórico real, especialmente para quem está começando. Correr aumenta a intensidade, mas de nada adianta se a rotina não se sustenta: consistência importa mais que intensidade nas primeiras semanas.' },
+	{ q: 'Quanto tempo de esteira por dia é necessário para emagrecer?', a: 'Não existe número universal responsável de afirmar aqui sem virar prescrição: isso depende de fatores individuais que um profissional de educação física ou nutrição avalia melhor que um site de comparação de equipamento. O que dá para afirmar é que manter a rotina por semanas importa mais que a duração de uma sessão isolada.' },
+	{ q: 'Esteira com inclinação emagrece mais rápido?', a: 'Aumenta o esforço por sessão, o que pode ajudar, mas desconfie de qualquer alegação de multiplicador específico de calorias sem fonte citada. O ganho real é ter uma forma de intensificar o treino sem precisar correr.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +34,7 @@ const jsonLd = {
 	path="/guias/esteira-para-emagrecer"
 	ogTitle="Quero perder peso: qual esteira comprar"
 	ogDescription="Nenhuma esteira emagrece sozinha. O que decide é consistência e déficit calórico, não o modelo, mas alguns modelos facilitam manter a rotina mais que outros."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Quero perder peso: qual esteira ergométrica comprar"
 	standfirst="Este guia não promete resultado: nenhuma esteira emagrece sozinha, e qualquer site que garanta um número de quilos ou calorias está vendendo, não informando. O que este guia responde é qual esteira do nosso catálogo faz mais sentido para sustentar esse objetivo por meses, não por duas semanas."
 	updated="setembro de 2026"

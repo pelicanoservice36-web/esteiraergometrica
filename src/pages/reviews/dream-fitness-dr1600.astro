@@ -38,6 +38,24 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A Dream Fitness DR-1600 aguenta corrida?', a: 'Não de forma confortável. A velocidade máxima é 9 km/h e a lona tem 100 cm, o que restringe o uso a caminhada e trote leve, mesmo com a inclinação ajustável.' },
+	{ q: 'Qual a diferença para a Polimet EP-1600?', a: 'Motor, velocidade máxima e peso suportado são praticamente os mesmos. A DR-1600 adiciona um segundo nível de inclinação, seis amortecedores e nove programas de treino, e custa mais caro por isso.' },
+	{ q: 'Ela dobra para guardar?', a: 'Sim, com pistão que controla a descida da estrutura. As dimensões montadas variam entre fontes consultadas: confirme no anúncio específico antes de planejar o espaço.' },
+	{ q: 'É bivolt?', a: 'Os anúncios informam 127V/220V bivolt. Confirme a configuração de tensão no anúncio específico antes de ligar.' },
+	{ q: 'É verdade que dá choque?', a: 'Há relatos no Reclame Aqui de faísca e choque leve especificamente ao ajustar o parafuso de tensão da lona com o equipamento ligado. Nunca faça esse ajuste com a esteira na tomada, em qualquer marca de esteira.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '1,6 HP' },
 	{ label: 'Velocidade máxima', value: '9 km/h' },
@@ -54,7 +72,7 @@ const fichaItems = [
 	path="/reviews/dream-fitness-dr1600"
 	ogTitle="Dream Fitness DR-1600 é boa? Análise honesta"
 	ogDescription="A mais vendida das esteiras domésticas, com inclinação em 2 níveis e amortecimento, mas também com um padrão de reclamação que vale conhecer antes de comprar."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Dream Fitness DR-1600 é boa?"
 	standfirst="É a esteira doméstica mais vendida que encontramos com número de vendas verificável: mais de 10 mil unidades pela própria loja da Dream Fitness. Tem inclinação em dois níveis e amortecimento que a concorrência de entrada não tem. Também tem um padrão de reclamação específico que vale conhecer antes de pagar a mais por ela."
 	updated="setembro de 2026"

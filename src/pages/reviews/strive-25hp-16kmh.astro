@@ -38,6 +38,23 @@ const jsonLd = {
 	},
 };
 
+const faq = [
+	{ q: 'A inclinação de "15%" é confirmada?', a: 'Não em texto. A ficha técnica confirma que a inclinação é elétrica (motorizada), mas não especifica o grau: "15% Auto Incline" aparece só na imagem de marketing do vendedor.' },
+	{ q: 'Ela dobra?', a: 'Não. A ficha técnica confirma "É dobrável: Não". Tem rodas para ajudar a mover.' },
+	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte. Há uma reclamação pública contra a New Speed (a empresa por trás desta loja) sobre dificuldade de acionar garantia em outro modelo. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
+	{ q: 'É a esteira mais rápida do catálogo?', a: 'Sim, empatada com as duas Gallant Elite: 16 km/h é a maior velocidade máxima confirmada entre os modelos que já analisamos.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
 const fichaItems = [
 	{ label: 'Motor', value: '2,5 HP (anúncio não separa contínua de pico)' },
 	{ label: 'Velocidade máxima', value: '16 km/h: a maior confirmada do catálogo' },
@@ -57,7 +74,7 @@ const fichaItems = [
 	path="/reviews/strive-25hp-16kmh"
 	ogTitle="Strive TM16: análise honesta"
 	ogDescription="16 km/h, 2,5 HP e 120 kg por R$ 2.658,70, mas não dobra, a garantia não é divulgada, e a loja está associada a uma reclamação pública em outro modelo."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Strive TM16 é boa?"
 	standfirst='A Strive TM16 tem a maior velocidade confirmada do nosso catálogo (16 km/h), com motor de 2,5 HP, lona de 110 × 40 cm e até 120 kg de peso suportado, por R$ 2.658,70. A ficha técnica agora está completa o bastante para nota editorial, mas ela não dobra, pesa 37 kg, a garantia não aparece em nenhum lugar do anúncio, e a loja ("STRIVE por New Speed") está associada a uma reclamação pública sobre dificuldade de acionar garantia em outro modelo da mesma empresa.'
 	updated="setembro de 2026"

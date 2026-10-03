@@ -9,6 +9,21 @@ const jsonLd = {
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/athletic-e-boa-marca',
 };
+
+const faq = [
+	{ q: 'Athletic vale a pena?', a: 'Pelo único modelo que já analisamos (Racer 16km/h), sim: é a marca com a ficha técnica mais verificável e a maior garantia do nosso catálogo. A ressalva é de preço: só vale o investimento se o seu uso pedir motor e lona de corrida, não caminhada.' },
+	{ q: 'A Athletic tem site oficial próprio?', a: 'Sim, shop.athletic.com.br, com o mesmo produto e preço equivalente ao anúncio do Mercado Livre, o que reforça que o preço praticado não é uma promoção isolada de loja.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
 ---
 
 <ArticleLayout
@@ -17,7 +32,7 @@ const jsonLd = {
 	path="/guias/athletic-e-boa-marca"
 	ogTitle="Athletic é uma boa marca?"
 	ogDescription="A marca com a ficha técnica mais verificável do nosso catálogo: cruzada com manual oficial em PDF, não só com o anúncio de loja."
-	jsonLd={jsonLd}
+	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Athletic é uma boa marca de esteira?"
 	standfirst="Esta resposta é baseada no que verificamos analisando a Athletic Racer 16km/h, o único modelo da marca que já cobrimos, não numa auditoria institucional da empresa."
 	updated="setembro de 2026"
