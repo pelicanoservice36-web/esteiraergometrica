@@ -11,7 +11,7 @@ export interface Props {
 	ogDescription?: string;
 	ogType?: 'website' | 'article';
 	ogImage?: string;
-	jsonLd?: Record<string, unknown>;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 	transparentHeader?: boolean;
 	noindex?: boolean;
 }
