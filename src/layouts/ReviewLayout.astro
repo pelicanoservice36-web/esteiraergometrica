@@ -41,7 +41,7 @@ const {
 } = Astro.props;
 
 // Cada review tem uma capa própria em public/assets/images/<slug>-cover.webp
-// (1200×624, foto real do produto sobre fundo de marca — gerada por composição
+// (1200×624, foto real do produto sobre fundo de marca, gerada por composição
 // determinística, sem IA, para ficar acima do mínimo de 1200px que o Google
 // Discover exige; a foto de 500px original não é grande o suficiente sozinha).
 const slug = path.replace(/^\/reviews\//, '').replace(/\.html$/, '');

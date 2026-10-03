@@ -55,14 +55,14 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
 	// A biblioteca do gtag (166 KiB, ~430ms de main thread) só entra depois da
 	// primeira interação real do visitante (scroll, toque, tecla, clique,
-	// mouse) ou, na ausência de qualquer interação, num atraso fixo de 7s —
+	// mouse) ou, na ausência de qualquer interação, num atraso fixo de 7s:
 	// os comandos gtag() acima já ficam na fila do dataLayer e são
 	// processados assim que o script real chega, então nenhum evento de
 	// analytics é perdido, só adiado.
 	//
 	// Tentamos requestIdleCallback antes disso (com timeout de 4s, depois
 	// 8s) e não funcionou: numa página estática como esta, o navegador se
-	// considera "ocioso" quase imediatamente após o `load` — sem trabalho
+	// considera "ocioso" quase imediatamente após o `load`, sem trabalho
 	// contínuo de verdade no main thread, o requestIdleCallback disparava a
 	// poucas centenas de ms do load, timeout ou não, e o gtag continuava
 	// caindo dentro da janela de TBT/Total Blocking Time do PageSpeed.
@@ -95,7 +95,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
 <!-- Clique nos CTAs de afiliado (href começa com /go/), como evento affiliate_click.
      Delegado em document, então cobre CTAs de qualquer página sem precisar de
-     data-attribute por botão — o slug do produto já está no próprio href. Não
+     data-attribute por botão: o slug do produto já está no próprio href. Não
      precisa de preventDefault/delay: todo CTA de afiliado abre em target="_blank",
      a aba atual nunca descarrega, então o gtag.js tem tempo de sobra pra enviar
      o evento mesmo tendo acabado de ser carregado por essa mesma interação. -->
@@ -131,7 +131,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 {transparentHeader && (
 	// O poster do vídeo do hero é o elemento de LCP da home, mas fetchpriority="high"
 	// na tag <video> não se propaga pro fetch do atributo poster (limitação conhecida
-	// dos navegadores) — precisa desse preload dedicado pra imagem ser priorizada de fato.
+	// dos navegadores): precisa desse preload dedicado pra imagem ser priorizada de fato.
 	<link rel="preload" as="image" href="/video/esteiraergometricahead-poster.webp" fetchpriority="high">
 )}
 
