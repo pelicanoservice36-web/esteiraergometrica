@@ -10,6 +10,12 @@ const jsonLd = {
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/melhor-esteira-ergometrica-residencial',
 };
 
+const standfirst = "Não existe uma única 'melhor esteira ergométrica para residência': existe a melhor para o seu uso, seu peso e seu espaço. Organizamos as dezenove esteiras que já analisamos por categoria, cada indicação linkando para a análise completa, com a fonte de cada especificação e a mesma nota editorial de sete critérios aplicada a todos os modelos.";
+const standfirstHtml = standfirst.replace(
+	'melhor esteira ergométrica para residência',
+	'<strong>melhor esteira ergométrica para residência</strong>',
+);
+
 const faq = [
 	{ q: 'Qual a melhor esteira ergométrica residencial em 2026?', a: 'Depende do uso, mas para a maioria de quem compra esteira para casa, a Polimet EP-1600 tem o melhor equilíbrio entre preço (R$ 1.449 a 1.599) e o que entrega: motor de 1,6 HP e fabricante com assistência técnica nacional. Para quem corre de verdade, a Athletic Racer (R$ 4.300) é a única do nosso comparativo com motor e lona dimensionados para isso.' },
 	{ q: 'Esteira ergométrica residencial aguenta corrida?', a: 'A maioria não: o padrão de entrada do mercado brasileiro tem motor de 1,6 HP e lona de 100 cm, suficiente para caminhada e trote leve, insuficiente para corrida sustentada. No nosso comparativo, só a Athletic Racer (5.0 HPM, lona de 126,5 cm, 16 km/h) foi dimensionada especificamente para corrida.' },
@@ -39,7 +45,8 @@ const faqJsonLd = {
 	ogDescription="19 modelos comparados por categoria de uso, com nota editorial aberta e a fonte de cada especificação: não é opinião solta."
 	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Melhor esteira ergométrica residencial: comparativo completo"
-	standfirst="Não existe uma única 'melhor esteira ergométrica para residência': existe a melhor para o seu uso, seu peso e seu espaço. Organizamos as dezenove esteiras que já analisamos por categoria, cada indicação linkando para a análise completa, com a fonte de cada especificação e a mesma nota editorial de sete critérios aplicada a todos os modelos."
+	standfirst={standfirst}
+	standfirstHtml={standfirstHtml}
 	updated="outubro de 2026"
 >
 

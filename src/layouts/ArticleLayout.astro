@@ -11,6 +11,7 @@ export interface Props {
 	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 	h1: string;
 	standfirst: string;
+	standfirstHtml?: string;
 	updated: string;
 }
 
@@ -24,6 +25,7 @@ const {
 	jsonLd,
 	h1,
 	standfirst,
+	standfirstHtml,
 	updated,
 } = Astro.props;
 ---
@@ -41,7 +43,7 @@ const {
 
   <div class="lead-section">
     <h1>{h1}</h1>
-    <p class="standfirst">{standfirst}</p>
+    <p class="standfirst">{standfirstHtml ? <Fragment set:html={standfirstHtml} /> : standfirst}</p>
     <p class="stamp">Por <a href="/sobre">Rafael Rodrigues</a> · Atualizado em {updated}</p>
   </div>
 
