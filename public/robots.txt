@@ -1,12 +1,11 @@
 User-agent: *
 Allow: /
-
-# Rotas de saída para o marketplace. Não têm conteúdo próprio, são só redirects.
 Disallow: /go/
 Disallow: /ml-
 
-# Crawlers de IA (busca com resposta gerada / treinamento), explicitados por
-# nome em vez de confiar só no grupo "*": mesma regra de acesso, sem bloqueio.
+# Rotas de saida para o marketplace. Nao tem conteudo proprio, sao apenas redirects.
+
+# Crawlers de IA (busca com resposta gerada / treino)
 User-agent: GPTBot
 Allow: /
 Disallow: /go/
