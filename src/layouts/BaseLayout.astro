@@ -31,6 +31,20 @@ const {
 
 const canonicalURL = new URL(path, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
+
+// BreadcrumbList genérico, de Início até a página atual. Não usa um nível
+// intermediário (ex.: "Reviews", "Guias") porque /reviews/ e /guias/ não são
+// páginas reais do site: um ListItem "clicável" pra uma URL que não existe
+// seria pior que não ter breadcrumb. Home não recebe este schema: página
+// de 1 nível não precisa de trilha.
+const breadcrumbJsonLd = path === '/' ? null : {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Início', item: new URL('/', Astro.site).toString() },
+		{ '@type': 'ListItem', position: 2, name: title },
+	],
+};
 ---
 
 <!DOCTYPE html>
@@ -139,6 +153,9 @@ const ogImageURL = new URL(ogImage, Astro.site);
 	Array.isArray(jsonLd)
 		? jsonLd.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)
 		: <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}
+{breadcrumbJsonLd && (
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 )}
 </head>
 <body>
