@@ -1,10 +1,11 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { TOTAL_MODELOS } from '../../data/catalog.mjs';
 
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'Melhor esteira residencial: 19 modelos comparados (2026)',
+	headline: `Melhor esteira residencial: ${TOTAL_MODELOS} modelos comparados (2026)`,
 	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
 	datePublished: '2026-09-19',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/melhor-esteira-ergometrica-residencial',
@@ -38,13 +39,13 @@ const faqJsonLd = {
 ---
 
 <ArticleLayout
-	title="Melhor esteira residencial: 19 modelos comparados (2026)"
-	description="As 19 esteiras já analisadas para uso residencial, por categoria: custo-benefício, corrida, idosos, apartamento. Nota editorial aberta, sem dado inventado."
+	title={`Melhor esteira residencial: ${TOTAL_MODELOS} modelos comparados (2026)`}
+	description={`As ${TOTAL_MODELOS} esteiras já analisadas para uso residencial, por categoria: custo-benefício, corrida, idosos, apartamento. Nota editorial aberta, sem dado inventado.`}
 	path="/guias/melhor-esteira-ergometrica-residencial"
 	ogTitle="Melhor esteira ergométrica residencial: o comparativo"
-	ogDescription="19 modelos comparados por categoria de uso, com nota editorial aberta e a fonte de cada especificação: não é opinião solta."
+	ogDescription={`${TOTAL_MODELOS} modelos comparados por categoria de uso, com nota editorial aberta e a fonte de cada especificação: não é opinião solta.`}
 	jsonLd={[jsonLd, faqJsonLd]}
-	h1="Melhor esteira residencial: 19 modelos comparados (2026)"
+	h1={`Melhor esteira residencial: ${TOTAL_MODELOS} modelos comparados (2026)`}
 	standfirst={standfirst}
 	standfirstHtml={standfirstHtml}
 	updated="outubro de 2026"
