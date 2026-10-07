@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Link do checkout (Hotmart). Enquanto estiver vazio, a página sai com noindex e o
-// botão de compra fica desativado ("Vendas abrem em breve").
+// Link do checkout (Hotmart). Enquanto estiver vazio, a página sai com noindex e todo CTA
+// mostra "em breve" em vez de fingir que a compra está aberta (ver hasCheckout abaixo:
+// é usado em vários pontos da página, não só no botão final, pra não haver contradição
+// entre "compre agora" no topo e "vendas abrem em breve" na oferta).
 // Ao colar o link aqui, lembre de adicionar /plano-30-dias ao public/sitemap.xml.
 // O acesso (login + senha) é enviado por e-mail automaticamente pelo app em
 // app.esteiraergometrica.com quando a Hotmart avisa da compra; esta página só cobra.
@@ -15,31 +17,60 @@ const hasCheckout = CHECKOUT_URL.startsWith('https://');
 const checkoutAttrs = { href: CHECKOUT_URL, rel: 'nofollow noopener' };
 const IMG = '/assets/images/plano-30-dias';
 
+// "O que você recebe": lista fechada em 8 itens, cada um uma funcionalidade real do app
+// (conferidas em Ebook/app/index.html) ou o bônus em PDF, que também é real (servido
+// dentro do próprio app, atrás do login, depois da compra).
 const inside = [
-	{ t: '30 treinos guiados', d: 'Cronômetro na tela do seu celular, com alerta sonoro e por voz avisando a hora de mudar o ritmo ou a inclinação.' },
-	{ t: 'Progressão gradual', d: 'A dificuldade sobe por tempo, inclinação e intervalos. Nada de velocidade obrigatória.' },
-	{ t: 'Teste de esforço interativo', d: 'Durante o treino, o app pergunta como você está conseguindo falar e ajusta a recomendação na hora, em qualquer modelo de esteira.' },
-	{ t: 'Teste de 20 minutos', d: 'No Dia 1 e no Dia 30. Comparação objetiva de distância e esforço, com gráfico de evolução automático.' },
-	{ t: 'Diário de progresso', d: 'Registre tempo, distância e esforço em segundos, direto no celular: nada de planilha para imprimir.' },
-	{ t: 'Extras que fazem diferença', d: 'Segurança, alongamento pós-treino, alimentação, dúvidas frequentes e como continuar depois.' },
+	{ t: '30 treinos guiados', d: 'Uma sequência organizada para os 30 dias, sem decidir nada sozinho.' },
+	{ t: 'Cronômetro', d: 'Acompanha o tempo de cada etapa do treino, do aquecimento ao desaquecimento.' },
+	{ t: 'Alertas durante o treino', d: 'Avisos sonoros e por voz na hora certa de mudar o ritmo ou a inclinação.' },
+	{ t: 'Teste de esforço', d: 'Uma forma simples de saber se você está no ritmo certo, durante o próprio treino.' },
+	{ t: 'Diário de evolução', d: 'Registre tempo, distância e esforço em segundos, direto no celular.' },
+	{ t: 'Gráfico', d: 'Compare seu desempenho do Dia 1 ao Dia 30, sem precisar calcular nada.' },
+	{ t: 'Acesso vitalício', d: 'Pague uma vez. O acesso ao app continua disponível depois da compra.' },
+	{ t: 'Bônus: e-book em PDF', d: 'O material original do Plano 30 Dias, pra quem prefere consultar sem abrir o app.' },
+];
+
+// Mockups do treino guiado (não são screenshots: é a mesma tela, recriada em CSS a partir
+// da interface real do app, em 3 momentos). Evita depender de imagem nova ou de capturar
+// tela, e fica sempre igual ao app de verdade.
+const demo = [
+	{ cap: 'Abra o treino do dia', top: 'Dia 12 · Semana 2', what: 'Aquecimento', time: '3:00', inc: '0%', eff: 'Leve', bar: 6, icon: '▶' },
+	{ cap: 'Siga o cronômetro e os alertas', top: 'Ciclo 2 de 4', what: 'subida forte', time: '1:42', inc: '6%', eff: 'Forte', bar: 58, icon: '❚❚' },
+	{ cap: 'Termine e veja o resultado', top: 'Treino concluído', what: 'Dia 12 registrado', time: '✓', inc: '28 min', eff: 'Registrado', bar: 100, icon: '✓' },
+];
+
+// Comparação objetiva de estrutura (não é opinião sobre a qualidade de nenhum treino
+// específico que exista por aí: é sobre organização e acompanhamento, que é o que o
+// Plano 30 Dias resolve).
+const diferencial = [
+	['Você precisa escolher o treino', 'Sequência organizada'],
+	['Cada vídeo pode ter uma proposta diferente', '30 dias estruturados'],
+	['Difícil saber como progredir', 'Progressão planejada'],
+	['Sem acompanhamento centralizado', 'Diário e gráfico de evolução'],
+	['Precisa descobrir o que fazer', 'Abra o app e siga o treino'],
 ];
 
 const weeks = [
-	{ n: 'Semana 1', t: 'Adaptação', d: 'Criar o hábito, fazer o teste inicial e aprender a controlar o esforço.', m: '15 a 26 min' },
-	{ n: 'Semana 2', t: 'Consistência', d: 'Mais tempo de treino e as primeiras subidas controladas.', m: '20 a 30 min' },
-	{ n: 'Semana 3', t: 'Intensidade', d: 'Intervalos e pirâmides de inclinação, sempre com recuperação.', m: '20 a 35 min' },
-	{ n: 'Semana 4', t: 'Consolidação', d: 'Os treinos mais longos e o teste final para medir sua evolução.', m: 'até 40 min' },
+	{ n: 'Semana 1', t: 'Adaptação', d: 'Objetivo: criar o hábito e aprender a controlar o esforço, com o teste inicial.', m: '15 a 26 min' },
+	{ n: 'Semana 2', t: 'Construção', d: 'Objetivo: estabelecer a rotina, com mais tempo de treino e as primeiras subidas controladas.', m: '20 a 30 min' },
+	{ n: 'Semana 3', t: 'Progressão', d: 'Objetivo: aumentar o desafio aos poucos, com intervalos e pirâmides de inclinação.', m: '20 a 35 min' },
+	{ n: 'Semana 4', t: 'Consolidação', d: 'Objetivo: terminar o ciclo e comparar sua evolução, com os treinos mais longos e o teste final.', m: 'até 40 min' },
 ];
 
 const faq = [
-	{ q: 'Minha esteira não tem inclinação. Serve?', a: 'Serve. O plano é guiado pelo esforço: sem inclinação, você ajusta a velocidade para chegar à mesma sensação.' },
-	{ q: 'Sou iniciante. Consigo seguir?', a: 'Consegue. A primeira semana tem treinos de 15 a 26 minutos em ritmo controlado, pensados para quem está começando.' },
-	{ q: 'Quanto tempo por dia?', a: 'De 15 a 40 minutos, com 4 dias de descanso no mês.' },
-	{ q: 'Como recebo o acesso?', a: 'Por e-mail, logo após a confirmação do pagamento: um login e uma senha para entrar no app, direto no navegador. O e-book original em PDF também vai junto, como bônus.' },
-	{ q: 'Preciso baixar o app na App Store ou Google Play?', a: 'Não. É um Web App leve que roda direto no navegador do seu celular, sem loja de aplicativo. Se quiser, dá para adicionar à tela inicial com um toque, mas não é obrigatório.' },
+	{ q: 'Preciso ter uma esteira?', a: 'Sim, o plano foi feito para esteira (com ou sem inclinação). Se ainda não tem uma, os guias de compra do site ajudam a escolher.' },
+	{ q: 'O plano funciona para iniciantes?', a: 'Funciona. A primeira semana tem treinos de 15 a 26 minutos em ritmo controlado, pensados para quem está começando.' },
+	{ q: 'Preciso treinar todos os dias?', a: 'Não. O plano tem 4 dias de descanso nos 30 dias, já incluídos de propósito: fazem parte do resultado, não são uma falha sua.' },
+	{ q: 'Quanto tempo por dia?', a: 'De 15 a 40 minutos, dependendo da semana.' },
+	{ q: 'O acesso é vitalício?', a: 'Sim. É pagamento único, sem mensalidade, e o acesso ao app continua disponível depois da compra.' },
+	{ q: 'O que recebo depois da compra?', a: 'Um e-mail com login e senha para entrar no app, direto no navegador, mais o e-book original em PDF, como bônus.' },
+	{ q: 'Preciso baixar o app na App Store ou Google Play?', a: 'Não. É um Web App leve que roda direto no navegador do seu celular, sem loja de aplicativo. Dá para adicionar à tela inicial com um toque, se quiser.' },
 	{ q: 'Funciona em qualquer esteira?', a: 'Sim. O app guia o seu esforço e o seu tempo, não depende de marca ou modelo: funciona com ou sem inclinação, em esteira de casa ou de academia.' },
-	{ q: 'Vou emagrecer com o plano?', a: 'O plano ajuda a criar rotina e aumentar o gasto de energia. O resultado no peso depende também de alimentação, sono e constância.' },
-	{ q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia e pede o reembolso direto pela plataforma de pagamento.' },
+	{ q: 'Posso cancelar?', a: 'Não é assinatura, então não há o que cancelar: é pagamento único. Se não for pra você, use a garantia de 7 dias e peça o reembolso.' },
+	{ q: 'Existe garantia?', a: 'Sim, 7 dias, reembolso direto pela plataforma de pagamento.' },
+	{ q: 'Minha esteira não tem inclinação. Serve?', a: 'Serve. O plano é guiado pelo esforço: sem inclinação, você ajusta a velocidade para chegar à mesma sensação.' },
+	{ q: 'O plano promete emagrecimento?', a: 'Não. O plano ajuda a criar rotina e aumentar o gasto de energia. O resultado no peso depende também de alimentação, sono e constância.' },
 ];
 
 const jsonLd = {
@@ -75,8 +106,8 @@ const jsonLd = {
 			<li>Teste no Dia 1 e no Dia 30, com gráfico de evolução automático</li>
 		</ul>
 		<div class="lp-cta-row">
-			<a class="lp-btn" href="#oferta">Quero começar hoje</a>
-			<p class="lp-cta-note">Acesso imediato por e-mail<br>Garantia de 7 dias</p>
+			<a class="lp-btn" href="#oferta">Quero começar meus 30 dias</a>
+			<p class="lp-cta-note">{hasCheckout ? <>Acesso vitalício · Pagamento único · {PRECO}</> : <>Em breve · Pagamento único · {PRECO}</>}</p>
 		</div>
 	</div>
 	<div class="lp-hero-media">
@@ -92,7 +123,7 @@ const jsonLd = {
 					<div><small>Inclinação</small><b>4%</b></div>
 					<div><small>Esforço</small><b>Forte</b></div>
 				</div>
-				<div class="lp-phone-bar"><i></i></div>
+				<div class="lp-phone-bar"><i style="width:44%"></i></div>
 				<span class="lp-phone-play">▶</span>
 			</div>
 		</div>
@@ -101,7 +132,7 @@ const jsonLd = {
 
 <section class="lp-sec">
 	<p class="lp-eyebrow">Se você se identifica…</p>
-	<h2>Ter esteira em casa não é o problema. Saber o que fazer nela é.</h2>
+	<h2>O problema não é ter uma esteira. É saber como usar.</h2>
 	<div class="lp-grid lp-grid--3">
 		<div class="lp-card"><span class="lp-num">01</span><h3>Sobe e caminha sem rumo</h3><p>Sempre a mesma velocidade, o mesmo tempo, e a sensação de que não está saindo do lugar.</p></div>
 		<div class="lp-card"><span class="lp-num">02</span><h3>Começa animado e para na 2ª semana</h3><p>Exagera nos primeiros dias, cansa, perde o ritmo e a esteira volta a juntar poeira.</p></div>
@@ -110,9 +141,49 @@ const jsonLd = {
 </section>
 
 <section class="lp-band lp-white lp-sec">
+	<p class="lp-eyebrow">Como funciona, na prática</p>
+	<h2>Pense no Plano 30 Dias como um treinador no seu celular.</h2>
+	<ol class="lp-steps">
+		<li>Você abre o treino do dia.</li>
+		<li>O app mostra o que fazer.</li>
+		<li>O cronômetro acompanha o tempo.</li>
+		<li>Os alertas indicam as mudanças de ritmo e inclinação.</li>
+		<li>A progressão organiza os 30 dias por você.</li>
+		<li>No final, você compara sua evolução.</li>
+	</ol>
+	<a class="lp-btn ghost" href="#recebe">Quero conhecer o plano</a>
+</section>
+
+<section class="lp-sec" id="demo">
+	<p class="lp-eyebrow">Veja como funciona</p>
+	<h2>A mesma tela, em três momentos do treino.</h2>
+	<div class="lp-grid lp-grid--3">
+		{demo.map((d) => (
+			<figure class="lp-demo-shot">
+				<div class="lp-phone lp-phone--static">
+					<div class="lp-phone-screen">
+						<span class="lp-phone-top">{d.top}</span>
+						<span class="lp-phone-what">{d.what}</span>
+						<span class="lp-phone-time">{d.time}</span>
+						<div class="lp-phone-tiles">
+							<div><small>Inclinação</small><b>{d.inc}</b></div>
+							<div><small>Esforço</small><b>{d.eff}</b></div>
+						</div>
+						<div class="lp-phone-bar"><i style={`width:${d.bar}%`}></i></div>
+						<span class="lp-phone-play">{d.icon}</span>
+					</div>
+				</div>
+				<figcaption>{d.cap}</figcaption>
+			</figure>
+		))}
+	</div>
+	<p class="lp-fine-note">Recriado em código a partir da interface real do app, não é uma captura de tela.</p>
+</section>
+
+<section class="lp-band lp-white lp-sec" id="recebe">
 	<p class="lp-eyebrow">O que você recebe</p>
 	<h2>Tudo decidido para você. Só apertar o play da esteira.</h2>
-	<div class="lp-grid lp-grid--3">
+	<div class="lp-grid lp-grid--4">
 		{inside.map((i) => (
 			<div class="lp-card lp-card--sunk"><h3>{i.t}</h3><p>{i.d}</p></div>
 		))}
@@ -120,7 +191,7 @@ const jsonLd = {
 </section>
 
 <section class="lp-sec">
-	<p class="lp-eyebrow">Como funciona</p>
+	<p class="lp-eyebrow">Como funcionam os 30 dias</p>
 	<h2>4 semanas, uma evolução de cada vez.</h2>
 	<div class="lp-grid lp-grid--4">
 		{weeks.map((w, i) => (
@@ -135,51 +206,91 @@ const jsonLd = {
 </section>
 
 <section class="lp-band lp-dark lp-sec">
-	<p class="lp-eyebrow">Por dentro do ebook</p>
-	<h2>Claro de ler, fácil de seguir no celular ou impresso.</h2>
-	<div class="lp-grid lp-grid--3">
-		<figure class="lp-shot"><img src={`${IMG}/pagina-esforco.webp`} width="720" height="1018" loading="lazy" alt="Página do ebook com a regra de ouro do esforço"><figcaption>A regra de ouro: esforço antes da velocidade</figcaption></figure>
-		<figure class="lp-shot"><img src={`${IMG}/pagina-treinos.webp`} width="720" height="1018" loading="lazy" alt="Página do ebook com os treinos da Semana 1"><figcaption>Treino do dia, bloco a bloco</figcaption></figure>
-		<figure class="lp-shot"><img src={`${IMG}/pagina-planilha.webp`} width="720" height="1018" loading="lazy" alt="Planilha de progresso de 30 dias"><figcaption>Planilha para marcar cada dia</figcaption></figure>
+	<p class="lp-eyebrow">Acompanhamento</p>
+	<h2>Não é apenas treinar. É conseguir enxergar sua evolução.</h2>
+	<div class="lp-flow">
+		<div class="lp-flow-box"><b>Dia 1</b><span>Teste inicial</span></div>
+		<span class="lp-flow-arrow">→</span>
+		<div class="lp-flow-box lp-flow-box--mid"><b>30 dias</b><span>De constância</span></div>
+		<span class="lp-flow-arrow">→</span>
+		<div class="lp-flow-box"><b>Dia 30</b><span>Teste final</span></div>
+	</div>
+	<p class="lp-flow-note">O app registra o teste do Dia 1 e do Dia 30 e monta a comparação sozinho: distância, esforço percebido e um gráfico de evolução. Sem prometer um número de resultado: o que o plano garante é o acompanhamento, não o resultado em si, que depende de constância, alimentação e sono.</p>
+</section>
+
+<section class="lp-sec">
+	<p class="lp-eyebrow">"Mas eu posso encontrar treinos grátis na internet"</p>
+	<h2>Pode. E esse não é o problema.</h2>
+	<p class="lp-lead2">O problema é encontrar um treino hoje, outro amanhã, não saber quando aumentar o esforço e não ter uma sequência organizada. O Plano 30 Dias reúne os treinos numa jornada organizada para você não precisar decidir tudo sozinho.</p>
+	<div class="lp-compare-wrap">
+	<table class="lp-compare">
+		<thead><tr><th scope="col">Treinos aleatórios</th><th scope="col">Plano 30 Dias</th></tr></thead>
+		<tbody>
+			{diferencial.map(([a, b]) => (
+				<tr><td>{a}</td><td>{b}</td></tr>
+			))}
+		</tbody>
+	</table>
 	</div>
 </section>
 
 <section class="lp-sec lp-grid lp-grid--2">
 	<div class="lp-card lp-card--pad">
-		<h3 class="lp-h3">É para você se…</h3>
+		<h3 class="lp-h3">Para quem é</h3>
 		<ul class="lp-checks">
-			<li>tem esteira em casa e quer usar de verdade</li>
-			<li>está começando ou voltando depois de um tempo parado</li>
-			<li>prefere caminhar a correr</li>
-			<li>quer um plano com começo, meio e fim</li>
+			<li>Comprou uma esteira e quase não usa</li>
+			<li>Está voltando a se exercitar</li>
+			<li>Quer começar a caminhar em casa</li>
+			<li>Prefere seguir uma orientação pronta</li>
 		</ul>
 	</div>
 	<div class="lp-card lp-card--pad">
-		<h3 class="lp-h3">Não é para você se…</h3>
+		<h3 class="lp-h3">Para quem não é</h3>
 		<ul class="lp-checks lp-checks--no">
-			<li>procura um treino de corrida para provas</li>
-			<li>espera resultado sem constância</li>
-			<li>tem restrição médica e ainda não conversou com um profissional</li>
+			<li>Não é para atletas buscando treinamento avançado</li>
+			<li>Não substitui acompanhamento médico ou profissional individualizado</li>
+			<li>Não promete emagrecimento automático em 30 dias</li>
+			<li>Não é uma fórmula milagrosa</li>
 		</ul>
+	</div>
+</section>
+
+<section class="lp-band lp-dark lp-sec">
+	<p class="lp-eyebrow">Por dentro do e-book (bônus)</p>
+	<h2>Claro de ler, fácil de seguir no celular ou impresso.</h2>
+	<div class="lp-grid lp-grid--3">
+		<figure class="lp-shot"><img src={`${IMG}/pagina-esforco.webp`} width="720" height="1018" loading="lazy" alt="Página do e-book com a regra de ouro do esforço"><figcaption>A regra de ouro: esforço antes da velocidade</figcaption></figure>
+		<figure class="lp-shot"><img src={`${IMG}/pagina-treinos.webp`} width="720" height="1018" loading="lazy" alt="Página do e-book com os treinos da Semana 1"><figcaption>Treino do dia, bloco a bloco</figcaption></figure>
+		<figure class="lp-shot"><img src={`${IMG}/pagina-planilha.webp`} width="720" height="1018" loading="lazy" alt="Planilha de progresso de 30 dias"><figcaption>Planilha para marcar cada dia</figcaption></figure>
 	</div>
 </section>
 
 <section id="oferta" class="lp-offer-wrap">
 	<div class="lp-offer">
-		<img src={`${IMG}/app-icon.png`} width="200" height="200" loading="lazy" alt="Ícone do app Plano 30 Dias na Esteira" style="width:5rem;height:5rem;border-radius:22px">
-		<h2>Acesso Vitalício ao Aplicativo</h2>
+		<img src={`${IMG}/app-icon.png`} width="200" height="200" loading="lazy" alt="Ícone do app Plano 30 Dias na Esteira">
+		<h2>Comece seus 30 dias hoje</h2>
+		<p class="lp-offer-sub">Plano 30 Dias</p>
 		<ul class="lp-checks">
-			<li>App guiado por 30 dias, direto no navegador, sem baixar nada</li>
-			<li>Cronômetro, alertas sonoros e teste de esforço interativo</li>
-			<li>Diário de progresso com gráfico de evolução automático</li>
-			<li>Bônus: o e-book original em PDF, pra quem prefere ler sem abrir o app</li>
+			<li>30 treinos guiados</li>
+			<li>Cronômetro</li>
+			<li>Alertas durante os treinos</li>
+			<li>Teste de esforço</li>
+			<li>Diário e gráfico de evolução</li>
+			<li>Acesso vitalício</li>
+			<li>Bônus: e-book em PDF</li>
 		</ul>
 		<p class="lp-price"><span>pagamento único</span><strong>{PRECO}</strong><span>no Pix ou cartão</span></p>
 		{hasCheckout
-			? <a class="lp-btn lp-btn--full" {...checkoutAttrs}>Quero meu Plano 30 Dias</a>
+			? <a class="lp-btn lp-btn--full" {...checkoutAttrs}>Quero começar meus 30 dias</a>
 			: <span class="lp-btn lp-btn--full lp-btn--off" aria-disabled="true">Vendas abrem em breve</span>}
-		<p class="lp-guarantee">Garantia de 7 dias: não gostou, devolvemos seu dinheiro.<br>Acesso por e-mail (login e senha), em minutos após a confirmação do pagamento.</p>
+		{hasCheckout && <p class="lp-guarantee">Garantia de 7 dias: não gostou, devolvemos seu dinheiro.<br>Acesso por e-mail (login e senha), em minutos após a confirmação do pagamento.</p>}
 	</div>
+</section>
+
+<section class="lp-sec">
+	<p class="lp-eyebrow">Garantia</p>
+	<h2>Você tem 7 dias para conhecer o Plano 30 Dias.</h2>
+	<p class="lp-lead2">Se não for pra você, é só pedir o reembolso direto pela plataforma de pagamento, sem burocracia. A garantia vale a partir da data da compra.</p>
 </section>
 
 <section class="lp-band lp-white lp-sec">
@@ -189,10 +300,35 @@ const jsonLd = {
 			<div class="lp-card lp-card--sunk"><h3>{f.q}</h3><p>{f.a}</p></div>
 		))}
 	</div>
-	<p class="lp-center"><a class="lp-btn" href="#oferta">Começar meus 30 dias</a></p>
+</section>
+
+<section class="lp-band lp-dark lp-sec lp-final">
+	<h2>Sua esteira já está aí.</h2>
+	<p class="lp-lead2" style="color:var(--lp-light)">Agora falta transformar intenção em rotina.</p>
+	<a class="lp-btn" href="#oferta">Começar meus 30 dias</a>
+	<p class="lp-cta-note" style="margin-top:1rem">{PRECO} · pagamento único · {hasCheckout ? 'acesso vitalício' : 'em breve'}</p>
 </section>
 
 <p class="lp-disclaimer">Material educativo. Não substitui avaliação médica nem orientação individual de um profissional de educação física. Resultados variam de pessoa para pessoa. A instrutora exibida é uma personagem criada com inteligência artificial.</p>
+
+<!-- Barra fixa só no celular, só depois de rolar a página: ajuda o CTA sem brigar com o
+     conteúdo acima da dobra nem tampar nada importante (o próprio texto diz "em breve"
+     quando o checkout ainda não está ativo, pra não contradizer a oferta). -->
+<div id="lp-sticky" class="lp-sticky" role="complementary" aria-label="Oferta">
+	<span>Plano 30 Dias <b>{PRECO}</b></span>
+	<a class="lp-btn sm" href="#oferta">{hasCheckout ? 'Começar agora' : 'Ver detalhes'}</a>
+</div>
+<script is:inline>
+	(function () {
+		var bar = document.getElementById('lp-sticky');
+		if (!bar) return;
+		var shown = false;
+		addEventListener('scroll', function () {
+			var should = scrollY > innerHeight * 0.6;
+			if (should !== shown) { shown = should; bar.classList.toggle('on', should); }
+		}, { passive: true });
+	})();
+</script>
 
 </BaseLayout>
 
@@ -200,7 +336,7 @@ const jsonLd = {
 	/* Paleta própria do produto (a mesma do ebook), isolada nesta página.
 	   CSS escopado aqui em vez de src/styles.css porque o CSS global é inline em
 	   toda página do site: estas regras só servem a esta URL. */
-	.lp-band, .lp-offer-wrap, .lp-sec, .lp-disclaimer {
+	.lp-band, .lp-offer-wrap, .lp-sec, .lp-disclaimer, .lp-sticky {
 		--lp-navy: #0B2545;
 		--lp-orange: #F26A1B;
 		--lp-btn: #C2410C;
@@ -219,6 +355,7 @@ const jsonLd = {
 	.lp-dark h2, .lp-dark h1 { color: #fff; }
 	.lp-eyebrow { margin: 0 0 0.75rem; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lp-btn); }
 	.lp-dark .lp-eyebrow { color: var(--lp-orange); }
+	.lp-lead2 { font-size: 1.05rem; line-height: 1.6; color: var(--lp-muted); max-width: 44rem; margin: 0 0 1.5rem; }
 
 	.lp-hero { display: grid; gap: 2.5rem; padding: 3rem 0 4rem; align-items: center; }
 	.lp-tag { display: inline-block; background: var(--lp-orange); color: var(--lp-navy); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.8rem; border-radius: 6px; }
@@ -226,9 +363,11 @@ const jsonLd = {
 	.lp-lead { margin: 0 0 1.5rem; font-size: 1.15rem; line-height: 1.6; color: var(--lp-light); }
 	.lp-hero-media { position: relative; min-height: 26rem; }
 	.lp-hero-photo { position: absolute; right: 0; top: 0; width: 72%; height: 100%; object-fit: cover; object-position: center top; border-radius: 20px; }
-	/* Mockup CSS do telefone com a tela do treino guiado, no lugar da antiga capa do ebook. */
+	/* Mockup CSS do telefone com a tela do treino guiado. --static vira um cartão normal
+	   (usado na seção "Veja como funciona"); sem o modificador, fica sobreposto no hero. */
 	.lp-phone { position: absolute; left: 0; bottom: 1.5rem; width: 46%; max-width: 13.75rem; aspect-ratio: 9/19; border-radius: 28px; background: #0d1314; border: 3px solid #2a3537; box-shadow: 0 24px 48px rgba(0,0,0,0.45); transform: rotate(-4deg); overflow: hidden; }
-	.lp-phone-screen { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #f2f3f1; padding: 0 0.7rem; }
+	.lp-phone--static { position: static; width: 100%; max-width: 11rem; margin: 0 auto; transform: none; box-shadow: 0 8px 24px rgba(11,37,69,0.18); }
+	.lp-phone-screen { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #f2f3f1; padding: 0.9rem 0.7rem; }
 	.lp-phone-top { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lp-orange); }
 	.lp-phone-what { font-size: 0.68rem; font-weight: 600; margin-top: 0.25rem; text-transform: capitalize; }
 	.lp-phone-time { font-size: clamp(1.75rem, 8vw, 2.5rem); font-weight: 800; margin: 0.4rem 0; font-variant-numeric: tabular-nums; }
@@ -237,12 +376,37 @@ const jsonLd = {
 	.lp-phone-tiles small { display: block; font-size: 0.44rem; letter-spacing: 0.1em; text-transform: uppercase; color: #9aa6a5; }
 	.lp-phone-tiles b { font-size: 0.78rem; font-weight: 800; }
 	.lp-phone-bar { width: 100%; height: 4px; border-radius: 4px; background: #303b3d; margin-top: 0.65rem; overflow: hidden; }
-	.lp-phone-bar i { display: block; width: 38%; height: 100%; background: #4fa69a; }
+	.lp-phone-bar i { display: block; height: 100%; background: #4fa69a; }
 	.lp-phone-play { width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--lp-orange); display: flex; align-items: center; justify-content: center; margin-top: 0.65rem; font-size: 0.8rem; color: #1a1210; }
 	@media (min-width: 56rem) {
 		.lp-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 4rem; padding: 4.5rem 0 5.5rem; }
 		.lp-hero-media { min-height: 36rem; }
 	}
+
+	.lp-demo-shot { margin: 0; text-align: center; }
+	.lp-demo-shot figcaption { margin-top: 0.9rem; font-weight: 700; color: var(--lp-navy); font-size: 0.95rem; }
+	.lp-fine-note { margin-top: 1.5rem; font-size: 0.8rem; color: var(--lp-muted); text-align: center; }
+
+	.lp-steps { counter-reset: lp; list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 0.6rem; max-width: 34rem; }
+	.lp-steps li { counter-increment: lp; position: relative; padding-left: 2.4rem; font-weight: 600; color: var(--lp-navy); line-height: 1.5; }
+	.lp-steps li::before { content: counter(lp); position: absolute; left: 0; top: -0.1rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--lp-orange); color: #fff; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+
+	.lp-flow { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 0.75rem; margin: 1.5rem 0; }
+	.lp-flow-box { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 1.25rem 1.5rem; text-align: center; min-width: 9rem; }
+	.lp-flow-box b { display: block; font-size: 1.3rem; font-weight: 800; }
+	.lp-flow-box span { display: block; font-size: 0.85rem; color: var(--lp-light); margin-top: 0.25rem; }
+	.lp-flow-box--mid { background: var(--lp-orange); border-color: var(--lp-orange); color: #1a1210; }
+	.lp-flow-box--mid span { color: #1a1210; opacity: 0.8; }
+	.lp-flow-arrow { align-self: center; font-size: 1.4rem; color: var(--lp-orange); }
+	.lp-flow-note { max-width: 42rem; color: var(--lp-light); font-size: 0.95rem; line-height: 1.6; }
+
+	.lp-compare-wrap { overflow-x: auto; margin-top: 1rem; }
+	.lp-compare { width: 100%; min-width: 30rem; border-collapse: collapse; }
+	.lp-compare th { text-align: left; padding: 0.75rem 1rem; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lp-btn); border-bottom: 2px solid var(--lp-cream); }
+	.lp-compare th:last-child { color: #15803D; }
+	.lp-compare td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--lp-cream); font-size: 0.95rem; }
+	.lp-compare td:first-child { color: var(--lp-muted); }
+	.lp-compare td:last-child { font-weight: 700; color: var(--lp-navy); }
 
 	.lp-checks { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 0.7rem; }
 	.lp-checks li { position: relative; padding-left: 2rem; line-height: 1.55; }
@@ -253,11 +417,15 @@ const jsonLd = {
 
 	.lp-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3.5rem; padding: 0 2rem; background: var(--lp-btn); color: #fff; font-size: 1.1rem; font-weight: 800; border-radius: 12px; text-decoration: none; transition: background 0.15s; }
 	.lp-btn:hover { background: var(--lp-btn-hover); color: #fff; }
+	.lp-btn.ghost { background: transparent; border: 1.5px solid var(--lp-navy); color: var(--lp-navy); }
+	.lp-btn.ghost:hover { background: var(--lp-cream); color: var(--lp-navy); }
+	.lp-btn.sm { min-height: 2.6rem; padding: 0 1.1rem; font-size: 0.9rem; border-radius: 10px; }
 	.lp-btn--full { display: flex; width: 100%; }
 	.lp-btn--off { background: #64748B; cursor: not-allowed; }
 	.lp-btn--off:hover { background: #64748B; }
 	.lp-cta-row { display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; align-items: center; }
 	.lp-cta-note { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--lp-light); }
+	.lp-sec .lp-cta-note { color: var(--lp-muted); }
 
 	.lp-grid { display: grid; gap: 1.25rem; }
 	@media (min-width: 48rem) {
@@ -290,14 +458,25 @@ const jsonLd = {
 
 	.lp-offer-wrap { padding: 1rem 0 4.5rem; scroll-margin-top: 1rem; }
 	.lp-offer { max-width: 42rem; margin: 0 auto; background: #fff; border: 2px solid var(--lp-navy); border-radius: 24px; padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
-	.lp-offer img { width: 10rem; height: auto; border-radius: 6px; box-shadow: 0 16px 32px rgba(11,37,69,0.3); margin-bottom: 1.5rem; }
-	.lp-offer h2 { margin-bottom: 1.25rem; }
+	.lp-offer img { width: 5rem; height: 5rem; border-radius: 22px; box-shadow: 0 16px 32px rgba(11,37,69,0.3); margin-bottom: 1rem; }
+	.lp-offer h2 { margin-bottom: 0.25rem; }
+	.lp-offer-sub { margin: 0 0 1.25rem; font-weight: 700; color: var(--lp-btn); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; }
 	.lp-offer .lp-checks { text-align: left; }
 	.lp-price { margin: 0 0 1.5rem; display: flex; flex-direction: column; align-items: center; color: var(--lp-muted); font-size: 0.95rem; }
 	.lp-price strong { font-size: 3.5rem; line-height: 1.1; font-weight: 800; color: var(--lp-navy); letter-spacing: -0.02em; }
 	.lp-guarantee { margin: 1rem 0 0; font-size: 0.9rem; color: var(--lp-muted); }
 	@media (min-width: 48rem) { .lp-offer { padding: 3.5rem; } }
 
+	.lp-final { text-align: center; }
+	.lp-final .lp-btn { margin: 0 auto; }
+
 	.lp-center { text-align: center; margin: 2.5rem 0 0; }
 	.lp-disclaimer { margin: 0; padding: 2rem 0; font-size: 0.82rem; line-height: 1.6; color: var(--lp-muted); max-width: 56rem; }
+
+	/* Barra fixa, só no celular, só depois de rolar (classe .on via script no fim da página). */
+	.lp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: #fff; border-top: 1px solid var(--lp-cream); box-shadow: 0 -4px 16px rgba(11,37,69,0.12); padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px)); transform: translateY(100%); transition: transform 0.25s ease; }
+	.lp-sticky.on { transform: translateY(0); }
+	.lp-sticky span { font-size: 0.9rem; font-weight: 700; color: var(--lp-navy); }
+	.lp-sticky b { color: var(--lp-btn); }
+	@media (min-width: 56rem) { .lp-sticky { display: none; } }
 </style>
