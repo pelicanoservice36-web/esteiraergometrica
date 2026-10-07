@@ -12,7 +12,7 @@ const jsonLd = {
 
 const faq = [
 	{ q: 'A Gallant Elite GEE13M29A aguenta corrida?', a: 'Aguenta trote leve, não corrida sustentada. É dimensionada como as outras esteiras residenciais do catálogo, bem abaixo da potência contínua da Athletic Racer. Para corrida de verdade, a Racer é a opção.' },
-	{ q: 'Por que a Athletic Racer custa quase R$ 700 mais que a Gallant GEE13M29A?', a: 'Motor muito mais forte (5.0 HPM contra 2,9 HP) e garantia maior (12 meses contra 6), apesar das duas aguentarem o mesmo peso (130 kg) e chegarem à mesma velocidade máxima (16 km/h). A diferença paga por um motor dimensionado para uso contínuo em ritmo de corrida, não só por mais uma faixa de velocidade.' },
+	{ q: 'Por que a Athletic Racer custa quase R$ 700 mais que a Gallant GEE13M29A?', a: 'Motor muito mais forte (5.0 HPM contra 2,9 HP) e garantia maior (12 meses contra 6), mesmo as duas aguentando o mesmo peso (130 kg) e velocidade (16 km/h). A diferença paga um motor dimensionado para corrida contínua, não só mais velocidade.' },
 	{ q: 'A inclinação da Gallant compensa o motor mais fraco?', a: 'Depende do uso. Para caminhada em subida simulada, sim: é um recurso que a Racer não tem. Para corrida sustentada, não: a Racer é a única das duas com motor dimensionado para isso.' },
 ];
 
@@ -25,6 +25,16 @@ const faqJsonLd = {
 		acceptedAnswer: { '@type': 'Answer', text: f.a },
 	})),
 };
+
+const itemListJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Gallant Elite ou Athletic Racer: qual comprar',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Gallant Elite GEE13M29A', url: 'https://esteiraergometrica.com/reviews/gallant-elite-gee13m29a' },
+		{ '@type': 'ListItem', position: 2, name: 'Athletic Racer', url: 'https://esteiraergometrica.com/reviews/athletic-racer' },
+	],
+};
 ---
 
 <ArticleLayout
@@ -33,7 +43,7 @@ const faqJsonLd = {
 	path="/guias/gallant-elite-ou-athletic-racer"
 	ogTitle="Gallant Elite ou Athletic Racer?"
 	ogDescription="As duas aguentam 130 kg e chegam a 16 km/h. A diferença real é o motor: 2,9 HP manual com inclinação contra 5.0 HPM dimensionado para corrida."
-	jsonLd={[jsonLd, faqJsonLd]}
+	jsonLd={[jsonLd, faqJsonLd, itemListJsonLd]}
 	h1="Gallant Elite ou Athletic Racer: qual comprar"
 	standfirst="A Gallant Elite GEE13M29A e a Athletic Racer aguentam o mesmo peso (130 kg) e chegam à mesma velocidade (16 km/h). A diferença que decide entre as duas não é esse número: é o motor, e se o seu plano inclui corrida sustentada ou não."
 	updated="outubro de 2026"
@@ -65,10 +75,17 @@ const faqJsonLd = {
       <tr><th scope="row">Garantia</th><td class="num">6 meses</td><td class="num">12 meses</td></tr>
       <tr><th scope="row">Preço (out/2026)</th><td class="num">R$ 3.609</td><td class="num">R$ 4.300</td></tr>
       <tr><th scope="row">Nota editorial<sup>*</sup></th><td class="num">7,6 / 10</td><td class="num">8,6 / 10</td></tr>
+      <tr><th scope="row">Melhor indicação</th><td>Caminhada/trote com inclinação</td><td>Corrida sustentada</td></tr>
     </tbody>
   </table>
   </div>
   <p class="stamp">* Calculada pelos sete critérios da nossa <a href="/metodologia">metodologia</a>. A Racer vence por motor e garantia, mas a Gallant fica perto (1 ponto de diferença) porque empata ou vence em peso suportado, velocidade e soma inclinação, recurso que a Racer não tem.</p>
+
+  <h2>Critérios de decisão: qual escolher?</h2>
+  <ul>
+    <li><strong>Escolha a Gallant Elite GEE13M29A se:</strong> seu uso é caminhada e trote leve e você quer inclinação para variar o treino.</li>
+    <li><strong>Escolha a Athletic Racer se:</strong> você já corre ou pretende treinar corrida sustentada, e valoriza a maior garantia do catálogo (12 meses).</li>
+  </ul>
 
   <h2>Por que empatarem em peso e velocidade não as torna equivalentes</h2>
   <p>130 kg e 16 km/h são os mesmos números nas duas fichas, mas medem coisas diferentes: a Gallant chega a essa velocidade e esse peso num uso de caminhada e trote, com um motor manual (2,9 HP) que não foi dimensionado para manter ritmo de corrida por tempo prolongado. A Athletic Racer chega aos mesmos números com um motor (5.0 HPM) especificamente dimensionado para isso, confirmado por manual de instruções oficial em PDF, o nível mais alto de verificação que já alcançamos numa ficha deste catálogo. O número de velocidade máxima no papel é igual; a capacidade real de sustentar esse ritmo por um treino inteiro não é.</p>
@@ -85,7 +102,7 @@ const faqJsonLd = {
   <p>Aguenta trote leve, não corrida sustentada. É dimensionada como as outras esteiras residenciais do catálogo, bem abaixo da potência contínua da Athletic Racer. Para corrida de verdade, a Racer é a opção.</p>
 
   <h3>Por que a Athletic Racer custa quase R$ 700 mais que a Gallant GEE13M29A?</h3>
-  <p>Motor muito mais forte (5.0 HPM contra 2,9 HP) e garantia maior (12 meses contra 6), apesar das duas aguentarem o mesmo peso (130 kg) e chegarem à mesma velocidade máxima (16 km/h). A diferença paga por um motor dimensionado para uso contínuo em ritmo de corrida, não só por mais uma faixa de velocidade.</p>
+  <p>Motor muito mais forte (5.0 HPM contra 2,9 HP) e garantia maior (12 meses contra 6), mesmo as duas aguentando o mesmo peso (130 kg) e velocidade (16 km/h). A diferença paga um motor dimensionado para corrida contínua, não só mais velocidade.</p>
 
   <h3>A inclinação da Gallant compensa o motor mais fraco?</h3>
   <p>Depende do uso. Para caminhada em subida simulada, sim: é um recurso que a Racer não tem. Para corrida sustentada, não: a Racer é a única das duas com motor dimensionado para isso.</p>

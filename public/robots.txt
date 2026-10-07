@@ -5,4 +5,36 @@ Allow: /
 Disallow: /go/
 Disallow: /ml-
 
+# Crawlers de IA (busca com resposta gerada / treinamento), explicitados por
+# nome em vez de confiar só no grupo "*": mesma regra de acesso, sem bloqueio.
+User-agent: GPTBot
+Allow: /
+Disallow: /go/
+Disallow: /ml-
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /go/
+Disallow: /ml-
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /go/
+Disallow: /ml-
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /go/
+Disallow: /ml-
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /go/
+Disallow: /ml-
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /go/
+Disallow: /ml-
+
 Sitemap: https://esteiraergometrica.com/sitemap.xml

@@ -25,6 +25,16 @@ const faqJsonLd = {
 		acceptedAnswer: { '@type': 'Answer', text: f.a },
 	})),
 };
+
+const itemListJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Polimet EP-1600 ou Gallant Elite: qual comprar',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Polimet EP-1600', url: 'https://esteiraergometrica.com/reviews/polimet-ep1600' },
+		{ '@type': 'ListItem', position: 2, name: 'Gallant Elite GEE12M25A', url: 'https://esteiraergometrica.com/reviews/gallant-elite-gee12m25a' },
+	],
+};
 ---
 
 <ArticleLayout
@@ -33,7 +43,7 @@ const faqJsonLd = {
 	path="/guias/polimet-ep1600-ou-gallant-elite"
 	ogTitle="Polimet EP-1600 ou Gallant Elite?"
 	ogDescription="Quase R$ 1.000 de diferença, e o motivo central não é motor nem marca: é a Gallant ter inclinação manual e a Polimet não ter nenhuma."
-	jsonLd={[jsonLd, faqJsonLd]}
+	jsonLd={[jsonLd, faqJsonLd, itemListJsonLd]}
 	h1="Polimet EP-1600 ou Gallant Elite: qual comprar"
 	standfirst="A Gallant Elite GEE12M25A, a entrada da linha Elite da Gallant, custa quase R$ 1.000 mais que a Polimet EP-1600. A ficha técnica é melhor em quase todo critério, mas o que separa as duas de verdade é um recurso só: inclinação."
 	updated="outubro de 2026"
@@ -65,10 +75,17 @@ const faqJsonLd = {
       <tr><th scope="row">Garantia</th><td class="num">6 meses</td><td class="num">6 meses</td></tr>
       <tr><th scope="row">Preço (out/2026)</th><td class="num">R$ 1.449 – 1.599</td><td class="num">R$ 2.453 – 2.529</td></tr>
       <tr><th scope="row">Nota editorial<sup>*</sup></th><td class="num">6,9 / 10</td><td class="num">7,4 / 10</td></tr>
+      <tr><th scope="row">Melhor indicação</th><td>Caminhada simples, sem inclinação</td><td>Quer inclinação ou mais peso suportado</td></tr>
     </tbody>
   </table>
   </div>
   <p class="stamp">* Calculada pelos sete critérios da nossa <a href="/metodologia">metodologia</a>. A Gallant vence por somar motor, velocidade, lona e peso suportado maiores à mesma garantia de 6 meses; a diferença de 0,5 ponto é menor do que o salto de preço sugere.</p>
+
+  <h2>Critérios de decisão: qual escolher?</h2>
+  <ul>
+    <li><strong>Escolha a Polimet EP-1600 se:</strong> você não precisa de inclinação e quer o menor preço das duas.</li>
+    <li><strong>Escolha a Gallant Elite GEE12M25A se:</strong> inclinação manual importa para o seu treino, ou você quer um pouco mais de peso suportado (120 kg).</li>
+  </ul>
 
   <h2>A inclinação é o que separa as duas, não só preço</h2>
   <p>Fora a inclinação, o resto da diferença é melhoria incremental, não mudança de categoria: a Gallant tem motor mais forte (2,5 HP contra 1,6 HP), velocidade maior (14 km/h contra 9) e aguenta mais peso (120 kg contra 110), mas nenhum dos dois números é o salto de categoria que separa, por exemplo, qualquer uma das duas da <a href="/reviews/athletic-racer">Athletic Racer</a> (motor dimensionado para corrida sustentada). O recurso que realmente não existe na Polimet, em nenhuma versão, é a inclinação manual de 3 níveis da Gallant.</p>

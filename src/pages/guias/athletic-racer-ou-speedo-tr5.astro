@@ -11,7 +11,7 @@ const jsonLd = {
 };
 
 const faq = [
-	{ q: 'A Speedo TR5 é melhor que a Athletic Racer?', a: 'Não pela nossa nota editorial: a Racer tem 8,6/10 contra 6,2/10 da TR5, mesmo a Speedo custando 2,5 vezes mais. A TR5 tem lona e velocidade maiores no papel, mas o motor é anunciado só em potência de pico (a contínua não é informada) e a garantia não aparece no anúncio, duas lacunas que pesam contra ela.' },
+	{ q: 'A Speedo TR5 é melhor que a Athletic Racer?', a: 'Não pela nossa nota editorial: a Racer tem 8,6/10 contra 6,2/10 da TR5, mesmo a Speedo custando 2,5 vezes mais. A TR5 tem lona e velocidade maiores, mas o motor só é confirmado em potência de pico e a garantia não aparece no anúncio.' },
 	{ q: 'Por que a Speedo TR5 custa tanto mais que a Athletic Racer?', a: 'Lona maior (140 × 50 cm contra 126,5 cm), velocidade um pouco maior (18 km/h contra 16), inclinação elétrica e marca internacionalmente reconhecida. Mas não é motor contínuo confirmado nem garantia maior: nos dois critérios que mais pesam na nossa nota editorial, a Racer está em vantagem.' },
 	{ q: 'Qual das duas vale mais a pena para corrida?', a: 'A Athletic Racer: motor de 5.0 HPM contínuo confirmado por manual oficial, garantia de 12 meses e menos da metade do preço. A Speedo TR5 tem números maiores de lona e velocidade, mas sem a mesma confirmação de motor contínuo nem de garantia.' },
 ];
@@ -25,6 +25,16 @@ const faqJsonLd = {
 		acceptedAnswer: { '@type': 'Answer', text: f.a },
 	})),
 };
+
+const itemListJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Athletic Racer ou Speedo TR5: qual comprar',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Athletic Racer', url: 'https://esteiraergometrica.com/reviews/athletic-racer' },
+		{ '@type': 'ListItem', position: 2, name: 'Speedo TR5', url: 'https://esteiraergometrica.com/reviews/speedo-tr5' },
+	],
+};
 ---
 
 <ArticleLayout
@@ -33,7 +43,7 @@ const faqJsonLd = {
 	path="/guias/athletic-racer-ou-speedo-tr5"
 	ogTitle="Athletic Racer ou Speedo TR5?"
 	ogDescription="Preço maior não significa nota maior aqui: a Speedo TR5 custa 2,5× mais que a Athletic Racer e tem nota editorial menor, 6,2 contra 8,6."
-	jsonLd={[jsonLd, faqJsonLd]}
+	jsonLd={[jsonLd, faqJsonLd, itemListJsonLd]}
 	h1="Athletic Racer ou Speedo TR5: qual comprar"
 	standfirst="A Speedo TR5 custa 2,5 vezes mais que a Athletic Racer e tem lona e velocidade maiores no papel. Mas nossa nota editorial é menor: 6,2 contra 8,6. Entenda por que número maior não é sinônimo de nota maior nesta comparação."
 	updated="outubro de 2026"
@@ -65,10 +75,17 @@ const faqJsonLd = {
       <tr><th scope="row">Garantia</th><td class="num">12 meses</td><td class="num">Não informada no anúncio</td></tr>
       <tr><th scope="row">Preço (out/2026)</th><td class="num">R$ 4.300</td><td class="num">R$ 10.990</td></tr>
       <tr><th scope="row">Nota editorial<sup>*</sup></th><td class="num">8,6 / 10</td><td class="num">6,2 / 10</td></tr>
+      <tr><th scope="row">Melhor indicação</th><td>Corrida com motor e garantia confirmados</td><td>Lona e velocidade máximas, orçamento maior</td></tr>
     </tbody>
   </table>
   </div>
   <p class="stamp">* Calculada pelos sete critérios da nossa <a href="/metodologia">metodologia</a>. A Speedo vence em lona, velocidade e inclinação, mas perde em motor (só pico confirmado, banda mais conservadora aplicada), garantia (não informada) e peso do equipamento, o suficiente para ficar com nota menor mesmo custando mais.</p>
+
+  <h2>Critérios de decisão: qual escolher?</h2>
+  <ul>
+    <li><strong>Escolha a Athletic Racer se:</strong> você quer motor contínuo confirmado, a maior garantia do catálogo (12 meses) e o menor preço das duas.</li>
+    <li><strong>Escolha a Speedo TR5 se:</strong> lona extra (140 cm) e velocidade um pouco maior (18 km/h) forem decisivas, e você aceita confirmar garantia e potência contínua direto com o vendedor.</li>
+  </ul>
 
   <h2>Por que a esteira mais cara tem a nota menor</h2>
   <p>A Speedo TR5 ganha da Athletic Racer em três números de ficha: lona maior, velocidade máxima um pouco maior, e inclinação elétrica (a Racer não tem nenhuma). Mas perde nos dois critérios que mais pesam na nossa metodologia. O fabricante da TR5 confirma, em duas fontes independentes, que os "4 HP" divulgados são potência de pico, não contínua, e a potência contínua real não aparece em nenhuma fonte que encontramos: usamos a banda mais conservadora da nossa metodologia para esse critério. Já a garantia simplesmente não é informada no anúncio que analisamos (a Decathlon declara prazos maiores para o mesmo modelo, mas por outro vendedor, sem confirmação de que valham aqui). A Athletic Racer, ao contrário, tem motor contínuo confirmado por manual oficial em PDF e garantia de 12 meses, a maior do nosso catálogo inteiro.</p>
@@ -82,7 +99,7 @@ const faqJsonLd = {
   <h2>Perguntas frequentes</h2>
 
   <h3>A Speedo TR5 é melhor que a Athletic Racer?</h3>
-  <p>Não pela nossa nota editorial: a Racer tem 8,6/10 contra 6,2/10 da TR5, mesmo a Speedo custando 2,5 vezes mais. A TR5 tem lona e velocidade maiores no papel, mas o motor é anunciado só em potência de pico (a contínua não é informada) e a garantia não aparece no anúncio, duas lacunas que pesam contra ela.</p>
+  <p>Não pela nossa nota editorial: a Racer tem 8,6/10 contra 6,2/10 da TR5, mesmo a Speedo custando 2,5 vezes mais. A TR5 tem lona e velocidade maiores, mas o motor só é confirmado em potência de pico e a garantia não aparece no anúncio.</p>
 
   <h3>Por que a Speedo TR5 custa tanto mais que a Athletic Racer?</h3>
   <p>Lona maior (140 × 50 cm contra 126,5 cm), velocidade um pouco maior (18 km/h contra 16), inclinação elétrica e marca internacionalmente reconhecida. Mas não é motor contínuo confirmado nem garantia maior: nos dois critérios que mais pesam na nossa nota editorial, a Racer está em vantagem.</p>
