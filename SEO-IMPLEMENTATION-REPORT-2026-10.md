@@ -53,13 +53,31 @@ Duas contagens de catálogo desatualizadas, encontradas durante a implementaçã
 - Varredura de links internos quebrados: 0 encontrados (as 3 ocorrências fora do conjunto de rotas continuam sendo arquivos estáticos em `BaseLayout.astro`, não páginas).
 - `git status --short` confirmado limpo entre cada commit, nenhum arquivo fora do escopo de cada item foi tocado.
 
+## Estágio 4 (aprovado pelo usuário: "faça 3 comparativos de produto, as 4 páginas de marca, as tags de Twitter explícitas, o breadcrumb visual")
+
+### CRIADO
+
+- `src/pages/guias/polimet-ep1600-ou-gallant-elite.astro`, `gallant-elite-ou-athletic-racer.astro`, `athletic-racer-ou-speedo-tr5.astro`: os 3 comparativos da seção 15 do `SEO-AUDIT-2026-10.md`, montados só com dado já publicado nas reviews e na metodologia, sem ficha nova.
+- `src/pages/guias/gallant-e-boa-marca.astro`, `speedo-e-boa-marca.astro`, `podiumfit-e-boa-marca.astro`, `wct-fitness-e-boa-marca.astro`: as 4 páginas de marca da seção 16, no mesmo padrão de `athletic-e-boa-marca.astro`/`dream-fitness-e-boa-marca.astro` (baseadas só no que já verificamos nas reviews, sem pesquisa institucional nova).
+
+### ALTERADO
+
+- `src/layouts/BaseLayout.astro`: `twitter:title`/`twitter:description`/`twitter:image` explícitos (antes só caíam no fallback do Open Graph); breadcrumb visual (Início → página atual) em toda página exceto a home, reaproveitando o `BreadcrumbList` já existente.
+- `src/styles.css`: nova classe `.breadcrumbs`, usando só variáveis de cor/fonte que já existiam.
+- `src/pages/guias/melhores-marcas-de-esteira.astro`: 13 → 14 marcas na tabela; Gallant, WCT Fitness e PodiumFit (antes só texto) agora linkam para a página de marca própria; nova linha e seção da Speedo; removida a frase "ainda sem página própria" sobre a Gallant, que ficaria desatualizada.
+- 6 reviews (as 3 Gallant, Speedo, PodiumFit, WCT) e 3 reviews adicionais (Polimet EP-1600, Athletic Racer, e as duas Gallant envolvidas nos comparativos) ganharam links de "Leia também" para as páginas de marca e os comparativos novos.
+- `public/sitemap.xml`: as 7 URLs novas adicionadas.
+
+### TESTES
+
+- `npm run build`: passou em cada uma das 3 rodadas (57 páginas ao final, de 50).
+- `npm run check`: passou, 31 verificações, sem mudança.
+- Cruzamento sitemap × rotas: 55/55 (as 2 páginas com `noindex` próprio, `/404` e `/plano-30-dias`, continuam fora, de propósito).
+- Varredura de título/description/H1 duplicado: 0 em todas as rodadas.
+- Varredura de link interno quebrado: 0 em todas as rodadas (as 3 ocorrências de sempre continuam sendo assets estáticos em `BaseLayout.astro`).
+
 ## PENDÊNCIAS
 
-Tudo isto segue `AGUARDANDO APROVAÇÃO`, sem nenhuma alteração feita:
-
-1. **3 comparativos de produto** (Polimet EP-1600 vs Gallant Elite, Gallant Elite vs Athletic Racer, Athletic Racer vs Speedo TR5) — seção 15 do `SEO-AUDIT-2026-10.md`.
-2. **4 páginas de marca** (Gallant, Speedo, PodiumFit, WCT) — seção 16, exigem apuração factual, não só reorganização de dado existente.
-3. **`twitter:title`/`twitter:description`/`twitter:image` explícitos** em `BaseLayout.astro`.
-4. **Breadcrumb visual** (cosmético, independente do `BreadcrumbList` já implementado) e **revisão do hero em vídeo da home**.
-5. **Link à KHT GTS-7 em `esteira-profissional-para-academia.astro`**: avaliado e descartado. A GTS-7 tem motor DC, não AC, e o guia é especificamente sobre equipamento com motor AC; forçar esse link contrariaria a própria tese do texto. Sem lugar editorialmente honesto para ele ali.
-6. **Os ~40 usos de "dezenove"/"19 modelos" em texto corrido** nos 12 arquivos listados no comentário de `src/data/catalog.mjs`: continuam literais. Convertê-los todos para usar a constante seria a refatoração grande que o próprio pedido de auditoria pede para evitar fora de necessidade real; ficam documentados como checklist para a próxima mudança de tamanho do catálogo.
+1. **Revisão do hero em vídeo da home**: não foi pedida nesta rodada, continua em aberto.
+2. **Link à KHT GTS-7 em `esteira-profissional-para-academia.astro`**: avaliado e descartado. A GTS-7 tem motor DC, não AC, e o guia é especificamente sobre equipamento com motor AC; forçar esse link contrariaria a própria tese do texto. Sem lugar editorialmente honesto para ele ali.
+3. **Os ~40 usos de "dezenove"/"19 modelos" em texto corrido** nos 12 arquivos listados no comentário de `src/data/catalog.mjs`: continuam literais. Convertê-los todos para usar a constante seria a refatoração grande que o próprio pedido de auditoria pede para evitar fora de necessidade real; ficam documentados como checklist para a próxima mudança de tamanho do catálogo.
