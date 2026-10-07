@@ -1,0 +1,67 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'PodiumFit é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-07',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/podiumfit-e-boa-marca',
+};
+
+const faq = [
+	{ q: 'PodiumFit vale a pena?', a: 'Pelo único modelo que já analisamos (X300), sim, com ressalva de preço e garantia: a ficha é auditável no próprio site da marca (podiumfit.com.br), sem vazios de dado, mas a garantia de 90 dias é a segunda mais curta do nosso catálogo.' },
+	{ q: 'A PodiumFit tem site oficial?', a: 'Sim, podiumfit.com.br, com loja própria além da loja oficial no Mercado Livre. O site publica dimensões montada e dobrada, peso do equipamento e garantia, sem vazios de informação.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="PodiumFit é uma boa marca de esteira? (2026)"
+	description="O que verificamos sobre a PodiumFit pela análise da X300: site oficial próprio, ficha auditável e garantia de 90 dias, a segunda mais curta do catálogo."
+	path="/guias/podiumfit-e-boa-marca"
+	ogTitle="PodiumFit é uma boa marca?"
+	ogDescription="Ficha técnica auditável direto no site oficial da marca, sem vazios de dado: o diferencial real, não a garantia, que é curta (90 dias)."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="PodiumFit é uma boa marca de esteira?"
+	standfirst="Esta resposta é baseada no que verificamos analisando a PodiumFit X300, o único modelo da marca que já cobrimos, não numa auditoria institucional da empresa. Se isso não for suficiente para sua decisão, trate como um dado a mais, não como veredito final."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Sim, com ressalva de garantia. A PodiumFit vende tanto pelo site próprio (podiumfit.com.br) quanto por loja oficial no Mercado Livre, e as duas fontes batem: dimensões montada e dobrada, peso do equipamento e garantia, tudo publicado sem vazios de dado. É o fabricante com a ficha mais auditável do meio de tabela do nosso catálogo. A ressalva real é a garantia, de só 90 dias: a segunda mais curta entre os modelos com fabricante identificável.</p>
+  </div>
+
+  <h2>O que já verificamos</h2>
+  <p>A <a href="/reviews/podiumfit-x300">PodiumFit X300</a> aparece na loja oficial PODIUMFIT no Mercado Livre, com mais de 1.000 unidades vendidas nesse anúncio específico e 385 avaliações (nota 4,7). Encontramos o mesmo produto e as mesmas especificações no site próprio da marca (podiumfit.com.br), que publica as dimensões montada (136 × 60 × 116 cm) e dobrada (56 × 60 × 126 cm), o peso do equipamento (30 kg) e a garantia, informação que faltou em vários outros modelos de meio de tabela que já analisamos.</p>
+
+  <h2>Garantia: 90 dias, a segunda mais curta do catálogo</h2>
+  <p>90 dias direto do fabricante, mais curta que a maioria das marcas do nosso comparativo (Polimet, Dream Fitness e Gallant oferecem 6 meses), à frente só da WCT Fitness (3 meses). Isso resulta numa nota de confiabilidade de 5,5/10 na nossa <a href="/metodologia">metodologia</a>, a mesma da Importway, outra marca com site próprio mas garantia de 90 dias.</p>
+
+  <h2>Modelo que já analisamos</h2>
+  <p>Até hoje, cobrimos só a <a href="/reviews/podiumfit-x300">PodiumFit X300</a> (nota editorial 6,5/10): motor de 2,0 HPM, 12 km/h, lona 110×40 cm, 110 kg de peso máximo, por R$ 2.534. Não se destaca em nenhum critério isolado, mas também não tem nenhuma fraqueza grande: a nota vem de ser consistentemente mediana, com a vantagem real de uma ficha técnica auditável no site do fabricante.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>PodiumFit vale a pena?</h3>
+  <p>Pelo único modelo que já analisamos (X300), sim, com ressalva de preço e garantia: a ficha é auditável no próprio site da marca (podiumfit.com.br), sem vazios de dado, mas a garantia de 90 dias é a segunda mais curta do nosso catálogo.</p>
+
+  <h3>A PodiumFit tem site oficial?</h3>
+  <p>Sim, podiumfit.com.br, com loja própria além da loja oficial no Mercado Livre. O site publica dimensões montada e dobrada, peso do equipamento e garantia, sem vazios de informação.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/melhores-marcas-de-esteira">ranking de melhores marcas de esteira</a> e as análises de marca da <a href="/guias/polimet-e-boa-marca">Polimet</a> e da <a href="/guias/wct-fitness-e-boa-marca">WCT Fitness</a>.</p>
+
+  <p class="disclosure">Esta página é baseada no que verificamos analisando a PodiumFit X300, não em pesquisa institucional completa sobre a empresa. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação não influencia a avaliação feita aqui.</p>
+
+</ArticleLayout>

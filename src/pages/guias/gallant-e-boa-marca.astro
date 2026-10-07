@@ -1,0 +1,68 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Gallant é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-07',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/gallant-e-boa-marca',
+};
+
+const faq = [
+	{ q: 'Gallant vale a pena?', a: 'Pelos três modelos que já analisamos (GEE12M25A, GEE12M28A e GEE13M29A), sim: é a marca da Webcontinental, com a ficha técnica mais completa do nosso catálogo, loja oficial confirmada e garantia de 6 meses nos três. A ressalva é peso: mesmo dobrando, pesam entre 40 e 45 kg, pesadas para mover sozinho.' },
+	{ q: 'A Gallant tem site oficial?', a: 'Sim, gallantoficial.com.br, além da loja oficial Webcontinental no Mercado Livre, com selo verificado e mais de 50 mil vendas registradas na loja.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Gallant é uma boa marca de esteira? (2026)"
+	description="O que verificamos sobre a Gallant pelas três análises da linha Elite: site oficial, ficha mais completa do catálogo, garantia e loja Webcontinental."
+	path="/guias/gallant-e-boa-marca"
+	ogTitle="Gallant é uma boa marca?"
+	ogDescription="A marca com a ficha técnica mais transparente do nosso catálogo: peso líquido e bruto, dimensões e garantia, nos três modelos que já analisamos."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Gallant é uma boa marca de esteira?"
+	standfirst="Esta resposta é baseada no que verificamos analisando os três modelos Gallant Elite que já cobrimos, não numa auditoria institucional da Webcontinental. Se isso não for suficiente para sua decisão, trate como um dado a mais, não como veredito final."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Sim, com uma ressalva de peso. A Gallant (marca própria da Webcontinental, uma das maiores varejistas do Brasil) publica a ficha técnica mais completa de todo o nosso catálogo: peso líquido <strong>e</strong> peso bruto, dimensões do produto montado e da embalagem, e garantia, sem os vazios de dado que marcam a maioria das outras marcas. Os três modelos que já analisamos (GEE12M25A, GEE12M28A, GEE13M29A) têm loja oficial Webcontinental confirmada, com selo verificado. A troca real é peso: entre 40 e 45 kg mesmo dobrando, pesadas para uma pessoa só mover.</p>
+  </div>
+
+  <h2>O que já verificamos</h2>
+  <p>As três <a href="/reviews/gallant-elite-gee12m25a">Gallant Elite</a> do nosso catálogo são vendidas pela loja oficial GALLANT, da Webcontinental, no Mercado Livre, e encontramos o mesmo fabricante no site próprio (gallantoficial.com.br). A ficha técnica bate nos dois canais: nenhuma das inconsistências que já encontramos em outras marcas (contradição entre motor DC e AC, por exemplo, numa esteira de outra fabricante) apareceu em nenhum dos três modelos Gallant.</p>
+  <p>Um ponto de atenção real, não exclusivo da Gallant, mas que vale repetir: as duas Gallant Elite de maior potência (GEE12M28A e GEE13M29A) são vendidas como anúncios separados por voltagem (127V e 220V), não bivolt automático. Confirme a voltagem correta antes de comprar.</p>
+
+  <h2>Garantia e confiabilidade: 6 meses, nota 7,0</h2>
+  <p>Garantia de 6 meses direto do fabricante, confirmada nos três modelos: o mesmo prazo da <a href="/guias/polimet-e-boa-marca">Polimet</a> e da <a href="/guias/dream-fitness-e-boa-marca">Dream Fitness</a>, e o dobro da Importway (90 dias) e da WCT Fitness (3 meses). Isso resulta na mesma nota de confiabilidade (7,0/10) que atribuímos a essas duas marcas na nossa <a href="/metodologia">metodologia</a>, empatada como a segunda maior do catálogo, atrás só da Athletic (9,5, com 12 meses de garantia).</p>
+
+  <h2>Os três modelos que já analisamos</h2>
+  <p>A <a href="/reviews/gallant-elite-gee12m25a">GEE12M25A</a> (2,5 HP, 14 km/h, 120 kg, R$ 2.453 a 2.529) é a entrada da linha. A <a href="/reviews/gallant-elite-gee12m28a">GEE12M28A</a> (2,8 HP, 16 km/h, 120 kg, R$ 2.498) soma inclinação manual hidráulica em 3 níveis pelo mesmo peso máximo. A <a href="/reviews/gallant-elite-gee13m29a">GEE13M29A</a> (2,9 HP, 16 km/h, 130 kg, R$ 3.609) é a de maior peso suportado e display maior da linha. Uma ressalva pontual: a GEE12M25A tem bem menos avaliações registradas no Mercado Livre (23 a 28, dependendo da voltagem) que as outras duas (242 e 269), o que não entra na nota de confiabilidade (que mede o fabricante, não o volume de um anúncio específico), mas é um dado real a considerar.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Gallant vale a pena?</h3>
+  <p>Pelos três modelos que já analisamos (GEE12M25A, GEE12M28A e GEE13M29A), sim: é a marca da Webcontinental, com a ficha técnica mais completa do nosso catálogo, loja oficial confirmada e garantia de 6 meses nos três. A ressalva é peso: mesmo dobrando, pesam entre 40 e 45 kg, pesadas para mover sozinho.</p>
+
+  <h3>A Gallant tem site oficial?</h3>
+  <p>Sim, gallantoficial.com.br, além da loja oficial Webcontinental no Mercado Livre, com selo verificado e mais de 50 mil vendas registradas na loja.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/melhores-marcas-de-esteira">ranking de melhores marcas de esteira</a> e as análises de marca da <a href="/guias/athletic-e-boa-marca">Athletic</a> e da <a href="/guias/speedo-e-boa-marca">Speedo</a>.</p>
+
+  <p class="disclosure">Esta página é baseada no que verificamos analisando os três modelos Gallant Elite (GEE12M25A, GEE12M28A, GEE13M29A), não em pesquisa institucional completa sobre a Webcontinental. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação não influencia a avaliação feita aqui.</p>
+
+</ArticleLayout>

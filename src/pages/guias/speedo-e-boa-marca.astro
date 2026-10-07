@@ -1,0 +1,68 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Speedo é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-07',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/speedo-e-boa-marca',
+};
+
+const faq = [
+	{ q: 'Speedo é uma boa marca de esteira?', a: 'A marca é internacionalmente reconhecida e aparece confirmada no campo oficial do anúncio que analisamos, mas isso não é suficiente para a nossa nota de confiabilidade: a garantia não é informada nesse anúncio específico, então a nota (4,0/10) é a mesma de marcas sem o mesmo reconhecimento.' },
+	{ q: 'Qual a garantia da esteira Speedo TR5?', a: 'Não aparece no anúncio que analisamos. A Decathlon, que vende o mesmo modelo por outro vendedor (Defitness, representante oficial da Speedo Fitness no Brasil), declara 3 anos no motor e 1 ano na estrutura, mas não confirmamos se esse prazo vale para uma compra no anúncio que linkamos. Confirme direto com o vendedor antes de comprar.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Speedo é uma boa marca de esteira? (2026)"
+	description="O que verificamos sobre a Speedo pela análise da TR5: marca confirmada no anúncio, mas garantia não informada no canal que analisamos."
+	path="/guias/speedo-e-boa-marca"
+	ogTitle="Speedo é uma boa marca?"
+	ogDescription="Marca internacional reconhecida, mas isso não bastou para a nossa nota de confiabilidade: a garantia não aparece no anúncio que analisamos."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Speedo é uma boa marca de esteira?"
+	standfirst="Esta resposta é baseada no que verificamos analisando a Speedo TR5, o único modelo da marca que já cobrimos, não numa auditoria institucional da empresa. Se isso não for suficiente para sua decisão, trate como um dado a mais, não como veredito final."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Depende do que você está perguntando. Como marca, a Speedo é internacionalmente reconhecida e aparece confirmada no campo oficial de marca do anúncio que analisamos, vendido por uma loja oficial com selo verificado no Mercado Livre. Mas a nossa nota de confiabilidade mede garantia confirmada, não fama de marca: e a garantia não aparece nesse anúncio específico. O resultado é uma nota (4,0/10) igual à de marcas sem o mesmo reconhecimento internacional.</p>
+  </div>
+
+  <h2>O que já verificamos</h2>
+  <p>A <a href="/reviews/speedo-tr5">Speedo TR5</a> é vendida pela Casa do Fitness, loja oficial no Mercado Livre (selo verificado, reputação "5 verde", mais de 500 vendas), com a marca Speedo confirmada no campo oficial de marca do anúncio. É um sinal de confiabilidade mais forte do que a maioria dos modelos do nosso catálogo, que costumam ser marcas de nicho brasileiras sem o mesmo reconhecimento internacional.</p>
+  <p>O problema é a garantia: nem a ficha técnica nem a descrição desse anúncio específico informam o prazo. Encontramos a informação em outro lugar: o site da Decathlon, que vende o mesmo modelo TR5 através da Defitness (declarada "representante oficial da Speedo Fitness no Brasil"), especifica 3 anos no motor, 1 ano na estrutura e 3 meses nas demais peças. Mas a Defitness/Decathlon e a Casa do Fitness (o vendedor do anúncio que linkamos) são canais de venda diferentes, e não temos confirmação de que os mesmos termos valem para uma compra feita no canal que analisamos.</p>
+
+  <h2>Por que a nota de confiabilidade não é mais alta, apesar do nome reconhecido</h2>
+  <p>Nossa <a href="/metodologia">metodologia</a> pontua confiabilidade por garantia confirmada, não por reconhecimento de marca: fabricante identificável com 12 meses ou mais pontua o máximo (9,5); com 6 meses, 7,0; com 3 meses, 5,5; quando a marca é identificável mas a garantia não aparece em nenhuma fonte confiável para o canal específico, a nota fica no meio da faixa (4,0), caso a caso. É a mesma nota que já atribuímos à <a href="/reviews/qbuen-150kg">QBuen</a> e à <a href="/reviews/health-herald-lcd">Health Herald</a>, apesar da Speedo ser uma marca muito mais reconhecida que as duas.</p>
+
+  <h2>Modelo que já analisamos</h2>
+  <p>Até hoje, cobrimos só a <a href="/reviews/speedo-tr5">Speedo TR5</a> (nota editorial 6,2/10): a maior lona (140 × 50 cm) e uma das maiores velocidades (18 km/h) do nosso catálogo inteiro, com 15 níveis de inclinação elétrica e Bluetooth com certificação Anatel, por R$ 10.990. O motor é anunciado como 4 HP, mas o próprio fabricante avisa que é potência de pico, não contínua, e a contínua não aparece em nenhuma fonte que encontramos.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Speedo é uma boa marca de esteira?</h3>
+  <p>A marca é internacionalmente reconhecida e aparece confirmada no campo oficial do anúncio que analisamos, mas isso não é suficiente para a nossa nota de confiabilidade: a garantia não é informada nesse anúncio específico, então a nota (4,0/10) é a mesma de marcas sem o mesmo reconhecimento.</p>
+
+  <h3>Qual a garantia da esteira Speedo TR5?</h3>
+  <p>Não aparece no anúncio que analisamos. A Decathlon, que vende o mesmo modelo por outro vendedor (Defitness, representante oficial da Speedo Fitness no Brasil), declara 3 anos no motor e 1 ano na estrutura, mas não confirmamos se esse prazo vale para uma compra no anúncio que linkamos. Confirme direto com o vendedor antes de comprar.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/melhores-marcas-de-esteira">ranking de melhores marcas de esteira</a> e as análises de marca da <a href="/guias/athletic-e-boa-marca">Athletic</a> e da <a href="/guias/gallant-e-boa-marca">Gallant</a>.</p>
+
+  <p class="disclosure">Esta página é baseada no que verificamos analisando a Speedo TR5, não em pesquisa institucional completa sobre a empresa. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação não influencia a avaliação feita aqui.</p>
+
+</ArticleLayout>

@@ -1,0 +1,67 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'WCT Fitness é uma boa marca de esteira?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-07',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/wct-fitness-e-boa-marca',
+};
+
+const faq = [
+	{ q: 'WCT Fitness vale a pena?', a: 'Depende do que você prioriza. É a esteira com mais volume de venda do nosso catálogo (10 mil unidades, 3.347 avaliações, nota 4,8), mas também a com a nota editorial mais baixa (5,8/10): motor contínuo de 0,75 HP, um dos mais fracos que já vimos, e garantia de só 3 meses, a mais curta entre fabricantes identificáveis do nosso comparativo.' },
+	{ q: 'Por que a WCT tem tantas vendas se a nota editorial é baixa?', a: 'São métricas diferentes. A nota de comprador mede satisfação de quem já usa, em geral dentro do que o produto promete pelo preço cobrado. A nossa nota editorial mede especificação técnica e garantia contra todo o catálogo, não contra a própria faixa de preço.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="WCT Fitness é uma boa marca de esteira? (2026)"
+	description="O que verificamos sobre a WCT Fitness pela análise da esteira: mais vendida do catálogo, mas motor mais fraco e garantia mais curta entre as marcas."
+	path="/guias/wct-fitness-e-boa-marca"
+	ogTitle="WCT Fitness é uma boa marca?"
+	ogDescription="A mais vendida do nosso catálogo (10 mil unidades), mas também a com motor mais fraco e garantia mais curta entre as marcas identificáveis."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="WCT Fitness é uma boa marca de esteira?"
+	standfirst="Esta resposta é baseada no que verificamos analisando a esteira WCT Fitness, o único modelo da marca que já cobrimos, não numa auditoria institucional da empresa. Se isso não for suficiente para sua decisão, trate como um dado a mais, não como veredito final."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <p>Duas coisas verdadeiras ao mesmo tempo. A WCT Fitness é, disparado, a marca com mais volume de venda que encontramos numa varredura de esteiras no Mercado Livre: 10 mil unidades, 3.347 avaliações, nota 4,8. Também é, pela nossa metodologia, a com a nota editorial mais baixa do catálogo (5,8/10): a ficha técnica da própria marca declara potência contínua de 0,75 HP, um dos motores mais fracos que já vimos, e a garantia de 3 meses é a mais curta entre fabricantes identificáveis do nosso comparativo.</p>
+  </div>
+
+  <h2>O que já verificamos</h2>
+  <p>A <a href="/reviews/wct-fitness-esteira">esteira WCT Fitness</a> tem loja oficial no Mercado Livre e também é vendida pelo site próprio da marca, com preços próximos entre os dois canais (R$ 1.699 no Mercado Livre contra R$ 1.720,90, ou R$ 1.686,48 à vista, no site oficial, em setembro de 2026). A ficha oficial declara dois números de motor: potência de pico (2,0 HP, o que aparece destacado nos anúncios) e potência contínua (0,75 HP, a que de fato importa para uso regular). É uma transparência que vale notar: a marca publica os dois valores na mesma ficha, diferente da <a href="/guias/speedo-e-boa-marca">Speedo</a>, que só declara o de pico.</p>
+
+  <h2>Volume de vendas não é a mesma coisa que confiabilidade de garantia</h2>
+  <p>A garantia confirmada é de 3 meses direto do fabricante: a mais curta entre todas as marcas com fabricante identificável do nosso catálogo, metade do prazo da Importway e da PodiumFit (90 dias) e um quarto da Polimet, Dream Fitness e Gallant (6 meses). Combinado com o motor contínuo mais fraco entre marcas identificáveis (só a Health Herald, com 0,65 HP, é mais fraco), isso resulta na menor nota de confiabilidade entre os fabricantes identificáveis do nosso comparativo (5,5/10 na nossa <a href="/metodologia">metodologia</a>), mesmo sendo, disparado, o produto mais vendido que já encontramos.</p>
+
+  <h2>Modelo que já analisamos</h2>
+  <p>Até hoje, cobrimos só a <a href="/reviews/wct-fitness-esteira">esteira WCT Fitness</a> (nota editorial 5,8/10): R$ 1.699, mais barata que a Polimet EP-1600 e a Dream Fitness DR-1600, com o maior volume de avaliações reais (3.347) de todo o nosso comparativo. Faz sentido para quem caminha em ritmo leve a moderado e prioriza preço e histórico de compra sobre potência de motor.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>WCT Fitness vale a pena?</h3>
+  <p>Depende do que você prioriza. É a esteira com mais volume de venda do nosso catálogo (10 mil unidades, 3.347 avaliações, nota 4,8), mas também a com a nota editorial mais baixa (5,8/10): motor contínuo de 0,75 HP, um dos mais fracos que já vimos, e garantia de só 3 meses, a mais curta entre fabricantes identificáveis do nosso comparativo.</p>
+
+  <h3>Por que a WCT tem tantas vendas se a nota editorial é baixa?</h3>
+  <p>São métricas diferentes. A nota de comprador mede satisfação de quem já usa, em geral dentro do que o produto promete pelo preço cobrado. A nossa nota editorial mede especificação técnica e garantia contra todo o catálogo, não contra a própria faixa de preço.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/melhores-marcas-de-esteira">ranking de melhores marcas de esteira</a> e as análises de marca da <a href="/guias/dream-fitness-e-boa-marca">Dream Fitness</a> e da <a href="/guias/podiumfit-e-boa-marca">PodiumFit</a>.</p>
+
+  <p class="disclosure">Esta página é baseada no que verificamos analisando a esteira WCT Fitness, não em pesquisa institucional completa sobre a empresa. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação não influencia a avaliação feita aqui.</p>
+
+</ArticleLayout>
