@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Link do checkout (Hotmart, Kiwify etc.). Enquanto estiver vazio, a página
-// sai com noindex e o botão de compra fica desativado ("Vendas abrem em breve").
+// Link do checkout (Hotmart). Enquanto estiver vazio, a página sai com noindex e o
+// botão de compra fica desativado ("Vendas abrem em breve").
 // Ao colar o link aqui, lembre de adicionar /plano-30-dias ao public/sitemap.xml.
+// O acesso (login + senha) é enviado por e-mail automaticamente pelo app em
+// app.esteiraergometrica.com quando a Hotmart avisa da compra; esta página só cobra.
 const CHECKOUT_URL = '';
-const PRECO = 'R$ 27';
+const PRECO = 'R$ 47';
 
 const hasCheckout = CHECKOUT_URL.startsWith('https://');
 // Link do próprio produto, não de afiliado: nofollow (checkout não precisa ser rastreado),
@@ -14,11 +16,11 @@ const checkoutAttrs = { href: CHECKOUT_URL, rel: 'nofollow noopener' };
 const IMG = '/assets/images/plano-30-dias';
 
 const inside = [
-	{ t: '30 treinos prontos', d: 'Cada dia informa duração, inclinação e nível de esforço, bloco a bloco.' },
+	{ t: '30 treinos guiados', d: 'Cronômetro na tela do seu celular, com alerta sonoro e por voz avisando a hora de mudar o ritmo ou a inclinação.' },
 	{ t: 'Progressão gradual', d: 'A dificuldade sobe por tempo, inclinação e intervalos. Nada de velocidade obrigatória.' },
-	{ t: 'Guia de esforço de 1 a 10', d: 'Você adapta a velocidade à sua condição do dia, em qualquer modelo de esteira.' },
-	{ t: 'Teste de 20 minutos', d: 'No Dia 1 e no Dia 30. Comparação objetiva de distância e esforço.' },
-	{ t: 'Planilha de progresso', d: 'Uma página para imprimir e marcar cada treino feito, com distância e sensação.' },
+	{ t: 'Teste de esforço interativo', d: 'Durante o treino, o app pergunta como você está conseguindo falar e ajusta a recomendação na hora, em qualquer modelo de esteira.' },
+	{ t: 'Teste de 20 minutos', d: 'No Dia 1 e no Dia 30. Comparação objetiva de distância e esforço, com gráfico de evolução automático.' },
+	{ t: 'Diário de progresso', d: 'Registre tempo, distância e esforço em segundos, direto no celular: nada de planilha para imprimir.' },
 	{ t: 'Extras que fazem diferença', d: 'Segurança, alongamento pós-treino, alimentação, dúvidas frequentes e como continuar depois.' },
 ];
 
@@ -33,7 +35,9 @@ const faq = [
 	{ q: 'Minha esteira não tem inclinação. Serve?', a: 'Serve. O plano é guiado pelo esforço: sem inclinação, você ajusta a velocidade para chegar à mesma sensação.' },
 	{ q: 'Sou iniciante. Consigo seguir?', a: 'Consegue. A primeira semana tem treinos de 15 a 26 minutos em ritmo controlado, pensados para quem está começando.' },
 	{ q: 'Quanto tempo por dia?', a: 'De 15 a 40 minutos, com 4 dias de descanso no mês.' },
-	{ q: 'Como recebo o ebook?', a: 'Por e-mail, logo após a confirmação do pagamento. É um PDF que abre no celular, no tablet ou no computador, e dá para imprimir.' },
+	{ q: 'Como recebo o acesso?', a: 'Por e-mail, logo após a confirmação do pagamento: um login e uma senha para entrar no app, direto no navegador. O e-book original em PDF também vai junto, como bônus.' },
+	{ q: 'Preciso baixar o app na App Store ou Google Play?', a: 'Não. É um Web App leve que roda direto no navegador do seu celular, sem loja de aplicativo. Se quiser, dá para adicionar à tela inicial com um toque, mas não é obrigatório.' },
+	{ q: 'Funciona em qualquer esteira?', a: 'Sim. O app guia o seu esforço e o seu tempo, não depende de marca ou modelo: funciona com ou sem inclinação, em esteira de casa ou de academia.' },
 	{ q: 'Vou emagrecer com o plano?', a: 'O plano ajuda a criar rotina e aumentar o gasto de energia. O resultado no peso depende também de alimentação, sono e constância.' },
 	{ q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia e pede o reembolso direto pela plataforma de pagamento.' },
 ];
@@ -50,11 +54,11 @@ const jsonLd = {
 ---
 
 <BaseLayout
-	title="Plano 30 Dias na Esteira: treinos prontos para casa"
-	description="Ebook com 30 treinos de esteira prontos, do primeiro passo a 40 minutos. Guia de esforço, teste de evolução e planilha. Funciona com ou sem inclinação."
+	title="Plano 30 Dias na Esteira: app guiado com cronômetro"
+	description="App com 30 treinos guiados na esteira, cronômetro, alertas e teste de esforço interativo. Do primeiro passo a 40 minutos, direto no navegador."
 	path="/plano-30-dias"
-	ogTitle="Plano 30 Dias na Esteira"
-	ogDescription="Do primeiro passo a 40 minutos de treino. Um plano por dia, sem academia, no seu ritmo."
+	ogTitle="Plano 30 Dias na Esteira: o app"
+	ogDescription="Do primeiro passo a 40 minutos de treino. Um plano por dia, guiado por cronômetro, sem academia, no seu ritmo."
 	ogImage={`${IMG}/og-plano-30-dias.jpg`}
 	jsonLd={jsonLd}
 	noindex={!hasCheckout}
@@ -62,13 +66,13 @@ const jsonLd = {
 
 <section class="lp-band lp-dark lp-hero">
 	<div class="lp-hero-text">
-		<span class="lp-tag">Guia prático em PDF</span>
+		<span class="lp-tag">Novo: aplicativo interativo</span>
 		<h1>Sua esteira parada virou cabide? Em 30 dias ela vira rotina.</h1>
-		<p class="lp-lead">Um treino pronto para cada dia: do primeiro passo a 40 minutos de caminhada com inclinação e intervalos. Sem academia, sem planilha complicada, no seu ritmo.</p>
+		<p class="lp-lead">Um aplicativo que dita o seu ritmo, controla o seu tempo e avisa o momento exato de mudar a inclinação. Sem academia, sem planilha de papel, no seu celular.</p>
 		<ul class="lp-checks lp-checks--light">
-			<li>30 treinos com tempo, inclinação e esforço definidos</li>
-			<li>Funciona com qualquer esteira, com ou sem inclinação</li>
-			<li>Teste no Dia 1 e no Dia 30 para você ver a evolução</li>
+			<li>Cronômetro guiado com alertas sonoros e por voz</li>
+			<li>Funciona com qualquer esteira, direto no navegador</li>
+			<li>Teste no Dia 1 e no Dia 30, com gráfico de evolução automático</li>
 		</ul>
 		<div class="lp-cta-row">
 			<a class="lp-btn" href="#oferta">Quero começar hoje</a>
@@ -77,7 +81,21 @@ const jsonLd = {
 	</div>
 	<div class="lp-hero-media">
 		<img class="lp-hero-photo" src={`${IMG}/instrutora.webp`} width="640" height="1147" alt="Instrutora do Plano 30 Dias em casa, ao lado da esteira" fetchpriority="high">
-		<img class="lp-hero-cover" src={`${IMG}/capa.webp`} width="520" height="736" alt="Capa do ebook Plano 30 Dias na Esteira">
+		<!-- Mockup do app real (telas em app.esteiraergometrica.com), não uma imagem: evita
+		     carregar mais uma foto e fica sempre consistente com a interface de verdade. -->
+		<div class="lp-phone" aria-hidden="true">
+			<div class="lp-phone-screen">
+				<span class="lp-phone-top">Ciclo 2 de 4</span>
+				<span class="lp-phone-what">subida forte</span>
+				<span class="lp-phone-time">12:34</span>
+				<div class="lp-phone-tiles">
+					<div><small>Inclinação</small><b>4%</b></div>
+					<div><small>Esforço</small><b>Forte</b></div>
+				</div>
+				<div class="lp-phone-bar"><i></i></div>
+				<span class="lp-phone-play">▶</span>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -148,19 +166,19 @@ const jsonLd = {
 
 <section id="oferta" class="lp-offer-wrap">
 	<div class="lp-offer">
-		<img src={`${IMG}/capa.webp`} width="520" height="736" loading="lazy" alt="Capa do ebook Plano 30 Dias na Esteira">
-		<h2>Plano 30 Dias na Esteira</h2>
+		<img src={`${IMG}/app-icon.png`} width="200" height="200" loading="lazy" alt="Ícone do app Plano 30 Dias na Esteira" style="width:5rem;height:5rem;border-radius:22px">
+		<h2>Acesso Vitalício ao Aplicativo</h2>
 		<ul class="lp-checks">
-			<li>Ebook completo em PDF (17 páginas)</li>
-			<li>30 treinos + guia de esforço</li>
-			<li>Planilha de progresso para imprimir</li>
-			<li>Alongamento pós-treino, alimentação e perguntas frequentes</li>
+			<li>App guiado por 30 dias, direto no navegador, sem baixar nada</li>
+			<li>Cronômetro, alertas sonoros e teste de esforço interativo</li>
+			<li>Diário de progresso com gráfico de evolução automático</li>
+			<li>Bônus: o e-book original em PDF, pra quem prefere ler sem abrir o app</li>
 		</ul>
 		<p class="lp-price"><span>pagamento único</span><strong>{PRECO}</strong><span>no Pix ou cartão</span></p>
 		{hasCheckout
 			? <a class="lp-btn lp-btn--full" {...checkoutAttrs}>Quero meu Plano 30 Dias</a>
 			: <span class="lp-btn lp-btn--full lp-btn--off" aria-disabled="true">Vendas abrem em breve</span>}
-		<p class="lp-guarantee">Garantia de 7 dias: não gostou, devolvemos seu dinheiro.</p>
+		<p class="lp-guarantee">Garantia de 7 dias: não gostou, devolvemos seu dinheiro.<br>Acesso por e-mail (login e senha), em minutos após a confirmação do pagamento.</p>
 	</div>
 </section>
 
@@ -208,7 +226,19 @@ const jsonLd = {
 	.lp-lead { margin: 0 0 1.5rem; font-size: 1.15rem; line-height: 1.6; color: var(--lp-light); }
 	.lp-hero-media { position: relative; min-height: 26rem; }
 	.lp-hero-photo { position: absolute; right: 0; top: 0; width: 72%; height: 100%; object-fit: cover; object-position: center top; border-radius: 20px; }
-	.lp-hero-cover { position: absolute; left: 0; bottom: 1.5rem; width: 46%; height: auto; border-radius: 8px; box-shadow: 0 24px 48px rgba(0,0,0,0.45); transform: rotate(-4deg); }
+	/* Mockup CSS do telefone com a tela do treino guiado, no lugar da antiga capa do ebook. */
+	.lp-phone { position: absolute; left: 0; bottom: 1.5rem; width: 46%; max-width: 13.75rem; aspect-ratio: 9/19; border-radius: 28px; background: #0d1314; border: 3px solid #2a3537; box-shadow: 0 24px 48px rgba(0,0,0,0.45); transform: rotate(-4deg); overflow: hidden; }
+	.lp-phone-screen { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #f2f3f1; padding: 0 0.7rem; }
+	.lp-phone-top { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lp-orange); }
+	.lp-phone-what { font-size: 0.68rem; font-weight: 600; margin-top: 0.25rem; text-transform: capitalize; }
+	.lp-phone-time { font-size: clamp(1.75rem, 8vw, 2.5rem); font-weight: 800; margin: 0.4rem 0; font-variant-numeric: tabular-nums; }
+	.lp-phone-tiles { display: flex; gap: 0.4rem; width: 100%; }
+	.lp-phone-tiles div { flex: 1; background: #1c2527; border-radius: 8px; padding: 0.4rem 0.25rem; }
+	.lp-phone-tiles small { display: block; font-size: 0.44rem; letter-spacing: 0.1em; text-transform: uppercase; color: #9aa6a5; }
+	.lp-phone-tiles b { font-size: 0.78rem; font-weight: 800; }
+	.lp-phone-bar { width: 100%; height: 4px; border-radius: 4px; background: #303b3d; margin-top: 0.65rem; overflow: hidden; }
+	.lp-phone-bar i { display: block; width: 38%; height: 100%; background: #4fa69a; }
+	.lp-phone-play { width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--lp-orange); display: flex; align-items: center; justify-content: center; margin-top: 0.65rem; font-size: 0.8rem; color: #1a1210; }
 	@media (min-width: 56rem) {
 		.lp-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 4rem; padding: 4.5rem 0 5.5rem; }
 		.lp-hero-media { min-height: 36rem; }
