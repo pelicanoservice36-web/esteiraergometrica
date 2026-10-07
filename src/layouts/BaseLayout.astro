@@ -139,6 +139,9 @@ const breadcrumbJsonLd = path === '/' ? null : {
 <meta property="og:url" content={canonicalURL}>
 <meta property="og:image" content={ogImageURL}>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={ogTitle}>
+<meta name="twitter:description" content={ogDescription}>
+<meta name="twitter:image" content={ogImageURL}>
 
 <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
 
@@ -161,6 +164,14 @@ const breadcrumbJsonLd = path === '/' ? null : {
 <body>
 
 <Header transparent={transparentHeader} />
+
+{path !== '/' && (
+	<nav class="breadcrumbs wrap" aria-label="Trilha de navegação">
+		<a href="/">Início</a>
+		<span class="breadcrumbs__sep" aria-hidden="true">›</span>
+		<span class="breadcrumbs__current" aria-current="page">{title}</span>
+	</nav>
+)}
 
 <main class="wrap">
 	<slot />

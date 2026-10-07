@@ -281,6 +281,39 @@ a:hover { color: var(--primary-ink); }
   max-width: 38rem;
 }
 
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  overflow: hidden;
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.breadcrumbs__sep {
+  flex: 0 0 auto;
+}
+
+.breadcrumbs__current {
+  color: var(--ink);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .stamp {
   font-family: var(--sans);
   font-size: 0.8125rem;
