@@ -97,6 +97,10 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://esteiraergometrica.com/guias/polimet-ep1600-ou-gallant-elite</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://esteiraergometrica.com/guias/esteira-para-corrida-ou-caminhada</loc>
     <priority>0.7</priority>
   </url>
@@ -134,6 +138,14 @@
   </url>
   <url>
     <loc>https://esteiraergometrica.com/guias/dream-fitness-dr1600-ou-athletic-racer</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://esteiraergometrica.com/guias/gallant-elite-ou-athletic-racer</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://esteiraergometrica.com/guias/athletic-racer-ou-speedo-tr5</loc>
     <priority>0.7</priority>
   </url>
   <url>
