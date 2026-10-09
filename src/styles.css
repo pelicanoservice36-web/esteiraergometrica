@@ -484,45 +484,46 @@ a:hover { color: var(--primary-ink); }
 }
 @media (prefers-reduced-motion: reduce) { .sticky-buy { transition: none; } }
 
-/* Página de oferta (sem Header/Footer, ver LandingLayout.astro): dá mais respiro
-   no topo já que não tem header fixo acima, e deixa os dois CTAs de corpo
-   (hero + final) centralizados e em destaque em qualquer largura de tela,
-   não só no mobile como os outros .buy do site. */
-.landing-wrap { padding-top: 2.5rem; }
-.landing-article .buy-hero,
-.landing-article .buy-final {
+/* Página de oferta (LandingLayout.astro, sem Header/Footer). Layout segue o
+   wireframe enviado pelo usuário em 09/10/2026: coluna única estreita, bloco
+   azul-marinho no topo com headline + selo + CTA laranja, imagem principal,
+   texto, os 4 pilares em grade 2x2 de imagem com legenda, imagem técnica,
+   garantia, veredito, imagem das cores e CTA azul no fim. Todas as imagens
+   são 1000x1000 com fundo branco. */
+.landing-wrap { max-width: 40rem; padding: 0 0 5rem; }
+.landing-article { background: var(--surface); box-shadow: var(--shadow-card); }
+.landing-hero {
+  background: linear-gradient(180deg, #0A2342 0%, #0B3B82 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1.25rem 1.75rem;
+}
+.landing-hero h1 {
+  color: #fff;
+  font-size: clamp(1.375rem, 5.2vw, 1.875rem);
+  line-height: 1.25;
+  margin: 0 auto 0.9rem;
+  max-width: none;
+}
+.landing-seal { margin: 0 auto 1.1rem; max-width: none; font-size: 0.9375rem; font-weight: 700; color: #E6EEF9; }
+.landing-body { padding: 1.5rem 1.25rem 2rem; }
+.landing-body p { max-width: none; }
+.landing-article .buy {
   display: flex;
-  width: 100%;
-  max-width: 26rem;
-  margin: 0 auto 2rem;
   justify-content: center;
-  font-size: 1.125rem;
-  padding: 1.1rem 1.6rem;
+  text-align: center;
+  width: 100%;
+  line-height: 1.3;
+  font-size: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
 }
-.landing-article .buy-final { margin-top: 2.5rem; margin-bottom: 0.75rem; }
-.landing-article .buy-hero,
-.landing-article .buy-final { text-align: center; line-height: 1.3; }
-.landing-seal {
-  display: inline-block;
-  margin: 1rem 0 0;
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  background: var(--accent-tint);
-  color: var(--accent-ink);
-  font-weight: 800;
-  font-size: 0.9375rem;
-}
-.landing-pillars { list-style: none; padding: 0; margin: 0 0 2rem; max-width: none; }
-.landing-pillars li {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.15rem;
-  margin-bottom: 0.75rem;
-}
-/* Imagens da página de oferta: todas no mesmo quadro 1:1 (os arquivos já são
-   1000×1000, com fundo branco), mesma borda e mesmo raio. Galeria em 2 colunas
-   a partir de 640px, 1 coluna no celular para o texto das imagens seguir legível. */
+/* Laranja um tom abaixo do #FF7714 do wireframe: com texto branco em negrito,
+   #EA6100 passa o mínimo de contraste (3:1 para texto grande), #FF7714 não. */
+.buy.buy--orange { background: #EA6100; }
+.buy.buy--orange:hover { background: #C95300; }
+.buy.buy--blue { background: #2968C8; }
+.buy.buy--blue:hover { background: #1F54A6; }
 .landing-img {
   display: block;
   width: 100%;
@@ -530,13 +531,19 @@ a:hover { color: var(--primary-ink); }
   aspect-ratio: 1 / 1;
   object-fit: contain;
   background: #fff;
-  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
-.landing-img--hero { max-width: 30rem; margin: 0 auto 2rem; }
-.landing-gallery { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0 0 2.5rem; }
-@media (min-width: 40rem) { .landing-gallery { grid-template-columns: 1fr 1fr; } }
-.landing-micro { text-align: center; font-size: 0.875rem; color: var(--muted); margin: 0 auto 2.5rem; }
+.landing-img--hero { margin: 0 0 1.5rem; }
+.landing-img--tech { margin: 0 0 1.75rem; border: 1px solid var(--border); }
+.landing-h2 { text-align: center; font-size: 1.25rem; margin: 2rem 0 1rem; max-width: none; }
+.landing-center { text-align: center; }
+.landing-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.75rem; margin: 0 0 1.75rem; }
+.landing-pillars figure { margin: 0; }
+.landing-pillars figcaption { text-align: center; font-weight: 700; font-size: 0.9375rem; line-height: 1.3; margin-top: 0.45rem; }
+.landing-box { background: #EEF2F7; border-radius: var(--radius-md); padding: 1.25rem; margin: 0 0 1.5rem; text-align: center; }
+.landing-box h2 { margin: 0 0 0.6rem; font-size: 1.1875rem; max-width: none; }
+.landing-box p { font-size: 0.9375rem; }
+.landing-box p:last-child { margin-bottom: 0; }
 
 /* ---------- Hero (vídeo) ---------- */
 
