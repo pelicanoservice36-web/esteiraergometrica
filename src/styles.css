@@ -520,7 +520,22 @@ a:hover { color: var(--primary-ink); }
   padding: 1rem 1.15rem;
   margin-bottom: 0.75rem;
 }
-.landing-img { display: block; width: 100%; max-width: 34rem; height: auto; margin: 0 auto 1.25rem; border-radius: var(--radius-md); }
+/* Imagens da página de oferta: todas no mesmo quadro 1:1 (os arquivos já são
+   1000×1000, com fundo branco), mesma borda e mesmo raio. Galeria em 2 colunas
+   a partir de 640px, 1 coluna no celular para o texto das imagens seguir legível. */
+.landing-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.landing-img--hero { max-width: 30rem; margin: 0 auto 2rem; }
+.landing-gallery { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0 0 2.5rem; }
+@media (min-width: 40rem) { .landing-gallery { grid-template-columns: 1fr 1fr; } }
 .landing-micro { text-align: center; font-size: 0.875rem; color: var(--muted); margin: 0 auto 2.5rem; }
 
 /* ---------- Hero (vídeo) ---------- */
