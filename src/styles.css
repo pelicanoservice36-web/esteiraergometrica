@@ -533,7 +533,7 @@ a:hover { color: var(--primary-ink); }
   background: #fff;
   border-radius: var(--radius-md);
 }
-.landing-img--hero { margin: 0 0 1.5rem; }
+.landing-top__img { padding: 1.5rem 1.25rem 0; }
 .landing-img--tech { margin: 0 0 1.75rem; border: 1px solid var(--border); }
 .landing-h2 { text-align: center; font-size: 1.25rem; margin: 2rem 0 1rem; max-width: none; }
 .landing-center { text-align: center; }
@@ -544,6 +544,48 @@ a:hover { color: var(--primary-ink); }
 .landing-box h2 { margin: 0 0 0.6rem; font-size: 1.1875rem; max-width: none; }
 .landing-box p { font-size: 0.9375rem; }
 .landing-box p:last-child { margin-bottom: 0; }
+
+/* Versão desktop da página de oferta (a partir de 1024px): mesmos blocos, na
+   mesma ordem, aproveitando a largura. Topo em duas colunas sobre o
+   azul-marinho (texto + CTA à esquerda, imagem principal à direita), os 4
+   pilares em uma linha só, e os pares especificações/garantia e
+   veredito/cores lado a lado. Abaixo de 1024px vale o layout de coluna única. */
+@media (min-width: 64rem) {
+  .landing-wrap { max-width: 72rem; padding: 2rem var(--gutter) 4rem; }
+  .landing-article { border-radius: var(--radius-lg); overflow: hidden; }
+  .landing-top {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3rem;
+    padding: 3.5rem 3.5rem;
+    background: linear-gradient(135deg, #0A2342 0%, #0B3B82 100%);
+  }
+  .landing-hero { background: none; text-align: left; padding: 0; }
+  .landing-hero h1 { font-size: 2.625rem; line-height: 1.15; margin: 0 0 1.25rem; }
+  .landing-seal { font-size: 1.0625rem; margin: 0 0 1.75rem; }
+  .landing-hero .buy { width: auto; display: inline-flex; font-size: 1.0625rem; padding: 1.1rem 1.75rem; }
+  .landing-top__img { padding: 0; }
+  .landing-top__img .landing-img { border-radius: var(--radius-lg); box-shadow: var(--shadow-pop); }
+
+  .landing-body { padding: 3rem 3.5rem 3.5rem; }
+  .landing-intro { max-width: 46rem; margin: 0 auto; text-align: center; font-size: 1.125rem; }
+  .landing-h2 { font-size: 1.75rem; margin: 3rem 0 1.5rem; }
+  .landing-pillars { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+  .landing-pillars figcaption { font-size: 1.0625rem; margin-top: 0.65rem; }
+
+  .landing-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; margin: 0 0 3rem; }
+  .landing-split .landing-img--tech,
+  .landing-split .landing-box { margin: 0; }
+  .landing-split .landing-box { padding: 2rem; text-align: left; }
+  .landing-split .landing-box h2 { font-size: 1.5rem; }
+  .landing-split .landing-box p { font-size: 1rem; }
+  .landing-verdict .landing-h2 { text-align: left; margin-top: 0; }
+  .landing-verdict .landing-center { text-align: left; font-size: 1.125rem; }
+
+  .landing-article .landing-final { max-width: 30rem; margin: 0 auto; font-size: 1.125rem; padding: 1.15rem 1.75rem; }
+  .landing-body .disclosure { max-width: 46rem; margin-left: auto; margin-right: auto; text-align: center; }
+}
 
 /* ---------- Hero (vídeo) ---------- */
 
