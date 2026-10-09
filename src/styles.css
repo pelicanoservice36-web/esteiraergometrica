@@ -499,7 +499,28 @@ a:hover { color: var(--primary-ink); }
   font-size: 1.125rem;
   padding: 1.1rem 1.6rem;
 }
-.landing-article .buy-final { margin-top: 2.5rem; }
+.landing-article .buy-final { margin-top: 2.5rem; margin-bottom: 0.75rem; }
+.landing-article .buy-hero,
+.landing-article .buy-final { text-align: center; line-height: 1.3; }
+.landing-seal {
+  display: inline-block;
+  margin: 1rem 0 0;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  color: var(--accent-ink);
+  font-weight: 800;
+  font-size: 0.9375rem;
+}
+.landing-pillars { list-style: none; padding: 0; margin: 0 0 2rem; max-width: none; }
+.landing-pillars li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  margin-bottom: 0.75rem;
+}
+.landing-micro { text-align: center; font-size: 0.875rem; color: var(--muted); margin: 0 auto 2.5rem; }
 
 /* ---------- Hero (vídeo) ---------- */
 

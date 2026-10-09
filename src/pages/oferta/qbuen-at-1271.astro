@@ -1,9 +1,9 @@
 ---
-// Página de oferta para tráfego pago (Google Ads) — a pedido do usuário: só o
-// produto, sem links de saída além do CTA de afiliado. Mesmos dados verificados
-// da review completa (src/pages/reviews/qbuen-150kg.astro), reverificados ao
-// vivo no anúncio em 09/10/2026 via Apify. noindex: não deve competir com a
-// review orgânica no Google, ver LandingLayout.astro.
+// Página de oferta (presell) para tráfego pago do Google Ads: só o produto, sem
+// links de saída além do CTA de afiliado. Estrutura e copy seguem o briefing de
+// resposta direta enviado pelo usuário em 09/10/2026, na ordem pedida. Dados
+// conferidos no anúncio oficial na mesma data (ver notas em affiliates.mjs).
+// noindex: não deve competir com a review orgânica, ver LandingLayout.astro.
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
@@ -29,90 +29,57 @@ const jsonLd = {
 		worstRating: '1',
 	},
 };
-
-const faq = [
-	{ q: 'A QBuen AT-1271 tem barra de apoio?', a: 'Sim: o anúncio oficial cita corrimãos para apoio durante o treino, além de uma trava de segurança que desliga a esteira automaticamente em caso de queda.' },
-	{ q: 'Até quantos kg ela suporta?', a: '150 kg, confirmado na ficha técnica do anúncio oficial.' },
-	{ q: 'A inclinação é elétrica ou manual?', a: 'Elétrica: motorizada e ajustada pelo painel, de 0 a 6%, não precisa abaixar para ajustar na mão.' },
-	{ q: 'Ela dobra para guardar?', a: 'Sim, com rodas para facilitar mover. Pesa 24,5 kg.' },
-	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte do anúncio. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
-];
 ---
 
 <LandingLayout
-	title="QBuen AT-1271: esteira compacta dobrável com barra de apoio"
-	description="QBuen AT-1271: motor 2 HP, até 12 km/h, inclinação elétrica de 0 a 6%, até 150 kg, dobra com 24,5 kg e tem barra de apoio. R$ 1.079,98 na loja oficial."
+	title="QBuen AT-1271: esteira dobrável que suporta 150 kg"
+	description="QBuen AT-1271: suporta 150 kg, motor de 2 HP, 12 km/h, inclinação elétrica de 0 a 6%, dobra e pesa 24,5 kg. Veja a disponibilidade na loja oficial."
 	path="/oferta/qbuen-at-1271"
-	ogTitle="QBuen AT-1271: esteira compacta com barra de apoio"
-	ogDescription="Motor 2 HP, 12 km/h, inclinação elétrica, até 150 kg e barra de apoio. Veja o preço atual na loja oficial QBuen."
+	ogTitle="A esteira dobrável de entrada que suporta 150 kg"
+	ogDescription="Inclinação elétrica, motor de 2 HP e design compacto: conheça a QBuen AT-1271 e veja a disponibilidade no Mercado Livre."
 	jsonLd={jsonLd}
 >
 
 <article class="landing-article">
 
   <div class="lead-section">
-    <span class="eyebrow">Análise de equipamento fitness</span>
-    <h1>QBuen AT-1271: a esteira compacta com barra de apoio que dobra e some embaixo da cama</h1>
-    <p class="standfirst">Motor de 2 HP, até 12 km/h, inclinação elétrica de 0 a 6% e até 150 kg de peso suportado — com corrimãos de apoio e trava de segurança automática. Loja oficial QBuen no Mercado Livre, mais de 1.000 vendidos neste anúncio, nota 4,6 (275 avaliações).</p>
+    <span class="eyebrow">A análise definitiva para quem busca resistência e economia.</span>
+    <h1>A Esteira Dobrável de Entrada que Suporta 150kg de Verdade (Sem Custar uma Fortuna)</h1>
+    <p class="standfirst">Com inclinação elétrica, motor de 2 HP e design compacto, a QBuen AT-1271 virou a queridinha de quem precisa de uma esteira robusta, mas tem pouco espaço em casa.</p>
+    <p class="landing-seal">🏆 Selo Campeã de Custo-Benefício para 150kg</p>
   </div>
 
-  <a class="buy buy-hero" id="buyMain" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço atual no Mercado Livre</a>
+  <a class="buy buy-hero" id="buyMain" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">👉 VER DISPONIBILIDADE NO MERCADO LIVRE (Compra Garantida)</a>
 
-  <section class="ficha">
-    <dl>
-      <div><dt>Motor</dt><dd>2 HP</dd></div>
-      <div><dt>Velocidade máxima</dt><dd>12 km/h</dd></div>
-      <div><dt>Peso máximo</dt><dd>150 kg</dd></div>
-      <div><dt>Peso do equipamento</dt><dd>24,5 kg</dd></div>
-      <div><dt>É dobrável</dt><dd>Sim, com rodas</dd></div>
-      <div><dt>Inclinação</dt><dd>0 a 6%, elétrica</dd></div>
-      <div><dt>Barra de apoio</dt><dd>Sim, com trava de segurança</dd></div>
-      <div><dt>Preço</dt><dd>R$ 1.079,98</dd></div>
-    </dl>
-    <p class="price-note">Preço observado em outubro de 2026, loja oficial QBuen no Mercado Livre. Sujeito a alteração pela loja. Link de afiliado.</p>
-  </section>
+  <p>Quem pesa mais de 100 kg sabe como é frustrante procurar esteira. As de entrada quase sempre param em 110 kg, sem folga nenhuma. E as que aguentam mais costumam ser gigantes, pesadas e caras: entre os modelos que já analisamos, há esteiras de mais de R$ 4.000 e de mais de 80 kg. Não cabem no apartamento, e não cabem no bolso.</p>
+  <p>A QBuen AT-1271 resolve exatamente esse problema: suporta 150 kg, dobra, pesa 24,5 kg e custa <strong>R$ 1.079,98</strong> na loja oficial.</p>
 
-  <h2>Por que essa esteira se destaca</h2>
-  <p>A maioria das esteiras dobráveis de entrada não tem inclinação nem barra de apoio. Esta soma três coisas que normalmente vêm separadas: motor de 2 HP com até 12 km/h (dá pra trotar, não só caminhar), inclinação elétrica de 0 a 6% ajustada pelo painel (motorizada, não manual) e corrimãos de apoio com trava de segurança automática — tudo num corpo dobrável de 24,5 kg, com rodas para mover sozinho.</p>
+  <h2>Os 4 Pilares da QBuen AT-1271</h2>
+  <ul class="landing-pillars">
+    <li><strong>💪 Força Bruta:</strong> Suporta 150kg com seu motor de 2 HP (chega a 12 km/h para trotes e corridas leves).</li>
+    <li><strong>🏔️ Inclinação Elétrica (0 a 6%):</strong> Ajuste pelo painel, sem precisar descer da esteira. Aumenta o gasto calórico do treino.</li>
+    <li><strong>🪶 Leveza Inacreditável:</strong> Pesa apenas 24,5 kg. Dobrável e com rodinhas. Qualquer pessoa consegue guardar.</li>
+    <li><strong>⭐ Aprovada pelos Compradores:</strong> Mais de 500 unidades vendidas e nota 4,6/5 na loja oficial.</li>
+  </ul>
 
-  <div class="pros-cons">
-    <div>
-      <h3>Pontos fortes</h3>
-      <ul>
-        <li>150 kg de peso suportado, confirmado na ficha técnica</li>
-        <li>Inclinação elétrica de 0 a 6%, ajustada pelo painel</li>
-        <li>Corrimãos de apoio e trava de segurança com desligamento automático</li>
-        <li>Dobra e pesa só 24,5 kg, com rodas para mover</li>
-        <li>Painel com tempo, velocidade, calorias, distância e 12 programas</li>
-        <li>Loja oficial, mais de 1.000 vendidos neste anúncio, nota 4,6</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Antes de comprar, saiba</h3>
-      <ul>
-        <li>A garantia não aparece em nenhuma fonte do anúncio — pergunte ao vendedor antes de fechar a compra</li>
-        <li>O comprimento da lona não é confirmado na ficha técnica estruturada (o anúncio cita 99 cm no texto descritivo)</li>
-        <li>Indicada para caminhada e trote, não para corrida sustentada de alta velocidade</li>
-      </ul>
-    </div>
+  <div class="verdict">
+    <h2 style="margin-top:0">Garantia de Risco Zero</h2>
+    <p>Transparência primeiro: a QBuen não tem site próprio de assistência técnica, e o anúncio não declara o tamanho da lona de forma clara. Por isso, o que importa é a sua proteção na compra.</p>
+    <p>Você está protegido pela lei com 90 dias de garantia contra defeitos de fábrica. Além disso, ao comprar pelo botão abaixo na Loja Oficial dentro do Mercado Livre, você ganha a proteção da Compra Garantida: receba a esteira em casa, ligue, teste e, se não gostar por qualquer motivo, você tem 30 dias para devolver de graça e receber 100% do seu dinheiro de volta.</p>
   </div>
 
-  <h2>Perguntas frequentes</h2>
-  {faq.map((f) => (
-    <>
-      <h3>{f.q}</h3>
-      <p>{f.a}</p>
-    </>
-  ))}
+  <h2>Veredito</h2>
+  <p>Nesta faixa de preço, por menos de R$ 1.100, não existe outra esteira entre os dezenove modelos que já analisamos que junte 150 kg de resistência com inclinação elétrica. Some a isso o fato de dobrar e pesar só 24,5 kg, e a QBuen AT-1271 é a escolha certa para quem precisa de uma esteira forte, tem pouco espaço e não quer pagar uma fortuna.</p>
 
-  <a class="buy buy-final" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço atual no Mercado Livre</a>
+  <a class="buy buy-final" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">👉 ACESSAR LOJA OFICIAL NO MERCADO LIVRE</a>
+  <p class="landing-micro">Enviada pelo Mercado Livre Full, com devolução grátis em 30 dias.</p>
 
-  <p class="disclosure">Dados consultados na ficha técnica e descrição do anúncio oficial da loja QBuen no Mercado Livre, em outubro de 2026. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da QBuen. Esta página participa de programas de afiliados: se você comprar pelo link acima, recebemos comissão da loja, sem custo adicional para você. Preço sujeito a alteração pela loja.</p>
+  <p class="disclosure">Dados consultados no anúncio oficial da loja QBuen no Mercado Livre, em outubro de 2026. Preço sujeito a alteração pela loja. Não testamos fisicamente o equipamento. Esta página participa de programas de afiliados: se você comprar pelo link acima, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </article>
 
 <div class="sticky-buy" id="stickyBuy">
-  <a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a>
+  <a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">👉 Ver disponibilidade no Mercado Livre</a>
 </div>
 <script is:inline>
   (function () {
