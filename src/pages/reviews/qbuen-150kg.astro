@@ -13,15 +13,15 @@ const jsonLd = {
 	offers: {
 		'@type': 'AggregateOffer',
 		priceCurrency: 'BRL',
-		lowPrice: '1325.99',
-		highPrice: '1325.99',
+		lowPrice: '1079.98',
+		highPrice: '1079.98',
 		offerCount: '1',
 		availability: 'https://schema.org/InStock',
 	},
 	aggregateRating: {
 		'@type': 'AggregateRating',
 		ratingValue: '4.6',
-		reviewCount: '237',
+		reviewCount: '275',
 		bestRating: '5',
 		worstRating: '1',
 	},
@@ -39,10 +39,11 @@ const jsonLd = {
 };
 
 const faq = [
-	{ q: 'Qual o comprimento da lona da QBuen?', a: 'Não divulgado. A ficha confirma só a largura (40 cm); o comprimento não aparece nem no anúncio nem em fonte externa confiável.' },
+	{ q: 'Qual o comprimento da lona da QBuen?', a: 'A ficha técnica estruturada ainda só declara a largura (40 cm). A descrição do anúncio (texto corrido, não a ficha técnica) cita "superfície de corrida: 99 × 39 cm" — um primeiro número, mas de uma fonte menos confiável que a ficha estruturada, por isso não tratamos como totalmente confirmado.' },
 	{ q: 'A inclinação é elétrica ou manual?', a: 'Elétrica: a ficha técnica confirma que é motorizada, ajustada pelo painel, não manual.' },
 	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
 	{ q: 'Até quantos kg a QBuen suporta?', a: '150 kg, confirmado na ficha técnica do anúncio, o maior valor confirmado com clareza no nosso catálogo.' },
+	{ q: 'A QBuen tem barra de apoio?', a: 'Sim: a descrição do anúncio cita corrimãos, e um mecanismo de trava de segurança desliga a esteira automaticamente em caso de queda.' },
 ];
 
 const faqJsonLd = {
@@ -58,43 +59,47 @@ const faqJsonLd = {
 const fichaItems = [
 	{ label: 'Motor', value: '2 HP (anúncio não separa contínua de pico)' },
 	{ label: 'Velocidade máxima', value: '12 km/h' },
-	{ label: 'Lona', value: 'Largura 40 cm confirmada; comprimento não divulgado' },
+	{ label: 'Lona', value: 'Largura 40 cm confirmada na ficha; descrição do anúncio cita 99 × 39 cm, não confirmado na ficha técnica estruturada' },
 	{ label: 'Peso máximo', value: '150 kg' },
 	{ label: 'Peso do equipamento', value: '24,5 kg' },
 	{ label: 'É dobrável', value: 'Sim' },
 	{ label: 'Inclinação', value: '0 a 6%, elétrica (motorizada, pelo painel)' },
+	{ label: 'Barra de apoio', value: 'Sim, corrimãos + trava de segurança com desligamento automático' },
 	{ label: 'Garantia', value: '[VERIFICAR]' },
-	{ label: 'Preço', value: 'R$ 1.325,99' },
+	{ label: 'Preço', value: 'R$ 1.079,98' },
 ];
 ---
 
 <ReviewLayout
 	title="QBuen AT-1271 é boa? Ficha técnica e nota editorial"
-	description="QBuen AT-1271 é boa? Motor 2 HP, até 150 kg, dobra (24,5 kg) e custa R$ 1.325,99. Comprimento da lona e garantia não são divulgados em nenhuma fonte."
+	description="QBuen AT-1271 é boa? Motor 2 HP, até 150 kg, dobra (24,5 kg), tem barra de apoio e custa R$ 1.079,98. Garantia não é divulgada em nenhuma fonte."
 	path="/reviews/qbuen-150kg"
 	ogTitle="QBuen AT-1271: análise honesta"
-	ogDescription="2 HP, 12 km/h, até 150 kg e inclinação elétrica por R$ 1.325,99, mas o comprimento da lona e a garantia não aparecem em nenhuma fonte."
+	ogDescription="2 HP, 12 km/h, até 150 kg, inclinação elétrica e barra de apoio por R$ 1.079,98, mas a garantia não aparece em nenhuma fonte."
 	jsonLd={[jsonLd, faqJsonLd]}
 	h1="QBuen AT-1271 é boa?"
-	standfirst="A QBuen (modelo AT-1271) já tinha dois diferenciais confirmados desde o título do anúncio: até 150 kg de peso suportado e inclinação de 0 a 6%. Com a ficha técnica completa, dá pra confirmar mais: motor de 2 HP, 12 km/h, dobrável com 24,5 kg, inclinação elétrica (motorizada). Falta só o comprimento da lona e a garantia, dado suficiente para calcular nota editorial pela primeira vez nesta análise."
-	updated="setembro de 2026"
+	standfirst="A QBuen (modelo AT-1271) já tinha dois diferenciais confirmados desde o título do anúncio: até 150 kg de peso suportado e inclinação de 0 a 6%. Com a ficha técnica completa, dá pra confirmar mais: motor de 2 HP, 12 km/h, dobrável com 24,5 kg, inclinação elétrica (motorizada), corrimãos e trava de segurança com desligamento automático. Falta só a garantia, dado suficiente para calcular nota editorial pela primeira vez nesta análise."
+	updated="outubro de 2026"
 	fichaItems={fichaItems}
 	buyHref={buyUrl}
-	priceNote="Preço observado em setembro de 2026, loja oficial QBUEN no Mercado Livre. Link de afiliado."
+	priceNote="Preço observado em outubro de 2026, loja oficial QBUEN no Mercado Livre. Link de afiliado."
 >
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
     <p class="edit-score"><span class="edit-score__value">6,4<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
     <p>Com a ficha técnica em mãos, a QBuen sobe de "análise sem nota" para uma nota de meio de tabela, puxada pra cima pelos 150 kg de peso suportado (o maior confirmado com clareza no nosso catálogo) e pela praticidade: dobra e pesa só 24,5 kg. O que segura a nota é o critério de confiabilidade: a marca é identificável (QBuen, modelo AT-1271, mais transparente que um anúncio "Genérica"), mas a garantia não aparece em nenhuma fonte e não localizamos site de fabricante independente.</p>
-    <p>O comprimento da lona também não é informado, só a largura (40 cm). Usamos a banda mais conservadora da nossa metodologia para esse critério em vez de presumir um valor melhor sem confirmação, o que significa que a nota real pode ser um pouco mais alta do que calculamos aqui, nunca mais baixa.</p>
+    <p>O comprimento da lona segue sem confirmação na ficha técnica estruturada, só a largura (40 cm). A descrição do anúncio agora cita "99 × 39 cm" de superfície de corrida, mas vem do texto de marketing, não da ficha técnica, então tratamos essa parte como dado a mais, não confirmado. Usamos a banda mais conservadora da nossa metodologia para esse critério em vez de presumir um valor melhor sem confirmação total, o que significa que a nota real pode ser um pouco mais alta do que calculamos aqui, nunca mais baixa.</p>
   </div>
 
   <h2>Para quem essa esteira faz sentido</h2>
-  <p>Para quem precisa especificamente de uma esteira que suporte mais de 130 kg, valoriza inclinação elétrica ajustável pelo painel (não manual) e quer um modelo dobrável e leve de mover (24,5 kg) por um preço de entrada (R$ 1.325,99). É uma combinação de peso suportado + praticidade que não aparece junta em nenhum outro modelo desta faixa de preço no catálogo.</p>
+  <p>Para quem precisa especificamente de uma esteira que suporte mais de 130 kg, valoriza inclinação elétrica ajustável pelo painel (não manual), quer corrimãos de apoio durante o treino e um modelo dobrável e leve de mover (24,5 kg) por um preço de entrada (R$ 1.079,98). É uma combinação de peso suportado + praticidade que não aparece junta em nenhum outro modelo desta faixa de preço no catálogo.</p>
 
   <h2>Para quem não faz sentido</h2>
-  <p>Para quem quer confirmar o comprimento da lona antes de comprar (decisivo se você corre, não só caminha) ou que valoriza garantia declarada e fabricante com site próprio e assistência técnica. Nenhuma dessas três informações aparece no anúncio nem em fonte externa confiável que localizamos. Para isso, a <a href="/reviews/podiumfit-x300">PodiumFit X300</a> ou a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite</a> têm ficha auditável e garantia declarada.</p>
+  <p>Para quem valoriza garantia declarada e fabricante com site próprio e assistência técnica: nenhuma dessas informações aparece no anúncio nem em fonte externa confiável que localizamos. Para isso, a <a href="/reviews/podiumfit-x300">PodiumFit X300</a> ou a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite</a> têm ficha auditável e garantia declarada.</p>
+
+  <h2>Segurança: corrimãos e trava automática</h2>
+  <p>A descrição do anúncio (não a ficha técnica estruturada, mas o texto do próprio vendedor oficial) cita corrimãos para apoio durante o treino e um mecanismo de trava de segurança que interrompe automaticamente a esteira em caso de queda acidental, para evitar que roupas fiquem presas. É um recurso real que não tínhamos registrado nas verificações anteriores deste modelo.</p>
 
   <h2>Motor e velocidade: 2 HP, 12 km/h</h2>
   <p>A ficha declara "Potência: 2 hp" como valor único, sem separar contínua de pico, a mesma limitação de transparência que já vimos na Importway e na Antuvi. Com 12 km/h de velocidade máxima, é ficha para caminhada rápida e trote leve.</p>
@@ -102,8 +107,8 @@ const fichaItems = [
   <h2>Peso suportado: 150 kg, o maior confirmado do catálogo</h2>
   <p>Entre os modelos com peso máximo confirmado por ficha técnica clara (não só por uma fonte única sem fabricante, como a Esteira Cardio), os 150 kg da QBuen são o maior número do nosso catálogo, acima dos 130 kg da Gallant Elite GEE13M29A e da Athletic Racer, e bem acima dos 100-120 kg da faixa de entrada.</p>
 
-  <h2>Lona: largura confirmada, comprimento em aberto</h2>
-  <p>A ficha técnica confirma 40 cm de largura da superfície para correr, mas não declara o comprimento em nenhum lugar, só as dimensões externas do produto montado (1,16 m × 60 cm × 91 cm), que não equivalem ao tamanho da lona. Sem esse número, não sabemos se a passada de corrida cabe com folga; tratamos isso como uma lacuna real, não como um problema resolvido.</p>
+  <h2>Lona: largura confirmada, comprimento ainda não é oficial</h2>
+  <p>A ficha técnica estruturada confirma 40 cm de largura da superfície para correr, mas não declara o comprimento nesse campo, só as dimensões externas do produto montado (1,16 m × 60 cm × 91 cm), que não equivalem ao tamanho da lona. A descrição do anúncio, numa frase separada do texto de marketing, cita "superfície de corrida: 99 × 39 cm" — o primeiro número de comprimento que já vimos para este produto, mas vindo de uma fonte menos confiável que a ficha técnica estruturada (e com a largura levemente divergente, 39 contra 40 cm). Tratamos isso como um indício, não como confirmação: se a passada de corrida cabe com folga continua sendo uma lacuna real.</p>
 
   <h2>Dobrável e leve: 24,5 kg</h2>
   <p>Dobra e pesa 24,5 kg, mais leve que a Gallant Elite (40,8-45 kg) e a WCT Fitness (31 kg), embora mais pesada que a PodiumFit X300 (30 kg) e muito mais pesada que a Antuvi (15 kg, que não dobra). Tem rodas para ajudar a mover.</p>
@@ -112,7 +117,7 @@ const fichaItems = [
   <p>A ficha confirma "Tipo de inclinação: Elétrica", ou seja, motorizada e ajustada pelo painel durante o treino, não manual como a Gallant Elite. É um recurso raro nessa faixa de preço, e agora com o mecanismo confirmado (não sabíamos antes se era elétrica ou manual).</p>
 
   <h2>Fabricante: marca identificável, mas sem site próprio localizado</h2>
-  <p>A QBuen vende como loja oficial no Mercado Livre, com o modelo declarado como "AT-1271" (linha AT-1271), mais de 500 vendas e nota 4,6 (237 avaliações) neste anúncio. Diferente da Antuvi ("Geral") ou da Esteira Cardio ("Genérica"), a QBuen é uma marca com nome e modelo identificáveis, mas não localizamos um site de fabricante independente com CNPJ, manual ou assistência técnica própria, e a garantia não é informada em nenhuma fonte. Uma busca externa encontrou uma ficha citando um produto QBuen vendido na Amazon (modelo <strong>AT-1379</strong>, diferente deste AT-1271, com capacidade de 120 kg), não usamos esses números aqui porque é um modelo distinto.</p>
+  <p>A QBuen vende como loja oficial no Mercado Livre, com o modelo declarado como "AT-1271" (linha AT-1271), mais de 1.000 vendas neste anúncio específico (a loja QBuen como um todo soma mais de 10 mil vendas em 5 produtos) e nota 4,6 (275 avaliações). Diferente da Antuvi ("Geral") ou da Esteira Cardio ("Genérica"), a QBuen é uma marca com nome e modelo identificáveis, mas não localizamos um site de fabricante independente com CNPJ, manual ou assistência técnica própria, e a garantia não é informada em nenhuma fonte. Uma busca externa encontrou uma ficha citando um produto QBuen vendido na Amazon (modelo <strong>AT-1379</strong>, diferente deste AT-1271, com capacidade de 120 kg), não usamos esses números aqui porque é um modelo distinto.</p>
 
   <div class="pros-cons">
     <div>
@@ -121,13 +126,14 @@ const fichaItems = [
         <li>150 kg de peso suportado, o maior confirmado com clareza do catálogo</li>
         <li>Dobra e pesa só 24,5 kg, com rodas</li>
         <li>Inclinação elétrica (motorizada) de 0 a 6%, ajustada pelo painel</li>
-        <li>Marca e modelo identificáveis (QBuen AT-1271), mais de 500 vendas e nota 4,6</li>
+        <li>Corrimãos de apoio e trava de segurança com desligamento automático</li>
+        <li>Marca e modelo identificáveis (QBuen AT-1271), mais de 1.000 vendas neste anúncio e nota 4,6</li>
       </ul>
     </div>
     <div>
       <h3>Limitações</h3>
       <ul>
-        <li>Comprimento da lona não divulgado, só a largura (40 cm)</li>
+        <li>Comprimento da lona não confirmado na ficha técnica estruturada (a descrição cita 99 cm, não verificado com a mesma confiança)</li>
         <li>Garantia não informada em nenhuma fonte</li>
         <li>Sem site de fabricante independente ou assistência técnica própria localizados</li>
         <li>Motor declarado como valor único (2 HP), sem separar contínua de pico</li>
@@ -136,12 +142,12 @@ const fichaItems = [
   </div>
 
   <h2>Onde comprar e por quanto</h2>
-  <p>Em setembro de 2026, a QBuen AT-1271 apareceu por <strong>R$ 1.325,99</strong> na loja oficial QBUEN no Mercado Livre, mais de 500 unidades vendidas, nota 4,6 com 237 avaliações.</p>
+  <p>Em outubro de 2026, a QBuen AT-1271 apareceu por <strong>R$ 1.079,98</strong> na loja oficial QBUEN no Mercado Livre (o anúncio mostra um "de R$ 2.399,96" riscado, âncora de marketing que não reproduzimos), mais de 1.000 unidades vendidas neste anúncio, nota 4,6 com 275 avaliações.</p>
 
   <h2>Perguntas frequentes</h2>
 
   <h3>Qual o comprimento da lona da QBuen?</h3>
-  <p>Não divulgado. A ficha confirma só a largura (40 cm); o comprimento não aparece nem no anúncio nem em fonte externa confiável.</p>
+  <p>A ficha técnica estruturada ainda só declara a largura (40 cm). A descrição do anúncio cita "superfície de corrida: 99 × 39 cm", mas vem do texto de marketing, não da ficha técnica, então não tratamos esse número como totalmente confirmado.</p>
 
   <h3>A inclinação é elétrica ou manual?</h3>
   <p>Elétrica: a ficha técnica confirma que é motorizada, ajustada pelo painel, não manual.</p>
@@ -152,10 +158,13 @@ const fichaItems = [
   <h3>Até quantos kg a QBuen suporta?</h3>
   <p>150 kg, confirmado na ficha técnica do anúncio, o maior valor confirmado com clareza no nosso catálogo.</p>
 
+  <h3>A QBuen tem barra de apoio?</h3>
+  <p>Sim: a descrição do anúncio cita corrimãos, e um mecanismo de trava de segurança desliga a esteira automaticamente em caso de queda.</p>
+
   <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
 
   <p><strong>Leia também:</strong> nosso <a href="/guias/como-escolher">guia de como escolher uma esteira</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 
-  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e do título do anúncio da loja oficial QBuen no Mercado Livre, consultados em setembro de 2026, não localizamos site de fabricante independente. Por isso, o comprimento da lona e a garantia estão marcados como não confirmados. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da QBuen. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica, descrição e título do anúncio da loja oficial QBuen no Mercado Livre, consultados em setembro e reverificados em outubro de 2026; não localizamos site de fabricante independente. Por isso, o comprimento da lona (fora da ficha técnica estruturada) e a garantia estão marcados como não totalmente confirmados. Não testamos fisicamente o equipamento, não medimos ruído e não recebemos produto ou pagamento da QBuen. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </ReviewLayout>
