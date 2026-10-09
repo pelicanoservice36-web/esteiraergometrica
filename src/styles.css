@@ -540,6 +540,8 @@ a:hover { color: var(--primary-ink); }
 .landing-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.75rem; margin: 0 0 1.75rem; }
 .landing-pillars figure { margin: 0; }
 .landing-pillars figcaption { text-align: center; font-weight: 700; font-size: 0.9375rem; line-height: 1.3; margin-top: 0.45rem; }
+.landing-pillars figcaption strong { display: block; }
+.landing-pillars figcaption span { display: block; margin-top: 0.3rem; font-weight: 400; font-size: 0.875rem; line-height: 1.45; color: var(--muted); }
 .landing-box { background: #EEF2F7; border-radius: var(--radius-md); padding: 1.25rem; margin: 0 0 1.5rem; text-align: center; }
 .landing-box h2 { margin: 0 0 0.6rem; font-size: 1.1875rem; max-width: none; }
 .landing-box p { font-size: 0.9375rem; }
@@ -573,6 +575,7 @@ a:hover { color: var(--primary-ink); }
   .landing-h2 { font-size: 1.75rem; margin: 3rem 0 1.5rem; }
   .landing-pillars { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
   .landing-pillars figcaption { font-size: 1.0625rem; margin-top: 0.65rem; }
+  .landing-pillars figcaption span { font-size: 0.9375rem; }
 
   .landing-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; margin: 0 0 3rem; }
   .landing-split .landing-img--tech,
