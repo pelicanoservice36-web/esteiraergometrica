@@ -1,0 +1,158 @@
+---
+// Layout mínimo para páginas de oferta (tráfego pago, ex.: Google Ads): mesma
+// infraestrutura de <head> do BaseLayout (meta, OG, JSON-LD, gtag, consentimento
+// de cookies), mas SEM Header, Footer ou breadcrumbs — de propósito, a pedido do
+// usuário: "página somente do produto, sem link de vazão para outra página". A
+// única saída da página é o CTA de afiliado. noindex por padrão: esta página não
+// deve competir no Google com a review orgânica do mesmo produto em /reviews/.
+import '../styles.css';
+
+export interface Props {
+	title: string;
+	description: string;
+	path: string;
+	ogTitle?: string;
+	ogDescription?: string;
+	ogImage?: string;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description,
+	path,
+	ogTitle = title,
+	ogDescription = description,
+	ogImage = '/video/esteiraergometricahead-poster.webp',
+	jsonLd,
+	noindex = true,
+} = Astro.props;
+
+const canonicalURL = new URL(path, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content={noindex ? 'noindex, follow' : 'max-image-preview:large'}>
+
+<!-- Google tag (gtag.js) — mesmo adiamento até interação real do BaseLayout, ver lá o porquê. -->
+<script is:inline>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	window.gtag = gtag;
+	var storedConsent = 'denied';
+	try {
+		if (localStorage.getItem('cookie-consent') === 'accepted') storedConsent = 'granted';
+	} catch (e) {}
+	gtag('consent', 'default', { analytics_storage: storedConsent });
+	gtag('js', new Date());
+	gtag('config', 'G-F3SC734W1X');
+
+	var gtagLoaded = false;
+	var INTERACTION_EVENTS = ['scroll', 'keydown', 'click', 'touchstart', 'mousemove'];
+	function loadGtagScript() {
+		if (gtagLoaded) return;
+		gtagLoaded = true;
+		INTERACTION_EVENTS.forEach(function (evt) {
+			window.removeEventListener(evt, loadGtagScript);
+		});
+		var s = document.createElement('script');
+		s.async = true;
+		s.src = 'https://www.googletagmanager.com/gtag/js?id=G-F3SC734W1X';
+		document.head.appendChild(s);
+	}
+	INTERACTION_EVENTS.forEach(function (evt) {
+		window.addEventListener(evt, loadGtagScript, { passive: true, once: true });
+	});
+	if (document.readyState === 'complete') {
+		setTimeout(loadGtagScript, 7000);
+	} else {
+		window.addEventListener('load', function () {
+			setTimeout(loadGtagScript, 7000);
+		});
+	}
+</script>
+
+<!-- Clique nos CTAs de afiliado (href começa com /go/), como evento affiliate_click. -->
+<script is:inline>
+	document.addEventListener('click', function (e) {
+		var link = e.target.closest && e.target.closest('a[href^="/go/"]');
+		if (!link) return;
+		var href = link.getAttribute('href');
+		gtag('event', 'affiliate_click', {
+			event_category: 'affiliate',
+			event_label: href.split('/').pop(),
+			link_url: href,
+			page_path: location.pathname,
+		});
+	});
+</script>
+
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonicalURL}>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:url" content={canonicalURL}>
+<meta property="og:image" content={ogImageURL}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={ogTitle}>
+<meta name="twitter:description" content={ogDescription}>
+<meta name="twitter:image" content={ogImageURL}>
+
+<link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
+
+{jsonLd && (
+	Array.isArray(jsonLd)
+		? jsonLd.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)
+		: <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}
+</head>
+<body class="landing-body">
+
+<main class="wrap landing-wrap">
+	<slot />
+</main>
+
+<div id="cookie-banner" class="cookie-banner" hidden>
+	<h2 class="cookie-banner__title">Cookies</h2>
+	<p class="cookie-banner__text">Usamos cookies para entender como você usa a página e melhorar sua experiência. Isso não afeta a navegação. Ao clicar em "Aceitar", você concorda com esse uso.</p>
+	<div class="cookie-banner__actions">
+		<button type="button" id="cookie-accept" class="btn btn-primary">Aceitar</button>
+		<button type="button" id="cookie-reject" class="btn btn-secondary">Recusar</button>
+	</div>
+</div>
+
+<script is:inline>
+(function () {
+	var KEY = 'cookie-consent';
+	var banner = document.getElementById('cookie-banner');
+	var saved = null;
+	try { saved = localStorage.getItem(KEY); } catch (e) {}
+
+	if (!saved) banner.hidden = false;
+
+	document.getElementById('cookie-accept').addEventListener('click', function () {
+		try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
+		gtag('consent', 'update', { analytics_storage: 'granted' });
+		banner.hidden = true;
+	});
+
+	document.getElementById('cookie-reject').addEventListener('click', function () {
+		try { localStorage.setItem(KEY, 'rejected'); } catch (e) {}
+		gtag('consent', 'update', { analytics_storage: 'denied' });
+		banner.hidden = true;
+	});
+})();
+</script>
+
+</body>
+</html>

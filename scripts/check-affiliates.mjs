@@ -264,7 +264,7 @@ if (existsSync(dist)) {
 				'gallant-elite-gee13m29a': 5,
 				'gallant-elite-gee12m28a': 5,
 				'podiumfit-x300': 5,
-				'qbuen-150kg': 5,
+				'qbuen-150kg': 8, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
 				'strive-25hp-16kmh': 5,
 				'redfin-150kg': 5,
 				'health-herald-lcd': 5,
@@ -282,7 +282,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 99) diff.push(`total de CTAs: esperado 99, encontrado ${total}`);
+		if (total !== 102) diff.push(`total de CTAs: esperado 102, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
