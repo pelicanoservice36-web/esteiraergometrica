@@ -73,11 +73,32 @@ const defaultOgImage = `/assets/images/${slug}-cover.webp`;
       ))}
     </dl>
 
-    <a class="buy" href={buyHref} rel="sponsored nofollow noopener" target="_blank">{buyLabel}</a>
+    <a class="buy" id="buyMain" href={buyHref} rel="sponsored nofollow noopener" target="_blank">{buyLabel}</a>
     <p class="price-note">{priceNote}</p>
   </section>
 
   <slot />
 
 </article>
+
+<div class="sticky-buy" id="stickyBuy">
+  <a class="buy" href={buyHref} rel="sponsored nofollow noopener" target="_blank">{buyLabel}</a>
+</div>
+<script is:inline>
+  // Mostra o CTA fixo no rodapé (mobile) só depois que o botão principal da .ficha
+  // sai da tela rolando pra cima — evita duplicar o botão logo no início da página.
+  // Sem JS ou sem suporte a IntersectionObserver, a barra simplesmente nunca aparece
+  // (fica fora da tela via CSS, transform: translateY(100%)) — os outros dois
+  // botões de compra da página continuam funcionando normalmente.
+  (function () {
+    var main = document.getElementById('buyMain');
+    var bar = document.getElementById('stickyBuy');
+    if (!main || !bar || !('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(
+      function (entries) { bar.classList.toggle('is-visible', !entries[0].isIntersecting); },
+      { rootMargin: '0px 0px -40% 0px' },
+    );
+    obs.observe(main);
+  })();
+</script>
 </BaseLayout>

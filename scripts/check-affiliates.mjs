@@ -250,26 +250,29 @@ if (existsSync(dist)) {
 	const all = html.map(read).join('\n');
 
 	check('T28/T29 contagem de CTAs no dist/ bate com o esperado', () => {
+		// +1 em cada review desde a barra de compra fixa (mobile) do ReviewLayout
+		// (ver src/layouts/ReviewLayout.astro, #stickyBuy) — um CTA a mais por
+		// página de review, sempre, além dos que cada uma já tinha.
 		const expected = {
-			'dream-fitness-dr1600': 4,
-			'polimet-ep1600': 5,
-			'polimet-ep1600-senior': 4,
-			'esteira-eletrica-dobravel-residencial-cardio': 4,
-				'athletic-racer': 5,
-				'wct-fitness-esteira': 4,
-				'importway-iwest2x1-10': 4,
-				'gallant-elite-gee13m29a': 4,
-				'gallant-elite-gee12m28a': 4,
-				'podiumfit-x300': 4,
-				'qbuen-150kg': 4,
-				'strive-25hp-16kmh': 4,
-				'redfin-150kg': 4,
-				'health-herald-lcd': 4,
-				'antuvi-mesa': 4,
-				'gallant-elite-gee12m25a': 4,
-				'speedo-tr5': 5,
-				'kht-gts6': 5,
-				'kht-gts7': 4,
+			'dream-fitness-dr1600': 5,
+			'polimet-ep1600': 6,
+			'polimet-ep1600-senior': 5,
+			'esteira-eletrica-dobravel-residencial-cardio': 5,
+				'athletic-racer': 6,
+				'wct-fitness-esteira': 5,
+				'importway-iwest2x1-10': 5,
+				'gallant-elite-gee13m29a': 5,
+				'gallant-elite-gee12m28a': 5,
+				'podiumfit-x300': 5,
+				'qbuen-150kg': 5,
+				'strive-25hp-16kmh': 5,
+				'redfin-150kg': 5,
+				'health-herald-lcd': 5,
+				'antuvi-mesa': 5,
+				'gallant-elite-gee12m25a': 5,
+				'speedo-tr5': 6,
+				'kht-gts6': 6,
+				'kht-gts7': 5,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -279,7 +282,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 80) diff.push(`total de CTAs: esperado 80, encontrado ${total}`);
+		if (total !== 99) diff.push(`total de CTAs: esperado 99, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
