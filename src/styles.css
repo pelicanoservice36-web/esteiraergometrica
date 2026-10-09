@@ -520,6 +520,7 @@ a:hover { color: var(--primary-ink); }
   padding: 1rem 1.15rem;
   margin-bottom: 0.75rem;
 }
+.landing-img { display: block; width: 100%; max-width: 34rem; height: auto; margin: 0 auto 1.25rem; border-radius: var(--radius-md); }
 .landing-micro { text-align: center; font-size: 0.875rem; color: var(--muted); margin: 0 auto 2.5rem; }
 
 /* ---------- Hero (vídeo) ---------- */
