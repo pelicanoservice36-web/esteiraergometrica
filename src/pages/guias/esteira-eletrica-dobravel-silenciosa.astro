@@ -1,0 +1,179 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira elétrica dobrável silenciosa: qual escolher e o que reduz o ruído',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-11',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-eletrica-dobravel-silenciosa',
+};
+
+const faq = [
+	{ q: 'Qual a esteira elétrica dobrável mais silenciosa?', a: 'Nenhuma fonte confiável responde isso com número: nenhum dos treze modelos dobráveis que já analisamos tem ruído medido em decibéis pelo fabricante, e nós não medimos. Para caminhada em apartamento, a indicação é a Polimet EP-1600 (24 kg, teto de 9 km/h), sempre com tapete de borracha embaixo.' },
+	{ q: 'Esteira dobrável faz mais barulho que esteira fixa?', a: 'Não há dado que mostre isso. O mecanismo de dobra não é o que gera ruído no uso: o que pesa é o impacto do pé transmitido ao piso, a velocidade e o estado de lubrificação da lona. Vale conferir se a trava e os parafusos da articulação estão firmes, porque folga na estrutura causa rangido.' },
+	{ q: 'Qual esteira dobrável é melhor para apartamento por causa do barulho?', a: 'Para caminhada, um modelo leve e com teto de velocidade baixo, como a Polimet EP-1600 (9 km/h) ou a Health Herald SP0501 (6 km/h). O que mais reduz o barulho para o vizinho de baixo é o tapete de borracha ou a manta de EVA sob a esteira, em qualquer modelo.' },
+	{ q: 'Motor silencioso no anúncio significa esteira silenciosa?', a: 'Não. "Silencioso" em anúncio é alegação de venda, sem medição por trás. No nosso catálogo, só a PodiumFit X300 traz essa palavra na ficha do próprio fabricante ("Motor: 2.0 HPM (Silencioso)"), e mesmo assim sem número em decibéis.' },
+	{ q: 'Tapete embaixo da esteira dobrável atrapalha na hora de guardar?', a: 'Um pouco: a esteira precisa ser dobrada e movida sobre as rodas, e o tapete fica no lugar. Na prática, deixe o tapete fixo no ponto de uso e guarde a esteira dobrada ao lado ou sobre ele.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Esteira elétrica dobrável silenciosa: qual escolher (2026)"
+	description="Nenhuma esteira elétrica dobrável do catálogo tem ruído medido em decibéis. Veja os 13 modelos que dobram e o que de fato deixa o treino mais silencioso."
+	path="/guias/esteira-eletrica-dobravel-silenciosa"
+	ogTitle="Esteira elétrica dobrável silenciosa: qual escolher"
+	ogDescription="Treze esteiras elétricas que dobram, comparadas por peso, velocidade e pelo único sinal de ruído que cada uma tem. Sem decibel inventado."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira elétrica dobrável silenciosa: qual escolher"
+	standfirst="Nenhuma esteira elétrica dobrável que já analisamos tem ruído medido em decibéis pelo fabricante, então não existe 'a mais silenciosa' comprovada. Para caminhada em apartamento, a escolha mais segura entre as treze que dobram é a Polimet EP-1600: pesa 24 kg, vai só até 9 km/h e tem fabricante identificável, com 6 meses de garantia. O que mais reduz o barulho, em qualquer modelo, é um tapete de borracha embaixo dela."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Para caminhar em apartamento:</strong> <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, 24 kg, até 9 km/h, R$ 1.449 a 1.599, nota 6,9/10.</li>
+      <li><strong>Mais leve e mais lenta, para caminhada leve:</strong> <a href="/reviews/health-herald-lcd">Health Herald SP0501</a>, 13,5 kg, até 6 km/h, R$ 719,70, nota 5,5/10.</li>
+      <li><strong>Única com "silencioso" na ficha do fabricante:</strong> <a href="/reviews/podiumfit-x300">PodiumFit X300</a>, 30 kg, até 12 km/h, R$ 2.534. É alegação da marca, sem medição.</li>
+      <li><strong>Para trotar ou correr:</strong> <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> ou <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a>, as duas com 16 km/h. Corrida faz mais barulho que caminhada em qualquer esteira.</li>
+      <li><strong>Em todos os casos:</strong> tapete de borracha ou manta de EVA embaixo. É o que mais reduz o ruído para o vizinho.</li>
+    </ul>
+  </div>
+
+  <h2>Por que não existe uma "dobrável mais silenciosa" comprovada</h2>
+  <p>Fabricantes de esteira doméstica quase nunca publicam medição de ruído, e nós não temos laboratório para medir. Dos treze modelos elétricos dobráveis do nosso catálogo, nenhum traz um número em decibéis na ficha do fabricante. Se você encontrar esse número em outro site para um destes modelos, peça a fonte: sem ela, trate como inventado.</p>
+  <p>O que existe são dois sinais fracos, que mostramos na tabela abaixo sem tratá-los como prova. A PodiumFit descreve o motor da X300 como "2.0 HPM (Silencioso)" no site oficial. E o resumo das avaliações da Poli Sports EP-16K no Mercado Livre cita "operação silenciosa" entre os elogios dos compradores. O primeiro é alegação de quem vende; o segundo é opinião de quem comprou. Nenhum dos dois é medição.</p>
+
+  <h2>As treze esteiras elétricas dobráveis, pelo que influencia o ruído</h2>
+  <p>Ordenadas por peso do equipamento, do mais leve ao mais pesado. Velocidade máxima entra na tabela porque a esteira que roda devagar gera menos impacto e exige menos do motor. Preços e notas conferidos em setembro e outubro de 2026.</p>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Esteiras elétricas dobráveis do catálogo: peso, velocidade máxima e sinal disponível sobre ruído</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Veloc. máxima</th>
+        <th scope="col">Sinal sobre ruído</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="/reviews/health-herald-lcd">Health Herald SP0501</a></th>
+        <td class="num">13,5 kg</td><td class="num">6 km/h</td><td>Nenhum</td><td class="num">R$ 719,70</td><td class="num">5,5</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio (genérica)</a></th>
+        <td class="num">18 kg</td><td class="num">10 km/h</td><td>Nenhum</td><td class="num">R$ 640</td><td class="num">6,5</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a></th>
+        <td class="num">18 kg</td><td class="num">6 km/h</td><td>Nenhum</td><td class="num">R$ 716,66</td><td class="num">6,7</td>
+      </tr>
+      <tr data-best="true">
+        <th scope="row"><a href="/reviews/polimet-ep1600">Polimet EP-1600</a></th>
+        <td class="num">24 kg</td><td class="num">9 km/h</td><td>Nenhum</td><td class="num">R$ 1.449 a 1.599</td><td class="num">6,9</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/qbuen-150kg">QBuen AT-1271</a></th>
+        <td class="num">24,5 kg</td><td class="num">12 km/h</td><td>Nenhum</td><td class="num">R$ 1.079,98</td><td class="num">6,4</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></th>
+        <td class="num">≈ 25,6 kg</td><td class="num">9 km/h</td><td>Nenhum</td><td class="num">R$ 1.939 a 2.199</td><td class="num">6,5</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/podiumfit-x300">PodiumFit X300</a></th>
+        <td class="num">30 kg</td><td class="num">12 km/h</td><td>Fabricante declara motor "Silencioso"</td><td class="num">R$ 2.534</td><td class="num">6,5</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/wct-fitness-esteira">WCT Fitness</a></th>
+        <td class="num">31 kg</td><td class="num">10 km/h</td><td>Nenhum</td><td class="num">R$ 1.699 a 1.720</td><td class="num">5,8</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/gallant-elite-gee12m25a">Gallant Elite GEE12M25A</a></th>
+        <td class="num">35,2 kg</td><td class="num">14 km/h</td><td>Nenhum</td><td class="num">R$ 2.453,13 a 2.529</td><td class="num">7,4</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a></th>
+        <td class="num">40,8 kg</td><td class="num">16 km/h</td><td>Nenhum</td><td class="num">R$ 2.498</td><td class="num">7,7</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a></th>
+        <td class="num">42,3 kg</td><td class="num">16 km/h</td><td>Avaliações de compradores citam "operação silenciosa"</td><td class="num">R$ 2.354,30 a 2.727</td><td class="num">7,6</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/athletic-racer">Athletic Racer</a></th>
+        <td class="num">42,4 kg</td><td class="num">16 km/h</td><td>Nenhum</td><td class="num">R$ 4.300</td><td class="num">8,6</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a></th>
+        <td class="num">45 kg</td><td class="num">16 km/h</td><td>Nenhum</td><td class="num">R$ 3.609</td><td class="num">7,6</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">"Nenhum" significa que não encontramos alegação do fabricante nem menção a ruído nas fontes que conferimos para a análise. Não significa que o modelo seja barulhento. A <a href="/reviews/importway-iwest2x1-10">Importway IWEST2X1-10</a> também dobra, mas o fabricante não informa o peso do equipamento, por isso fica fora desta ordenação.</p>
+
+  <h2>O que de fato deixa uma esteira dobrável mais silenciosa</h2>
+
+  <h3>1. Tapete de borracha ou manta de EVA embaixo</h3>
+  <p>O barulho que incomoda o vizinho de baixo quase nunca é o motor: é o impacto do pé, que passa pela estrutura e chega ao piso. Um tapete de borracha ou uma manta de EVA sob a esteira absorve boa parte desse impacto. É a medida com maior efeito e funciona em qualquer um dos treze modelos.</p>
+
+  <h3>2. Caminhar em vez de correr</h3>
+  <p>Caminhada gera menos impacto e exige menos do motor que corrida, em qualquer esteira. Por isso os modelos com teto baixo de velocidade, como a Health Herald e a Redfin (6 km/h) ou a Polimet EP-1600 e a Dream Fitness DR-1600 (9 km/h), tendem a ser usados de um jeito mais silencioso: eles simplesmente não chegam às velocidades em que o barulho aumenta.</p>
+
+  <h3>3. Amortecimento sob a lona</h3>
+  <p>Amortecedores reduzem o impacto de cada passada antes que ele chegue à estrutura. Entre as dobráveis, a Dream Fitness DR-1600 e a Athletic Racer declaram 6 amortecedores; a PodiumFit X300 e a Poli Sports EP-16K declaram amortecedores de impacto sem informar a quantidade. Nenhum fabricante informa quanto isso reduz o ruído.</p>
+
+  <h3>4. Trava e articulação firmes</h3>
+  <p>Este é o ponto específico de esteira dobrável. A estrutura tem uma articulação e uma trava, e folga nessas peças vira rangido e vibração com o uso. Depois de montar, e de tempos em tempos, confira o aperto dos parafusos da articulação e se a esteira assenta por inteiro no chão quando aberta.</p>
+
+  <h3>5. Lona lubrificada e alinhada</h3>
+  <p>Lona seca ou desalinhada faz mais barulho, e o ruído cresce com o tempo de uso. Siga o intervalo de lubrificação do manual do seu modelo. Um comprador da Poli Sports EP-16K observa, na avaliação do anúncio, que o silicone de lubrificação não vem na caixa: vale comprar junto.</p>
+
+  <h2>Qual escolher, pelo seu uso</h2>
+  <ul>
+    <li><strong>Só caminhada, apartamento, guardar todo dia:</strong> <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>. Tem a maior nota editorial entre as dobráveis de até 25 kg, fabricante identificável e 6 meses de garantia.</li>
+    <li><strong>Caminhada leve, orçamento curto, pouco espaço:</strong> <a href="/reviews/health-herald-lcd">Health Herald SP0501</a> ou <a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a>. São as mais leves e as mais lentas (6 km/h). O motor da Health Herald, de 0,65 HP, é o mais fraco do catálogo.</li>
+    <li><strong>Quer a alegação de motor silencioso do fabricante:</strong> <a href="/reviews/podiumfit-x300">PodiumFit X300</a>. É a única com essa palavra na ficha oficial, mas tem garantia de 90 dias e pesa 30 kg.</li>
+    <li><strong>Vai trotar ou correr:</strong> <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a>, <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a> ou <a href="/reviews/athletic-racer">Athletic Racer</a>. Todas pesam mais de 40 kg e, correndo, o tapete deixa de ser opcional.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Qual a esteira elétrica dobrável mais silenciosa?</h3>
+  <p>Nenhuma fonte confiável responde isso com número: nenhum dos treze modelos dobráveis que já analisamos tem ruído medido em decibéis pelo fabricante, e nós não medimos. Para caminhada em apartamento, a indicação é a Polimet EP-1600 (24 kg, teto de 9 km/h), sempre com tapete de borracha embaixo.</p>
+
+  <h3>Esteira dobrável faz mais barulho que esteira fixa?</h3>
+  <p>Não há dado que mostre isso. O mecanismo de dobra não é o que gera ruído no uso: o que pesa é o impacto do pé transmitido ao piso, a velocidade e o estado de lubrificação da lona. Vale conferir se a trava e os parafusos da articulação estão firmes, porque folga na estrutura causa rangido.</p>
+
+  <h3>Qual esteira dobrável é melhor para apartamento por causa do barulho?</h3>
+  <p>Para caminhada, um modelo leve e com teto de velocidade baixo, como a Polimet EP-1600 (9 km/h) ou a Health Herald SP0501 (6 km/h). O que mais reduz o barulho para o vizinho de baixo é o tapete de borracha ou a manta de EVA sob a esteira, em qualquer modelo.</p>
+
+  <h3>Motor silencioso no anúncio significa esteira silenciosa?</h3>
+  <p>Não. "Silencioso" em anúncio é alegação de venda, sem medição por trás. No nosso catálogo, só a PodiumFit X300 traz essa palavra na ficha do próprio fabricante ("Motor: 2.0 HPM (Silencioso)"), e mesmo assim sem número em decibéis.</p>
+
+  <h3>Tapete embaixo da esteira dobrável atrapalha na hora de guardar?</h3>
+  <p>Um pouco: a esteira precisa ser dobrada e movida sobre as rodas, e o tapete fica no lugar. Na prática, deixe o tapete fixo no ponto de uso e guarde a esteira dobrada ao lado ou sobre ele.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a>, com as causas do ruído em detalhe, o <a href="/guias/esteira-dobravel">guia de esteira dobrável</a>, o <a href="/guias/esteira-para-apartamento">guia de esteira para apartamento pequeno</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Este guia foi escrito a partir das análises já publicadas neste site, com peso, velocidade e preço conferidos na ficha do fabricante ou do anúncio verificado. Nenhuma medição de ruído em decibéis foi feita por nós ou confirmada de forma independente para nenhum modelo. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação comercial não influencia a ordem desta tabela.</p>
+
+</ArticleLayout>
