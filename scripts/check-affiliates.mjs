@@ -253,28 +253,30 @@ if (existsSync(dist)) {
 		// +1 em cada review desde a barra de compra fixa (mobile) do ReviewLayout
 		// (ver src/layouts/ReviewLayout.astro, #stickyBuy) — um CTA a mais por
 		// página de review, sempre, além dos que cada uma já tinha.
+		// +1 nos 13 modelos dobráveis: coluna "Onde comprar" da tabela de
+		// /guias/esteira-eletrica-dobravel-silenciosa.
 		const expected = {
-			'dream-fitness-dr1600': 5,
-			'polimet-ep1600': 6,
+			'dream-fitness-dr1600': 6,
+			'polimet-ep1600': 7,
 			'polimet-ep1600-senior': 5,
-			'esteira-eletrica-dobravel-residencial-cardio': 5,
-				'athletic-racer': 6,
-				'wct-fitness-esteira': 5,
+			'esteira-eletrica-dobravel-residencial-cardio': 6,
+				'athletic-racer': 7,
+				'wct-fitness-esteira': 6,
 				'importway-iwest2x1-10': 5,
-				'gallant-elite-gee13m29a': 5,
-				'gallant-elite-gee12m28a': 5,
-				'podiumfit-x300': 5,
-				'qbuen-150kg': 8, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
+				'gallant-elite-gee13m29a': 6,
+				'gallant-elite-gee12m28a': 6,
+				'podiumfit-x300': 6,
+				'qbuen-150kg': 9, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
 				'strive-25hp-16kmh': 5,
-				'redfin-150kg': 5,
-				'health-herald-lcd': 5,
+				'redfin-150kg': 6,
+				'health-herald-lcd': 6,
 				'antuvi-mesa': 5,
-				'gallant-elite-gee12m25a': 5,
+				'gallant-elite-gee12m25a': 6,
 				'speedo-tr5': 6,
 				'kht-gts6': 6,
 				'kht-gts7': 5,
 				'movement-lx-160-g4': 5,
-				'poli-sports-ep-16k': 5,
+				'poli-sports-ep-16k': 6,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -284,7 +286,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 112) diff.push(`total de CTAs: esperado 112, encontrado ${total}`);
+		if (total !== 125) diff.push(`total de CTAs: esperado 125, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

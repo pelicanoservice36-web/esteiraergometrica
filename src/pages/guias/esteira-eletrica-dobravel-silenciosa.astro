@@ -1,5 +1,8 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const mlTitle = 'Ir para o anúncio no Mercado Livre';
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -57,10 +60,10 @@ const faqJsonLd = {
   <p>O que existe são dois sinais fracos, que mostramos na tabela abaixo sem tratá-los como prova. A PodiumFit descreve o motor da X300 como "2.0 HPM (Silencioso)" no site oficial. E o resumo das avaliações da Poli Sports EP-16K no Mercado Livre cita "operação silenciosa" entre os elogios dos compradores. O primeiro é alegação de quem vende; o segundo é opinião de quem comprou. Nenhum dos dois é medição.</p>
 
   <h2>As treze esteiras elétricas dobráveis, pelo que influencia o ruído</h2>
-  <p>Ordenadas por peso do equipamento, do mais leve ao mais pesado. Velocidade máxima entra na tabela porque a esteira que roda devagar gera menos impacto e exige menos do motor. Preços e notas conferidos em setembro e outubro de 2026.</p>
+  <p>Ordenadas por peso do equipamento, do mais leve ao mais pesado. Velocidade máxima entra na tabela porque a esteira que roda devagar gera menos impacto e exige menos do motor. Preços e notas conferidos em setembro e outubro de 2026. Os links da última coluna são de afiliado e levam ao anúncio que conferimos em cada análise.</p>
 
   <div class="table-scroll">
-  <table class="specs">
+  <table class="specs specs--buy">
     <caption>Esteiras elétricas dobráveis do catálogo: peso, velocidade máxima e sinal disponível sobre ruído</caption>
     <thead>
       <tr>
@@ -70,60 +73,74 @@ const faqJsonLd = {
         <th scope="col">Sinal sobre ruído</th>
         <th scope="col">Preço</th>
         <th scope="col">Nota</th>
+        <th scope="col">Onde comprar</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row"><a href="/reviews/health-herald-lcd">Health Herald SP0501</a></th>
         <td class="num">13,5 kg</td><td class="num">6 km/h</td><td>Nenhum</td><td class="num">R$ 719,70</td><td class="num">5,5</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('health-herald-lcd')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Health Herald SP0501 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio (genérica)</a></th>
         <td class="num">18 kg</td><td class="num">10 km/h</td><td>Nenhum</td><td class="num">R$ 640</td><td class="num">6,5</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('esteira-eletrica-dobravel-residencial-cardio')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Esteira Cardio (genérica) no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a></th>
         <td class="num">18 kg</td><td class="num">6 km/h</td><td>Nenhum</td><td class="num">R$ 716,66</td><td class="num">6,7</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('redfin-150kg')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Redfin Ideal DL-227 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr data-best="true">
         <th scope="row"><a href="/reviews/polimet-ep1600">Polimet EP-1600</a></th>
         <td class="num">24 kg</td><td class="num">9 km/h</td><td>Nenhum</td><td class="num">R$ 1.449 a 1.599</td><td class="num">6,9</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('polimet-ep1600')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Polimet EP-1600 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/qbuen-150kg">QBuen AT-1271</a></th>
         <td class="num">24,5 kg</td><td class="num">12 km/h</td><td>Nenhum</td><td class="num">R$ 1.079,98</td><td class="num">6,4</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('qbuen-150kg')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da QBuen AT-1271 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></th>
         <td class="num">≈ 25,6 kg</td><td class="num">9 km/h</td><td>Nenhum</td><td class="num">R$ 1.939 a 2.199</td><td class="num">6,5</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('dream-fitness-dr1600')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Dream Fitness DR-1600 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/podiumfit-x300">PodiumFit X300</a></th>
         <td class="num">30 kg</td><td class="num">12 km/h</td><td>Fabricante declara motor "Silencioso"</td><td class="num">R$ 2.534</td><td class="num">6,5</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('podiumfit-x300')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da PodiumFit X300 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/wct-fitness-esteira">WCT Fitness</a></th>
         <td class="num">31 kg</td><td class="num">10 km/h</td><td>Nenhum</td><td class="num">R$ 1.699 a 1.720</td><td class="num">5,8</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('wct-fitness-esteira')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da WCT Fitness no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/gallant-elite-gee12m25a">Gallant Elite GEE12M25A</a></th>
         <td class="num">35,2 kg</td><td class="num">14 km/h</td><td>Nenhum</td><td class="num">R$ 2.453,13 a 2.529</td><td class="num">7,4</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('gallant-elite-gee12m25a')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Gallant Elite GEE12M25A no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a></th>
         <td class="num">40,8 kg</td><td class="num">16 km/h</td><td>Nenhum</td><td class="num">R$ 2.498</td><td class="num">7,7</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('gallant-elite-gee12m28a')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Gallant Elite GEE12M28A no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a></th>
         <td class="num">42,3 kg</td><td class="num">16 km/h</td><td>Avaliações de compradores citam "operação silenciosa"</td><td class="num">R$ 2.354,30 a 2.727</td><td class="num">7,6</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('poli-sports-ep-16k')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Poli Sports EP-16K no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/athletic-racer">Athletic Racer</a></th>
         <td class="num">42,4 kg</td><td class="num">16 km/h</td><td>Nenhum</td><td class="num">R$ 4.300</td><td class="num">8,6</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('athletic-racer')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Athletic Racer no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row"><a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a></th>
         <td class="num">45 kg</td><td class="num">16 km/h</td><td>Nenhum</td><td class="num">R$ 3.609</td><td class="num">7,6</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('gallant-elite-gee13m29a')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Gallant Elite GEE13M29A no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
     </tbody>
   </table>
