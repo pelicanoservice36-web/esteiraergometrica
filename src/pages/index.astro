@@ -22,6 +22,7 @@ const mlSpeedo = buyHref('speedo-tr5');
 const mlKht = buyHref('kht-gts6');
 const mlKht7 = buyHref('kht-gts7');
 const mlMovement = buyHref('movement-lx-160-g4');
+const mlEp16k = buyHref('poli-sports-ep-16k');
 // Os CTAs da home dizem só "Ver melhor preço": o title nomeia o destino,
 // exigência da cláusula 1.8 dos Termos do Programa de Afiliados do ML.
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
@@ -505,6 +506,25 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
             <td data-label="Preço" class="num cell-price">R$ 18.588</td>
             <td class="cell-cta"><a class="mini-cta" href={mlMovement} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Movement LX 160 G4 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a></td>
           </tr>
+          <tr>
+            <th scope="row">
+              <div class="cell-product">
+                <img src="/assets/images/poli-sports-ep-16k.webp" alt="Esteira ergométrica Poli Sports EP-16K" width="44" height="44" loading="lazy">
+                <div>
+                  <span class="cell-product-name">Poli Sports EP-16K</span>
+                  <span class="badge-mini">🎬 Análise com vídeo</span>
+                </div>
+              </div>
+              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★☆</span> 4,3 (330 avaliações no Mercado Livre)</p>
+            </th>
+            <td data-label="Motor" class="num">3,0 HP</td>
+            <td data-label="Velocidade" class="num">16 km/h</td>
+            <td data-label="Lona" class="num">39 × 122 cm</td>
+            <td data-label="Peso máx." class="num">120 kg</td>
+            <td data-label="Dobra">Sim</td>
+            <td data-label="Preço" class="num cell-price">R$ 2.354,30 – 2.727</td>
+            <td class="cell-cta"><a class="mini-cta" href={mlEp16k} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Poli Sports EP-16K no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a></td>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -527,6 +547,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
       <p class="stamp">** O motor AC da KHT GTS-6 é declarado de forma consistente no anúncio, mas não confirmado por site de fabricante independente: a KHT não parece ter site institucional. Garantia de só 3 meses, a mais curta do catálogo entre modelos com marca. Veja a análise completa antes de decidir.</p>
       <p class="stamp">*** A KHT GTS-7 dobra, mas a ficha diz que requer montagem, diferente da irmã GTS-6. O motor aqui é declarado como DC (corrente contínua), não AC, por isso não entra no guia de esteira profissional. É a segunda esteira mais cara do catálogo; o diferencial real é a tela Android de 18,5" com Netflix e YouTube. Veja a análise completa antes de decidir.</p>
       <p class="stamp">**** A lona da Movement LX 160 G4 mede 47 × 133 cm no site do fabricante e 45 × 136 cm no anúncio. O motor tem 2,0 cv de potência contínua; os "3 HP" do título do anúncio são de pico. Não tem inclinação, não dobra e pesa 108 kg. É a esteira mais cara do catálogo. A garantia de 5 anos no motor e 3 no chassi depende de cadastro on-line na Movement. Veja a análise completa antes de decidir.</p>
+      <p class="stamp">Os 3,0 HP da Poli Sports EP-16K são declarados sem separar potência contínua de pico. A lona de 39 × 122 cm vem da ficha do fabricante e do anúncio; o vídeo da própria marca mostra 39 × 112 cm. Dobra, mas pesa 42,3 kg. Veja a análise completa antes de decidir.</p>
 
       <p class="disclosure">Este site participa de programas de afiliados. Quando você compra por um link daqui, recebemos uma comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos.</p>
     </div>
@@ -898,6 +919,23 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
           <a class="btn btn-primary btn-block" href={mlMovement} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Movement LX 160 G4 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
+
+      <article class="product-card">
+        <a class="product-card__media" href="/reviews/poli-sports-ep-16k">
+          <span class="product-card__badge">Análise com vídeo</span>
+          <img src="/assets/images/poli-sports-ep-16k.webp" alt="Esteira ergométrica Poli Sports EP-16K" width="200" height="200" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <h3 class="product-card__title"><a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a></h3>
+          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★☆</span> 4,3 (330 avaliações no Mercado Livre)</p>
+          <p class="product-card__specs">3,0 HP • 16 km/h • 120 kg • dobra (42,3 kg)</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">R$ 2.354,30 – 2.727</span>
+            <a class="product-card__link" href="/reviews/poli-sports-ep-16k">Ver análise →</a>
+          </div>
+          <a class="btn btn-primary btn-block" href={mlEp16k} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Poli Sports EP-16K no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -962,7 +1000,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <div>
           <span class="guide-card__eyebrow">Comparativo</span>
           <h3 class="guide-card__title">Melhor esteira ergométrica residencial</h3>
-          <p>As vinte esteiras que já analisamos, organizadas por categoria: custo-benefício, corrida, idosos, apartamento.</p>
+          <p>As vinte e uma esteiras que já analisamos, organizadas por categoria: custo-benefício, corrida, idosos, apartamento.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>
@@ -1046,7 +1084,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
         <div>
           <span class="guide-card__eyebrow">Guia de compra</span>
           <h3 class="guide-card__title">Esteira para quem pesa mais de 100 kg</h3>
-          <p>Seis dos vinte modelos têm limite de 110 kg. Veja o que existe em cada faixa acima disso.</p>
+          <p>Seis dos vinte e um modelos têm limite de 110 kg. Veja o que existe em cada faixa acima disso.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>

@@ -331,6 +331,22 @@ export const products = {
 		notes:
 			'Pedido direto do usuário em 11/10/2026 (link de afiliado enviado por ele). Página de catálogo MLB8967700, item MLB5831956690, versão 220V (a de 127V é o catálogo MLB15071443). Loja oficial Rrfit Equipamentos (revenda, não é a Movement): +1000 vendas, +500 produtos. Este anúncio: +5 vendidos, nota 5,0 com 1 avaliação, 2 unidades em estoque, entrega a combinar (Cantagalo, PR), 12 meses de garantia de fábrica. R$18.588 em outubro de 2026 — passa a ser a mais cara do catálogo. Ficha cruzada com https://www.movement.com.br/produto/esteira-lx-160-g4/ : motor "Nominal 2.0 cv / 3.0 cv (Potência de pico)" (o anúncio só diz "3.0 HP AC peak power"), 1,2 a 18 km/h, 150 kg, 108 kg, não dobra, sem inclinação (a versão com inclinação é a LX 160i G4, outro produto). DIVERGÊNCIAS anúncio × fabricante, mostradas na review: área de corrida 136×45 (anúncio) vs 133×47 (site); lubrificação manual a cada 2 meses/1000 km vs LubFree isenta; atalho de velocidades Não vs Sim; carenagem rotomoldada vs ABS; tensão 220V vs 127V ou 220V. Garantia no site do fabricante: 90 dias (mão de obra, plásticos), 1 ano (peças mecânicas), 3 anos chassi e 5 anos motor mediante cadastro on-line. Rede de assistência técnica NÃO conferida. O link meli.la não pôde ser validado por automação (403 / página de perfil social) — o usuário precisa testar no navegador. Nota editorial 7,3/10 — ver metodologia.astro.',
 	},
+	'poli-sports-ep-16k': {
+		merchant: 'mercadolivre',
+		title: 'Poli Sports EP-16K',
+		listingId: 'MLB15046983',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-ep-16k-4-programas-amortecedor-16kmh-120kg-poli-sports/p/MLB15046983',
+		// ATENÇÃO: ainda NÃO é link de afiliado. O usuário mandou só a URL do anúncio em
+		// 11/10/2026; trocar pelo meli.la assim que ele gerar na Barra de afiliados.
+		affiliateUrl:
+			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-ep-16k-4-programas-amortecedor-16kmh-120kg-poli-sports/p/MLB15046983',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-11',
+		notes:
+			'Pedido direto do usuário em 11/10/2026, junto com o vídeo da pasta Videos (material da Poli Sports, cortado em 39,6s e publicado em /video/poli-sports-ep-16k.mp4). SEM LINK DE AFILIADO AINDA: affiliateUrl aponta para a página de catálogo, sem comissão. Catálogo MLB15046983, item MLB6247897336. Loja oficial POLISPORTS (MercadoLíder, +1000 vendas), anúncio +1000 vendidos, nota 4,3 com 330 avaliações e 144 comentários, R$2.354,30 (12x R$226,29) e outra oferta da mesma loja a R$2.727 (10x sem juros), 6 meses de garantia de fábrica. Ficha cruzada com https://www.polisports.com.br/esteira-eletronica-ep-16k : motor 3.0hp/cc (sem separar contínua de pico), 16 km/h, 120 kg, lona 39x122 cm, inclinação manual 1,5°/3,5°, bivolt, garantia 6 meses, 42,3 kg, 126x70x162 cm. DIVERGÊNCIAS: a legenda do vídeo da própria marca diz lona 39x112 cm; a descrição do anúncio diz 42,7 kg e 135x70x166 cm. O resumo de avaliações gerado pelo ML cita problemas frequentes após poucos meses e preocupação com assistência. Mesma fabricante da Polimet EP-1600 (Poli Sports / Polimet). Nota editorial 7,6/10 — ver metodologia.astro.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

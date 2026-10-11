@@ -274,6 +274,7 @@ if (existsSync(dist)) {
 				'kht-gts6': 6,
 				'kht-gts7': 5,
 				'movement-lx-160-g4': 5,
+				'poli-sports-ep-16k': 5,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -283,7 +284,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 107) diff.push(`total de CTAs: esperado 107, encontrado ${total}`);
+		if (total !== 112) diff.push(`total de CTAs: esperado 112, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

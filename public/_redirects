@@ -6,28 +6,29 @@
 # trocar o destino no registro tem efeito imediato, sem cache permanente.
 
 # Links de afiliado.
-/go/mercadolivre/dream-fitness-dr1600                          https://meli.la/2J8ihmd                 302
-/go/mercadolivre/polimet-ep1600                                https://meli.la/1epCpV7                 302
-/go/mercadolivre/polimet-ep1600-senior                         https://meli.la/1tSuqej                 302
-/go/mercadolivre/esteira-eletrica-dobravel-residencial-cardio  https://meli.la/16h15N4                 302
-/go/mercadolivre/athletic-racer                                https://meli.la/21roffC                 302
-/go/mercadolivre/wct-fitness-esteira                           https://meli.la/22gN9m9                 302
-/go/mercadolivre/importway-iwest2x1-10                         https://meli.la/1jKzbqr                 302
-/go/mercadolivre/gallant-elite-gee13m29a                       https://meli.la/1YVHsu8                 302
-/go/mercadolivre/gallant-elite-gee12m28a                       https://meli.la/1R8M9vy                 302
-/go/mercadolivre/podiumfit-x300                                https://meli.la/1zUr5xC                 302
-/go/mercadolivre/qbuen-150kg                                   https://meli.la/2yycfWx                 302
-/go/mercadolivre/strive-25hp-16kmh                             https://meli.la/2fQyqer                 302
-/go/mercadolivre/redfin-150kg                                  https://meli.la/1GbL3gp                 302
-/go/mercadolivre/health-herald-lcd                             https://meli.la/2Rif86M                 302
-/go/mercadolivre/gallant-elite-gee12m25a                       https://meli.la/1xeQRiL                 302
-/go/mercadolivre/antuvi-mesa                                   https://meli.la/1tgCGPc                 302
-/go/mercadolivre/speedo-tr5                                    https://meli.la/1Gpr6K1                 302
-/go/mercadolivre/kht-gts6                                      https://meli.la/2tWcSYi                 302
-/go/mercadolivre/kht-gts7                                      https://meli.la/2vQpZZX                 302
-/go/mercadolivre/movement-lx-160-g4                            https://meli.la/1RCNTcW                 302
+/go/mercadolivre/dream-fitness-dr1600                          https://meli.la/2J8ihmd                                                                                                                     302
+/go/mercadolivre/polimet-ep1600                                https://meli.la/1epCpV7                                                                                                                     302
+/go/mercadolivre/polimet-ep1600-senior                         https://meli.la/1tSuqej                                                                                                                     302
+/go/mercadolivre/esteira-eletrica-dobravel-residencial-cardio  https://meli.la/16h15N4                                                                                                                     302
+/go/mercadolivre/athletic-racer                                https://meli.la/21roffC                                                                                                                     302
+/go/mercadolivre/wct-fitness-esteira                           https://meli.la/22gN9m9                                                                                                                     302
+/go/mercadolivre/importway-iwest2x1-10                         https://meli.la/1jKzbqr                                                                                                                     302
+/go/mercadolivre/gallant-elite-gee13m29a                       https://meli.la/1YVHsu8                                                                                                                     302
+/go/mercadolivre/gallant-elite-gee12m28a                       https://meli.la/1R8M9vy                                                                                                                     302
+/go/mercadolivre/podiumfit-x300                                https://meli.la/1zUr5xC                                                                                                                     302
+/go/mercadolivre/qbuen-150kg                                   https://meli.la/2yycfWx                                                                                                                     302
+/go/mercadolivre/strive-25hp-16kmh                             https://meli.la/2fQyqer                                                                                                                     302
+/go/mercadolivre/redfin-150kg                                  https://meli.la/1GbL3gp                                                                                                                     302
+/go/mercadolivre/health-herald-lcd                             https://meli.la/2Rif86M                                                                                                                     302
+/go/mercadolivre/gallant-elite-gee12m25a                       https://meli.la/1xeQRiL                                                                                                                     302
+/go/mercadolivre/antuvi-mesa                                   https://meli.la/1tgCGPc                                                                                                                     302
+/go/mercadolivre/speedo-tr5                                    https://meli.la/1Gpr6K1                                                                                                                     302
+/go/mercadolivre/kht-gts6                                      https://meli.la/2tWcSYi                                                                                                                     302
+/go/mercadolivre/kht-gts7                                      https://meli.la/2vQpZZX                                                                                                                     302
+/go/mercadolivre/movement-lx-160-g4                            https://meli.la/1RCNTcW                                                                                                                     302
+/go/mercadolivre/poli-sports-ep-16k                            https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-ep-16k-4-programas-amortecedor-16kmh-120kg-poli-sports/p/MLB15046983  302
 
 # Rotas curtas antigas — mantidas para links externos já publicados.
-/ml-dream                                                      /go/mercadolivre/dream-fitness-dr1600   301
-/ml-polimet                                                    /go/mercadolivre/polimet-ep1600         301
-/ml-polimet-senior                                             /go/mercadolivre/polimet-ep1600-senior  301
+/ml-dream                                                      /go/mercadolivre/dream-fitness-dr1600                                                                                                       301
+/ml-polimet                                                    /go/mercadolivre/polimet-ep1600                                                                                                             301
+/ml-polimet-senior                                             /go/mercadolivre/polimet-ep1600-senior                                                                                                      301

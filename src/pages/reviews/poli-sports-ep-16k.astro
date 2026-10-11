@@ -1,0 +1,203 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('poli-sports-ep-16k');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Poli Sports EP-16K',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Poli Sports' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '2354.30',
+		highPrice: '2727.00',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.3',
+		reviewCount: '330',
+		bestRating: '5',
+		worstRating: '1',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '7.6',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-11',
+	},
+};
+
+// Vídeo de demonstração da própria Poli Sports, cortado em 39,6 s (o trecho final
+// era propaganda de outros aparelhos da marca). A legenda do vídeo mostra lona de
+// 39 × 112 cm; a ficha do fabricante e o anúncio dizem 39 × 122 cm (ver seção da lona).
+const videoJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'VideoObject',
+	name: 'Esteira Poli Sports EP-16K em uso: console, inclinação e dobra',
+	description: 'Vídeo de demonstração da fabricante Poli Sports mostrando a esteira EP-16K: console, motor de 3 HP, amortecedores, ajuste de inclinação e os 4 programas.',
+	thumbnailUrl: 'https://esteiraergometrica.com/video/poli-sports-ep-16k-poster.webp',
+	contentUrl: 'https://esteiraergometrica.com/video/poli-sports-ep-16k.mp4',
+	uploadDate: '2026-10-11',
+	duration: 'PT40S',
+};
+
+const faq = [
+	{ q: 'A esteira Poli Sports EP-16K é boa?', a: 'Sim, para caminhada, trote e corrida leve em casa: nota editorial 7,6/10. Tem motor de 3 HP, chega a 16 km/h, suporta 120 kg e tem lona de 39 × 122 cm, por R$ 2.354,30 a R$ 2.727. As ressalvas são o peso de 42,3 kg e os relatos de defeito após poucos meses nas avaliações do anúncio.' },
+	{ q: 'Qual o motor da EP-16K?', a: '3,0 HP de corrente contínua, segundo o site da Poli Sports e o anúncio. Nenhuma das duas fontes separa potência contínua de potência de pico, então trate os 3 HP como o número declarado, não como potência contínua confirmada.' },
+	{ q: 'Qual o tamanho da lona da EP-16K?', a: '39 × 122 cm (largura × comprimento), segundo a ficha do site da Poli Sports e a ficha do anúncio. O vídeo de demonstração da própria marca mostra 39 × 112 cm na legenda: é uma divergência de 10 cm que não conseguimos resolver.' },
+	{ q: 'A EP-16K tem inclinação?', a: 'Tem, manual, em duas posições: 1,5° na menor e 3,5° na maior. Não é inclinação elétrica: o ajuste é feito com a esteira parada, na base do equipamento.' },
+	{ q: 'A EP-16K dobra? Quanto pesa?', a: 'Dobra, com trava vertical e rodas de transporte. Pesa 42,3 kg segundo o site do fabricante (42,7 kg na descrição do anúncio): dá para mover, mas não é leve para uma pessoa sozinha.' },
+	{ q: 'Qual a garantia da Poli Sports EP-16K?', a: '6 meses de garantia de fábrica, informados no site da Poli Sports e no anúncio da loja oficial no Mercado Livre.' },
+	{ q: 'Qual a diferença entre a EP-16K e a EP-1600?', a: 'São modelos diferentes da mesma fabricante. A EP-16K tem motor de 3 HP, 16 km/h, lona de 39 × 122 cm e suporta 120 kg. A EP-1600 tem motor de 1,6 HP, 9 km/h, lona de 33 × 100 cm e suporta 110 kg, e custa cerca de R$ 900 a menos.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '3,0 HP (corrente contínua)' },
+	{ label: 'Velocidade máxima', value: '16 km/h' },
+	{ label: 'Lona', value: '39 × 122 cm' },
+	{ label: 'Peso máximo do usuário', value: '120 kg' },
+	{ label: 'Peso do equipamento', value: '42,3 kg' },
+	{ label: 'É dobrável', value: 'Sim, com trava vertical' },
+	{ label: 'Inclinação', value: 'Manual, 2 posições (1,5° e 3,5°)' },
+	{ label: 'Garantia', value: '6 meses de fábrica' },
+	{ label: 'Preço', value: 'R$ 2.354,30 a R$ 2.727' },
+];
+---
+
+<ReviewLayout
+	title="Esteira Poli Sports EP-16K é boa? Ficha e nota"
+	description="Poli Sports EP-16K: motor de 3 HP, 16 km/h, 120 kg e lona de 39 × 122 cm, por R$ 2.354,30 a R$ 2.727. Dobra, mas pesa 42,3 kg. Nota editorial 7,6/10."
+	path="/reviews/poli-sports-ep-16k"
+	ogTitle="Poli Sports EP-16K: análise honesta, com vídeo"
+	ogDescription="3 HP, 16 km/h e lona de 122 cm por menos de R$ 2.800, com 6 meses de garantia. Veja o vídeo, as divergências da ficha e o que as avaliações relatam."
+	jsonLd={[jsonLd, faqJsonLd, videoJsonLd]}
+	h1="Esteira Poli Sports EP-16K é boa?"
+	standfirst="É boa para caminhada, trote e corrida leve em casa: motor de 3 HP, 16 km/h, lona de 39 × 122 cm e limite de 120 kg, por R$ 2.354,30 a R$ 2.727, com 6 meses de garantia de fábrica e ficha publicada no site da Poli Sports. Os pontos de atenção: pesa 42,3 kg mesmo dobrando, a inclinação é manual em só duas posições, e parte das 330 avaliações do anúncio relata defeito depois de poucos meses de uso."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em outubro de 2026, loja oficial POLISPORTS no Mercado Livre. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">7,6<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
+    <p>A Poli Sports EP-16K entrega números de esteira de corrida leve por um preço de faixa intermediária: 3 HP declarados, 16 km/h e lona de 122 cm de comprimento, a partir de R$ 2.354,30. A ficha está publicada no site da fabricante e bate com a do anúncio em motor, velocidade, peso suportado, lona e garantia. Na nossa <a href="/metodologia">metodologia</a>, ela empata em 7,6 com a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a>, que custa R$ 3.609.</p>
+    <p>O que impede uma nota maior: a potência é declarada sem separar contínua de pico, o equipamento pesa 42,3 kg e a garantia é de 6 meses. E há um sinal fora da ficha que vale levar a sério: o resumo das avaliações do próprio Mercado Livre aponta "problemas frequentes após poucos meses de uso" e preocupação com assistência técnica.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem quer caminhar rápido, trotar e correr de vez em quando, e não quer pagar o preço de uma <a href="/reviews/athletic-racer">Athletic Racer</a> (R$ 4.300). Faz sentido também para quem pesa até uns 100 kg e quer folga: o limite de 120 kg é confirmado no site do fabricante. E para quem já conhece a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, da mesma fabricante, e achou o motor de 1,6 HP e a lona de 100 cm pequenos para o seu uso.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem corre todo dia em ritmo sustentado: os 3 HP não têm potência contínua confirmada, e a Athletic Racer segue sendo a única do catálogo com motor de 5.0 HPM confirmado em manual. Para quem precisa guardar a esteira sozinho com frequência: são 42,3 kg, quase o dobro dos 24 kg da EP-1600. E para quem quer inclinação de verdade no treino: são só duas posições manuais, de 1,5° e 3,5°.</p>
+
+  <h2>Vídeo: a EP-16K em uso</h2>
+  <p>Vídeo de demonstração da própria Poli Sports, com o console, a troca de inclinação e a esteira em movimento. Cortamos o trecho final, que mostrava outros aparelhos da marca.</p>
+  <figure class="review-video">
+    <video controls preload="none" playsinline width="720" height="1280" poster="/video/poli-sports-ep-16k-poster.webp">
+      <source src="/video/poli-sports-ep-16k.mp4" type="video/mp4" />
+    </video>
+    <figcaption>Vídeo: Poli Sports. Atenção: a legenda do vídeo mostra lona de 39 × 112 cm; a ficha do fabricante e o anúncio informam 39 × 122 cm.</figcaption>
+  </figure>
+
+  <h2>Motor: 3 HP declarados, sem potência contínua informada</h2>
+  <p>O site da Poli Sports descreve o motor como "3.0hp/cc" (corrente contínua), e o anúncio repete "Potência: 3 hp". Nenhuma das duas fontes diz se esse número é potência contínua ou de pico. Na nossa metodologia, usamos o valor declarado e ele cai na faixa de 2,5 a 3,4 HP, a mesma das três Gallant Elite, mas isso é o número do fabricante, não uma confirmação de potência contínua.</p>
+  <p>Na prática, 16 km/h de velocidade máxima com esse motor serve para caminhada, trote e corrida leve. Uma avaliação no anúncio relata uso a 9,5 km/h com a potência "estável" na segunda semana de uso: é um relato de comprador, não um teste nosso.</p>
+
+  <h2>Lona de 39 × 122 cm, com uma divergência no vídeo da marca</h2>
+  <p>A ficha do site da Poli Sports e a do anúncio informam área de caminhada de 39 × 122 cm (largura × comprimento). É 22 cm mais comprida que a lona de 33 × 100 cm da EP-1600 e fica acima do corte de 120 cm que usamos para a nota máxima de lona.</p>
+  <p>O vídeo de demonstração da própria marca, porém, mostra "39 × 112 cm" na legenda. Não sabemos qual é o número certo: duas fontes escritas dizem 122 cm e uma legenda de vídeo diz 112 cm. Usamos 122 cm por ser o que consta nas duas fichas. Se a lona tiver 112 cm, a nota de lona cai de 9,0 para 7,5 e a nota final passa de 7,6 para 7,4.</p>
+
+  <h2>Inclinação manual, em duas posições</h2>
+  <p>A EP-16K tem dois níveis de inclinação: 1,5° no menor e 3,5° no maior, segundo o fabricante. A ficha do anúncio confirma "Tipo de inclinação: Manual" e "2 posições". O ajuste é feito na base da esteira, com ela parada. Não espere o efeito de uma inclinação elétrica de 10% ou 15%: 3,5° equivalem a cerca de 6% de subida.</p>
+
+  <h2>Dobra, mas pesa 42,3 kg</h2>
+  <p>Ela dobra, tem trava vertical e rodas de transporte. O peso do produto é de 42,3 kg no site do fabricante (a descrição do anúncio diz 42,7 kg), praticamente o mesmo da Athletic Racer (42,4 kg). Montada, mede 126 × 70 × 162 cm segundo o site da marca; a descrição do anúncio informa 135 × 70 × 166 cm. Meça o espaço com a medida maior.</p>
+
+  <h2>Console e recursos</h2>
+  <p>O painel mostra velocidade, distância, tempo, calorias e batimento cardíaco, e tem 4 programas com velocidades pré-definidas. A esteira é bivolt, tem chave de segurança, porta-objetos e amortecedores de impacto. Não há Bluetooth nem aplicativo em nenhuma das fontes.</p>
+
+  <h2>O que as avaliações do anúncio relatam</h2>
+  <p>O anúncio tem nota 4,3 de 5, com 330 avaliações e 144 comentários, e mais de 1.000 unidades vendidas. O resumo gerado pelo próprio Mercado Livre diz que a esteira é elogiada pela montagem fácil, pelo custo-benefício e pela operação silenciosa, mas registra "relatos de problemas frequentes após poucos meses de uso, incluindo falhas no funcionamento e dificuldades com o manual de instruções", e que "a durabilidade e a assistência técnica são preocupações recorrentes".</p>
+  <p>Entre os comentários em destaque, um comprador recebeu a esteira com a correia do motor solta, outro reclama da falta de manual de montagem, e outro lembra que o silicone de lubrificação não vem na caixa. Guarde a nota fiscal e teste tudo dentro dos 30 dias de devolução grátis do Mercado Livre.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Motor de 3 HP e 16 km/h por menos de R$ 2.800</li>
+        <li>Lona de 39 × 122 cm nas fichas do fabricante e do anúncio</li>
+        <li>120 kg de peso suportado, confirmados no site do fabricante</li>
+        <li>Fabricante nacional com site e ficha técnica publicada</li>
+        <li>Loja oficial no Mercado Livre, com mais de 1.000 vendas</li>
+        <li>Bivolt, com chave de segurança e 4 programas</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Potência declarada sem separar contínua de pico</li>
+        <li>42,3 kg: dobra, mas é pesada para mover sozinho</li>
+        <li>Inclinação manual, só duas posições</li>
+        <li>Garantia de 6 meses</li>
+        <li>Avaliações relatam defeitos após poucos meses e manual ruim</li>
+        <li>Vídeo da marca e ficha divergem no comprimento da lona</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em outubro de 2026, a Poli Sports EP-16K apareceu por <strong>R$ 2.354,30</strong> (ou 12× de R$ 226,29) na loja oficial POLISPORTS no Mercado Livre, que tem selo MercadoLíder e mais de 1.000 vendas. A mesma loja tinha outra oferta a R$ 2.727, em 10× de R$ 272,70 sem juros: por isso tratamos o preço como faixa, de <strong>R$ 2.354,30 a R$ 2.727</strong>. O anúncio informa 6 meses de garantia de fábrica e devolução grátis em 30 dias.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A esteira Poli Sports EP-16K é boa?</h3>
+  <p>Sim, para caminhada, trote e corrida leve em casa: nota editorial 7,6/10. Tem motor de 3 HP, chega a 16 km/h, suporta 120 kg e tem lona de 39 × 122 cm, por R$ 2.354,30 a R$ 2.727. As ressalvas são o peso de 42,3 kg e os relatos de defeito após poucos meses nas avaliações do anúncio.</p>
+
+  <h3>Qual o motor da EP-16K?</h3>
+  <p>3,0 HP de corrente contínua, segundo o site da Poli Sports e o anúncio. Nenhuma das duas fontes separa potência contínua de potência de pico, então trate os 3 HP como o número declarado, não como potência contínua confirmada.</p>
+
+  <h3>Qual o tamanho da lona da EP-16K?</h3>
+  <p>39 × 122 cm (largura × comprimento), segundo a ficha do site da Poli Sports e a ficha do anúncio. O vídeo de demonstração da própria marca mostra 39 × 112 cm na legenda: é uma divergência de 10 cm que não conseguimos resolver.</p>
+
+  <h3>A EP-16K tem inclinação?</h3>
+  <p>Tem, manual, em duas posições: 1,5° na menor e 3,5° na maior. Não é inclinação elétrica: o ajuste é feito com a esteira parada, na base do equipamento.</p>
+
+  <h3>A EP-16K dobra? Quanto pesa?</h3>
+  <p>Dobra, com trava vertical e rodas de transporte. Pesa 42,3 kg segundo o site do fabricante (42,7 kg na descrição do anúncio): dá para mover, mas não é leve para uma pessoa sozinha.</p>
+
+  <h3>Qual a garantia da Poli Sports EP-16K?</h3>
+  <p>6 meses de garantia de fábrica, informados no site da Poli Sports e no anúncio da loja oficial no Mercado Livre.</p>
+
+  <h3>Qual a diferença entre a EP-16K e a EP-1600?</h3>
+  <p>São modelos diferentes da mesma fabricante. A EP-16K tem motor de 3 HP, 16 km/h, lona de 39 × 122 cm e suporta 120 kg. A <a href="/reviews/polimet-ep1600">EP-1600</a> tem motor de 1,6 HP, 9 km/h, lona de 33 × 100 cm e suporta 110 kg, e custa cerca de R$ 900 a menos.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, da mesma fabricante, mais leve e mais barata, a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a>, concorrente direta na mesma faixa de preço, o <a href="/guias/polimet-e-boa-marca">guia sobre a marca Polimet</a>, o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de corrida ou caminhada</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e das avaliações do anúncio da loja oficial POLISPORTS no Mercado Livre, cruzadas com a página da EP-16K no site da Poli Sports (polisports.com.br), consultados em outubro de 2026. O vídeo é material de divulgação da Poli Sports. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da fabricante. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

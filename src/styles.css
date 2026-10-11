@@ -1556,3 +1556,8 @@ a:hover { color: var(--primary-ink); }
   .comparativo-table td[data-label="Peso máx."]  { order: 7; }
   .comparativo-table td[data-label="Dobra"]      { order: 8; }
 }
+
+/* Vídeo vertical (9:16) dentro de review */
+.review-video { margin: 1.5rem 0; max-width: 22.5rem; }
+.review-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 0.75rem; background: #000; }
+.review-video figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted, #5b6472); }
