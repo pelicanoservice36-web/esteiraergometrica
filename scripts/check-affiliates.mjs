@@ -254,29 +254,30 @@ if (existsSync(dist)) {
 		// (ver src/layouts/ReviewLayout.astro, #stickyBuy) — um CTA a mais por
 		// página de review, sempre, além dos que cada uma já tinha.
 		// +1 nos 13 modelos dobráveis: coluna "Onde comprar" da tabela de
-		// /guias/esteira-eletrica-dobravel-silenciosa.
+		// /guias/esteira-eletrica-dobravel-silenciosa, e mais +1 pela mesma coluna
+		// em /guias/esteira-dobravel.
 		const expected = {
-			'dream-fitness-dr1600': 6,
-			'polimet-ep1600': 7,
+			'dream-fitness-dr1600': 7,
+			'polimet-ep1600': 8,
 			'polimet-ep1600-senior': 5,
-			'esteira-eletrica-dobravel-residencial-cardio': 6,
-				'athletic-racer': 7,
-				'wct-fitness-esteira': 6,
+			'esteira-eletrica-dobravel-residencial-cardio': 7,
+				'athletic-racer': 8,
+				'wct-fitness-esteira': 7,
 				'importway-iwest2x1-10': 5,
-				'gallant-elite-gee13m29a': 6,
-				'gallant-elite-gee12m28a': 6,
-				'podiumfit-x300': 6,
-				'qbuen-150kg': 9, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
+				'gallant-elite-gee13m29a': 7,
+				'gallant-elite-gee12m28a': 7,
+				'podiumfit-x300': 7,
+				'qbuen-150kg': 10, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
 				'strive-25hp-16kmh': 5,
-				'redfin-150kg': 6,
-				'health-herald-lcd': 6,
+				'redfin-150kg': 7,
+				'health-herald-lcd': 7,
 				'antuvi-mesa': 5,
-				'gallant-elite-gee12m25a': 6,
+				'gallant-elite-gee12m25a': 7,
 				'speedo-tr5': 6,
 				'kht-gts6': 6,
 				'kht-gts7': 5,
 				'movement-lx-160-g4': 5,
-				'poli-sports-ep-16k': 6,
+				'poli-sports-ep-16k': 7,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -286,7 +287,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 125) diff.push(`total de CTAs: esperado 125, encontrado ${total}`);
+		if (total !== 138) diff.push(`total de CTAs: esperado 138, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
