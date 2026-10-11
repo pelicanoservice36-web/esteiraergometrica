@@ -1,0 +1,195 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('movement-lx-160-g4');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Movement LX 160 G4',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Movement' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '18588.00',
+		highPrice: '18588.00',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '5.0',
+		reviewCount: '1',
+		bestRating: '5',
+		worstRating: '1',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '7.3',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-11',
+	},
+};
+
+const faq = [
+	{ q: 'A Movement LX 160 G4 é boa?', a: 'Sim, para quem prioriza fabricante com site, manual e garantia longa: nota editorial 7,3/10. Ela chega a 18 km/h, suporta 150 kg e tem lona de 133 × 47 cm. Em troca, custa R$ 18.588, não tem inclinação, não dobra e pesa 108 kg.' },
+	{ q: 'Qual a potência real do motor da LX 160 G4?', a: '2,0 cv de potência nominal (contínua) e 3,0 cv de pico, segundo a ficha técnica no site da Movement. O anúncio no Mercado Livre divulga só os 3,0 HP, que são o valor de pico.' },
+	{ q: 'A Movement LX 160 G4 tem inclinação?', a: 'Não. A ficha do fabricante declara "Sistema de inclinação: Não". A versão com inclinação é outro modelo, a LX 160i G4, com 0 a 15%.' },
+	{ q: 'Ela dobra? Cabe em apartamento?', a: 'Não dobra. Ocupa 190 × 77 cm de piso (1,46 m²), tem 144 cm de altura e pesa 108 kg. Tem rodas de transporte na frente, mas é um equipamento para ficar em lugar fixo.' },
+	{ q: 'Qual a garantia da Movement LX 160 G4?', a: 'O anúncio informa 12 meses de garantia de fábrica. O site da Movement detalha: 1 ano para partes mecânicas, 3 anos para o chassi e 5 anos para o motor, os dois últimos mediante cadastro do equipamento na garantia on-line da marca.' },
+	{ q: 'Até quantos kg a LX 160 G4 suporta?', a: '150 kg, confirmados tanto no anúncio quanto na ficha técnica do site da Movement. É o maior peso máximo confirmado por fabricante entre os modelos que já analisamos.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,0 cv nominal (3,0 cv de pico)' },
+	{ label: 'Velocidade máxima', value: '18 km/h' },
+	{ label: 'Lona', value: '133 × 47 cm no site do fabricante (136 × 45 cm no anúncio)' },
+	{ label: 'Peso máximo do usuário', value: '150 kg' },
+	{ label: 'Peso do equipamento', value: '108 kg: o mais pesado do catálogo' },
+	{ label: 'É dobrável', value: 'Não' },
+	{ label: 'Inclinação', value: 'Não tem' },
+	{ label: 'Garantia', value: '12 meses de fábrica (anúncio)' },
+	{ label: 'Preço', value: 'R$ 18.588' },
+];
+---
+
+<ReviewLayout
+	title="Movement LX 160 G4 é boa? Ficha e nota editorial"
+	description="Movement LX 160 G4: motor 2,0 cv nominal (3,0 de pico), 18 km/h, 150 kg e lona de 133 × 47 cm. R$ 18.588, sem inclinação e sem dobrar. Nota 7,3/10."
+	path="/reviews/movement-lx-160-g4"
+	ogTitle="Movement LX 160 G4: análise honesta"
+	ogDescription="18 km/h, 150 kg e fabricante com garantia longa, mas o motor é de 2,0 cv contínuos, não tem inclinação e custa R$ 18.588. Veja para quem vale."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Movement LX 160 G4 é boa?"
+	standfirst="É boa para quem quer um fabricante que responde pelo produto: a Movement publica ficha técnica, manual e garantia de até 5 anos no motor. A LX 160 G4 chega a 18 km/h, suporta 150 kg e tem lona de 133 × 47 cm. O que pesa contra: é a esteira mais cara do nosso catálogo (R$ 18.588), o motor tem 2,0 cv de potência contínua (os 3,0 do anúncio são de pico), não tem inclinação, não dobra e pesa 108 kg."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em outubro de 2026, loja oficial Rrfit Equipamentos no Mercado Livre. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">7,3<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
+    <p>A Movement LX 160 G4 é o modelo com a documentação de fabricante mais completa entre os de preço alto do nosso catálogo. A ficha técnica está no site da Movement, com manual em PDF para baixar, e ela separa a potência nominal do motor (2,0 cv) da potência de pico (3,0 cv): um dado que a <a href="/reviews/speedo-tr5">Speedo TR5</a> não informa. Velocidade (18 km/h), lona (133 × 47 cm) e peso suportado (150 kg) ficam todos na faixa mais alta da nossa <a href="/metodologia">metodologia</a>.</p>
+    <p>O que segura a nota são três pontos. O motor de 2,0 cv contínuos fica na mesma faixa de esteiras que custam um décimo do preço. Ela não tem inclinação, enquanto a <a href="/reviews/kht-gts6">KHT GTS-6</a> e a Speedo TR5 têm e custam menos. E não dobra: são 108 kg num espaço fixo de 1,46 m². Por R$ 18.588, você paga pela estrutura e pela garantia do fabricante, não por mais recursos.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem tem espaço fixo, corre em ritmo de até 18 km/h e coloca garantia e fabricante acima de recursos. A Movement declara 5 anos de garantia para o motor e 3 anos para o chassi, mediante cadastro on-line: é o prazo mais longo que já encontramos em qualquer modelo do catálogo. Faz sentido também para quem pesa entre 110 e 130 kg e quer folga confirmada por fabricante: os 150 kg aparecem no anúncio e na ficha do site da marca.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem quer treinar com subida: a LX 160 G4 não tem inclinação nenhuma. Para quem mora em apartamento pequeno ou precisa guardar a esteira: ela não dobra e pesa 108 kg. E para quem compara pelo preço: a <a href="/reviews/athletic-racer">Athletic Racer</a> custa R$ 4.300, tem motor de 5,0 HPM confirmado em manual, garantia de 12 meses e a maior nota do catálogo (8,6). Ela perde em velocidade (16 km/h) e peso suportado (130 kg), mas custa menos de um quarto.</p>
+
+  <h2>Motor: 2,0 cv contínuos, 3,0 cv de pico</h2>
+  <p>O título do anúncio no Mercado Livre diz "motor de 3 HP", e a descrição completa esclarece: "3.0 HP AC peak power", ou seja, potência de pico. A ficha técnica no site da Movement traz os dois números: "Nominal 2.0 cv / 3.0 cv (Potência de pico)". A potência nominal é a que o motor sustenta em uso contínuo, e é ela que entra no nosso critério de motor.</p>
+  <p>Com 2,0 cv contínuos (praticamente 2 HP), a LX 160 G4 fica na faixa de 1,7 a 2,4 HP da nossa metodologia, a mesma da <a href="/reviews/podiumfit-x300">PodiumFit X300</a>. O anúncio declara o motor como AC (corrente alternada); a tabela do site do fabricante não especifica o tipo de corrente, então não tratamos esse ponto como confirmado.</p>
+
+  <h2>Lona e velocidade: números de esteira de corrida</h2>
+  <p>A velocidade vai de 1,2 a 18 km/h, igual no anúncio e no site da Movement. A lona tem mais de 130 cm de comprimento nas duas fontes, acima do corte de 120 cm que usamos para a nota máxima de lona. No catálogo, só a Speedo TR5 (140 cm) e as KHT (135 cm) têm lona mais comprida. O amortecimento usa 6 coxins elásticos, que a Movement chama de sistema Mov6.</p>
+
+  <h2>O que o anúncio e o site da Movement dizem de diferente</h2>
+  <p>Cruzamos a ficha do anúncio com a página da LX 160 G4 no site da Movement. A maior parte bate (velocidade, peso suportado, peso do equipamento, dimensões, 8 programas). Cinco pontos não batem:</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Movement LX 160 G4: anúncio no Mercado Livre × site do fabricante (outubro de 2026)</caption>
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Anúncio</th>
+        <th scope="col">Site da Movement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Área de corrida</th><td>136 × 45 cm</td><td>133 × 47 cm</td></tr>
+      <tr><th scope="row">Lubrificação da lona</th><td>Manual, a cada 2 meses ou 1.000 km</td><td>Isenta (lona LubFree)</td></tr>
+      <tr><th scope="row">Atalhos de velocidade</th><td>Não</td><td>Sim</td></tr>
+      <tr><th scope="row">Tensão</th><td>220 V neste anúncio</td><td>127 V ou 220 V</td></tr>
+      <tr><th scope="row">Garantia</th><td>12 meses de fábrica</td><td>1 ano (mecânica), 3 anos (chassi) e 5 anos (motor), os dois últimos com cadastro on-line</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Não sabemos qual das duas fichas descreve a unidade que está à venda. A explicação mais provável é que o anúncio descreva uma revisão anterior do mesmo modelo, mas isso é hipótese nossa, não informação do vendedor. Antes de comprar, pergunte ao vendedor se a lona é LubFree e qual é a tensão da unidade: a versão de 127 V aparece como outro anúncio.</p>
+
+  <h2>Sem inclinação: a versão com subida é outro modelo</h2>
+  <p>A ficha do fabricante declara "Sistema de inclinação: Não" para a LX 160 G4. A Movement vende uma versão com inclinação de 0 a 15%, a LX 160i G4, que é outro produto, com outro anúncio e outro preço. Se inclinação importa para o seu treino, confira a letra "i" no nome antes de fechar a compra.</p>
+
+  <h2>Não dobra e pesa 108 kg</h2>
+  <p>A LX 160 G4 mede 190 × 77 × 144 cm e ocupa 1,46 m² de piso. Pesa 108 kg, o maior peso entre os modelos que já analisamos, acima das <a href="/reviews/kht-gts6">KHT</a> (103 kg). Tem rodas de transporte na parte da frente, o que ajuda a reposicionar, não a guardar. A embalagem mede 200 × 79 × 41 cm: confira a passagem de portas e elevador antes da entrega.</p>
+
+  <h2>Fabricante e vendedor: quem responde pelo quê</h2>
+  <p>A Movement tem site próprio (movement.com.br), com ficha técnica, catálogo e manual do modelo para baixar. A garantia publicada lá é escalonada: 90 dias para mão de obra, sensor de pulsação, rodas, carenagem e acabamentos; 1 ano para partes e peças mecânicas; 3 anos para o chassi e 5 anos para o motor, esses dois mediante cadastro do equipamento na garantia on-line da marca.</p>
+  <p>Quem vende neste anúncio não é a Movement: é a Rrfit Equipamentos, loja oficial no Mercado Livre, com mais de 1.000 vendas e mais de 500 produtos. A entrega é a combinar com o vendedor, saindo de Cantagalo (PR), sem o frete padrão do Mercado Livre. Não conferimos a rede de assistência técnica da Movement, e por isso a nota de confiabilidade ficou em 9,0, meio ponto abaixo do máximo.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Fabricante com site, manual em PDF e ficha técnica completa</li>
+        <li>Garantia de até 5 anos no motor e 3 anos no chassi, com cadastro on-line</li>
+        <li>Potência nominal e de pico informadas separadamente</li>
+        <li>18 km/h de velocidade máxima</li>
+        <li>150 kg de peso suportado, confirmados pelo fabricante</li>
+        <li>Lona de mais de 130 cm de comprimento</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>A esteira mais cara do catálogo (R$ 18.588)</li>
+        <li>Motor de 2,0 cv contínuos, faixa de esteiras muito mais baratas</li>
+        <li>Não tem inclinação</li>
+        <li>Não dobra e pesa 108 kg</li>
+        <li>Anúncio e site do fabricante divergem em lona, lubrificação e garantia</li>
+        <li>Pouco histórico neste anúncio: mais de 5 vendas e 1 avaliação</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em outubro de 2026, a Movement LX 160 G4 apareceu por <strong>R$ 18.588</strong> (ou 10× de R$ 1.858,80 sem juros) na loja oficial Rrfit Equipamentos no Mercado Livre, versão 220 V. O anúncio tinha mais de 5 unidades vendidas, nota 5,0 com 1 avaliação e 2 unidades em estoque quando consultamos. A entrega é combinada direto com o vendedor.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A Movement LX 160 G4 é boa?</h3>
+  <p>Sim, para quem prioriza fabricante com site, manual e garantia longa: nota editorial 7,3/10. Ela chega a 18 km/h, suporta 150 kg e tem lona de 133 × 47 cm. Em troca, custa R$ 18.588, não tem inclinação, não dobra e pesa 108 kg.</p>
+
+  <h3>Qual a potência real do motor da LX 160 G4?</h3>
+  <p>2,0 cv de potência nominal (contínua) e 3,0 cv de pico, segundo a ficha técnica no site da Movement. O anúncio no Mercado Livre divulga só os 3,0 HP, que são o valor de pico.</p>
+
+  <h3>A Movement LX 160 G4 tem inclinação?</h3>
+  <p>Não. A ficha do fabricante declara "Sistema de inclinação: Não". A versão com inclinação é outro modelo, a LX 160i G4, com 0 a 15%.</p>
+
+  <h3>Ela dobra? Cabe em apartamento?</h3>
+  <p>Não dobra. Ocupa 190 × 77 cm de piso (1,46 m²), tem 144 cm de altura e pesa 108 kg. Tem rodas de transporte na frente, mas é um equipamento para ficar em lugar fixo.</p>
+
+  <h3>Qual a garantia da Movement LX 160 G4?</h3>
+  <p>O anúncio informa 12 meses de garantia de fábrica. O site da Movement detalha: 1 ano para partes mecânicas, 3 anos para o chassi e 5 anos para o motor, os dois últimos mediante cadastro do equipamento na garantia on-line da marca.</p>
+
+  <h3>Até quantos kg a LX 160 G4 suporta?</h3>
+  <p>150 kg, confirmados tanto no anúncio quanto na ficha técnica do site da Movement. É o maior peso máximo confirmado por fabricante entre os modelos que já analisamos.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/athletic-racer">Athletic Racer</a>, a maior nota do catálogo por menos de um quarto do preço, a <a href="/reviews/kht-gts6">KHT GTS-6</a> e a <a href="/reviews/speedo-tr5">Speedo TR5</a>, que têm inclinação e custam menos, o <a href="/guias/esteira-acima-de-100kg">guia de esteira para quem pesa mais de 100 kg</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e da descrição do anúncio da loja oficial Rrfit Equipamentos no Mercado Livre, cruzadas com a página da LX 160 G4 no site da Movement (movement.com.br), consultados em outubro de 2026. Onde as duas fontes divergem, mostramos as duas. Não testamos fisicamente o equipamento, não conferimos a rede de assistência técnica e não recebemos produto ou pagamento da Movement. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

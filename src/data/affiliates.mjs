@@ -318,6 +318,19 @@ export const products = {
 		notes:
 			'Achada em pedido direto do usuário, mesma investigação da linha KHT "profissional". Loja MODULAUTO (mesmo vendedor da GTS-6): MercadoLíder Gold, +5 mil vendas na loja. Este anúncio específico: +5 vendidos, sem avaliações registradas ainda. R$17.172,15 (de R$18.999, 9% off) em outubro de 2026 — a mais cara do catálogo. Ficha técnica confirmada via texto colado pelo usuário: DIFERENTE da GTS-6, aqui o motor é declarado explicitamente "2.5 hp DC" (corrente contínua), sem nenhuma menção a AC em lugar nenhum da ficha — por isso NÃO foi linkada no guia de esteira profissional, só no catálogo residencial normal. Lona 135×52cm (mesma base de hardware da GTS-6/8008AC), peso máx. usuário 150kg, peso do equipamento 103kg, dobrável mas REQUER montagem (diferente da GTS-6), certificação CE/RoHS/EN957, bivolt por seleção. Diferencial real: tela Android 18,5" com Wi-Fi, Netflix, YouTube, Spotify, Chrome, memória 8GB — único no catálogo. ATENÇÃO: ficha contraditória sobre inclinação, mesma ambiguidade "graus vs %" da GTS-6, não resolvida. Garantia de fábrica: 3 meses (confirmado no FAQ). Nota editorial 6,9/10 — o pior custo-benefício calculado no catálogo até agora (3,5), por custar quase R$6.000 a mais que a GTS-6 com motor mais fraco — ver metodologia.astro.',
 	},
+	'movement-lx-160-g4': {
+		merchant: 'mercadolivre',
+		title: 'Movement LX 160 G4',
+		listingId: 'MLB8967700',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-movement-lx-160-g4-com-motor-de-3-hp-e-velocidade-de-18-kmh/p/MLB8967700',
+		affiliateUrl: 'https://meli.la/1RCNTcW',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-11',
+		notes:
+			'Pedido direto do usuário em 11/10/2026 (link de afiliado enviado por ele). Página de catálogo MLB8967700, item MLB5831956690, versão 220V (a de 127V é o catálogo MLB15071443). Loja oficial Rrfit Equipamentos (revenda, não é a Movement): +1000 vendas, +500 produtos. Este anúncio: +5 vendidos, nota 5,0 com 1 avaliação, 2 unidades em estoque, entrega a combinar (Cantagalo, PR), 12 meses de garantia de fábrica. R$18.588 em outubro de 2026 — passa a ser a mais cara do catálogo. Ficha cruzada com https://www.movement.com.br/produto/esteira-lx-160-g4/ : motor "Nominal 2.0 cv / 3.0 cv (Potência de pico)" (o anúncio só diz "3.0 HP AC peak power"), 1,2 a 18 km/h, 150 kg, 108 kg, não dobra, sem inclinação (a versão com inclinação é a LX 160i G4, outro produto). DIVERGÊNCIAS anúncio × fabricante, mostradas na review: área de corrida 136×45 (anúncio) vs 133×47 (site); lubrificação manual a cada 2 meses/1000 km vs LubFree isenta; atalho de velocidades Não vs Sim; carenagem rotomoldada vs ABS; tensão 220V vs 127V ou 220V. Garantia no site do fabricante: 90 dias (mão de obra, plásticos), 1 ano (peças mecânicas), 3 anos chassi e 5 anos motor mediante cadastro on-line. Rede de assistência técnica NÃO conferida. O link meli.la não pôde ser validado por automação (403 / página de perfil social) — o usuário precisa testar no navegador. Nota editorial 7,3/10 — ver metodologia.astro.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
