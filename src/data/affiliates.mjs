@@ -337,15 +337,12 @@ export const products = {
 		listingId: 'MLB15046983',
 		productUrl:
 			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-ep-16k-4-programas-amortecedor-16kmh-120kg-poli-sports/p/MLB15046983',
-		// ATENÇÃO: ainda NÃO é link de afiliado. O usuário mandou só a URL do anúncio em
-		// 11/10/2026; trocar pelo meli.la assim que ele gerar na Barra de afiliados.
-		affiliateUrl:
-			'https://www.mercadolivre.com.br/esteira-ergometrica-eletrica-dobravel-ep-16k-4-programas-amortecedor-16kmh-120kg-poli-sports/p/MLB15046983',
+		affiliateUrl: 'https://meli.la/32cR8EG',
 		trackingTag: 'pelicano',
 		enabled: true,
 		verifiedAt: '2026-10-11',
 		notes:
-			'Pedido direto do usuário em 11/10/2026, junto com o vídeo da pasta Videos (material da Poli Sports, cortado em 39,6s e publicado em /video/poli-sports-ep-16k.mp4). SEM LINK DE AFILIADO AINDA: affiliateUrl aponta para a página de catálogo, sem comissão. Catálogo MLB15046983, item MLB6247897336. Loja oficial POLISPORTS (MercadoLíder, +1000 vendas), anúncio +1000 vendidos, nota 4,3 com 330 avaliações e 144 comentários, R$2.354,30 (12x R$226,29) e outra oferta da mesma loja a R$2.727 (10x sem juros), 6 meses de garantia de fábrica. Ficha cruzada com https://www.polisports.com.br/esteira-eletronica-ep-16k : motor 3.0hp/cc (sem separar contínua de pico), 16 km/h, 120 kg, lona 39x122 cm, inclinação manual 1,5°/3,5°, bivolt, garantia 6 meses, 42,3 kg, 126x70x162 cm. DIVERGÊNCIAS: a legenda do vídeo da própria marca diz lona 39x112 cm; a descrição do anúncio diz 42,7 kg e 135x70x166 cm. O resumo de avaliações gerado pelo ML cita problemas frequentes após poucos meses e preocupação com assistência. Mesma fabricante da Polimet EP-1600 (Poli Sports / Polimet). Nota editorial 7,6/10 — ver metodologia.astro.',
+			'Pedido direto do usuário em 11/10/2026, junto com o vídeo da pasta Videos (material da Poli Sports, cortado em 39,6s e publicado em /video/poli-sports-ep-16k.mp4). Link de afiliado meli.la enviado pelo usuário no mesmo dia. Catálogo MLB15046983, item MLB6247897336. Loja oficial POLISPORTS (MercadoLíder, +1000 vendas), anúncio +1000 vendidos, nota 4,3 com 330 avaliações e 144 comentários, R$2.354,30 (12x R$226,29) e outra oferta da mesma loja a R$2.727 (10x sem juros), 6 meses de garantia de fábrica. Ficha cruzada com https://www.polisports.com.br/esteira-eletronica-ep-16k : motor 3.0hp/cc (sem separar contínua de pico), 16 km/h, 120 kg, lona 39x122 cm, inclinação manual 1,5°/3,5°, bivolt, garantia 6 meses, 42,3 kg, 126x70x162 cm. DIVERGÊNCIAS: a legenda do vídeo da própria marca diz lona 39x112 cm; a descrição do anúncio diz 42,7 kg e 135x70x166 cm. O resumo de avaliações gerado pelo ML cita problemas frequentes após poucos meses e preocupação com assistência. Mesma fabricante da Polimet EP-1600 (Poli Sports / Polimet). Nota editorial 7,6/10 — ver metodologia.astro.',
 	},
 };
 
