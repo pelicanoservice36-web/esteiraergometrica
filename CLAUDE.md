@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 Contexto para agentes trabalhando neste repositório. Leia antes de qualquer alteração.
 
 ## O que é
@@ -10,10 +12,39 @@ readquirido, com autoridade residual — PA 23 / DA 11 na data de retomada.
 
 Construído em [Astro](https://astro.build) desde 2026-09-07 (migrado de HTML/CSS puro).
 `npm run build` gera HTML estático em `dist/` — **sem framework de UI no cliente**: nenhum
-React, Vue ou JS de interatividade é enviado ao navegador. O que mudou foi só a forma de
-montar o HTML (layouts + componentes reaproveitáveis em vez de copiar `<header>`/`<footer>`
-em cada arquivo); o resultado publicado continua sendo a mesma coisa que sempre foi: HTML e
-CSS simples, rápido, fácil de manter. Ver README.md para comandos e deploy.
+React, Vue ou bundle de JS é enviado ao navegador. O único JS publicado são pequenos
+`<script is:inline>` em vanilla JS, cada um com um propósito pontual (ver "JS no cliente"
+abaixo). Ver README.md para deploy.
+
+## Comandos
+
+```
+npm run dev         # localhost:4321, hot reload
+npm run build       # prebuild regenera public/_redirects, depois astro build → dist/
+npm run preview     # serve dist/ para conferir o build de produção
+npm run check       # verificação de afiliados (registro, páginas, _redirects, e dist/ se existir)
+npm run redirects   # regenera public/_redirects avulso
+```
+
+Não há test runner nem linter. A verificação do projeto é `npm run build` (falha se um slug
+de afiliado não existir) seguido de `npm run check` — rode os dois antes de commitar.
+Node >= 22.12.
+
+## JS no cliente
+
+Todo script é `is:inline`, sem dependência, e degrada sem JS:
+
+- `BaseLayout.astro`: Google Analytics (gtag, `G-F3SC734W1X`) com Consent Mode — o consentimento
+  padrão é `denied`, a biblioteca só carrega após a primeira interação ou 7s (por causa de
+  TBT/PageSpeed; o comentário no arquivo explica por que não `requestIdleCallback`), evento
+  `affiliate_click` delegado em todo `a[href^="/go/"]`, e o banner de cookies.
+- `ReviewLayout.astro`: CTA fixo no mobile via `IntersectionObserver`.
+- `Header.astro`: estado de scroll do header transparente.
+- `politica-de-cookies.astro`: botão para reabrir o banner.
+
+A escolha do banner fica em `localStorage['cookie-consent']` — é a **única** exceção à regra
+de não usar armazenamento de navegador. Qualquer mudança em analytics/cookies exige atualizar
+`politica-de-cookies.astro`, que descreve os cookies `_ga` e o banner.
 
 ## Regra número um: nunca invente dado técnico
 
@@ -45,23 +76,34 @@ valor antigo em todo o `src/` antes de considerar a tarefa concluída.
 ```
 src/
   layouts/
-    BaseLayout.astro        Head, Header, Footer — toda página passa por aqui
+    BaseLayout.astro        Head (meta, OG, canonical, gtag, banner de cookies), Header, Footer
     ReviewLayout.astro      + lead-section, ficha técnica, botão de compra, JSON-LD Product
     ArticleLayout.astro     Para guias e páginas legais (lead-section, sem ficha técnica)
+    LandingLayout.astro     Páginas de oferta para tráfego pago: mesmo <head>, SEM Header/Footer
+                            (única saída é o CTA), noindex por padrão
   components/
-    Header.astro · Footer.astro
+    Header.astro · Footer.astro · Logo.astro
+  data/
+    affiliates.mjs          Registro único de links de afiliado (ver seção abaixo)
+    catalog.mjs             TOTAL_MODELOS — contagem do catálogo (ver "Contagem de modelos")
   pages/
     index.astro              Home com tabela comparativa
     reviews/*.astro          Uma análise por arquivo, usa ReviewLayout
-    guias/*.astro            Usa ArticleLayout
+    guias/*.astro            Usa ArticleLayout (inclui comparativos "X ou Y" e "marca é boa?")
+    oferta/*.astro           Usa LandingLayout — não entra no sitemap (noindex)
     metodologia.astro         Critérios, pesos e a conta aberta da nota editorial de cada review
+    sobre.astro · plano-30-dias.astro · 404.astro
     aviso-legal.astro · termos-de-uso.astro · politica-de-cookies.astro
-  styles.css                 Folha de estilo única, importada pelo BaseLayout
+  styles.css                 Folha de estilo única, inline no <head> de cada página (inlineStylesheets: 'always')
+scripts/
+  gen-redirects.mjs          Gera public/_redirects a partir de affiliates.mjs (roda no prebuild)
+  check-affiliates.mjs       `npm run check`, Node puro
 public/
   assets/images/             Fotos de produto (de anúncio verificado, self-hosted)
-  _redirects                 Links de afiliado centralizados
+  _redirects                 GERADO por scripts/gen-redirects.mjs — não editar à mão
   _headers                   Cache e cabeçalhos de segurança
   robots.txt · sitemap.xml   Copiados como estão para dist/ — sitemap é mantido à mão
+  llms.txt                   Resumo do site para buscadores de IA — mantido à mão
 astro.config.mjs             build.format: 'file' gera arquivos .html no dist/ — necessário porque o Cloudflare resolve /rota como /rota.html sem redirect extra; URL pública e canonical NÃO usam .html, ver nota abaixo
 ```
 
@@ -75,9 +117,16 @@ site usa a forma **sem** `.html`, mesmo o build continuando a gerar arquivos `.h
 redirect 307 desnecessário e um canonical que aponta para uma URL que não é a final.
 As três páginas legais (`aviso-legal.astro`, `termos-de-uso.astro`, `politica-de-cookies.astro`)
 são linkadas no rodapé (`.foot-nav`, dentro de `Footer.astro`) de toda página do site
-automaticamente — não precisa repetir isso por página. Se o site ganhar cadastro, formulário
-ou analytics com cookie no futuro, atualize `politica-de-cookies.astro` — hoje ela afirma
-explicitamente que não há cookie de rastreamento próprio, e isso deixaria de ser verdade.
+automaticamente — não precisa repetir isso por página.
+
+### Contagem de modelos
+
+O número de modelos do catálogo ("vinte e um modelos") aparece em texto corrido em ~15
+páginas. `src/data/catalog.mjs` guarda `TOTAL_MODELOS`/`TOTAL_MODELOS_EXTENSO`, mas só
+`guias/melhor-esteira-ergometrica-residencial.astro` importa a constante; o resto está
+escrito à mão (lista no comentário do arquivo). Ao adicionar ou remover uma review, atualize
+a constante e busque a contagem antiga por extenso e em algarismo em `src/pages` e
+`public/llms.txt`.
 
 Ao criar uma análise nova: crie `src/pages/reviews/nome-do-modelo.astro` importando
 `ReviewLayout`, e use `polimet-ep1600.astro` como referência de tom, profundidade e de quais
@@ -173,25 +222,18 @@ lá antes de contar com receita.
 
 ## Prioridade de conteúdo
 
-Ordem definida por análise de SERP, da menor para a maior dificuldade:
-
-1. Polimet EP-1600 — publicada
-2. Polimet EP-1600 Sênior — publicada
-3. Dream Fitness DR-1600 — publicada
-4. Guia: esteira para apartamento pequeno — publicado
-5. Guia: como escolher uma esteira — publicado
-6. Esteira Elétrica Dobrável Residencial Cardio (sem marca) — publicada
-7. Athletic Racer 16km/h — publicada
-
-Todos os itens da fila original já estão publicados. Próximo passo é decidir a próxima
-frente (novo modelo, ou aprofundar SEO/conversão do que já existe) antes de continuar
-gerando conteúdo novo — ver "Não gerar análises em lote" abaixo.
+A fila original (EP-1600, EP-1600 Sênior, DR-1600, Cardio, Athletic Racer e os guias de
+apartamento e de como escolher) está toda publicada; o catálogo hoje tem 21 reviews e ~30
+guias. Antes de gerar conteúdo novo, decida a frente (novo modelo, ou SEO/conversão do que já
+existe). Auditorias e relatórios de SEO anteriores estão em `SEO-AUDIT-2026-10.md`,
+`SEO-IMPLEMENTATION-REPORT-2026-10.md` e `docs/seo/`.
 
 ## O que não fazer
 
 - Não adicionar framework de UI no cliente (React, Vue, Svelte, Alpine etc.) — o site deve
-  continuar sendo HTML estático puro no navegador, sem JS de interatividade
-- Não usar localStorage ou qualquer armazenamento de navegador
+  continuar sendo HTML estático, com no máximo scripts inline pontuais como os listados em
+  "JS no cliente"
+- Não usar localStorage ou qualquer armazenamento de navegador além do `cookie-consent`
 - Não criar arquivo CSS adicional — tudo em `src/styles.css`
 - Não gerar análises em lote; o texto é o produto do site
 - Não copiar descrição de anúncio do Mercado Livre para dentro da página
