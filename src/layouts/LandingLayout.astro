@@ -42,6 +42,15 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
 <!-- Google tag (gtag.js) — mesmo adiamento até interação real do BaseLayout, ver lá o porquê. -->
 <script is:inline>
+	// Acessos do dono do site ficam fora do Analytics. Abrir qualquer página com
+	// ?interno=1 liga a exclusão NESTE navegador (fica guardada no localStorage);
+	// ?interno=0 desliga. A flag ga-disable-<ID> precisa existir antes do config.
+	try {
+		var interno = new URLSearchParams(location.search).get('interno');
+		if (interno === '1') { localStorage.setItem('ga-interno', '1'); alert('Pronto: os acessos deste navegador não contam mais no Analytics.'); }
+		if (interno === '0') { localStorage.removeItem('ga-interno'); alert('Os acessos deste navegador voltaram a contar no Analytics.'); }
+		if (localStorage.getItem('ga-interno') === '1') window['ga-disable-G-F3SC734W1X'] = true;
+	} catch (e) {}
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	window.gtag = gtag;
