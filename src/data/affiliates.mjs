@@ -344,6 +344,19 @@ export const products = {
 		notes:
 			'Pedido direto do usuário em 11/10/2026, junto com o vídeo da pasta Videos (material da Poli Sports, cortado em 39,6s e publicado em /video/poli-sports-ep-16k.mp4). Link de afiliado meli.la enviado pelo usuário no mesmo dia. Catálogo MLB15046983, item MLB6247897336. Loja oficial POLISPORTS (MercadoLíder, +1000 vendas), anúncio +1000 vendidos, nota 4,3 com 330 avaliações e 144 comentários, R$2.354,30 (12x R$226,29) e outra oferta da mesma loja a R$2.727 (10x sem juros), 6 meses de garantia de fábrica. Ficha cruzada com https://www.polisports.com.br/esteira-eletronica-ep-16k : motor 3.0hp/cc (sem separar contínua de pico), 16 km/h, 120 kg, lona 39x122 cm, inclinação manual 1,5°/3,5°, bivolt, garantia 6 meses, 42,3 kg, 126x70x162 cm. DIVERGÊNCIAS: a legenda do vídeo da própria marca diz lona 39x112 cm; a descrição do anúncio diz 42,7 kg e 135x70x166 cm. O resumo de avaliações gerado pelo ML cita problemas frequentes após poucos meses e preocupação com assistência. Mesma fabricante da Polimet EP-1600 (Poli Sports / Polimet). Nota editorial 7,6/10 — ver metodologia.astro.',
 	},
+	'jmjn-qk-3058': {
+		merchant: 'mercadolivre',
+		title: 'JMJN QK-3058-D',
+		listingId: 'MLB77956436',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-ergometrica-30hp-1-14kmh-com-bluetooth-fitshow-app-suporta-ate-200kg-dobravel-jmjn/p/MLB77956436',
+		affiliateUrl: 'https://meli.la/283dk6S',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-17',
+		notes:
+			'Pedido direto do usuário em 17/10/2026 ("2ª mais vendida no ML"), meli.la enviado por ele. Catálogo MLB77956436 (220V, item MLB5105621559); a versão 127V é o catálogo MLB77956434 (item MLB5105621563, R$1.299). Selo "MAIS VENDIDO 2º em Esteira Ergometrica", +500 vendidos, 4,8 com 206 avaliações (91 comentários). Preço 17/10: R$1.121,43 no Pix em oferta relâmpago, R$1.289 em outros meios (preço riscado não reproduzido). Vendedor "TC20251127160858", MercadoLíder Platinum, +5 mil vendas, +25 produtos. Garantia de fábrica NÃO informada. Ficha: marca JMJN, modelo QK-3058-D, 3.0 HP "motor sem escovas" sem separar contínua de pico, 1-14 km/h, 200 kg, lona 94x38,5 cm, 24 kg, dobrável (116x60x13 cm), inclinação manual "6º" na ficha e "6%" na descrição, 12 programas, Bluetooth FitShow/Kinomap/Zwift, requer montagem. Anúncio alega ruído em dB (não publicamos). Nenhum fabricante/site JMJN encontrado. O mesmo P/N QK-3058 é vendido na PcComponentes (Portugal) como marca TENBOOM: 3,0 CV pico, 0,75 CV contínua, carga máx. 130 kg, superfície 950x380 mm, inclinação 12% — usado como fonte conservadora para motor e peso na nota. Nota editorial 5,8/10 — ver metodologia.astro.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

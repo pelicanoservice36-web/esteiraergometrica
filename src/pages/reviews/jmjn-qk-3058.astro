@@ -1,0 +1,179 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('jmjn-qk-3058');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Esteira JMJN QK-3058-D',
+	model: 'QK-3058-D',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'JMJN' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '1121.43',
+		highPrice: '1299.00',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.8',
+		reviewCount: '206',
+		bestRating: '5',
+		worstRating: '1',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '5.8',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-17',
+	},
+};
+
+const faq = [
+	{ q: 'A esteira JMJN é boa?', a: 'Para caminhada em casa, com orçamento curto, ela entrega bastante pelo preço: dobra, pesa 24 kg, tem Bluetooth e custava de R$ 1.121,43 a R$ 1.299 em outubro de 2026. Nossa nota editorial é 5,8/10 porque a lona é curta (94 cm), não há fabricante identificável e o limite de 200 kg do anúncio não se confirma em nenhuma outra fonte.' },
+	{ q: 'A esteira JMJN aguenta 200 kg?', a: 'O anúncio diz que sim, mas não encontramos fabricante para confirmar. O mesmo número de modelo, QK-3058, é vendido em Portugal com a marca Tenboom e limite de 130 kg. Se você pesa mais de 120 kg, trate os 200 kg com muita cautela.' },
+	{ q: 'O motor da JMJN tem 3 HP de verdade?', a: 'O anúncio diz 3,0 HP sem dizer se é potência contínua ou de pico. Na loja portuguesa que vende o QK-3058 como Tenboom, os 3,0 CV aparecem como potência de pico, com 0,75 CV de potência contínua. Não confirmamos que as duas sejam exatamente a mesma esteira.' },
+	{ q: 'Dá para correr na esteira JMJN?', a: 'Para trote leve e curto, sim. Para corrida de verdade, não: a lona tem 94 cm de comprimento, medida de esteira de caminhada, mesmo com a velocidade indo até 14 km/h.' },
+	{ q: 'A JMJN funciona com Zwift e Kinomap?', a: 'O anúncio diz que a esteira se conecta por Bluetooth aos aplicativos FitShow, Kinomap e Zwift. Não testamos essa conexão.' },
+	{ q: 'Qual a garantia da esteira JMJN?', a: 'O anúncio não informa garantia de fábrica e não encontramos fabricante com site no Brasil. Vale a garantia legal de 90 dias do Código de Defesa do Consumidor e a devolução grátis em 30 dias do Mercado Livre.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '3,0 HP no anúncio, sem separar contínua de pico' },
+	{ label: 'Velocidade máxima', value: '14 km/h' },
+	{ label: 'Lona', value: '94 × 38,5 cm' },
+	{ label: 'Peso máximo do usuário', value: '200 kg no anúncio (não confirmado)' },
+	{ label: 'Peso do equipamento', value: '24 kg' },
+	{ label: 'É dobrável', value: 'Sim, com rodas' },
+	{ label: 'Inclinação', value: 'Manual: "6 graus" na ficha, "6%" na descrição' },
+	{ label: 'Garantia', value: 'Não informada no anúncio' },
+	{ label: 'Preço', value: 'R$ 1.121,43 a R$ 1.299' },
+];
+---
+
+<ReviewLayout
+	title="Esteira JMJN é boa? 200 kg no anúncio, mas atenção"
+	description="Esteira JMJN QK-3058-D: dobra, pesa 24 kg e tem Bluetooth por R$ 1.121 a 1.299. Mas a lona tem só 94 cm e o limite de 200 kg não se confirma. Nota 5,8/10."
+	path="/reviews/jmjn-qk-3058"
+	ogTitle="Esteira JMJN QK-3058-D: análise honesta"
+	ogDescription="A segunda esteira mais vendida do Mercado Livre em outubro de 2026. Barata, dobrável e com Bluetooth, mas com números que não se confirmam fora do anúncio."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira JMJN é boa?"
+	standfirst="Para caminhar em casa gastando pouco, a JMJN QK-3058-D entrega bastante: dobra, pesa 24 kg, tem Bluetooth com apps de treino e custava de R$ 1.121,43 a R$ 1.299 em outubro de 2026, quando aparecia como a 2ª esteira mais vendida do Mercado Livre. Mas três números pedem cautela: a lona tem só 94 cm, o motor de 3,0 HP não diz se é contínuo, e o limite de 200 kg não se confirma: o mesmo modelo é vendido em Portugal com limite de 130 kg."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em 17 de outubro de 2026 no Mercado Livre: R$ 1.121,43 no Pix em oferta relâmpago; R$ 1.289 (220 V) e R$ 1.299 (127 V) fora da oferta. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">5,8<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
+    <p>A JMJN vende muito por um bom motivo: por pouco mais de R$ 1.100, ela dobra, pesa 24 kg, tem rodas, chega a 14 km/h e conecta por Bluetooth com FitShow, Kinomap e Zwift. A nota dos compradores é alta (4,8 com 206 avaliações), e as avaliações em destaque elogiam a embalagem, a entrega e a montagem fácil.</p>
+    <p>A nota editorial fica em 5,8 por causa do que não se confirma. Não há fabricante identificável nem garantia informada no anúncio, e o vendedor aparece só como um código. O mesmo número de modelo é vendido em Portugal com outra marca, limite de 130 kg e motor de 0,75 CV contínuos. Usamos os números mais conservadores até haver fonte que confirme os do anúncio.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem quer caminhar em casa, tem pouco espaço e pouco orçamento, e gosta de treinar com aplicativo. Ela dobra, pesa 24 kg (dá para uma pessoa guardar sozinha) e custa menos que a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, com velocidade máxima maior (14 contra 9 km/h) e Bluetooth, que a Polimet não tem.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem pesa mais de 120 kg e está contando com os 200 kg do anúncio: esse número não se confirma. Para quem quer correr: a lona de 94 cm é de esteira de caminhada. E para quem quer garantia de fabricante com assistência técnica conhecida: aqui não há fabricante identificado. Nesses casos, a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a> (fabricante identificado, 120 kg, lona de 122 cm) ou o <a href="/guias/esteira-acima-de-100kg">guia de esteira acima de 100 kg</a> são caminhos mais seguros.</p>
+
+  <h2>O limite de 200 kg não se confirma</h2>
+  <p>É o maior peso máximo declarado entre as esteiras que já analisamos, numa estrutura de 24 kg com lona de 94 cm, do tamanho das esteiras de entrada. Procuramos um fabricante da JMJN e não encontramos site, manual ou ficha oficial. O que encontramos foi o mesmo número de modelo, QK-3058 (sem o "-D" do anúncio brasileiro), à venda numa loja de Portugal com a marca Tenboom: ali, a carga máxima é de <strong>130 kg</strong>.</p>
+  <p>Não dá para afirmar que as duas são a mesma esteira: a portuguesa tem inclinação de 12% e a ficha brasileira fala em 6 graus. Mas a diferença entre 130 kg e 200 kg é grande demais para ignorar. Na nossa nota, usamos 130 kg. Se você pesa mais de 120 kg, prefira um modelo com limite confirmado pelo fabricante, como os do <a href="/guias/esteira-acima-de-100kg">guia de esteira acima de 100 kg</a>.</p>
+
+  <h2>Motor: 3,0 HP de quê?</h2>
+  <p>O anúncio diz "motor sem escovas 3.0 HP" e não informa se esse número é potência contínua ou de pico. Na loja portuguesa, o QK-3058 aparece com 3,0 CV de pico e <strong>0,75 CV de potência contínua</strong>. Se for o caso aqui, é o mesmo nível da <a href="/reviews/wct-fitness-esteira">WCT Fitness</a> (0,75 HP contínuos), que serve para caminhada, não para corrida sustentada.</p>
+  <p>Como nossa metodologia mede potência contínua, usamos a faixa mais conservadora para o motor. A nota real pode ser mais alta, se um dia a JMJN publicar a potência contínua do modelo vendido no Brasil.</p>
+
+  <h2>Lona de 94 cm: esteira de caminhada</h2>
+  <p>A área de corrida mede 94 × 38,5 cm. É praticamente a lona das esteiras de entrada: a da Polimet EP-1600 tem 100 cm. O anúncio divide a velocidade em faixas e chama de "corrida rápida" o intervalo de 9 a 14 km/h, mas passada de corrida precisa de lona bem mais comprida. Para caminhada e trote leve, a medida resolve.</p>
+
+  <h2>Inclinação: 6 graus ou 6%?</h2>
+  <p>A ficha diz "Tipo de inclinação: Manual", e a descrição fala em "inclinação de 6º" e, mais abaixo, "inclinação de 6%". As duas coisas não são iguais: 6 graus equivalem a cerca de 10,5% de subida. O anúncio também promete que a inclinação leva o gasto de 200 para 350 kcal por hora, um número sem fonte que não usamos.</p>
+
+  <h2>Bluetooth, apps e painel</h2>
+  <p>O diferencial real da JMJN no preço dela é a conexão Bluetooth: o anúncio diz que ela funciona com FitShow, Kinomap e Zwift e toca música do celular nos alto-falantes. O painel mostra velocidade, distância, tempo, calorias e programa, com 12 programas prontos. Não testamos a conexão com os aplicativos. O anúncio também afirma um nível de ruído em decibéis; como não há medição verificável, não reproduzimos esse número (leia o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a>).</p>
+
+  <h2>Dobra e pesa 24 kg</h2>
+  <p>Ela dobra, tem rodas e pesa 24 kg, o mesmo peso da Polimet EP-1600: dá para uma pessoa mover e guardar sozinha. Aberta, mede 116 × 56 × 109 cm; dobrada, 116 × 60 × 13 cm, segundo o anúncio. Requer montagem, e a caixa traz lubrificante, chave de segurança e manual.</p>
+
+  <h2>Quem vende e o que garante a compra</h2>
+  <p>O vendedor aparece só como "TC20251127160858", com selo MercadoLíder Platinum e mais de 5 mil vendas. O anúncio não informa garantia de fábrica, e não há fabricante JMJN com site ou assistência técnica conhecida no Brasil. Um comprador escreveu na avaliação que é "uma marca desconhecida no mercado". O que protege a compra é a garantia legal de 90 dias do Código de Defesa do Consumidor e a devolução grátis em 30 dias do Mercado Livre: teste bem a esteira dentro desse prazo.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Preço baixo: de R$ 1.121,43 a R$ 1.299</li>
+        <li>Dobra, tem rodas e pesa 24 kg</li>
+        <li>Bluetooth com FitShow, Kinomap e Zwift, segundo o anúncio</li>
+        <li>Até 14 km/h e 12 programas</li>
+        <li>Nota 4,8 com 206 avaliações no Mercado Livre</li>
+        <li>Versões 127 V e 220 V</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Limite de 200 kg não confirmado; o mesmo modelo é vendido em Portugal com 130 kg</li>
+        <li>Motor de 3,0 HP sem potência contínua informada</li>
+        <li>Lona de 94 cm, curta para correr</li>
+        <li>Sem fabricante identificável e sem garantia informada</li>
+        <li>Inclinação descrita como 6 graus e como 6%</li>
+        <li>Vendedor identificado só por um código</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em 17 de outubro de 2026, a JMJN QK-3058-D aparecia com o selo "Mais vendido: 2º em Esteira Ergométrica" no Mercado Livre, com mais de 500 unidades vendidas. O preço era <strong>R$ 1.121,43 no Pix</strong> numa oferta relâmpago, ou R$ 1.289 em outros meios (versão 220 V). A versão 127 V saía por R$ 1.299. Ofertas relâmpago duram poucas horas: confira o preço do momento antes de comprar.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A esteira JMJN é boa?</h3>
+  <p>Para caminhada em casa, com orçamento curto, ela entrega bastante pelo preço: dobra, pesa 24 kg, tem Bluetooth e custava de R$ 1.121,43 a R$ 1.299 em outubro de 2026. Nossa nota editorial é 5,8/10 porque a lona é curta (94 cm), não há fabricante identificável e o limite de 200 kg do anúncio não se confirma em nenhuma outra fonte.</p>
+
+  <h3>A esteira JMJN aguenta 200 kg?</h3>
+  <p>O anúncio diz que sim, mas não encontramos fabricante para confirmar. O mesmo número de modelo, QK-3058, é vendido em Portugal com a marca Tenboom e limite de 130 kg. Se você pesa mais de 120 kg, trate os 200 kg com muita cautela.</p>
+
+  <h3>O motor da JMJN tem 3 HP de verdade?</h3>
+  <p>O anúncio diz 3,0 HP sem dizer se é potência contínua ou de pico. Na loja portuguesa que vende o QK-3058 como Tenboom, os 3,0 CV aparecem como potência de pico, com 0,75 CV de potência contínua. Não confirmamos que as duas sejam exatamente a mesma esteira.</p>
+
+  <h3>Dá para correr na esteira JMJN?</h3>
+  <p>Para trote leve e curto, sim. Para corrida de verdade, não: a lona tem 94 cm de comprimento, medida de esteira de caminhada, mesmo com a velocidade indo até 14 km/h.</p>
+
+  <h3>A JMJN funciona com Zwift e Kinomap?</h3>
+  <p>O anúncio diz que a esteira se conecta por Bluetooth aos aplicativos FitShow, Kinomap e Zwift. Não testamos essa conexão.</p>
+
+  <h3>Qual a garantia da esteira JMJN?</h3>
+  <p>O anúncio não informa garantia de fábrica e não encontramos fabricante com site no Brasil. Vale a garantia legal de 90 dias do Código de Defesa do Consumidor e a devolução grátis em 30 dias do Mercado Livre.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, com fabricante identificado e o mesmo peso, a <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a>, a outra campeã de vendas sem marca identificável, o <a href="/guias/esteira-dobravel">guia de esteira elétrica dobrável</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica, da descrição e das avaliações do anúncio no Mercado Livre, consultados em 17 de outubro de 2026, e da página do modelo QK-3058 (marca Tenboom) na loja portuguesa PcComponentes, consultada na mesma data. Não encontramos site, manual ou ficha oficial de fabricante da JMJN. Não testamos fisicamente o equipamento. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>
