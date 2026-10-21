@@ -1,0 +1,131 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira desligando sozinha: causas e o que fazer',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-desligando-sozinha',
+};
+
+const faq = [
+	{ q: 'Por que a esteira desliga sozinha no meio do treino?', a: 'As causas mais comuns são a chave de segurança que se soltou, o fim de um programa de treino, sobrecarga do motor (peso acima do limite ou lona com atrito alto), superaquecimento e problemas na rede elétrica, como tensão baixa ou alta. Muitas esteiras mostram um código de erro no painel que indica qual delas aconteceu.' },
+	{ q: 'A chave de segurança pode desligar a esteira sem querer?', a: 'Pode. Ela é feita para desligar a esteira quando se solta, e um puxão no cordão ou um ímã mal encaixado no painel basta. Confira se a chave está bem encaixada e presa à sua roupa antes de começar.' },
+	{ q: 'Posso ligar a esteira em extensão ou adaptador de tomada?', a: 'O manual da Movement LX G4 proíbe qualquer adaptação para tomadas sem pino terra e exige tomada 2P+T de 20 A, aterrada. Ele também pede um disjuntor exclusivo: 25 A em 220 V ou 32 A em 110 V, curva B. Confira as exigências do manual do seu modelo.' },
+	{ q: 'O peso do usuário pode fazer a esteira desligar?', a: 'Pode. Acima do limite, o motor trabalha em sobrecarga, e esteiras com inversor, como a Movement, têm alarme e falha de sobrecarga do motor que podem interromper o funcionamento. Respeite o peso máximo do seu modelo.' },
+	{ q: 'Quando chamar a assistência técnica?', a: 'Quando o problema continua depois de conferir a chave de segurança, a tomada e o peso, quando aparece código de erro que se repete, ou quando há cheiro de queimado, faísca ou cabo danificado. Nesses últimos casos, pare de usar a esteira e tire da tomada.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Esteira desligando sozinha: causas e o que fazer"
+	description="Esteira desliga sozinha no treino? Chave de segurança, sobrecarga, superaquecimento ou rede elétrica: veja o que conferir antes de chamar o técnico."
+	path="/guias/esteira-desligando-sozinha"
+	ogTitle="Esteira desligando sozinha: o que pode ser"
+	ogDescription="Chave de segurança, sobrecarga, superaquecimento ou tomada errada: um roteiro de diagnóstico baseado no manual de um fabricante, com os códigos de erro."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira desligando sozinha: causas e o que fazer"
+	standfirst="Quando a esteira desliga sozinha no meio do treino, as causas mais comuns são a chave de segurança que se soltou, o fim de um programa, sobrecarga do motor, superaquecimento ou problema na rede elétrica. Comece pelo que é simples: a chave de segurança e a tomada. Se o painel mostrar um código de erro, ele indica qual dessas causas aconteceu."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida: confira nesta ordem</h2>
+    <ol>
+      <li><strong>Chave de segurança:</strong> está bem encaixada no painel?</li>
+      <li><strong>Programa:</strong> o treino pré-definido terminou?</li>
+      <li><strong>Tomada:</strong> é aterrada, sem adaptador nem extensão, e com disjuntor próprio?</li>
+      <li><strong>Peso:</strong> o usuário está dentro do limite do modelo?</li>
+      <li><strong>Lona:</strong> está esticada demais ou sem lubrificação (nos modelos que precisam)?</li>
+      <li><strong>Código de erro:</strong> anote e consulte o manual ou a assistência.</li>
+    </ol>
+  </div>
+
+  <h2>As causas mais comuns</h2>
+
+  <h3>1. Chave de segurança solta</h3>
+  <p>A chave de segurança existe justamente para desligar a esteira quando se solta do painel, em caso de queda. Um puxão no cordão preso à roupa, ou um encaixe frouxo, basta para parar a esteira. Vários modelos do nosso catálogo têm esse dispositivo, como a <a href="/reviews/jmjn-qk-3058">JMJN</a>, a <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> e a <a href="/reviews/qbuen-150kg">QBuen</a>. Encaixe bem antes de começar.</p>
+
+  <h3>2. O programa de treino terminou</h3>
+  <p>Programas pré-definidos têm duração própria. Quando acabam, a esteira desacelera e para, o que pode parecer um desligamento sozinho se você não percebeu que estava num programa. Confira o modo no painel.</p>
+
+  <h3>3. Sobrecarga do motor</h3>
+  <p>Esteiras com inversor de frequência, como a <a href="/reviews/movement-lx-160-g4">Movement LX 160 G4</a>, monitoram a carga do motor e podem interromper o funcionamento quando ela passa do limite. O manual da Movement lista um alarme de "carga alta do motor" e uma falha de "sobrecarga do motor". Duas situações levam a isso:</p>
+  <ul>
+    <li><strong>Peso acima do limite:</strong> o manual da Movement manda não exceder 120 kg (LX 150 G4) ou 150 kg (LX 160 G4). Cada modelo tem o seu limite.</li>
+    <li><strong>Atrito alto na lona:</strong> a instrução de lubrificação da Movement avisa que a falta ou o excesso de lubrificante sobrecarregam o sistema de transmissão. Lona esticada demais também aumenta o esforço. Veja o <a href="/guias/como-lubrificar-esteira">guia de lubrificação e ajuste da lona</a>.</li>
+  </ul>
+
+  <h3>4. Superaquecimento</h3>
+  <p>O mesmo manual traz alarme de temperatura elevada no módulo de potência e falha de sobretemperatura. Ambiente muito quente, uso longo em carga alta ou poeira acumulada embaixo da esteira atrapalham a ventilação. O manual pede limpeza semanal com aspirador embaixo do equipamento.</p>
+
+  <h3>5. Rede elétrica</h3>
+  <p>Tensão baixa ou alta demais na rede também derruba a esteira: o manual da Movement tem falhas específicas de subtensão e sobretensão. Para a instalação, ele exige:</p>
+  <ul>
+    <li>Tomada 2P+T de 20 A (padrão NBR 14136), aterrada.</li>
+    <li>Nenhuma adaptação para tomada sem pino terra, e sem trocar o plugue original.</li>
+    <li>Disjuntor termomagnético exclusivo, curva B: <strong>25 A em redes de 220 V</strong> e <strong>32 A em redes de 110 V</strong>.</li>
+  </ul>
+  <p>Se a esteira desliga quando outro aparelho forte é ligado na mesma rede, ou se o disjuntor da casa desarma, chame um eletricista.</p>
+
+  <h2>Os códigos de erro do manual da Movement</h2>
+  <p>Exemplo de como um painel indica a causa. Os códigos abaixo são do inversor da linha LX G4 da Movement; outras marcas usam códigos próprios, que estão no manual de cada modelo.</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Códigos do inversor da Movement LX G4 ligados a desligamentos</caption>
+    <thead>
+      <tr><th scope="col">Código</th><th scope="col">O que significa</th><th scope="col">Causa provável a investigar</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">A046</th><td>Alarme de sobrecarga do motor</td><td>Peso acima do limite, atrito alto na lona</td></tr>
+      <tr><th scope="row">F072</th><td>Falha de sobrecarga no motor</td><td>Mesma causa, já com interrupção</td></tr>
+      <tr><th scope="row">A050</th><td>Temperatura elevada no módulo de potência</td><td>Calor, uso longo em carga alta, ventilação</td></tr>
+      <tr><th scope="row">F051</th><td>Sobretemperatura no módulo de potência</td><td>Mesma causa, já com interrupção</td></tr>
+      <tr><th scope="row">F021</th><td>Subtensão no circuito intermediário</td><td>Tensão baixa na rede</td></tr>
+      <tr><th scope="row">F022</th><td>Sobretensão no circuito intermediário</td><td>Tensão alta na rede</td></tr>
+      <tr><th scope="row">F070</th><td>Sobrecorrente ou curto-circuito</td><td>Defeito elétrico: chame a assistência</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Quando parar e chamar a assistência</h2>
+  <ul>
+    <li>Cheiro de queimado, faísca ou cabo de energia danificado: pare, tire da tomada e não use mais até o conserto.</li>
+    <li>Código de erro que volta mesmo com a esteira dentro do limite de peso e numa tomada adequada.</li>
+    <li>Correia do motor solta ou danificada: o manual da Movement manda não tentar trocar sozinho.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Por que a esteira desliga sozinha no meio do treino?</h3>
+  <p>As causas mais comuns são a chave de segurança que se soltou, o fim de um programa de treino, sobrecarga do motor (peso acima do limite ou lona com atrito alto), superaquecimento e problemas na rede elétrica, como tensão baixa ou alta. Muitas esteiras mostram um código de erro no painel que indica qual delas aconteceu.</p>
+
+  <h3>A chave de segurança pode desligar a esteira sem querer?</h3>
+  <p>Pode. Ela é feita para desligar a esteira quando se solta, e um puxão no cordão ou um ímã mal encaixado no painel basta. Confira se a chave está bem encaixada e presa à sua roupa antes de começar.</p>
+
+  <h3>Posso ligar a esteira em extensão ou adaptador de tomada?</h3>
+  <p>O manual da Movement LX G4 proíbe qualquer adaptação para tomadas sem pino terra e exige tomada 2P+T de 20 A, aterrada. Ele também pede um disjuntor exclusivo: 25 A em 220 V ou 32 A em 110 V, curva B. Confira as exigências do manual do seu modelo.</p>
+
+  <h3>O peso do usuário pode fazer a esteira desligar?</h3>
+  <p>Pode. Acima do limite, o motor trabalha em sobrecarga, e esteiras com inversor, como a Movement, têm alarme e falha de sobrecarga do motor que podem interromper o funcionamento. Respeite o peso máximo do seu modelo.</p>
+
+  <h3>Quando chamar a assistência técnica?</h3>
+  <p>Quando o problema continua depois de conferir a chave de segurança, a tomada e o peso, quando aparece código de erro que se repete, ou quando há cheiro de queimado, faísca ou cabo danificado. Nesses últimos casos, pare de usar a esteira e tire da tomada.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-lubrificar-esteira">guia de lubrificação e ajuste da lona</a>, o <a href="/guias/esteira-fazendo-barulho">guia de esteira fazendo barulho</a>, o <a href="/guias/esteira-acima-de-100kg">guia de esteira para quem pesa mais de 100 kg</a> e o <a href="/guias/esteira-gasta-muita-energia">guia de consumo de energia</a>.</p>
+
+  <p class="disclosure">Os códigos de erro, as exigências de instalação elétrica e os limites de peso citados vêm do <a href="https://www.movement.com.br/wp-content/uploads/2024/03/8506439-MU-TRI-LX-G4-R7.pdf" target="_blank" rel="noopener">manual da linha LX G4 da Movement</a>, consultado em outubro de 2026. Outros fabricantes têm códigos e exigências próprios: o manual da sua esteira prevalece sobre este guia. Para instalação elétrica, consulte um eletricista. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

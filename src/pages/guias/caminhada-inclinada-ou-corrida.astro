@@ -1,0 +1,116 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Caminhada inclinada ou corrida: qual gasta mais calorias na esteira',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/caminhada-inclinada-ou-corrida',
+};
+
+const faq = [
+	{ q: 'Caminhada inclinada gasta mais calorias que correr?', a: 'Pode gastar quase o mesmo. Pelas equações do ACSM, uma pessoa de 70 kg caminhando a 5 km/h com 10% de inclinação gasta cerca de 282 kcal em 30 minutos, perto dos 317 kcal de uma corrida a 8 km/h no plano. São estimativas: o gasto real varia de pessoa para pessoa.' },
+	{ q: 'Quanto a inclinação aumenta o gasto na caminhada?', a: 'Bastante. Pela equação do ACSM, caminhar a 5 km/h com 10% de inclinação gasta mais que o dobro de caminhar no plano na mesma velocidade: cerca de 282 contra 124 kcal em 30 minutos, para 70 kg.' },
+	{ q: 'Minha esteira tem inclinação suficiente?', a: 'Depende do modelo. No nosso catálogo, há esteiras sem inclinação, com 2 ou 3 posições manuais e com inclinação elétrica em vários níveis. Confira a ficha técnica: o ganho maior vem de inclinações a partir de uns 6%.' },
+	{ q: 'Caminhada inclinada é melhor para o joelho do que correr?', a: 'A caminhada não tem a fase de voo da corrida, em que os dois pés saem do chão, então o pé chega ao chão com menos impacto. Para quem tem dor ou lesão no joelho, a escolha deve ser feita com médico ou fisioterapeuta.' },
+	{ q: 'Como calcular as calorias do meu treino?', a: 'Use as equações do ACSM: na caminhada, VO2 = 0,1 × velocidade + 1,8 × velocidade × inclinação + 3,5; na corrida, troque 0,1 por 0,2 e 1,8 por 0,9. Velocidade em metros por minuto, inclinação em fração (10% = 0,10). Multiplique o VO2 pelo seu peso, divida por 1.000 e multiplique por 5 para ter kcal por minuto.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Caminhada inclinada ou corrida: qual gasta mais calorias"
+	description="Caminhar a 5 km/h com 10% de inclinação gasta quase o mesmo que correr a 8 km/h no plano. Veja a tabela de calorias do ACSM e como calcular a sua."
+	path="/guias/caminhada-inclinada-ou-corrida"
+	ogTitle="Caminhada inclinada ou corrida: a conta de calorias"
+	ogDescription="Tabela de gasto calórico na esteira por velocidade e inclinação, calculada com as equações do ACSM, e o que isso significa para quem não quer correr."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Caminhada inclinada ou corrida: qual gasta mais calorias na esteira"
+	standfirst="Caminhar com inclinação chega perto de correr no gasto de calorias. Pelas equações do ACSM (Colégio Americano de Medicina do Esporte), uma pessoa de 70 kg caminhando a 5 km/h com 10% de inclinação gasta cerca de 282 kcal em 30 minutos, contra 317 kcal correndo a 8 km/h no plano e 124 kcal caminhando a 5 km/h sem inclinação. Para quem não pode ou não quer correr, a inclinação é o atalho."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Inclinação de 10% na caminhada</strong> mais que dobra o gasto da caminhada no plano, na mesma velocidade.</li>
+      <li><strong>Caminhada a 5 km/h com 10%</strong> fica perto de uma corrida a 8 km/h no plano.</li>
+      <li><strong>Correr ainda gasta mais</strong> por minuto que a maioria das caminhadas, mas exige mais do corpo e da esteira.</li>
+      <li><strong>Os números são estimativas</strong> de equações médias, não medições do seu corpo.</li>
+    </ul>
+  </div>
+
+  <h2>Calorias em 30 minutos, por velocidade e inclinação</h2>
+  <p>Valores estimados para uma pessoa de 70 kg, calculados com as equações metabólicas do ACSM para caminhada e corrida. Para outro peso, faça a regra de três: uma pessoa de 90 kg gasta cerca de 90/70 dos valores da tabela.</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Gasto estimado em 30 minutos na esteira, pessoa de 70 kg (equações do ACSM)</caption>
+    <thead>
+      <tr><th scope="col">Atividade</th><th scope="col">Velocidade</th><th scope="col">Inclinação</th><th scope="col">kcal em 30 min</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Caminhada</th><td class="num">5 km/h</td><td class="num">0%</td><td class="num">124</td></tr>
+      <tr><th scope="row">Caminhada</th><td class="num">6 km/h</td><td class="num">0%</td><td class="num">142</td></tr>
+      <tr><th scope="row">Caminhada inclinada</th><td class="num">5 km/h</td><td class="num">6%</td><td class="num">219</td></tr>
+      <tr data-best="true"><th scope="row">Caminhada inclinada</th><td class="num">5 km/h</td><td class="num">10%</td><td class="num">282</td></tr>
+      <tr><th scope="row">Caminhada inclinada</th><td class="num">6 km/h</td><td class="num">10%</td><td class="num">331</td></tr>
+      <tr><th scope="row">Corrida</th><td class="num">8 km/h</td><td class="num">0%</td><td class="num">317</td></tr>
+      <tr><th scope="row">Corrida</th><td class="num">10 km/h</td><td class="num">0%</td><td class="num">387</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">A equação de caminhada do ACSM vale para velocidades de caminhada (cerca de 3 a 6 km/h), e a de corrida para velocidades a partir de cerca de 8 km/h. São médias e podem errar para mais ou para menos no seu caso; use para comparar atividades, não como medida exata.</p>
+
+  <h2>Por que a inclinação pesa tanto</h2>
+  <p>Na caminhada, a inclinação obriga o corpo a subir o próprio peso a cada passo. Na equação do ACSM, esse termo vertical tem peso 18 vezes maior que o termo de deslocamento horizontal (1,8 contra 0,1). Por isso, 10% de inclinação a 5 km/h somam mais energia do que acelerar a caminhada de 5 para 6 km/h no plano.</p>
+  <p>Na corrida, a inclinação também aumenta o gasto, mas o peso dela na equação é menor (0,9), porque a corrida já tem a fase de voo, em que o corpo é lançado para cima a cada passada.</p>
+
+  <h2>E o joelho?</h2>
+  <p>A caminhada não tem a fase de voo da corrida, em que os dois pés saem do chão, então o pé chega ao chão com menos impacto. É por isso que a caminhada inclinada costuma ser a opção de quem quer gastar mais sem correr. Se você tem dor, lesão ou cirurgia no joelho, a escolha da atividade e da inclinação deve ser feita com um médico ou fisioterapeuta.</p>
+
+  <h2>Sua esteira tem inclinação suficiente?</h2>
+  <p>O ganho grande da tabela aparece a partir de uns 6% de inclinação. Os modelos do nosso catálogo variam muito: alguns não têm inclinação, outros têm 2 ou 3 posições manuais, e poucos têm inclinação elétrica em vários níveis. Confira a ficha de cada um no <a href="/#comparativo">comparativo completo</a> e no <a href="/guias/esteira-para-emagrecer">guia de esteira para emagrecer</a>.</p>
+
+  <h2>Como calcular o seu gasto</h2>
+  <ol>
+    <li><strong>Converta a velocidade</strong> para metros por minuto: km/h × 1.000 ÷ 60. Exemplo: 5 km/h = 83,3 m/min.</li>
+    <li><strong>Converta a inclinação</strong> para fração: 10% = 0,10.</li>
+    <li><strong>Calcule o VO2</strong> (em ml por kg por minuto). Caminhada: 0,1 × velocidade + 1,8 × velocidade × inclinação + 3,5. Corrida: 0,2 × velocidade + 0,9 × velocidade × inclinação + 3,5.</li>
+    <li><strong>Converta para kcal por minuto:</strong> VO2 × seu peso em kg ÷ 1.000 × 5.</li>
+    <li><strong>Multiplique pelos minutos</strong> do treino.</li>
+  </ol>
+  <p>Exemplo, 70 kg a 5 km/h com 10%: 0,1 × 83,3 + 1,8 × 83,3 × 0,10 + 3,5 = 26,8. Depois, 26,8 × 70 ÷ 1.000 × 5 = 9,4 kcal por minuto, ou cerca de 282 kcal em 30 minutos.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Caminhada inclinada gasta mais calorias que correr?</h3>
+  <p>Pode gastar quase o mesmo. Pelas equações do ACSM, uma pessoa de 70 kg caminhando a 5 km/h com 10% de inclinação gasta cerca de 282 kcal em 30 minutos, perto dos 317 kcal de uma corrida a 8 km/h no plano. São estimativas: o gasto real varia de pessoa para pessoa.</p>
+
+  <h3>Quanto a inclinação aumenta o gasto na caminhada?</h3>
+  <p>Bastante. Pela equação do ACSM, caminhar a 5 km/h com 10% de inclinação gasta mais que o dobro de caminhar no plano na mesma velocidade: cerca de 282 contra 124 kcal em 30 minutos, para 70 kg.</p>
+
+  <h3>Minha esteira tem inclinação suficiente?</h3>
+  <p>Depende do modelo. No nosso catálogo, há esteiras sem inclinação, com 2 ou 3 posições manuais e com inclinação elétrica em vários níveis. Confira a ficha técnica: o ganho maior vem de inclinações a partir de uns 6%.</p>
+
+  <h3>Caminhada inclinada é melhor para o joelho do que correr?</h3>
+  <p>A caminhada não tem a fase de voo da corrida, em que os dois pés saem do chão, então o pé chega ao chão com menos impacto. Para quem tem dor ou lesão no joelho, a escolha deve ser feita com médico ou fisioterapeuta.</p>
+
+  <h3>Como calcular as calorias do meu treino?</h3>
+  <p>Use as equações do ACSM: na caminhada, VO2 = 0,1 × velocidade + 1,8 × velocidade × inclinação + 3,5; na corrida, troque 0,1 por 0,2 e 1,8 por 0,9. Velocidade em metros por minuto, inclinação em fração (10% = 0,10). Multiplique o VO2 pelo seu peso, divida por 1.000 e multiplique por 5 para ter kcal por minuto.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/treino-na-esteira-para-emagrecer">treino de 30 minutos na esteira para emagrecer</a>, o <a href="/guias/esteira-para-emagrecer">guia de esteira para emagrecer</a>, o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de corrida ou caminhada</a> e o <a href="/guias/esteira-ou-rua-bike-ou-eliptico">comparativo esteira, rua, bike ou elíptico</a>.</p>
+
+  <p class="disclosure">As estimativas usam as equações metabólicas de caminhada e corrida do American College of Sports Medicine (ACSM), conforme apresentadas por Jeffrey Janot, PhD, em <a href="https://www.ideafit.com/how-to-calculate-calories-expended" target="_blank" rel="noopener">"How to Calculate Calories Expended"</a> (IDEA Health & Fitness Association), com a conversão de cerca de 5 kcal por litro de oxigênio. São médias populacionais, não medições individuais. Este guia é informativo e não substitui orientação de médico ou de profissional de educação física. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

@@ -1,0 +1,112 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira fazendo barulho: estalos, rangidos e o que pode ser',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-fazendo-barulho',
+};
+
+const faq = [
+	{ q: 'Por que a esteira está fazendo barulho?', a: 'As causas mais comuns são parafusos soltos, lona desalinhada raspando na lateral, lona sem lubrificação (nos modelos que precisam), correia do motor solta ou desgastada, peças plásticas quebradas e esteira desnivelada no chão. Comece reapertando os parafusos e conferindo o alinhamento da lona.' },
+	{ q: 'Esteira fazendo estalo a cada passo: o que é?', a: 'Estalo no ritmo da passada costuma vir de algo que se move com o impacto: parafuso solto, esteira desnivelada no chão ou peça da estrutura com folga. Reaperte os parafusos, confira o nivelamento e veja se a carenagem e os estribos laterais estão inteiros.' },
+	{ q: 'Lubrificar resolve o barulho da esteira?', a: 'Só se o barulho vier de lona seca e o seu modelo precisar de lubrificação. Algumas lonas são autolubrificantes e não podem receber lubrificante: na Movement LX G4 atual, lubrificar danifica o equipamento e anula a garantia. Confira o manual antes.' },
+	{ q: 'O barulho do motor é normal?', a: 'Algum ruído de motor é normal e aumenta com a velocidade. Chiado novo, cheiro de queimado ou barulho de batida vindo da frente da esteira pedem atenção: pode ser a correia do motor, que o manual da Movement manda verificar a cada 6 meses e não trocar sozinho.' },
+	{ q: 'Como diminuir o barulho para o vizinho de baixo?', a: 'O barulho que mais incomoda o vizinho é o impacto do passo transmitido pelo piso. Um tapete de borracha ou manta de EVA embaixo da esteira e caminhar em vez de correr nos horários sensíveis são as medidas que mais ajudam.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Esteira fazendo barulho: estalos, rangidos e o que pode ser"
+	description="Esteira com estalo, rangido ou chiado? Veja as causas mais comuns (parafusos, lona, lubrificação, correia, nivelamento) e o que conferir antes do técnico."
+	path="/guias/esteira-fazendo-barulho"
+	ogTitle="Esteira fazendo barulho: o que pode ser"
+	ogDescription="Um roteiro por tipo de som, baseado no manual de manutenção de um fabricante: do parafuso solto à correia do motor."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira fazendo barulho: estalos, rangidos e o que pode ser"
+	standfirst="A maioria dos barulhos novos numa esteira vem de manutenção: parafusos soltos, lona desalinhada raspando na lateral, lona seca nos modelos que precisam de lubrificação, correia do motor gasta ou esteira desnivelada no chão. Comece reapertando os parafusos e conferindo o alinhamento da lona, que são os itens de checagem periódica do manual."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Estalo a cada passo:</strong> parafuso solto, esteira desnivelada ou peça com folga.</li>
+      <li><strong>Raspado constante na lateral:</strong> lona desalinhada.</li>
+      <li><strong>Rangido ou chiado da lona:</strong> lona seca, nos modelos que precisam de lubrificação.</li>
+      <li><strong>Batida ou chiado na frente:</strong> correia do motor. Chame a assistência.</li>
+      <li><strong>Barulho que incomoda o vizinho:</strong> impacto no piso. Tapete de borracha embaixo.</li>
+    </ul>
+  </div>
+
+  <h2>Pelo tipo de som: causa provável e o que fazer</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Barulhos comuns em esteira ergométrica</caption>
+    <thead>
+      <tr><th scope="col">Som</th><th scope="col">Causa provável</th><th scope="col">O que fazer</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Estalo no ritmo da passada</th><td>Parafuso solto, esteira desnivelada, peça com folga</td><td>Reapertar os parafusos, nivelar a esteira no chão</td></tr>
+      <tr><th scope="row">Raspado contínuo</th><td>Lona desalinhada encostando na lateral</td><td>Alinhar a lona (um quarto de volta por vez)</td></tr>
+      <tr><th scope="row">Rangido ou chiado da lona</th><td>Lona seca, se o modelo precisa de lubrificação</td><td>Lubrificar conforme o manual; nunca em lona autolubrificante</td></tr>
+      <tr><th scope="row">Lona patinando com tranco</th><td>Lona frouxa no rolo</td><td>Ajustar a tensão (meia volta por vez, sem exagerar)</td></tr>
+      <tr><th scope="row">Batida ou chiado na frente</th><td>Correia do motor solta ou danificada</td><td>Parar de usar e chamar a assistência</td></tr>
+      <tr><th scope="row">Barulho de plástico batendo</th><td>Carenagem ou estribo lateral rachado ou solto</td><td>Trocar a peça danificada</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Os ajustes de tensão e de alinhamento estão descritos passo a passo no <a href="/guias/como-lubrificar-esteira">guia de lubrificação e ajuste da lona</a>.</p>
+
+  <h2>A checagem que o manual pede</h2>
+  <p>A tabela de manutenção do manual da Movement LX G4 lista os pontos que mais causam barulho quando ficam sem cuidado:</p>
+  <ul>
+    <li><strong>Parafusos:</strong> reapertar se alguma peça estiver solta.</li>
+    <li><strong>Lona:</strong> verificar se está desalinhada e, se estiver, alinhar.</li>
+    <li><strong>Correia do motor:</strong> verificar a cada 6 meses se está danificada ou solta. Se estiver, chamar a assistência autorizada; o manual proíbe tentar trocar sozinho.</li>
+    <li><strong>Carenagem dianteira e estribos laterais:</strong> verificar se estão danificados. Carenagem quebrada deve ser trocada na hora, porque deixa o motor exposto.</li>
+    <li><strong>Nivelamento:</strong> verificar se a esteira está bem apoiada e nivelada no chão.</li>
+    <li><strong>Limpeza:</strong> toda semana, escova macia na esteira e aspirador embaixo dela, para não acumular pó e sujeira.</li>
+  </ul>
+
+  <h2>Lubrificar pode resolver, ou piorar</h2>
+  <p>Lona seca faz barulho e aumenta o esforço do motor, mas nem toda esteira pode ser lubrificada. O manual atual da Movement LX G4 usa lona autolubrificante e avisa que qualquer lubrificante danifica o equipamento e anula a garantia. Em modelos que precisam, aplique só o produto e a quantidade indicados: a instrução da Movement avisa que excesso de lubrificante também causa estrago, como inchaço da prancha e desgaste da lona.</p>
+
+  <h2>Barulho para o vizinho é outro problema</h2>
+  <p>Se o incômodo é de quem mora embaixo, o vilão quase nunca é a mecânica da esteira: é o impacto do pé, que passa pela estrutura até o piso. Um tapete de borracha ou uma manta de EVA embaixo do equipamento e caminhar em vez de correr nos horários sensíveis resolvem a maior parte. O <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a> detalha isso.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Por que a esteira está fazendo barulho?</h3>
+  <p>As causas mais comuns são parafusos soltos, lona desalinhada raspando na lateral, lona sem lubrificação (nos modelos que precisam), correia do motor solta ou desgastada, peças plásticas quebradas e esteira desnivelada no chão. Comece reapertando os parafusos e conferindo o alinhamento da lona.</p>
+
+  <h3>Esteira fazendo estalo a cada passo: o que é?</h3>
+  <p>Estalo no ritmo da passada costuma vir de algo que se move com o impacto: parafuso solto, esteira desnivelada no chão ou peça da estrutura com folga. Reaperte os parafusos, confira o nivelamento e veja se a carenagem e os estribos laterais estão inteiros.</p>
+
+  <h3>Lubrificar resolve o barulho da esteira?</h3>
+  <p>Só se o barulho vier de lona seca e o seu modelo precisar de lubrificação. Algumas lonas são autolubrificantes e não podem receber lubrificante: na Movement LX G4 atual, lubrificar danifica o equipamento e anula a garantia. Confira o manual antes.</p>
+
+  <h3>O barulho do motor é normal?</h3>
+  <p>Algum ruído de motor é normal e aumenta com a velocidade. Chiado novo, cheiro de queimado ou barulho de batida vindo da frente da esteira pedem atenção: pode ser a correia do motor, que o manual da Movement manda verificar a cada 6 meses e não trocar sozinho.</p>
+
+  <h3>Como diminuir o barulho para o vizinho de baixo?</h3>
+  <p>O barulho que mais incomoda o vizinho é o impacto do passo transmitido pelo piso. Um tapete de borracha ou manta de EVA embaixo da esteira e caminhar em vez de correr nos horários sensíveis são as medidas que mais ajudam.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-lubrificar-esteira">guia de lubrificação e ajuste da lona</a>, o <a href="/guias/esteira-desligando-sozinha">guia de esteira desligando sozinha</a>, o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a> e o <a href="/guias/esteira-eletrica-dobravel-silenciosa">guia de esteira elétrica dobrável silenciosa</a>.</p>
+
+  <p class="disclosure">Os itens de manutenção e as advertências sobre lubrificação vêm do <a href="https://www.movement.com.br/wp-content/uploads/2024/03/8506439-MU-TRI-LX-G4-R7.pdf" target="_blank" rel="noopener">manual da linha LX G4 da Movement</a> e da instrução de lubrificação da marca, consultados em outubro de 2026. Não medimos ruído e não testamos fisicamente nenhuma esteira. O manual do seu modelo prevalece sobre este guia. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>
