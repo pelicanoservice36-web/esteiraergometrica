@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('polimet-ep1600');
@@ -182,6 +183,8 @@ const fichaItems = [
     </tbody>
   </table>
   </div>
+
+  <CompareSimilar slug="polimet-ep1600" />
 
   <h2>Perguntas frequentes</h2>
 

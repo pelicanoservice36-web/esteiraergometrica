@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('strive-25hp-16kmh');
@@ -135,6 +136,8 @@ const fichaItems = [
 
   <h2>Onde comprar e por quanto</h2>
   <p>Em setembro de 2026, a Strive TM16 apareceu por <strong>R$ 2.658,70</strong> na loja "STRIVE por New Speed" no Mercado Livre, 100 unidades vendidas, nota 5,0 com 28 avaliações.</p>
+
+  <CompareSimilar slug="strive-25hp-16kmh" />
 
   <h2>Perguntas frequentes</h2>
 

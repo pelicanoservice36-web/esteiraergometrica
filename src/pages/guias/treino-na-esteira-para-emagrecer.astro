@@ -1,0 +1,149 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Treino na esteira para emagrecer: plano de 30 minutos',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/treino-na-esteira-para-emagrecer',
+};
+
+const faq = [
+	{ q: 'Quanto tempo de esteira por dia para emagrecer?', a: 'Uma meta simples é 30 minutos, 5 dias por semana: soma 150 minutos, o mínimo de atividade moderada que a Organização Mundial da Saúde recomenda por semana para adultos (a faixa vai de 150 a 300 minutos). O efeito no peso depende também da alimentação, então a esteira funciona melhor como parte de uma rotina.' },
+	{ q: 'Qual a melhor velocidade na esteira para emagrecer?', a: 'Não existe uma velocidade única: depende do seu condicionamento. Use o teste da fala: em intensidade moderada você consegue conversar, mas não cantar; em intensidade vigorosa, só fala poucas palavras por vez. Ajuste a velocidade para ficar na faixa que o treino pede.' },
+	{ q: 'Treino intervalado ou contínuo: qual é melhor para emagrecer?', a: 'Os dois contam. A OMS considera que 75 minutos de atividade vigorosa equivalem a 150 minutos de moderada, então os trechos rápidos do intervalado valem mais por minuto. Para quem está começando, o contínuo moderado é mais seguro; o intervalado entra depois de algumas semanas.' },
+	{ q: 'Caminhar na esteira emagrece ou precisa correr?', a: 'Caminhar rápido já é atividade moderada e conta para os 150 minutos semanais. Correr não é obrigatório: o que importa é manter a regularidade e a intensidade adequada ao seu condicionamento.' },
+	{ q: 'Preciso usar inclinação?', a: 'Não é obrigatório. Inclinação aumenta o esforço na mesma velocidade, o que ajuda quem não pode ou não quer correr. Comece sem ela e acrescente aos poucos, se a sua esteira tiver.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Treino na esteira para emagrecer: plano de 30 minutos"
+	description="Treino de 30 minutos na esteira em 3 fases, nas versões contínua e intervalada, para somar os 150 minutos semanais de atividade que a OMS recomenda."
+	path="/guias/treino-na-esteira-para-emagrecer"
+	ogTitle="Treino na esteira para emagrecer: 30 minutos"
+	ogDescription="Aquecimento, parte principal e desaquecimento, com versão contínua e intervalada, e como saber se a intensidade está certa sem relógio cardíaco."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Treino na esteira para emagrecer: plano de 30 minutos"
+	standfirst="Um bom ponto de partida é treinar 30 minutos, 5 dias por semana: soma os 150 minutos semanais de atividade moderada que a Organização Mundial da Saúde recomenda para adultos. Cada treino tem 3 fases: aquecimento, parte principal e desaquecimento. Quem está começando do zero deve chegar a esse volume aos poucos. O resultado no peso depende também da alimentação: a esteira funciona como parte da rotina, não sozinha."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Meta semanal:</strong> de 150 a 300 minutos de atividade moderada, ou de 75 a 150 de vigorosa, segundo a OMS.</li>
+      <li><strong>Treino do dia:</strong> 5 minutos de aquecimento, 20 de parte principal e 5 de desaquecimento.</li>
+      <li><strong>Intensidade:</strong> moderada é quando você consegue conversar, mas não cantar.</li>
+      <li><strong>Começando do zero:</strong> siga antes o <a href="/guias/como-comecar-a-usar-a-esteira">plano de 4 semanas para iniciante</a>, que começa com 3 caminhadas de 20 a 30 minutos por semana.</li>
+    </ul>
+  </div>
+
+  <h2>Quanto treinar por semana</h2>
+  <p>As diretrizes de 2020 da Organização Mundial da Saúde recomendam que adultos façam de <strong>150 a 300 minutos por semana de atividade aeróbica moderada</strong>, ou de 75 a 150 minutos de atividade vigorosa, ou uma combinação das duas. A mesma diretriz deixou de exigir blocos mínimos de 10 minutos: todo movimento conta. Também recomenda exercícios de fortalecimento muscular pelo menos 2 vezes por semana.</p>
+  <p>Na esteira, a conta mais simples é 30 minutos em 5 dias. Quem preferir treinar menos dias pode fazer 50 minutos em 3 dias.</p>
+
+  <h2>Como saber se a intensidade está certa</h2>
+  <p>Velocidade ideal é pessoal: o mesmo 6 km/h é leve para uma pessoa e puxado para outra. O jeito mais simples de ajustar é o teste da fala:</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Intensidade pelo teste da fala</caption>
+    <thead>
+      <tr>
+        <th scope="col">Intensidade</th>
+        <th scope="col">Como você se sente</th>
+        <th scope="col">Exemplo na esteira</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Leve</th><td>Conversa e até canta sem esforço</td><td>Caminhada tranquila</td></tr>
+      <tr><th scope="row">Moderada</th><td>Conversa, mas não consegue cantar</td><td>Caminhada rápida</td></tr>
+      <tr><th scope="row">Vigorosa</th><td>Só fala poucas palavras por vez</td><td>Trote ou corrida, ou caminhada rápida em subida</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>O treino de 30 minutos</h2>
+  <p>Duas versões da mesma estrutura. Comece pela contínua; passe para a intervalada quando os 30 minutos moderados ficarem confortáveis.</p>
+
+  <h3>Versão contínua (para começar)</h3>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Treino contínuo de 30 minutos</caption>
+    <thead>
+      <tr><th scope="col">Tempo</th><th scope="col">Fase</th><th scope="col">Intensidade</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">0 a 5 min</th><td>Aquecimento</td><td>Leve, aumentando aos poucos</td></tr>
+      <tr><th scope="row">5 a 25 min</th><td>Parte principal</td><td>Moderada, sem parar</td></tr>
+      <tr><th scope="row">25 a 30 min</th><td>Desaquecimento</td><td>Leve, diminuindo aos poucos</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Versão intervalada (depois de algumas semanas)</h3>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Treino intervalado de 30 minutos</caption>
+    <thead>
+      <tr><th scope="col">Tempo</th><th scope="col">Fase</th><th scope="col">Intensidade</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">0 a 5 min</th><td>Aquecimento</td><td>Leve, aumentando aos poucos</td></tr>
+      <tr><th scope="row">5 a 26 min</th><td>7 blocos de 3 minutos: 1 minuto rápido + 2 minutos de recuperação</td><td>Vigorosa no minuto rápido, moderada na recuperação</td></tr>
+      <tr><th scope="row">26 a 30 min</th><td>Desaquecimento</td><td>Leve, diminuindo aos poucos</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Mude a velocidade com a esteira em movimento, segurando o corrimão nas primeiras vezes, e use sempre a chave de segurança presa na roupa.</p>
+
+  <h2>Como encaixar o treino na semana</h2>
+  <p>Este treino é para quem já caminha com regularidade. Se você está começando do zero, siga primeiro o <a href="/guias/como-comecar-a-usar-a-esteira">plano de 4 semanas para iniciante</a>, que aumenta uma coisa de cada vez (duração, frequência ou ritmo) para o corpo se acostumar ao impacto. Depois dele, uma semana com este treino pode ficar assim:</p>
+  <ul>
+    <li><strong>5 treinos de 30 minutos</strong> (150 minutos): 3 contínuos e 2 intervalados, com pelo menos um dia de descanso entre os intervalados.</li>
+    <li><strong>Ou 3 treinos de 50 minutos</strong>, esticando a parte principal da versão contínua.</li>
+  </ul>
+  <p>Se uma semana ficou pesada, repita antes de avançar. Quem quiser um passo a passo guiado, com cronômetro e alertas no celular, pode usar o <a href="/plano-30-dias">Plano 30 Dias na Esteira</a>, o app do site.</p>
+
+  <h2>Cuidados antes de começar</h2>
+  <ul>
+    <li>Se você tem doença cardíaca, pressão alta, diabetes, dor nas articulações, está acima do peso há muito tempo ou não se exercita há anos, converse com um médico antes de começar.</li>
+    <li>Pare o treino se sentir dor no peito, tontura, falta de ar fora do normal ou dor que não passa.</li>
+    <li>Use tênis fechado e hidrate-se.</li>
+    <li>Confira se a sua esteira aguenta o seu treino: o peso máximo do usuário e, para o intervalado, a velocidade e o comprimento da lona. O <a href="/guias/esteira-para-corrida-ou-caminhada">guia de corrida ou caminhada</a> mostra o que cada modelo do catálogo suporta.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Quanto tempo de esteira por dia para emagrecer?</h3>
+  <p>Uma meta simples é 30 minutos, 5 dias por semana: soma 150 minutos, o mínimo de atividade moderada que a Organização Mundial da Saúde recomenda por semana para adultos (a faixa vai de 150 a 300 minutos). O efeito no peso depende também da alimentação, então a esteira funciona melhor como parte de uma rotina.</p>
+
+  <h3>Qual a melhor velocidade na esteira para emagrecer?</h3>
+  <p>Não existe uma velocidade única: depende do seu condicionamento. Use o teste da fala: em intensidade moderada você consegue conversar, mas não cantar; em intensidade vigorosa, só fala poucas palavras por vez. Ajuste a velocidade para ficar na faixa que o treino pede.</p>
+
+  <h3>Treino intervalado ou contínuo: qual é melhor para emagrecer?</h3>
+  <p>Os dois contam. A OMS considera que 75 minutos de atividade vigorosa equivalem a 150 minutos de moderada, então os trechos rápidos do intervalado valem mais por minuto. Para quem está começando, o contínuo moderado é mais seguro; o intervalado entra depois de algumas semanas.</p>
+
+  <h3>Caminhar na esteira emagrece ou precisa correr?</h3>
+  <p>Caminhar rápido já é atividade moderada e conta para os 150 minutos semanais. Correr não é obrigatório: o que importa é manter a regularidade e a intensidade adequada ao seu condicionamento.</p>
+
+  <h3>Preciso usar inclinação?</h3>
+  <p>Não é obrigatório. Inclinação aumenta o esforço na mesma velocidade, o que ajuda quem não pode ou não quer correr. Comece sem ela e acrescente aos poucos, se a sua esteira tiver. O <a href="/guias/esteira-para-emagrecer">guia de qual esteira comprar para emagrecer</a> explica o que a inclinação faz e o que é exagero de marketing.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/esteira-para-emagrecer">guia de qual esteira comprar para emagrecer</a>, o <a href="/guias/como-comecar-a-usar-a-esteira">guia de como começar a usar a esteira</a>, o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de corrida ou caminhada</a> e o <a href="/plano-30-dias">Plano 30 Dias na Esteira</a>.</p>
+
+  <p class="disclosure">As recomendações de volume e intensidade vêm das <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7719906/" target="_blank" rel="noopener">diretrizes de atividade física e comportamento sedentário da OMS de 2020</a>. Este guia é informativo e não substitui orientação de médico ou de profissional de educação física. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

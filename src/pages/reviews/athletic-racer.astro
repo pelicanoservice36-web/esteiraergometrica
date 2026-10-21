@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('athletic-racer');
@@ -173,6 +174,8 @@ const fichaItems = [
     </tbody>
   </table>
   </div>
+
+  <CompareSimilar slug="athletic-racer" />
 
   <h2>Perguntas frequentes</h2>
 

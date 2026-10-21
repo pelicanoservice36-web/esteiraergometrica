@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('redfin-150kg');
@@ -133,6 +134,8 @@ const fichaItems = [
 
   <h2>Onde comprar e por quanto</h2>
   <p>Em setembro de 2026, a Redfin Ideal DL-227 apareceu por <strong>R$ 716,66</strong> na loja Redfin no Mercado Livre, mais de 1.000 unidades vendidas, nota 4,8 com 426 avaliações, selo "Mais vendido" na categoria.</p>
+
+  <CompareSimilar slug="redfin-150kg" />
 
   <h2>Perguntas frequentes</h2>
 

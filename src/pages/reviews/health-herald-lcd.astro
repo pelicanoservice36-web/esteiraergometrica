@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('health-herald-lcd');
@@ -136,6 +137,8 @@ const fichaItems = [
 
   <h2>Onde comprar e por quanto</h2>
   <p>Em setembro de 2026, a Health Herald SP0501 apareceu por <strong>R$ 719,70</strong> na loja oficial Health Herald no Mercado Livre, mais de 1.000 unidades vendidas, nota 4,8 com 704 avaliações, selo "Mais vendido" na categoria.</p>
+
+  <CompareSimilar slug="health-herald-lcd" />
 
   <h2>Perguntas frequentes</h2>
 

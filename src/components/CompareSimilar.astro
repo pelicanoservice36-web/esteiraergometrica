@@ -1,0 +1,49 @@
+---
+// Tabela de comparação com os modelos de preço mais parecido, no fim de cada análise.
+// Só links internos para as análises: os botões de compra continuam só na própria review.
+import { models, similarByPrice } from '../data/models.mjs';
+
+export interface Props {
+	slug: string;
+}
+
+const { slug } = Astro.props;
+const self = models.find((m) => m.slug === slug);
+if (!self) throw new Error(`[CompareSimilar] slug sem dados em models.mjs: ${slug}`);
+const rows = [self, ...similarByPrice(slug, 3)].sort((a, b) => a.precoRef - b.precoRef);
+---
+
+<h2>Compare com modelos de preço parecido</h2>
+<p>Os três modelos do catálogo com preço mais próximo, lado a lado. Nota editorial pela nossa <a href="/metodologia">metodologia</a>; preço observado no anúncio verificado de cada análise, em setembro e outubro de 2026.</p>
+<div class="table-scroll">
+<table class="specs">
+  <caption>{self.nome} e os modelos de preço mais parecido do catálogo</caption>
+  <thead>
+    <tr>
+      <th scope="col">Modelo</th>
+      <th scope="col">Nota</th>
+      <th scope="col">Motor</th>
+      <th scope="col">Veloc. máx.</th>
+      <th scope="col">Lona (larg. × comp.)</th>
+      <th scope="col">Peso máx.</th>
+      <th scope="col">Dobra</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((m) => (
+      <tr data-best={m.slug === slug ? 'true' : undefined}>
+        <th scope="row">{m.slug === slug ? <strong>{m.nome} (esta análise)</strong> : <a href={`/reviews/${m.slug}`}>{m.nome}</a>}</th>
+        <td class="num">{m.nota}</td>
+        <td class="num">{m.motor}</td>
+        <td class="num">{m.vel}</td>
+        <td class="num">{m.lona}</td>
+        <td class="num">{m.peso}</td>
+        <td>{m.dobra}</td>
+        <td class="num">{m.preco}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+</div>
+<p class="stamp">Motor, lona e peso máximo como declarados nas fontes de cada análise; algumas têm ressalvas (potência de pico, dado só do anúncio). Veja a análise de cada modelo antes de decidir, ou o <a href="/#comparativo">comparativo completo</a>.</p>

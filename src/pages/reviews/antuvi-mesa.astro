@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('antuvi-mesa');
@@ -138,6 +139,8 @@ const fichaItems = [
 
   <h2>Onde comprar e por quanto</h2>
   <p>Em setembro de 2026, a esteira apareceu por <strong>R$ 1.580</strong> na loja Antuvi (marca declarada "Geral") no Mercado Livre: mais de 500 unidades vendidas, nota 4,7 com 280 avaliações, selo "Mais vendido" na categoria Esteira Ergométrica.</p>
+
+  <CompareSimilar slug="antuvi-mesa" />
 
   <h2>Perguntas frequentes</h2>
 

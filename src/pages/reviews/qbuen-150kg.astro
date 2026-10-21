@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('qbuen-150kg');
@@ -42,7 +43,7 @@ const faq = [
 	{ q: 'Qual o comprimento da lona da QBuen?', a: 'A ficha técnica estruturada ainda só declara a largura (40 cm). A descrição do anúncio (texto corrido, não a ficha técnica) cita "superfície de corrida: 99 × 39 cm" — um primeiro número, mas de uma fonte menos confiável que a ficha estruturada, por isso não tratamos como totalmente confirmado.' },
 	{ q: 'A inclinação é elétrica ou manual?', a: 'Elétrica: a ficha técnica confirma que é motorizada, ajustada pelo painel, não manual.' },
 	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
-	{ q: 'Até quantos kg a QBuen suporta?', a: '150 kg, confirmado na ficha técnica do anúncio, o maior valor confirmado com clareza no nosso catálogo.' },
+	{ q: 'Até quantos kg a QBuen suporta?', a: '150 kg, confirmado na ficha técnica do anúncio. É o mesmo limite da Movement LX 160 G4, a única do catálogo com 150 kg confirmados também pelo fabricante.' },
 	{ q: 'A QBuen tem barra de apoio?', a: 'Sim: a descrição do anúncio cita corrimãos, e um mecanismo de trava de segurança desliga a esteira automaticamente em caso de queda.' },
 ];
 
@@ -88,7 +89,7 @@ const fichaItems = [
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
     <p class="edit-score"><span class="edit-score__value">6,4<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
-    <p>Com a ficha técnica em mãos, a QBuen sobe de "análise sem nota" para uma nota de meio de tabela, puxada pra cima pelos 150 kg de peso suportado (o maior confirmado com clareza no nosso catálogo) e pela praticidade: dobra e pesa só 24,5 kg. O que segura a nota é o critério de confiabilidade: a marca é identificável (QBuen, modelo AT-1271, mais transparente que um anúncio "Genérica"), mas a garantia não aparece em nenhuma fonte e não localizamos site de fabricante independente.</p>
+    <p>Com a ficha técnica em mãos, a QBuen sobe de "análise sem nota" para uma nota de meio de tabela, puxada pra cima pelos 150 kg de peso suportado (entre os maiores do nosso catálogo) e pela praticidade: dobra e pesa só 24,5 kg. O que segura a nota é o critério de confiabilidade: a marca é identificável (QBuen, modelo AT-1271, mais transparente que um anúncio "Genérica"), mas a garantia não aparece em nenhuma fonte e não localizamos site de fabricante independente.</p>
     <p>O comprimento da lona segue sem confirmação na ficha técnica estruturada, só a largura (40 cm). A descrição do anúncio agora cita "99 × 39 cm" de superfície de corrida, mas vem do texto de marketing, não da ficha técnica, então tratamos essa parte como dado a mais, não confirmado. Usamos a banda mais conservadora da nossa metodologia para esse critério em vez de presumir um valor melhor sem confirmação total, o que significa que a nota real pode ser um pouco mais alta do que calculamos aqui, nunca mais baixa.</p>
   </div>
 
@@ -104,7 +105,7 @@ const fichaItems = [
   <h2>Motor e velocidade: 2 HP, 12 km/h</h2>
   <p>A ficha declara "Potência: 2 hp" como valor único, sem separar contínua de pico, a mesma limitação de transparência que já vimos na Importway e na Antuvi. Com 12 km/h de velocidade máxima, é ficha para caminhada rápida e trote leve.</p>
 
-  <h2>Peso suportado: 150 kg, o maior confirmado do catálogo</h2>
+  <h2>Peso suportado: 150 kg, entre os maiores do catálogo</h2>
   <p>Entre os modelos com peso máximo confirmado por ficha técnica clara (não só por uma fonte única sem fabricante, como a Esteira Cardio), os 150 kg da QBuen são o maior número do nosso catálogo, acima dos 130 kg da Gallant Elite GEE13M29A e da Athletic Racer, e bem acima dos 100-120 kg da faixa de entrada.</p>
 
   <h2>Lona: largura confirmada, comprimento ainda não é oficial</h2>
@@ -123,7 +124,7 @@ const fichaItems = [
     <div>
       <h3>Pontos fortes</h3>
       <ul>
-        <li>150 kg de peso suportado, o maior confirmado com clareza do catálogo</li>
+        <li>150 kg de peso suportado, entre os maiores do catálogo</li>
         <li>Dobra e pesa só 24,5 kg, com rodas</li>
         <li>Inclinação elétrica (motorizada) de 0 a 6%, ajustada pelo painel</li>
         <li>Corrimãos de apoio e trava de segurança com desligamento automático</li>
@@ -142,7 +143,9 @@ const fichaItems = [
   </div>
 
   <h2>Onde comprar e por quanto</h2>
-  <p>Em outubro de 2026, a QBuen AT-1271 apareceu por <strong>R$ 1.079,98</strong> na loja oficial QBUEN no Mercado Livre (o anúncio mostra um "de R$ 2.399,96" riscado, âncora de marketing que não reproduzimos), mais de 1.000 unidades vendidas neste anúncio, nota 4,6 com 275 avaliações.</p>
+  <p>Em outubro de 2026, a QBuen AT-1271 apareceu por <strong>R$ 1.079,98</strong> na loja oficial QBUEN no Mercado Livre, mais de 1.000 unidades vendidas neste anúncio, nota 4,6 com 275 avaliações.</p>
+
+  <CompareSimilar slug="qbuen-150kg" />
 
   <h2>Perguntas frequentes</h2>
 
@@ -156,7 +159,7 @@ const fichaItems = [
   <p>Não encontramos essa informação em nenhuma fonte. Recomendamos perguntar diretamente ao vendedor antes de comprar.</p>
 
   <h3>Até quantos kg a QBuen suporta?</h3>
-  <p>150 kg, confirmado na ficha técnica do anúncio, o maior valor confirmado com clareza no nosso catálogo.</p>
+  <p>150 kg, confirmado na ficha técnica do anúncio. É o mesmo limite da Movement LX 160 G4, a única do catálogo com 150 kg confirmados também pelo fabricante.</p>
 
   <h3>A QBuen tem barra de apoio?</h3>
   <p>Sim: a descrição do anúncio cita corrimãos, e um mecanismo de trava de segurança desliga a esteira automaticamente em caso de queda.</p>

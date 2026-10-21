@@ -1,5 +1,6 @@
 ---
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
 import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('wct-fitness-esteira');
@@ -169,6 +170,8 @@ const fichaItems = [
     </tbody>
   </table>
   </div>
+
+  <CompareSimilar slug="wct-fitness-esteira" />
 
   <h2>Perguntas frequentes</h2>
 

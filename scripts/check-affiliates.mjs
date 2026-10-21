@@ -186,6 +186,8 @@ check('T19b CTAs continuam com rel="sponsored nofollow"', () => {
 		for (const tag of src.match(/<a\b[^>]*>/g) ?? []) {
 			// CTAs de afiliado são os únicos com href vindo de expressão JS.
 			if (!/href=\{/.test(tag)) continue;
+			// Link interno montado por template (tabela de comparação para /reviews/...) não é CTA.
+			if (/href=\{`\/reviews\//.test(tag)) continue;
 			if (!/rel="[^"]*sponsored/.test(tag) || !/rel="[^"]*nofollow/.test(tag)) {
 				bad.push(`${rel(f)}: ${tag.slice(0, 90)}`);
 			}

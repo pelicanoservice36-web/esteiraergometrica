@@ -1,0 +1,159 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Como lubrificar a esteira ergométrica (e quando não lubrificar)',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/como-lubrificar-esteira',
+};
+
+const faq = [
+	{ q: 'Toda esteira precisa ser lubrificada?', a: 'Não. Algumas lonas são autolubrificantes e não podem receber lubrificante: o manual atual da Movement LX G4 diz que lubrificar essa lona danifica o equipamento e anula a garantia. Outras precisam de lubrificação periódica. Confira no manual do seu modelo antes de aplicar qualquer produto.' },
+	{ q: 'De quanto em quanto tempo lubrificar a esteira?', a: 'Siga o intervalo do manual do seu modelo. Como referência, a instrução da Movement para as linhas que precisam de lubrificação manda lubrificar a cada 1.000 km ou a cada 2 meses, o que vier primeiro, quando o uso é intensivo.' },
+	{ q: 'Posso usar qualquer silicone na esteira?', a: 'Use o lubrificante indicado pelo fabricante. A Movement explica que o lubrificante precisa ser de alta qualidade, não oxidar no ar, não atacar as fibras nem o revestimento da lona, e indica um produto próprio que vem com a esteira. Outras marcas vendem silicone específico para esteira.' },
+	{ q: 'Lubrificante demais estraga a esteira?', a: 'Sim. A instrução da Movement avisa que o excesso ou a falta de lubrificante causam descolamento ou inchaço da prancha, desgaste excessivo da lona e sobrecarga no sistema de transmissão. Aplique só a quantidade indicada no manual.' },
+	{ q: 'A lona da esteira está patinando. É falta de lubrificação?', a: 'Lona patinando costuma ser tensão: a lona está frouxa e escorrega no rolo. No manual da Movement, o ajuste é feito com a esteira a 5 km/h, girando os dois parafusos de regulagem meia volta no sentido horário até a lona não parar mais quando você tenta segurá-la. Não estique demais, porque isso pode romper a emenda da lona.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Como lubrificar a esteira ergométrica (e quando não)"
+	description="Antes de lubrificar a esteira, confira se a lona é autolubrificante: em algumas, lubrificar anula a garantia. Passo a passo, quantidade e intervalo do fabricante."
+	path="/guias/como-lubrificar-esteira"
+	ogTitle="Como lubrificar a esteira: o que diz o fabricante"
+	ogDescription="Algumas lonas não podem ser lubrificadas. Veja como descobrir a sua, o passo a passo oficial, a quantidade certa e a manutenção que evita lona patinando."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Como lubrificar a esteira ergométrica (e quando não lubrificar)"
+	standfirst="Antes de lubrificar, descubra se a sua esteira pode receber lubrificante: algumas lonas são autolubrificantes, e lubrificá-las danifica o equipamento e anula a garantia. Se o manual mandar lubrificar, use o produto, a quantidade e o intervalo que ele indica. Como exemplo, a Movement manda lubrificar a cada 1.000 km ou 2 meses em uso intensivo, com 155 ml na primeira aplicação na LX 160 G4 com lona que precisa de lubrificação."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ol>
+      <li><strong>Confira o manual.</strong> Se a lona for autolubrificante ("isenta de lubrificação"), não aplique nada.</li>
+      <li><strong>Se precisar lubrificar,</strong> use o lubrificante indicado pelo fabricante, não qualquer silicone.</li>
+      <li><strong>Respeite a quantidade.</strong> Excesso ou falta estragam a prancha, a lona e o motor.</li>
+      <li><strong>Respeite o intervalo.</strong> Na Movement: a cada 1.000 km ou 2 meses de uso intensivo, o que vier primeiro.</li>
+      <li><strong>Lona patinando ou torta</strong> é ajuste de tensão e de alinhamento, não falta de lubrificante.</li>
+    </ol>
+  </div>
+
+  <h2>Passo 1: descubra se a sua lona pode ser lubrificada</h2>
+  <p>Esse é o erro que mais custa caro. O manual atual da linha LX G4 da Movement diz, em destaque: "Não utilize nenhum tipo de lubrificante na esteira. A utilização de lubrificante irá danificar o equipamento e consequente perda de garantia". O motivo é que essa versão usa uma lona autolubrificante. Já as versões anteriores da mesma marca, e muitos outros modelos, precisam de lubrificação periódica.</p>
+  <p>Onde conferir: no manual (procure "lubrificação"), na ficha técnica do fabricante (campo "lubrificação": "isenta" ou "manual") ou na caixa (algumas esteiras já vêm com o frasco de lubrificante). Exemplos do nosso catálogo:</p>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Lubrificação em modelos que já analisamos, conforme a fonte de cada um</caption>
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">O que a fonte diz</th>
+        <th scope="col">Fonte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="/reviews/movement-lx-160-g4">Movement LX 160 G4</a></th>
+        <td>Lona autolubrificante: não lubrificar. O anúncio que analisamos ainda descrevia lubrificação manual a cada 2 meses ou 1.000 km, de uma versão anterior.</td>
+        <td>Manual e site da Movement; anúncio no Mercado Livre</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/jmjn-qk-3058">JMJN QK-3058-D</a></th>
+        <td>A caixa traz um frasco de lubrificante, o que indica lubrificação periódica. O anúncio não informa intervalo nem quantidade.</td>
+        <td>Anúncio no Mercado Livre</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a></th>
+        <td>Um comprador comenta, na avaliação do anúncio, que o silicone de lubrificação não vem na caixa. O fabricante não informa intervalo no site.</td>
+        <td>Avaliação de comprador no Mercado Livre</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Para os demais modelos do catálogo, não encontramos o intervalo de lubrificação em fonte oficial. Se a sua esteira não veio com manual, peça ao SAC do fabricante informando o modelo e o número de série.</p>
+
+  <h2>Passo 2: como lubrificar, no procedimento oficial da Movement</h2>
+  <p>Este é o passo a passo publicado pela Movement para as linhas que precisam de lubrificação (RT, LX 1.8, LX 3.0, LX G4 com lona que ainda precisa de lubrificação, GT, Classic, Go Run e Up Run). Outras marcas podem ter procedimento diferente: siga sempre o manual do seu modelo.</p>
+  <ol>
+    <li>Ligue a esteira a 4,5 km/h.</li>
+    <li>Encaixe o aplicador no tubo de lubrificação do chassi.</li>
+    <li>Aplique o lubrificante devagar, sem apertar o frasco, na quantidade indicada para o seu modelo.</li>
+    <li>Deixe a esteira ligada por mais 10 minutos para o lubrificante se espalhar.</li>
+    <li>Levante as bordas da lona e confira: o lubrificante deve estar espalhado por igual, a cerca de 20 a 30 mm da borda, dos dois lados.</li>
+  </ol>
+
+  <h3>Quantidade e intervalo</h3>
+  <p>A Movement manda lubrificar a cada <strong>1.000 km ou 2 meses</strong>, o que vier primeiro, quando o uso é intensivo. A quantidade muda por modelo: na linha LX 150/150i e 160/160i G4 (versões com lona que precisa de lubrificação), são 155 ml na lubrificação e 120 ml na relubrificação. Na troca da lona, a primeira lubrificação é de 190 ml.</p>
+  <p>O lubrificante também importa. Segundo a instrução, ele precisa ser de alta qualidade, não oxidar no ar, não atacar as fibras nem o revestimento da lona e não danificar as peças em volta. A Movement usa um produto próprio, que vem com a esteira.</p>
+
+  <h2>Os erros que estragam a esteira</h2>
+  <ul>
+    <li><strong>Lubrificar lona autolubrificante:</strong> danifica o equipamento e anula a garantia.</li>
+    <li><strong>Exagerar ou faltar lubrificante:</strong> segundo a Movement, causa descolamento ou inchaço da prancha, desgaste excessivo da lona e sobrecarga no sistema de transmissão.</li>
+    <li><strong>Usar um lubrificante qualquer:</strong> produtos que oxidam ou atacam a lona encurtam a vida útil do conjunto.</li>
+    <li><strong>Esticar a lona demais</strong> ao tentar resolver um problema: pode romper a emenda.</li>
+  </ul>
+
+  <h2>Lona patinando ou torta: como ajustar</h2>
+  <p>Esses dois problemas são de ajuste, não de lubrificação. O procedimento abaixo é o do manual da Movement LX G4, feito com uma chave Allen nº 8 nos dois parafusos de regulagem do rolo traseiro.</p>
+
+  <h3>Lona patinando (tensão)</h3>
+  <ol>
+    <li>Com a esteira a 5 km/h, caminhe sobre ela segurando no corrimão e tente fazer a lona parar.</li>
+    <li>Se ela parar, gire os dois parafusos de regulagem meia volta no sentido horário.</li>
+    <li>Repita até a lona não patinar mais no rolo motriz. Não estique além disso.</li>
+  </ol>
+
+  <h3>Lona torta (alinhamento)</h3>
+  <ol>
+    <li>Com a lona girando a cerca de 5 km/h, veja para que lado ela está deslocada.</li>
+    <li>Se estiver deslocada para a direita, gire o parafuso da direita um quarto de volta no sentido horário e o da esquerda um quarto de volta no sentido anti-horário. Se estiver para a esquerda, faça o contrário.</li>
+    <li>Gire só um quarto de volta por vez, espere alguns minutos com a lona girando para as fibras se acomodarem e repita até ela ficar centralizada.</li>
+  </ol>
+
+  <h2>A manutenção de rotina que o manual pede</h2>
+  <ul>
+    <li><strong>Limpeza:</strong> toda semana, escova de nylon macia na esteira e aspirador embaixo dela, para não acumular pó. No corrimão e na estrutura, pano macio com água e sabão antes e depois do treino. Nunca use produto ácido, não jogue água e não aplique spray.</li>
+    <li><strong>Sempre fora da tomada</strong> para limpar, e retire da tomada ao terminar de usar.</li>
+    <li><strong>Correia do motor:</strong> verifique a cada 6 meses se não está danificada ou solta. Não tente trocar sozinho: chame a assistência autorizada.</li>
+    <li><strong>Checagens periódicas</strong> que a tabela do manual lista: reaperto dos parafusos, alinhamento da lona, estado da carenagem dianteira e dos estribos laterais e nivelamento da esteira no chão.</li>
+    <li><strong>Carenagem dianteira quebrada:</strong> troque imediatamente, porque o motor fica exposto e o usuário pode pisar nele.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Toda esteira precisa ser lubrificada?</h3>
+  <p>Não. Algumas lonas são autolubrificantes e não podem receber lubrificante: o manual atual da Movement LX G4 diz que lubrificar essa lona danifica o equipamento e anula a garantia. Outras precisam de lubrificação periódica. Confira no manual do seu modelo antes de aplicar qualquer produto.</p>
+
+  <h3>De quanto em quanto tempo lubrificar a esteira?</h3>
+  <p>Siga o intervalo do manual do seu modelo. Como referência, a instrução da Movement para as linhas que precisam de lubrificação manda lubrificar a cada 1.000 km ou a cada 2 meses, o que vier primeiro, quando o uso é intensivo.</p>
+
+  <h3>Posso usar qualquer silicone na esteira?</h3>
+  <p>Use o lubrificante indicado pelo fabricante. A Movement explica que o lubrificante precisa ser de alta qualidade, não oxidar no ar, não atacar as fibras nem o revestimento da lona, e indica um produto próprio que vem com a esteira. Outras marcas vendem silicone específico para esteira.</p>
+
+  <h3>Lubrificante demais estraga a esteira?</h3>
+  <p>Sim. A instrução da Movement avisa que o excesso ou a falta de lubrificante causam descolamento ou inchaço da prancha, desgaste excessivo da lona e sobrecarga no sistema de transmissão. Aplique só a quantidade indicada no manual.</p>
+
+  <h3>A lona da esteira está patinando. É falta de lubrificação?</h3>
+  <p>Lona patinando costuma ser tensão: a lona está frouxa e escorrega no rolo. No manual da Movement, o ajuste é feito com a esteira a 5 km/h, girando os dois parafusos de regulagem meia volta no sentido horário até a lona não parar mais quando você tenta segurá-la. Não estique demais, porque isso pode romper a emenda da lona.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a> (lona seca faz barulho), o <a href="/guias/como-comecar-a-usar-a-esteira">guia de como começar a usar a esteira</a>, o <a href="/guias/como-escolher">guia de como escolher uma esteira</a> e a <a href="/reviews/movement-lx-160-g4">análise da Movement LX 160 G4</a>.</p>
+
+  <p class="disclosure">Este guia foi escrito a partir do <a href="https://www.movement.com.br/wp-content/uploads/2024/03/8506439-MU-TRI-LX-G4-R7.pdf" target="_blank" rel="noopener">manual da linha LX G4 da Movement</a> e da instrução de lubrificação para a qual o próprio manual aponta, consultados em outubro de 2026, além das fontes citadas na tabela. Procedimentos, produtos e intervalos variam por fabricante e por versão do modelo: o manual da sua esteira prevalece sobre este guia. Não testamos fisicamente os procedimentos. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>
