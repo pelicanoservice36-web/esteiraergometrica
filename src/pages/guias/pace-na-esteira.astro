@@ -1,0 +1,157 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Pace na esteira: tabela de km/h para min/km',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/pace-na-esteira',
+};
+
+const faq = [
+	{ q: 'Como converter km/h em pace?', a: 'Divida 60 pela velocidade em km/h. O resultado é o pace em minutos por quilômetro. Exemplo: 60 ÷ 10 km/h = 6 minutos por km, ou pace 6:00. Para a parte decimal, multiplique por 60 para ter os segundos: 60 ÷ 8 = 7,5, ou seja, 7:30 por km.' },
+	{ q: 'Como converter pace em km/h?', a: 'Divida 60 pelo pace em minutos. Antes, converta os segundos em fração de minuto: pace 5:30 é 5,5 minutos, e 60 ÷ 5,5 = 10,9 km/h.' },
+	{ q: 'Qual velocidade na esteira para correr 5 km em 30 minutos?', a: '10 km/h, que é pace 6:00 por km. Para 5 km em 25 minutos, 12 km/h (pace 5:00). Confira se a sua esteira chega a essa velocidade: muitas de entrada param em 10 ou 12 km/h.' },
+	{ q: 'Quantos passos dou em 30 minutos de esteira?', a: 'Cerca de 3.000 passos numa caminhada moderada. Pesquisas sobre cadência mostram que, para adultos, cerca de 100 passos por minuto corresponde a intensidade moderada. Em 30 minutos, isso dá uns 3.000 passos, perto de um terço da meta popular de 10.000.' },
+	{ q: 'Pace na esteira é igual ao da rua?', a: 'É parecido, mas não idêntico. Na esteira não há vento nem variação de terreno. Muitos corredores usam 1% de inclinação para aproximar o esforço da rua; trate isso como um ajuste prático, não como regra.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+/** minutos (decimal) → "m:ss" */
+function mmss(min: number) {
+	let m = Math.floor(min);
+	let s = Math.round((min - m) * 60);
+	if (s === 60) { m += 1; s = 0; }
+	return `${m}:${String(s).padStart(2, '0')}`;
+}
+/** minutos (decimal) → "h:mm:ss" ou "mm:ss" */
+function hms(min: number) {
+	const total = Math.round(min * 60);
+	const h = Math.floor(total / 3600);
+	const m = Math.floor((total % 3600) / 60);
+	const s = total % 60;
+	const ss = String(s).padStart(2, '0');
+	return h ? `${h}:${String(m).padStart(2, '0')}:${ss}` : `${m}:${ss}`;
+}
+const fmtKmh = (v: number) => v.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+const speeds: number[] = [];
+for (let v = 4; v <= 18; v += 0.5) speeds.push(v);
+const rows = speeds.map((v) => ({ v: fmtKmh(v), pace: mmss(60 / v), t5: hms((5 * 60) / v), t10: hms((10 * 60) / v) }));
+
+const paces: number[] = [];
+for (let p = 3.5; p <= 10; p += 0.5) paces.push(p);
+const paceRows = paces.map((p) => ({ pace: mmss(p), v: fmtKmh(Math.round((60 / p) * 10) / 10) }));
+---
+
+<ArticleLayout
+	title="Pace na esteira: tabela de km/h para min/km"
+	description="Tabela de conversão da velocidade da esteira (km/h) para pace (min/km), com o tempo para 5 e 10 km, a conta para converter e quantos passos dá 30 minutos."
+	path="/guias/pace-na-esteira"
+	ogTitle="Pace na esteira: tabela km/h para min/km"
+	ogDescription="Velocidade da esteira em pace, tempo para 5 e 10 km e a fórmula para converter em segundos."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Pace na esteira: tabela de km/h para min/km"
+	standfirst="Para converter a velocidade da esteira em pace, divida 60 pela velocidade em km/h: 10 km/h é pace 6:00 por quilômetro, 12 km/h é 5:00 e 8 km/h é 7:30. A tabela abaixo traz todas as velocidades de 4 a 18 km/h, com o tempo para completar 5 e 10 km."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>km/h para pace:</strong> 60 ÷ velocidade. Ex.: 60 ÷ 10 = 6:00 por km.</li>
+      <li><strong>Pace para km/h:</strong> 60 ÷ pace em minutos. Ex.: pace 5:30 = 5,5 min, e 60 ÷ 5,5 = 10,9 km/h.</li>
+      <li><strong>5 km em 30 minutos:</strong> 10 km/h. <strong>Em 25 minutos:</strong> 12 km/h.</li>
+      <li><strong>Passos:</strong> 30 minutos de caminhada moderada dão cerca de 3.000 passos.</li>
+    </ul>
+  </div>
+
+  <h2>Tabela: velocidade da esteira em pace</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Velocidade (km/h), pace (min/km) e tempo para 5 e 10 km</caption>
+    <thead>
+      <tr><th scope="col">Velocidade</th><th scope="col">Pace (min/km)</th><th scope="col">Tempo para 5 km</th><th scope="col">Tempo para 10 km</th></tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr><th scope="row">{r.v} km/h</th><td class="num">{r.pace}</td><td class="num">{r.t5}</td><td class="num">{r.t10}</td></tr>
+      ))}
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Tempos arredondados ao segundo. Até uns 6 a 7 km/h, a maioria das pessoas caminha; acima disso, trota ou corre.</p>
+
+  <h2>Tabela inversa: pace em km/h</h2>
+  <p>Se você treina por pace, por um relógio ou um aplicativo, use esta tabela para saber em que velocidade colocar a esteira.</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Pace (min/km) e velocidade equivalente na esteira</caption>
+    <thead>
+      <tr><th scope="col">Pace</th><th scope="col">Velocidade na esteira</th></tr>
+    </thead>
+    <tbody>
+      {paceRows.map((r) => (
+        <tr><th scope="row">{r.pace} /km</th><td class="num">{r.v} km/h</td></tr>
+      ))}
+    </tbody>
+  </table>
+  </div>
+
+  <h2>A sua esteira chega a essa velocidade?</h2>
+  <p>Antes de montar um treino por pace, confira a velocidade máxima da sua esteira. No nosso catálogo, 11 dos 22 modelos param em 12 km/h ou menos, o que limita o pace a 5:00 por km. Só 4 modelos passam de 16 km/h. Correr rápido por muito tempo também pede motor e lona maiores: veja o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de esteira para corrida ou caminhada</a>.</p>
+
+  <h2>Quantos passos dá 30 minutos de esteira</h2>
+  <p>Pesquisas sobre cadência coordenadas por Catrine Tudor-Locke mostram que, para adultos, caminhar a cerca de <strong>100 passos por minuto</strong> corresponde a intensidade moderada, e cerca de 130 passos por minuto marca o começo da intensidade vigorosa. Com isso:</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Passos estimados por tempo de caminhada</caption>
+    <thead>
+      <tr><th scope="col">Tempo</th><th scope="col">A 100 passos/min (moderado)</th><th scope="col">A 130 passos/min (vigoroso)</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">15 min</th><td class="num">1.500</td><td class="num">1.950</td></tr>
+      <tr><th scope="row">30 min</th><td class="num">3.000</td><td class="num">3.900</td></tr>
+      <tr><th scope="row">45 min</th><td class="num">4.500</td><td class="num">5.850</td></tr>
+      <tr><th scope="row">60 min</th><td class="num">6.000</td><td class="num">7.800</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Na meta popular de 10.000 passos por dia, 30 minutos de esteira cobrem perto de um terço; o resto vem da caminhada do dia a dia. A cadência muda de pessoa para pessoa, com a altura e o comprimento da passada. Para medir a sua, conte os passos por 15 segundos e multiplique por 4.</p>
+
+  <h2>Pace na esteira e na rua</h2>
+  <p>O mesmo pace costuma parecer um pouco mais fácil na esteira: não há vento, subidas nem curvas, e a lona ajuda a manter o ritmo. Muitos corredores usam 1% de inclinação para aproximar o esforço da rua. Trate isso como ajuste prático, não como regra. Para saber quanto a inclinação aumenta o gasto, veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>, que faz a conta de calorias por peso, velocidade e inclinação.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Como converter km/h em pace?</h3>
+  <p>Divida 60 pela velocidade em km/h. O resultado é o pace em minutos por quilômetro. Exemplo: 60 ÷ 10 km/h = 6 minutos por km, ou pace 6:00. Para a parte decimal, multiplique por 60 para ter os segundos: 60 ÷ 8 = 7,5, ou seja, 7:30 por km.</p>
+
+  <h3>Como converter pace em km/h?</h3>
+  <p>Divida 60 pelo pace em minutos. Antes, converta os segundos em fração de minuto: pace 5:30 é 5,5 minutos, e 60 ÷ 5,5 = 10,9 km/h.</p>
+
+  <h3>Qual velocidade na esteira para correr 5 km em 30 minutos?</h3>
+  <p>10 km/h, que é pace 6:00 por km. Para 5 km em 25 minutos, 12 km/h (pace 5:00). Confira se a sua esteira chega a essa velocidade: muitas de entrada param em 10 ou 12 km/h.</p>
+
+  <h3>Quantos passos dou em 30 minutos de esteira?</h3>
+  <p>Cerca de 3.000 passos numa caminhada moderada. Pesquisas sobre cadência mostram que, para adultos, cerca de 100 passos por minuto corresponde a intensidade moderada. Em 30 minutos, isso dá uns 3.000 passos, perto de um terço da meta popular de 10.000.</p>
+
+  <h3>Pace na esteira é igual ao da rua?</h3>
+  <p>É parecido, mas não idêntico. Na esteira não há vento nem variação de terreno. Muitos corredores usam 1% de inclinação para aproximar o esforço da rua; trate isso como um ajuste prático, não como regra.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-comecar-a-usar-a-esteira#5km">plano do zero aos 5 km</a>, o <a href="/guias/hiit-na-esteira">HIIT de 20 minutos</a>, o <a href="/guias/treino-zona-2-na-esteira">treino em Zona 2</a> e o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>.</p>
+
+  <p class="disclosure">A conversão de velocidade em pace é aritmética (60 ÷ km/h). Os limites de cadência vêm de <a href="https://bjsm.bmj.com/content/52/12/776" target="_blank" rel="noopener">Tudor-Locke e colegas, British Journal of Sports Medicine (2018)</a> e da <a href="https://shareok.org/handle/11244/335267" target="_blank" rel="noopener">revisão sobre cadência como estimativa de intensidade</a>, consultados em outubro de 2026; são valores de referência para adultos, com variação individual. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

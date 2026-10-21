@@ -1,0 +1,132 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Segurança na esteira: espaço, chave de segurança e tontura',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/seguranca-na-esteira',
+};
+
+const faq = [
+	{ q: 'Quanto espaço livre precisa em volta da esteira?', a: 'O manual da Movement LX G4 indica uma área de acesso e escape de 60 cm de cada lado e 2 m atrás da esteira. Para a LX 160 G4, que mede 190 × 77 cm, isso dá uma área total de cerca de 1,97 × 3,90 m. Confira o manual do seu modelo.' },
+	{ q: 'Por que dá tontura ao sair da esteira?', a: 'Há duas causas comuns. Parar de repente tira a ajuda dos músculos das pernas para devolver o sangue ao coração, e a pressão pode cair por um momento. E, ao pisar no chão parado, o cérebro ainda espera o movimento da lona, o que dá a sensação de balanço. Desacelere aos poucos por alguns minutos antes de parar.' },
+	{ q: 'Para que serve a chave de segurança da esteira?', a: 'Ela desliga a esteira quando se solta do painel. Presa à roupa pelo cordão, ela para a lona se você cair ou se afastar demais. Use sempre: é o que impede a lona de continuar girando com você no chão.' },
+	{ q: 'Posso colocar a esteira na varanda ou no quintal coberto?', a: 'O manual da Movement LX G4 proíbe uso ao ar livre, perto de piscina ou em área com alta umidade, e recomenda montar a esteira longe da umidade e protegida do sol, para não danificar a parte eletrônica. Varanda aberta e quintal costumam ter sol, chuva de vento ou umidade.' },
+	{ q: 'Posso sair da esteira com a lona andando?', a: 'Não. O manual da Movement manda nunca sair pela lona em movimento: reduza a velocidade aos poucos até parar, ou apoie os pés nas laterais, segurando o corrimão.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Segurança na esteira: espaço, chave e tontura"
+	description="Quanto espaço deixar em volta da esteira, para que serve a chave de segurança, por que dá tontura ao sair e se pode usar na varanda. Com base no manual."
+	path="/guias/seguranca-na-esteira"
+	ogTitle="Segurança na esteira: o que o manual pede"
+	ogDescription="Espaço de 2 m atrás, chave de segurança, tontura ao descer e uso na varanda: as regras do manual de um fabricante, explicadas."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Segurança na esteira: espaço, chave de segurança e tontura"
+	standfirst="As regras de segurança mais importantes da esteira são: deixar espaço livre em volta (o manual da Movement pede 60 cm de cada lado e 2 m atrás), prender a chave de segurança na roupa, desacelerar aos poucos antes de sair e nunca descer com a lona em movimento. A tontura ao sair costuma vir de parar de repente."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Espaço:</strong> 60 cm livres de cada lado e 2 m atrás, segundo o manual da Movement LX G4.</li>
+      <li><strong>Chave de segurança:</strong> presa na roupa, sempre.</li>
+      <li><strong>Para sair:</strong> desacelere até parar. Nunca desça com a lona andando.</li>
+      <li><strong>Tontura:</strong> evite parar de repente; termine com alguns minutos de caminhada lenta.</li>
+      <li><strong>Local:</strong> dentro de casa, em piso firme e nivelado, longe de umidade e sol.</li>
+    </ul>
+  </div>
+
+  <h2>Quanto espaço a esteira precisa</h2>
+  <p>O manual da Movement LX G4 indica uma "área mínima de acesso e escape" em volta da esteira: <strong>60 cm de cada lado e 2 m atrás</strong>. A área de trás é para onde você vai se escorregar ou cair da lona. Ela pode ser compartilhada entre duas esteiras, como numa academia, mas não pode ter móvel, parede ou vidro.</p>
+  <p>Para medir o espaço total, some às medidas da esteira montada:</p>
+  <ul>
+    <li><strong>Largura total</strong> = largura da esteira + 60 cm + 60 cm.</li>
+    <li><strong>Comprimento total</strong> = comprimento da esteira + 2 m atrás.</li>
+  </ul>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Exemplos de área total com o espaço de segurança da Movement</caption>
+    <thead>
+      <tr><th scope="col">Esteira (montada)</th><th scope="col">Medida da esteira</th><th scope="col">Área total com espaço livre</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row"><a href="/reviews/movement-lx-160-g4">Movement LX 160 G4</a></th><td>190 × 77 cm</td><td>cerca de 3,90 × 1,97 m</td></tr>
+      <tr><th scope="row"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a></th><td>105 × 50 cm</td><td>cerca de 3,05 × 1,70 m</td></tr>
+      <tr><th scope="row"><a href="/reviews/polimet-ep1600">Polimet EP-1600</a></th><td>125 × 50 cm</td><td>cerca de 3,25 × 1,70 m</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">O espaço de 60 cm e 2 m é o do manual da Movement LX G4; outros fabricantes podem pedir medidas diferentes. Confira o manual do seu modelo.</p>
+  <p>O manual também pede piso plano, nivelado e firme, longe de paredes, e proíbe piso polido (liso), onde a esteira pode se deslocar.</p>
+
+  <h2>Chave de segurança e botão de emergência</h2>
+  <p>A chave de segurança desliga a esteira quando se solta do painel. Presa à roupa pelo cordão, ela para a lona se você cair ou se afastar demais da frente. Sem ela, a lona continua girando com você no chão. Encaixe a chave antes de ligar e prenda o clipe numa parte firme da roupa.</p>
+  <p>Algumas esteiras têm, em vez da chave ou além dela, um botão de parada de emergência. O manual da Movement LX G4 descreve o botão e faz um alerta importante: não deixe outra pessoa perto do botão durante o uso. Se ele for apertado de repente, a parada brusca pode jogar quem está na esteira para a frente.</p>
+  <p>A chave também é a primeira coisa a conferir quando a esteira para sozinha: veja o <a href="/guias/esteira-desligando-sozinha">guia de esteira desligando sozinha</a>.</p>
+
+  <h2>Tontura ao sair da esteira</h2>
+  <p>É comum e costuma ter duas explicações:</p>
+  <ul>
+    <li><strong>Parada brusca:</strong> durante o exercício, o movimento das pernas ajuda a empurrar o sangue de volta ao coração. Se você para de repente, essa ajuda some, o sangue fica mais nas pernas e a pressão pode cair por um momento. Resultado: tontura ou sensação de desmaio.</li>
+    <li><strong>Sensação de movimento:</strong> depois de um tempo na lona, o cérebro se acostuma com o chão andando. Ao pisar no piso parado, ainda espera o movimento, e dá a sensação de balanço por alguns segundos.</li>
+  </ul>
+  <p>Para evitar: termine o treino com alguns minutos de caminhada lenta, reduzindo a velocidade aos poucos. Segure o corrimão ao descer. Beba água, principalmente em treino longo ou em dia quente.</p>
+  <p><strong>Quando procurar um médico:</strong> se a tontura é forte ou frequente, se vem com desmaio, dor no peito, falta de ar ou a sensação de que o ambiente está girando. O manual da Movement manda parar o exercício na hora e procurar um médico se você sentir dor, tontura, sensação de desmaio ou falta de ar.</p>
+
+  <h2>Varanda, quintal ou garagem?</h2>
+  <p>O manual da Movement LX G4 proíbe usar a esteira ao ar livre, perto de piscinas ou em áreas com alta umidade. Ele também recomenda montar a esteira longe da umidade e protegida da luz do sol, para não danificar a parte eletrônica. Na prática:</p>
+  <ul>
+    <li><strong>Varanda aberta ou quintal:</strong> evite. Sol direto, chuva de vento e umidade atingem painel e placa.</li>
+    <li><strong>Varanda fechada com vidro:</strong> pode servir, se não bater sol direto no equipamento e o piso for firme e nivelado.</li>
+    <li><strong>Garagem ou área de serviço:</strong> confira umidade, poeira e se há tomada aterrada com o disjuntor que o manual pede. Veja o <a href="/guias/esteira-desligando-sozinha">guia de esteira desligando sozinha</a> para as exigências elétricas.</li>
+  </ul>
+
+  <h2>Erros comuns de segurança</h2>
+  <ul>
+    <li><strong>Sair com a lona em movimento.</strong> O manual manda reduzir a velocidade até parar ou apoiar os pés nas laterais, segurando o corrimão.</li>
+    <li><strong>Subir com a lona já rápida.</strong> Comece com a lona parada ou na velocidade mínima.</li>
+    <li><strong>Roupa folgada, joias, cabelo solto.</strong> O manual pede roupa de exercício e nada que possa prender na lona.</li>
+    <li><strong>Crianças e animais por perto.</strong> O manual pede que ninguém fique próximo do equipamento em uso.</li>
+    <li><strong>Usar descalço ou de meia.</strong> Veja o <a href="/guias/correr-descalco-na-esteira">guia de calçado na esteira</a>.</li>
+    <li><strong>Usar sob efeito de álcool, drogas ou remédio que afete os reflexos.</strong> O manual proíbe.</li>
+    <li><strong>Passar do peso máximo.</strong> Cada modelo tem o seu limite: veja o <a href="/guias/esteira-acima-de-100kg">guia para quem pesa mais de 100 kg</a>.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Quanto espaço livre precisa em volta da esteira?</h3>
+  <p>O manual da Movement LX G4 indica uma área de acesso e escape de 60 cm de cada lado e 2 m atrás da esteira. Para a LX 160 G4, que mede 190 × 77 cm, isso dá uma área total de cerca de 1,97 × 3,90 m. Confira o manual do seu modelo.</p>
+
+  <h3>Por que dá tontura ao sair da esteira?</h3>
+  <p>Há duas causas comuns. Parar de repente tira a ajuda dos músculos das pernas para devolver o sangue ao coração, e a pressão pode cair por um momento. E, ao pisar no chão parado, o cérebro ainda espera o movimento da lona, o que dá a sensação de balanço. Desacelere aos poucos por alguns minutos antes de parar.</p>
+
+  <h3>Para que serve a chave de segurança da esteira?</h3>
+  <p>Ela desliga a esteira quando se solta do painel. Presa à roupa pelo cordão, ela para a lona se você cair ou se afastar demais. Use sempre: é o que impede a lona de continuar girando com você no chão.</p>
+
+  <h3>Posso colocar a esteira na varanda ou no quintal coberto?</h3>
+  <p>O manual da Movement LX G4 proíbe uso ao ar livre, perto de piscina ou em área com alta umidade, e recomenda montar a esteira longe da umidade e protegida do sol, para não danificar a parte eletrônica. Varanda aberta e quintal costumam ter sol, chuva de vento ou umidade.</p>
+
+  <h3>Posso sair da esteira com a lona andando?</h3>
+  <p>Não. O manual da Movement manda nunca sair pela lona em movimento: reduza a velocidade aos poucos até parar, ou apoie os pés nas laterais, segurando o corrimão.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/esteira-para-apartamento">guia de esteira para apartamento</a>, o <a href="/guias/tapete-para-esteira">guia de tapete para esteira</a>, o <a href="/guias/esteira-para-idosos">guia de esteira para idosos</a> e o <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a>.</p>
+
+  <p class="disclosure">As regras de espaço, local, botão de emergência e uso vêm do <a href="https://www.movement.com.br/wp-content/uploads/2024/03/8506439-MU-TRI-LX-G4-R7.pdf" target="_blank" rel="noopener">manual da linha LX G4 da Movement</a>, consultado em outubro de 2026. As medidas da Esteira Cardio e da Polimet EP-1600 vêm das nossas análises. O manual do seu modelo prevalece sobre este guia. As explicações sobre tontura são informação geral, não diagnóstico: em caso de sintoma forte ou frequente, procure um médico. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

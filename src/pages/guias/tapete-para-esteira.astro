@@ -1,0 +1,118 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Tapete para esteira: qual usar e os acessórios que valem a pena',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/tapete-para-esteira',
+};
+
+const faq = [
+	{ q: 'Precisa de tapete embaixo da esteira?', a: 'Não é obrigatório, mas ajuda. Um tapete de borracha protege o piso de riscos e marcas, segura a esteira no lugar e reduz o impacto dos passos transmitido ao andar de baixo. Em apartamento, é a medida que mais ajuda com o vizinho.' },
+	{ q: 'Qual o melhor tapete para esteira?', a: 'Um tapete de borracha densa, firme e plano, maior que a base da esteira. Evite espuma macia e grossa: o manual da Movement pede piso firme e nivelado, e uma base que afunda deixa a esteira instável. Evite também tapete felpudo, que solta fiapos.' },
+	{ q: 'Tapete de EVA serve para esteira?', a: 'Placas de EVA finas e de alta densidade são usadas por muita gente e ajudam a amortecer. Prefira as mais firmes e confira se a esteira fica nivelada e sem balançar. EVA muito macio afunda sob os pés da esteira.' },
+	{ q: 'Posso colocar a esteira em cima de tapete comum ou carpete?', a: 'Não é o ideal. Tapete felpudo e carpete deixam a base menos firme e soltam fiapos. O manual da Movement LX G4 pede para manter as passagens de ar livres de fiapos e cabelos e nunca usar o equipamento com elas bloqueadas.' },
+	{ q: 'Suporte para tablet na esteira tira a garantia?', a: 'Pode tirar, se for fixado na estrutura. O manual da Movement avisa que acessórios ou modificações não autorizados podem resultar na perda da garantia. Prefira suportes que só apoiam no painel ou ficam fora da esteira, sem parafusos nem furos.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Tapete para esteira: qual usar e acessórios úteis"
+	description="Qual tapete colocar embaixo da esteira para proteger o piso e reduzir o impacto no vizinho, o que evitar e quais acessórios valem sem perder a garantia."
+	path="/guias/tapete-para-esteira"
+	ogTitle="Tapete para esteira: qual usar"
+	ogDescription="Borracha densa, firme e maior que a base. O que evitar, segundo o manual de um fabricante, e os acessórios que valem a pena."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Tapete para esteira: qual usar e os acessórios que valem a pena"
+	standfirst="O melhor tapete para esteira é de borracha densa, firme e maior que a base do equipamento. Ele protege o piso, segura a esteira no lugar e reduz o impacto dos passos que chega ao vizinho de baixo. Evite espuma macia e grossa, que deixa a esteira instável, e tapete felpudo, que solta fiapos para dentro do motor."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Use:</strong> tapete de borracha densa ou placas de EVA firmes, planos e maiores que a base.</li>
+      <li><strong>Evite:</strong> espuma macia e grossa, carpete, tapete felpudo.</li>
+      <li><strong>Por quê:</strong> o manual da Movement pede piso firme e nivelado, sem piso liso, e passagens de ar livres de fiapos.</li>
+      <li><strong>Acessórios:</strong> prefira os que não são parafusados na esteira, para não arriscar a garantia.</li>
+    </ul>
+  </div>
+
+  <h2>Para que serve o tapete</h2>
+  <ul>
+    <li><strong>Proteger o piso:</strong> os pés da esteira marcam e riscam piso de madeira, vinílico e porcelanato.</li>
+    <li><strong>Segurar a esteira no lugar:</strong> o manual da Movement LX G4 proíbe colocar o equipamento sobre piso polido, porque ele pode se deslocar. Um tapete de borracha dá aderência.</li>
+    <li><strong>Reduzir o impacto no andar de baixo:</strong> em apartamento, o barulho que mais incomoda o vizinho é o impacto dos passos transmitido pela estrutura, não o motor. O tapete absorve parte dele. Veja o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a>.</li>
+    <li><strong>Facilitar a limpeza:</strong> o manual pede aspirar embaixo da esteira toda semana.</li>
+  </ul>
+
+  <h2>Que tipo de tapete escolher</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Tipos de tapete embaixo da esteira</caption>
+    <thead>
+      <tr><th scope="col">Tipo</th><th scope="col">Serve?</th><th scope="col">Observação</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Borracha densa (tapete para esteira ou academia)</th><td>Sim</td><td>Firme, plano e com aderência. A melhor opção.</td></tr>
+      <tr><th scope="row">Placas de EVA de alta densidade</th><td>Sim, se firmes</td><td>Confira se a esteira fica nivelada e sem balançar.</td></tr>
+      <tr><th scope="row">Espuma macia e grossa</th><td>Evite</td><td>Afunda sob os pés da esteira e tira o nivelamento.</td></tr>
+      <tr><th scope="row">Tapete felpudo ou carpete</th><td>Evite</td><td>Base menos firme e fiapos que podem entrar nas passagens de ar.</td></tr>
+      <tr><th scope="row">Direto no piso polido</th><td>Não</td><td>O manual da Movement proíbe: a esteira pode se deslocar.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Tamanho e cuidados</h2>
+  <ul>
+    <li><strong>Maior que a base:</strong> o tapete deve passar das bordas da esteira, para todos os pés ficarem apoiados nele.</li>
+    <li><strong>Nivelamento:</strong> depois de colocar a esteira, confira se ela não balança. Se balançar, ajuste os pés reguláveis, quando houver.</li>
+    <li><strong>Passagens de ar livres:</strong> o manual da Movement pede para nunca usar a esteira com as passagens de ar bloqueadas e mantê-las livres de fiapos e cabelos.</li>
+    <li><strong>Espaço de segurança:</strong> o tapete não substitui os 2 m livres atrás da esteira. Veja o <a href="/guias/seguranca-na-esteira">guia de segurança na esteira</a>.</li>
+  </ul>
+
+  <h2>Acessórios que valem a pena</h2>
+  <ul>
+    <li><strong>Tapete de borracha:</strong> o acessório mais útil, pelos motivos acima.</li>
+    <li><strong>Garrafa de água:</strong> muitas esteiras têm porta-garrafa no painel. Se a sua não tem, deixe a garrafa ao alcance, fora da lona.</li>
+    <li><strong>Toalha:</strong> suor pingando na lona e no painel deixa o piso escorregadio e atinge a eletrônica. O manual pede piso e lona sempre secos.</li>
+    <li><strong>Cinta peitoral ou relógio com frequência cardíaca:</strong> mede melhor que os sensores de mão durante o treino. Útil para o <a href="/guias/treino-zona-2-na-esteira">treino em Zona 2</a>.</li>
+    <li><strong>Suporte para tablet ou celular:</strong> prefira os que só apoiam no painel, sem parafuso. O manual da Movement avisa que acessórios ou modificações não autorizados podem causar perda da garantia.</li>
+    <li><strong>Lubrificante:</strong> só se o manual do seu modelo mandar lubrificar. Algumas lonas não podem receber lubrificante. Veja o <a href="/guias/como-lubrificar-esteira">guia de lubrificação</a>.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Precisa de tapete embaixo da esteira?</h3>
+  <p>Não é obrigatório, mas ajuda. Um tapete de borracha protege o piso de riscos e marcas, segura a esteira no lugar e reduz o impacto dos passos transmitido ao andar de baixo. Em apartamento, é a medida que mais ajuda com o vizinho.</p>
+
+  <h3>Qual o melhor tapete para esteira?</h3>
+  <p>Um tapete de borracha densa, firme e plano, maior que a base da esteira. Evite espuma macia e grossa: o manual da Movement pede piso firme e nivelado, e uma base que afunda deixa a esteira instável. Evite também tapete felpudo, que solta fiapos.</p>
+
+  <h3>Tapete de EVA serve para esteira?</h3>
+  <p>Placas de EVA finas e de alta densidade são usadas por muita gente e ajudam a amortecer. Prefira as mais firmes e confira se a esteira fica nivelada e sem balançar. EVA muito macio afunda sob os pés da esteira.</p>
+
+  <h3>Posso colocar a esteira em cima de tapete comum ou carpete?</h3>
+  <p>Não é o ideal. Tapete felpudo e carpete deixam a base menos firme e soltam fiapos. O manual da Movement LX G4 pede para manter as passagens de ar livres de fiapos e cabelos e nunca usar o equipamento com elas bloqueadas.</p>
+
+  <h3>Suporte para tablet na esteira tira a garantia?</h3>
+  <p>Pode tirar, se for fixado na estrutura. O manual da Movement avisa que acessórios ou modificações não autorizados podem resultar na perda da garantia. Prefira suportes que só apoiam no painel ou ficam fora da esteira, sem parafusos nem furos.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a>, o <a href="/guias/esteira-para-apartamento">guia de esteira para apartamento</a>, o <a href="/guias/seguranca-na-esteira">guia de segurança na esteira</a> e o <a href="/guias/walking-pad">guia de walking pad</a>.</p>
+
+  <p class="disclosure">As exigências de piso, passagens de ar, limpeza e acessórios vêm do <a href="https://www.movement.com.br/wp-content/uploads/2024/03/8506439-MU-TRI-LX-G4-R7.pdf" target="_blank" rel="noopener">manual da linha LX G4 da Movement</a>, consultado em outubro de 2026. Não medimos ruído nem testamos tapetes ou esteiras fisicamente. O manual do seu modelo prevalece sobre este guia. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>
