@@ -1,0 +1,135 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira gasta muita energia? Quanto custa na conta de luz',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-gasta-muita-energia',
+};
+
+const faq = [
+	{ q: 'Esteira gasta muita energia?', a: 'Não. Mesmo no pior caso, com o motor no máximo o tempo todo, uma esteira de 1,6 HP usada 30 minutos por dia custa no máximo cerca de R$ 15 por mês, considerando a tarifa média residencial projetada pela ANEEL para dezembro de 2026 (R$ 0,851/kWh). Em caminhada, o motor trabalha abaixo do máximo e o gasto real é menor.' },
+	{ q: 'Quanto custa uma hora de esteira na conta de luz?', a: 'No máximo de R$ 0,41 a R$ 1,90 por hora, dependendo do motor: cerca de R$ 0,41 para 0,65 HP, R$ 1,02 para 1,6 HP e R$ 1,90 para 3,0 HP, com a tarifa de R$ 0,851/kWh. É o teto teórico, com o motor na potência máxima a hora inteira.' },
+	{ q: 'Como calcular o consumo da minha esteira?', a: 'Multiplique a potência do motor em quilowatts pelas horas de uso e pela tarifa da sua conta de luz. Para converter: 1 HP equivale a 0,7457 kW e 1 cv a 0,7355 kW. Exemplo: 1,6 HP = 1,19 kW; 15 horas no mês = 17,9 kWh; vezes R$ 0,851 = R$ 15,23 no máximo.' },
+	{ q: 'Esteira com motor mais forte gasta mais energia?', a: 'Pode gastar mais, mas não na proporção da potência anunciada. O motor só puxa a energia que o treino exige: caminhando devagar, uma esteira de 3 HP não trabalha no máximo. A potência declarada serve como teto do gasto, não como consumo real.' },
+	{ q: 'Deixar a esteira ligada na tomada gasta energia?', a: 'Não encontramos medição publicada de consumo em espera para os modelos que analisamos. Desligar da tomada depois do uso elimina qualquer gasto em espera e também é mais seguro, principalmente com crianças em casa.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Esteira gasta muita energia? Quanto custa na conta de luz"
+	description="Esteira gasta pouca energia: no máximo cerca de R$ 15 por mês para uma de 1,6 HP usada 30 minutos por dia. Veja a conta por motor e como calcular a sua."
+	path="/guias/esteira-gasta-muita-energia"
+	ogTitle="Esteira gasta muita energia? A conta real"
+	ogDescription="Tabela com o gasto máximo por hora e por mês para cada faixa de motor, com a tarifa da ANEEL e a fórmula para você calcular a sua esteira."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira gasta muita energia? Quanto custa na conta de luz"
+	standfirst="Não, esteira gasta pouca energia. Mesmo no pior caso, com o motor no máximo o tempo todo, uma esteira de 1,6 HP usada 30 minutos por dia custa no máximo cerca de R$ 15 por mês na conta de luz. Uma de 3,0 HP fica em até uns R$ 29. Em caminhada, o motor trabalha abaixo do máximo, então o gasto real é menor que isso."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Gasto máximo por hora:</strong> de R$ 0,41 (motor de 0,65 HP) a R$ 1,90 (motor de 3,0 HP).</li>
+      <li><strong>Gasto máximo por mês</strong>, com 30 minutos por dia: de R$ 6 a R$ 29, conforme o motor.</li>
+      <li><strong>Tarifa usada:</strong> R$ 0,851/kWh, a média residencial projetada pela ANEEL para dezembro de 2026. Sua tarifa pode ser diferente: confira na conta de luz.</li>
+      <li><strong>Por que é teto:</strong> o motor só puxa a energia que o treino exige. Caminhando, ele não fica na potência máxima.</li>
+    </ul>
+  </div>
+
+  <h2>Quanto custa por mês, faixa por faixa de motor</h2>
+  <p>A tabela usa a potência declarada do motor como se ele trabalhasse no máximo o tempo todo, o pior caso possível. O uso considerado é de 30 minutos por dia, 30 dias por mês (15 horas). Os exemplos são esteiras que já analisamos.</p>
+
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Gasto máximo de energia por faixa de motor, com tarifa de R$ 0,851/kWh</caption>
+    <thead>
+      <tr>
+        <th scope="col">Motor</th>
+        <th scope="col">Potência em kW</th>
+        <th scope="col">Máximo por hora</th>
+        <th scope="col">Máximo por mês (15 h)</th>
+        <th scope="col">Exemplo do catálogo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">0,65 HP</th>
+        <td class="num">0,48 kW</td><td class="num">R$ 0,41</td><td class="num">R$ 6,19</td>
+        <td><a href="/reviews/health-herald-lcd">Health Herald SP0501</a></td>
+      </tr>
+      <tr>
+        <th scope="row">0,75 HP</th>
+        <td class="num">0,56 kW</td><td class="num">R$ 0,48</td><td class="num">R$ 7,14</td>
+        <td><a href="/reviews/wct-fitness-esteira">WCT Fitness</a> (potência contínua)</td>
+      </tr>
+      <tr>
+        <th scope="row">1,6 HP</th>
+        <td class="num">1,19 kW</td><td class="num">R$ 1,02</td><td class="num">R$ 15,23</td>
+        <td><a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></td>
+      </tr>
+      <tr>
+        <th scope="row">2,0 cv</th>
+        <td class="num">1,47 kW</td><td class="num">R$ 1,25</td><td class="num">R$ 18,78</td>
+        <td><a href="/reviews/movement-lx-160-g4">Movement LX 160 G4</a> (potência nominal)</td>
+      </tr>
+      <tr>
+        <th scope="row">3,0 HP</th>
+        <td class="num">2,24 kW</td><td class="num">R$ 1,90</td><td class="num">R$ 28,56</td>
+        <td><a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> (potência declarada)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Conversão usada: 1 HP = 0,7457 kW e 1 cv = 0,7355 kW. Muitos anúncios divulgam a potência de pico do motor, que o motor só atinge por instantes; nesses casos, o gasto real fica ainda mais longe do teto da tabela.</p>
+
+  <h2>Por que o gasto real é menor que o da tabela</h2>
+  <p>A potência do motor é o máximo que ele consegue entregar, não o que ele consome o tempo todo. O motor puxa da tomada a energia que o treino pede: o peso de quem está em cima, a velocidade e a inclinação. Uma caminhada leve exige muito menos do motor que uma corrida no limite da velocidade. Não encontramos medição publicada de consumo real para os modelos que analisamos, e não medimos com equipamento próprio. Por isso mostramos o teto, que é a conta segura: o seu gasto não passa dele.</p>
+
+  <h2>Como calcular o gasto da sua esteira</h2>
+  <ol>
+    <li><strong>Ache a potência do motor</strong> na etiqueta da esteira, no manual ou no anúncio. Se vier em HP, multiplique por 0,7457 para ter quilowatts (kW). Se vier em cv, multiplique por 0,7355. Se vier em watts (W), divida por 1.000.</li>
+    <li><strong>Multiplique pelas horas de uso no mês.</strong> 30 minutos por dia durante 30 dias são 15 horas. O resultado é o consumo máximo em kWh.</li>
+    <li><strong>Multiplique pela tarifa da sua conta de luz</strong>, em R$ por kWh. Use o valor total da conta dividido pelos kWh consumidos se quiser incluir impostos e bandeira tarifária.</li>
+  </ol>
+  <p>Exemplo com uma esteira de 1,6 HP: 1,6 × 0,7457 = 1,19 kW. Em 15 horas, 1,19 × 15 = 17,9 kWh. Com tarifa de R$ 0,851: 17,9 × 0,851 = R$ 15,23 no máximo por mês.</p>
+
+  <h2>O que realmente pesa na escolha</h2>
+  <p>Como o gasto de energia é pequeno em qualquer faixa, ele não deveria decidir qual esteira comprar. O que faz diferença no dia a dia é se o motor aguenta o seu treino, se a lona tem comprimento para a sua passada, o peso máximo suportado e se a esteira cabe no seu espaço. Esses critérios estão no <a href="/guias/como-escolher">guia de como escolher uma esteira</a>.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Esteira gasta muita energia?</h3>
+  <p>Não. Mesmo no pior caso, com o motor no máximo o tempo todo, uma esteira de 1,6 HP usada 30 minutos por dia custa no máximo cerca de R$ 15 por mês, considerando a tarifa média residencial projetada pela ANEEL para dezembro de 2026 (R$ 0,851/kWh). Em caminhada, o motor trabalha abaixo do máximo e o gasto real é menor.</p>
+
+  <h3>Quanto custa uma hora de esteira na conta de luz?</h3>
+  <p>No máximo de R$ 0,41 a R$ 1,90 por hora, dependendo do motor: cerca de R$ 0,41 para 0,65 HP, R$ 1,02 para 1,6 HP e R$ 1,90 para 3,0 HP, com a tarifa de R$ 0,851/kWh. É o teto teórico, com o motor na potência máxima a hora inteira.</p>
+
+  <h3>Como calcular o consumo da minha esteira?</h3>
+  <p>Multiplique a potência do motor em quilowatts pelas horas de uso e pela tarifa da sua conta de luz. Para converter: 1 HP equivale a 0,7457 kW e 1 cv a 0,7355 kW. Exemplo: 1,6 HP = 1,19 kW; 15 horas no mês = 17,9 kWh; vezes R$ 0,851 = R$ 15,23 no máximo.</p>
+
+  <h3>Esteira com motor mais forte gasta mais energia?</h3>
+  <p>Pode gastar mais, mas não na proporção da potência anunciada. O motor só puxa a energia que o treino exige: caminhando devagar, uma esteira de 3 HP não trabalha no máximo. A potência declarada serve como teto do gasto, não como consumo real.</p>
+
+  <h3>Deixar a esteira ligada na tomada gasta energia?</h3>
+  <p>Não encontramos medição publicada de consumo em espera para os modelos que analisamos. Desligar da tomada depois do uso elimina qualquer gasto em espera e também é mais seguro, principalmente com crianças em casa.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-escolher">guia de como escolher uma esteira</a>, o <a href="/guias/esteira-por-orcamento">guia por orçamento</a>, o <a href="/guias/esteira-para-apartamento">guia de esteira para apartamento</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">A tarifa usada é a média residencial projetada pela ANEEL para dezembro de 2026 (R$ 851/MWh), conforme o boletim InfoTarifas divulgado em junho de 2026; a tarifa efetiva varia por distribuidora, bandeira tarifária e impostos. A potência de cada exemplo vem das análises publicadas neste site. Não medimos o consumo real de nenhuma esteira. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

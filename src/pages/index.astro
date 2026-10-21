@@ -29,6 +29,29 @@ const mlJmjn = buyHref('jmjn-qk-3058');
 const mlTitle = 'Ir para o anúncio no Mercado Livre';
 
 const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/>';
+const siteJsonLd = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		'@id': 'https://esteiraergometrica.com/#website',
+		name: 'esteiraergometrica.com',
+		url: 'https://esteiraergometrica.com/',
+		inLanguage: 'pt-BR',
+		description: 'Análises independentes de esteiras ergométricas para uso doméstico no Brasil, com ficha técnica conferida na fonte e nota editorial com metodologia aberta.',
+		publisher: { '@id': 'https://esteiraergometrica.com/#organization' },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		'@id': 'https://esteiraergometrica.com/#organization',
+		name: 'esteiraergometrica.com',
+		url: 'https://esteiraergometrica.com/',
+		logo: 'https://esteiraergometrica.com/favicon.svg',
+		email: 'pelicanoservice36@gmail.com',
+		founder: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		sameAs: ['https://www.instagram.com/esteiraergometrica'],
+	},
+];
 ---
 
 <BaseLayout
@@ -38,6 +61,7 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
 	ogTitle="Melhor Esteira Ergométrica: Comparativo Completo"
 	ogDescription="Site especialista em ajudar o brasileiro a escolher a melhor esteira ergométrica: motor, lona, peso suportado e preço."
 	transparentHeader={true}
+	jsonLd={siteJsonLd}
 >
 
   <section class="hero-video-section">
@@ -1231,6 +1255,18 @@ const check = '<polyline points="5,13 9,17 19,7" stroke="currentColor" stroke-wi
           <span class="guide-card__eyebrow">Guia de compra</span>
           <h3 class="guide-card__title">Esteira elétrica dobrável silenciosa</h3>
           <p>As catorze que dobram, por peso e velocidade, e o que de fato reduz o barulho em casa.</p>
+          <span class="guide-card__link">Ler guia →</span>
+        </div>
+      </a>
+
+      <a class="guide-card" href="/guias/esteira-gasta-muita-energia">
+        <span class="guide-card__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <span class="guide-card__eyebrow">Guia de compra</span>
+          <h3 class="guide-card__title">Esteira gasta muita energia?</h3>
+          <p>O gasto máximo na conta de luz por faixa de motor, com a fórmula para calcular a sua.</p>
           <span class="guide-card__link">Ler guia →</span>
         </div>
       </a>
