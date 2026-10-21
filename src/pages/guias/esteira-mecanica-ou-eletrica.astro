@@ -1,0 +1,118 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Esteira mecânica ou elétrica: qual escolher?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/esteira-mecanica-ou-eletrica',
+};
+
+const faq = [
+	{ q: 'Qual a diferença entre esteira mecânica e elétrica?', a: 'A esteira mecânica não tem motor: a lona gira com a força das suas pernas. A elétrica tem motor, que move a lona na velocidade que você escolhe no painel. Por isso a elétrica controla o ritmo e, em muitos modelos, a inclinação; a mecânica depende só do seu esforço.' },
+	{ q: 'Esteira mecânica é boa?', a: 'Serve para quem quer caminhar, tem orçamento curto ou não tem tomada perto do lugar de treino. Ela não gasta energia e costuma ser mais simples. A desvantagem é que você não controla a velocidade com precisão, e o esforço para girar a lona pode cansar mais do que caminhar na rua.' },
+	{ q: 'Esteira mecânica emagrece?', a: 'Qualquer esteira ajuda no gasto de energia se você usar com regularidade. O que importa é o tempo e a intensidade do treino, não o tipo de esteira. A elétrica facilita manter um ritmo constante e seguir um plano.' },
+	{ q: 'Dá para correr em esteira mecânica?', a: 'Nas mecânicas planas de uso doméstico, correr é difícil: a lona depende do impulso do seu passo e não mantém um ritmo estável. Existem esteiras mecânicas curvas, feitas para corrida, mas são equipamentos de academia, bem mais caros.' },
+	{ q: 'Esteira elétrica gasta muita energia?', a: 'Menos do que muita gente imagina. No nosso guia de consumo, uma esteira de 1,6 HP usada 30 minutos por dia custa no máximo cerca de R$ 15 por mês, pela tarifa média residencial projetada pela ANEEL para dezembro de 2026.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Esteira mecânica ou elétrica: qual escolher?"
+	description="Esteira mecânica ou elétrica? Veja a diferença, para quem cada uma serve, se dá para correr na mecânica e por que a elétrica é a escolha da maioria."
+	path="/guias/esteira-mecanica-ou-eletrica"
+	ogTitle="Esteira mecânica ou elétrica?"
+	ogDescription="Sem motor e sem tomada, ou com velocidade controlada pelo painel: a diferença na prática e para quem cada uma serve."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira mecânica ou elétrica: qual escolher?"
+	standfirst="A esteira mecânica não tem motor: a lona gira com a força das suas pernas. A elétrica tem motor e mantém a velocidade que você escolhe no painel. Para a maioria das pessoas, a elétrica é a melhor escolha, porque permite controlar o ritmo, seguir um plano e, em muitos modelos, usar inclinação. A mecânica faz sentido para caminhada com orçamento curto ou onde não há tomada."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Escolha a elétrica</strong> se você quer controlar a velocidade, seguir um plano de treino, trotar ou correr, ou usar inclinação ajustável.</li>
+      <li><strong>Escolha a mecânica</strong> se você só vai caminhar, o orçamento é curto ou não há tomada adequada no lugar de treino.</li>
+      <li><strong>Para correr</strong>, a mecânica plana de uso doméstico não é indicada.</li>
+    </ul>
+  </div>
+
+  <h2>Como cada uma funciona</h2>
+  <p><strong>Mecânica:</strong> não tem motor. É o seu passo que empurra a lona para trás e a faz girar. Nas mecânicas planas de uso doméstico, a base costuma ficar inclinada para ajudar a lona a rodar, e por isso nem sempre dá para caminhar no plano. Não precisa de tomada.</p>
+  <p><strong>Elétrica:</strong> um motor gira a lona na velocidade que você escolhe no painel, e você acompanha o ritmo. Muitos modelos têm programas de treino, monitor de pulsação e inclinação, manual ou elétrica. Precisa de tomada, e alguns fabricantes exigem circuito próprio: o manual da Movement LX G4 pede tomada aterrada e disjuntor exclusivo.</p>
+
+  <h2>Comparação lado a lado</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Esteira mecânica × esteira elétrica (uso doméstico)</caption>
+    <thead>
+      <tr><th scope="col">Critério</th><th scope="col">Mecânica</th><th scope="col">Elétrica</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Motor</th><td>Não tem</td><td>Tem</td></tr>
+      <tr><th scope="row">Controle de velocidade</th><td>Depende do seu passo</td><td>Pelo painel, em km/h</td></tr>
+      <tr><th scope="row">Inclinação</th><td>Geralmente fixa ou em poucos níveis</td><td>Varia por modelo: sem, manual ou elétrica</td></tr>
+      <tr><th scope="row">Corrida</th><td>Não indicada nas planas domésticas</td><td>Depende do motor e da lona</td></tr>
+      <tr><th scope="row">Tomada</th><td>Não precisa</td><td>Precisa</td></tr>
+      <tr><th scope="row">Programas e painel</th><td>Painel simples, quando tem</td><td>Comum ter programas e monitor</td></tr>
+      <tr><th scope="row">Manutenção</th><td>Mais simples</td><td>Inclui motor, placa e, em alguns modelos, lubrificação</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Comparação geral entre os dois tipos. Recursos, peso e preço variam por modelo: confira a ficha técnica de cada um.</p>
+
+  <h2>Quando a mecânica faz sentido</h2>
+  <ul>
+    <li>Você só vai caminhar e não tem plano de trotar.</li>
+    <li>O orçamento é o fator principal.</li>
+    <li>Não há tomada adequada perto do lugar onde a esteira vai ficar.</li>
+  </ul>
+  <p>Mesmo assim, compare com as elétricas de entrada. A diferença de preço pode ser menor do que parece, e a elétrica permite caminhar no plano, num ritmo constante, o que é mais confortável para muita gente que está começando. Veja o <a href="/guias/esteira-por-orcamento">guia de esteira por orçamento</a>.</p>
+
+  <h2>Quando a elétrica é melhor</h2>
+  <ul>
+    <li>Você quer seguir um plano com velocidade definida, como o <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a> ou o <a href="/guias/hiit-na-esteira">HIIT de 20 minutos</a>.</li>
+    <li>Você quer trotar ou correr.</li>
+    <li>Você quer treinar com inclinação ajustável. Veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>.</li>
+    <li>Você quer dobrar e guardar: há muitas elétricas dobráveis. Veja o <a href="/guias/esteira-dobravel">guia de esteira dobrável</a>.</li>
+  </ul>
+  <p>O consumo de energia costuma ser baixo. O <a href="/guias/esteira-gasta-muita-energia">guia de consumo</a> faz a conta com a tarifa média projetada pela ANEEL.</p>
+
+  <h2>O que analisamos</h2>
+  <p>Todas as esteiras do nosso <a href="/#comparativo">comparativo</a> são elétricas: é o tipo que domina as buscas e as vendas de esteira para casa. Se você está em dúvida entre modelos elétricos, comece pelo <a href="/guias/como-escolher">guia de como escolher</a> ou pelo <a href="/guias/melhor-esteira-custo-beneficio">guia de custo-benefício</a>.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Qual a diferença entre esteira mecânica e elétrica?</h3>
+  <p>A esteira mecânica não tem motor: a lona gira com a força das suas pernas. A elétrica tem motor, que move a lona na velocidade que você escolhe no painel. Por isso a elétrica controla o ritmo e, em muitos modelos, a inclinação; a mecânica depende só do seu esforço.</p>
+
+  <h3>Esteira mecânica é boa?</h3>
+  <p>Serve para quem quer caminhar, tem orçamento curto ou não tem tomada perto do lugar de treino. Ela não gasta energia e costuma ser mais simples. A desvantagem é que você não controla a velocidade com precisão, e o esforço para girar a lona pode cansar mais do que caminhar na rua.</p>
+
+  <h3>Esteira mecânica emagrece?</h3>
+  <p>Qualquer esteira ajuda no gasto de energia se você usar com regularidade. O que importa é o tempo e a intensidade do treino, não o tipo de esteira. A elétrica facilita manter um ritmo constante e seguir um plano.</p>
+
+  <h3>Dá para correr em esteira mecânica?</h3>
+  <p>Nas mecânicas planas de uso doméstico, correr é difícil: a lona depende do impulso do seu passo e não mantém um ritmo estável. Existem esteiras mecânicas curvas, feitas para corrida, mas são equipamentos de academia, bem mais caros.</p>
+
+  <h3>Esteira elétrica gasta muita energia?</h3>
+  <p>Menos do que muita gente imagina. No nosso guia de consumo, uma esteira de 1,6 HP usada 30 minutos por dia custa no máximo cerca de R$ 15 por mês, pela tarifa média residencial projetada pela ANEEL para dezembro de 2026.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/o-que-e-uma-esteira-ergometrica">guia de como uma esteira funciona por dentro</a>, o <a href="/guias/como-escolher">guia de como escolher</a>, o <a href="/guias/esteira-por-orcamento">guia de esteira por orçamento</a> e o <a href="/guias/esteira-gasta-muita-energia">guia de consumo de energia</a>.</p>
+
+  <p class="disclosure">Esta é uma comparação geral entre os dois tipos de esteira. Não analisamos nenhum modelo mecânico específico e não testamos fisicamente nenhuma esteira. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

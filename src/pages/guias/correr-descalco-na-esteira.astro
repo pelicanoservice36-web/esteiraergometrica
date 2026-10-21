@@ -1,0 +1,118 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Pode correr descalço na esteira? E de meia?',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/correr-descalco-na-esteira',
+};
+
+const faq = [
+	{ q: 'Pode correr descalço na esteira?', a: 'Não é recomendado. O manual da Movement LX G4, por exemplo, diz: "Não utilize o equipamento descalço, com calçado de salto ou sola gasta". O pé fica exposto ao atrito da lona e às partes fixas da esteira. Confira o manual do seu modelo, mas a regra geral é usar tênis.' },
+	{ q: 'Posso usar a esteira só de meia?', a: 'Também não é recomendado. A meia tem menos aderência que a sola de um tênis e deixa o pé tão exposto ao atrito quanto descalço. Se a lona escorregar sob o pé, o risco de queda aumenta.' },
+	{ q: 'Qual o melhor tênis para esteira?', a: 'Um tênis de caminhada ou de corrida, bem amarrado, com sola inteira e sem desgaste. Não precisa ser um modelo específico para esteira. Evite chinelo, sapatênis com sola lisa e qualquer calçado de salto.' },
+	{ q: 'Tênis com sola gasta faz mal na esteira?', a: 'O manual da Movement proíbe usar a esteira com sola gasta. Sola lisa perde aderência na lona, e um tênis muito usado já não amortece como antes. Troque quando a sola estiver lisa ou deformada.' },
+	{ q: 'Posso usar o mesmo tênis da rua na esteira?', a: 'Pode, se estiver em bom estado. Só limpe a sola antes: terra e pedrinhas vão parar na lona e embaixo dela. O manual da Movement pede limpeza semanal, com aspirador embaixo da esteira.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Pode correr descalço na esteira? E de meia?"
+	description="Correr descalço ou de meia na esteira não é recomendado: o manual da Movement proíbe. Veja por quê e como escolher o tênis certo para a esteira."
+	path="/guias/correr-descalco-na-esteira"
+	ogTitle="Descalço ou de meia na esteira: pode?"
+	ogDescription="O que o manual de um fabricante diz sobre calçado na esteira, e como escolher um tênis que funcione bem na lona."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Pode correr descalço na esteira? E de meia?"
+	standfirst="Não é recomendado. O manual da Movement LX G4 é direto: “Não utilize o equipamento descalço, com calçado de salto ou sola gasta”. Descalço ou de meia, o pé fica exposto ao atrito da lona e tem menos aderência. Use um tênis de caminhada ou de corrida, bem amarrado e com a sola em bom estado."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Descalço:</strong> não. O manual da Movement proíbe.</li>
+      <li><strong>De meia:</strong> não. Escorrega mais e deixa o pé exposto ao atrito.</li>
+      <li><strong>Salto, chinelo ou sola gasta:</strong> não.</li>
+      <li><strong>Tênis de caminhada ou corrida, bem amarrado:</strong> sim. Não precisa ser específico para esteira.</li>
+    </ul>
+  </div>
+
+  <h2>O que o manual diz</h2>
+  <p>Entre as instruções de segurança, o manual da linha LX G4 da Movement traz: "Não utilize o equipamento descalço, com calçado de salto ou sola gasta". Outros fabricantes têm regras parecidas, mas confira o manual do seu modelo. A instrução faz sentido por três motivos:</p>
+  <ul>
+    <li><strong>Atrito:</strong> a lona se move sob o pé. Sem calçado, a pele fica em contato direto com ela, e qualquer escorregão vira atrito na pele.</li>
+    <li><strong>Partes fixas:</strong> a borda da lona, os estribos laterais e a carenagem ficam a centímetros do pé. Um tropeço descalço atinge essas partes sem proteção.</li>
+    <li><strong>Aderência:</strong> a sola do tênis segura melhor na lona do que a pele ou a meia. Menos aderência significa mais risco de escorregar, principalmente em velocidade.</li>
+  </ul>
+
+  <h2>E correr descalço como estilo de treino?</h2>
+  <p>Algumas pessoas correm descalças ou com calçado minimalista por preferência. Isso é uma discussão de treino feita ao ar livre, em terreno escolhido. Na esteira, a questão é outra: segurança do equipamento e do usuário, e o próprio fabricante pede calçado. Se você usa calçado minimalista, confira se a sola está inteira e se o manual da sua esteira aceita esse tipo de calçado.</p>
+
+  <h2>Como escolher o tênis para a esteira</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Calçado na esteira</caption>
+    <thead>
+      <tr><th scope="col">Calçado</th><th scope="col">Serve?</th><th scope="col">Por quê</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Tênis de corrida</th><td>Sim</td><td>Feito para o movimento repetido da passada</td></tr>
+      <tr><th scope="row">Tênis de caminhada</th><td>Sim</td><td>Suficiente para quem só caminha</td></tr>
+      <tr><th scope="row">Tênis com sola gasta</th><td>Não</td><td>O manual da Movement proíbe; perde aderência</td></tr>
+      <tr><th scope="row">Sapatênis de sola lisa</th><td>Evite</td><td>Pouca aderência na lona</td></tr>
+      <tr><th scope="row">Chinelo, sandália ou salto</th><td>Não</td><td>Solta do pé ou desequilibra; salto é proibido no manual</td></tr>
+      <tr><th scope="row">Meia ou descalço</th><td>Não</td><td>Atrito na pele e menos aderência</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Na hora de usar:</p>
+  <ul>
+    <li><strong>Amarre bem.</strong> Cadarço solto pode prender na lona.</li>
+    <li><strong>Limpe a sola</strong> se o tênis também é usado na rua. Terra e pedrinhas vão parar na lona e embaixo dela.</li>
+    <li><strong>Troque quando a sola ficar lisa ou deformada.</strong></li>
+  </ul>
+
+  <h2>Outros cuidados de segurança</h2>
+  <ul>
+    <li>Prenda a chave de segurança na roupa antes de ligar.</li>
+    <li>Suba com a lona parada ou em velocidade mínima, nunca com ela já rápida.</li>
+    <li>Mantenha crianças e animais longe da esteira em uso.</li>
+    <li>Tire da tomada depois de usar, como pede o manual da Movement.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Pode correr descalço na esteira?</h3>
+  <p>Não é recomendado. O manual da Movement LX G4, por exemplo, diz: "Não utilize o equipamento descalço, com calçado de salto ou sola gasta". O pé fica exposto ao atrito da lona e às partes fixas da esteira. Confira o manual do seu modelo, mas a regra geral é usar tênis.</p>
+
+  <h3>Posso usar a esteira só de meia?</h3>
+  <p>Também não é recomendado. A meia tem menos aderência que a sola de um tênis e deixa o pé tão exposto ao atrito quanto descalço. Se a lona escorregar sob o pé, o risco de queda aumenta.</p>
+
+  <h3>Qual o melhor tênis para esteira?</h3>
+  <p>Um tênis de caminhada ou de corrida, bem amarrado, com sola inteira e sem desgaste. Não precisa ser um modelo específico para esteira. Evite chinelo, sapatênis com sola lisa e qualquer calçado de salto.</p>
+
+  <h3>Tênis com sola gasta faz mal na esteira?</h3>
+  <p>O manual da Movement proíbe usar a esteira com sola gasta. Sola lisa perde aderência na lona, e um tênis muito usado já não amortece como antes. Troque quando a sola estiver lisa ou deformada.</p>
+
+  <h3>Posso usar o mesmo tênis da rua na esteira?</h3>
+  <p>Pode, se estiver em bom estado. Só limpe a sola antes: terra e pedrinhas vão parar na lona e embaixo dela. O manual da Movement pede limpeza semanal, com aspirador embaixo da esteira.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a>, o <a href="/guias/hiit-na-esteira">HIIT de 20 minutos na esteira</a>, o <a href="/guias/esteira-fazendo-barulho">guia de esteira fazendo barulho</a> e o <a href="/guias/como-lubrificar-esteira">guia de manutenção e lubrificação</a>.</p>
+
+  <p class="disclosure">A instrução sobre calçado e os cuidados de uso vêm do <a href="https://www.movement.com.br/wp-content/uploads/2024/03/8506439-MU-TRI-LX-G4-R7.pdf" target="_blank" rel="noopener">manual da linha LX G4 da Movement</a>, consultado em outubro de 2026. O manual da sua esteira prevalece sobre este guia. Não testamos fisicamente nenhuma esteira nem nenhum calçado. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

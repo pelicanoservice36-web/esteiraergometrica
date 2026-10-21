@@ -15,6 +15,7 @@ const faq = [
 	{ q: 'Posso caminhar na esteira todos os dias?', a: 'Pode (caminhada é atividade de baixo impacto), mas quem está começando costuma se beneficiar de folga a cada dois ou três dias enquanto o corpo se adapta. Dor que persiste é sinal para descansar, não para empurrar.' },
 	{ q: 'Quanto tempo até eu conseguir correr?', a: 'Varia muito de pessoa para pessoa: não existe prazo garantido, e tentar cumprir um prazo fixo é uma causa comum de lesão em quem está começando. A lógica deste plano é aumentar duração e ritmo aos poucos antes de introduzir qualquer trote.' },
 	{ q: 'Esteira substitui caminhar ou correr ao ar livre?', a: 'Não completamente (o terreno irregular e o vento da rua mudam o estímulo), mas para quem prioriza previsibilidade, clima ou segurança, a esteira cumpre o objetivo cardiovascular igualmente bem.' },
+	{ q: 'Como ir do zero aos 5 km na esteira?', a: 'Uma referência conhecida é o Couch to 5K do NHS, o serviço de saúde britânico: 9 semanas, 3 sessões por semana com um dia de descanso entre elas, alternando caminhada e corrida até chegar a 30 minutos de corrida contínua. Só siga essa progressão se a sua esteira aguenta corrida e se a semana anterior foi confortável.' },
 	{ q: 'Dói a panturrilha ou o joelho nos primeiros dias, é normal?', a: 'Desconforto muscular leve na adaptação é comum. Dor aguda, latejante, ou que piora durante o exercício não é. Pare e avalie com um profissional de saúde antes de continuar.' },
 ];
 
@@ -31,14 +32,14 @@ const faqJsonLd = {
 
 <ArticleLayout
 	title="Como começar a usar a esteira: plano de 4 semanas"
-	description="Plano de quatro semanas para começar a caminhar (e depois correr, se quiser) na esteira em casa, sem se machucar nem desistir na segunda semana."
+	description="Plano de quatro semanas para começar a caminhar na esteira em casa e, se quiser, a progressão do zero aos 5 km, sem se machucar nem desistir no meio."
 	path="/guias/como-comecar-a-usar-a-esteira"
 	ogTitle="Como começar a usar a esteira em casa"
 	ogDescription="Um plano simples de quatro semanas, sem prazo mágico para virar corredor. O erro mais comum de quem começa está no ritmo, não na motivação."
 	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Como começar a usar a esteira: guia para iniciante"
 	standfirst="Este guia é orientação geral, não prescrição de treino personalizada: o objetivo é te dar um ponto de partida razoável, não substituir avaliação de um profissional de educação física ou de saúde. O erro mais comum de quem compra esteira e para de usar em duas semanas não é falta de motivação: é começar rápido demais."
-	updated="setembro de 2026"
+	updated="outubro de 2026"
 >
 
   <div class="verdict">
@@ -96,12 +97,38 @@ const faqJsonLd = {
   <p>Aqui está o ponto em que mais gente se frustra com a esteira errada: <strong>a maioria das esteiras domésticas de entrada não foi dimensionada para corrida sustentada</strong>: motor de 1,6 HP e lona de 100 cm aguentam caminhada e trote leve, mas perdem força e ficam curtas de lona se você tentar manter ritmo de corrida por tempo prolongado. Antes de estruturar treino de corrida na sua esteira, veja o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de esteira para corrida ou caminhada</a> para saber se o seu modelo aguenta esse uso. No nosso comparativo, só a <a href="/reviews/athletic-racer">Athletic Racer</a> foi pensada especificamente para isso.</p>
   <p>Se o seu modelo não aguenta, isso não significa que você não pode progredir: intervalos de caminhada rápida alternados com trote bem leve, dentro do limite de velocidade da sua esteira, continuam sendo progresso real.</p>
 
+  <h2 id="5km">Do zero aos 5 km: a progressão depois do plano</h2>
+  <p>Se o objetivo é correr 5 km, uma referência conhecida é o <strong>Couch to 5K</strong> do NHS, o serviço de saúde público do Reino Unido. O programa tem 9 semanas, com 3 sessões por semana e um dia de descanso entre elas. Toda sessão começa com 5 minutos de caminhada rápida. As primeiras semanas ficam assim:</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Primeiras semanas do Couch to 5K (depois de 5 minutos de caminhada)</caption>
+    <thead>
+      <tr><th scope="col">Semana</th><th scope="col">Cada sessão</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">1</th><td>60 s de corrida e 90 s de caminhada, alternando, por 20 minutos</td></tr>
+      <tr><th scope="row">2</th><td>90 s de corrida e 2 min de caminhada, alternando, por 20 minutos</td></tr>
+      <tr><th scope="row">3</th><td>2 vezes: 90 s de corrida, 90 s de caminhada, 3 min de corrida, 3 min de caminhada</td></tr>
+      <tr><th scope="row">4</th><td>3 min de corrida, 90 s de caminhada, 5 min de corrida, 2 min de caminhada, 3 min de corrida, 90 s de caminhada, 5 min de corrida</td></tr>
+      <tr><th scope="row">5</th><td>5 min de corrida, 3 min de caminhada, 5 min de corrida, 3 min de caminhada, 5 min de corrida (as sessões seguintes da semana encurtam as pausas)</td></tr>
+      <tr><th scope="row">6 a 9</th><td>Blocos cada vez mais longos, até 30 minutos de corrida contínua na semana 9</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Resumo do programa; confira a versão atual no site ou no app do NHS antes de seguir.</p>
+  <p>Três cuidados para fazer isso na esteira:</p>
+  <ul>
+    <li><strong>"Corrida" aqui é trote leve</strong>, em ritmo que ainda permite falar algumas palavras. Não precisa ser rápido.</li>
+    <li><strong>30 minutos nem sempre são 5 km.</strong> A 10 km/h, 30 minutos dão 5 km; a 8 km/h, dão 4 km. O tempo é a meta mais segura no começo; a distância vem depois.</li>
+    <li><strong>Repita a semana</strong> se a anterior foi difícil. Não há prazo a cumprir. E confira se a sua esteira aguenta corrida no <a href="/guias/esteira-para-corrida-ou-caminhada">guia de corrida ou caminhada</a>: no nosso catálogo, 11 dos 22 modelos param em 12 km/h ou menos.</li>
+  </ul>
+
   <h2>Erros comuns de quem está começando</h2>
   <ul>
     <li><strong>Treinar todo dia sem folga.</strong> O corpo se adapta no descanso, não só durante o exercício: pelo menos um dia sem esteira entre sessões intensas ajuda mais do que atrapalha o progresso.</li>
     <li><strong>Aumentar duração, ritmo e frequência ao mesmo tempo.</strong> É a receita mais comum para dor que tira alguém da rotina na terceira semana. Mude uma variável por vez.</li>
     <li><strong>Ignorar dor que persiste ou piora durante o exercício.</strong> Desconforto muscular leve no início é comum; dor aguda, latejante ou que piora com o uso não é. Pare e avalie com um profissional, não empurre até "acostumar".</li>
-    <li><strong>Calçado inadequado.</strong> Tênis de sola muito gasta ou sem amortecimento aumenta o impacto que a esteira já concentra no mesmo ponto da lona, repetidamente.</li>
+    <li><strong>Calçado inadequado.</strong> Tênis de sola muito gasta ou sem amortecimento aumenta o impacto que a esteira já concentra no mesmo ponto da lona, repetidamente. E nada de usar a esteira descalço ou de meia: veja o <a href="/guias/correr-descalco-na-esteira">guia de calçado na esteira</a>.</li>
   </ul>
 
   <h2>Preciso de uma esteira melhor para esse plano?</h2>
@@ -121,11 +148,14 @@ const faqJsonLd = {
   <h3>Esteira substitui caminhar ou correr ao ar livre?</h3>
   <p>Não completamente (o terreno irregular e o vento da rua mudam o estímulo), mas para quem prioriza previsibilidade, clima ou segurança, a esteira cumpre o objetivo cardiovascular igualmente bem.</p>
 
+  <h3>Como ir do zero aos 5 km na esteira?</h3>
+  <p>Uma referência conhecida é o Couch to 5K do NHS, o serviço de saúde britânico: 9 semanas, 3 sessões por semana com um dia de descanso entre elas, alternando caminhada e corrida até chegar a 30 minutos de corrida contínua. Só siga essa progressão se a sua esteira aguenta corrida e se a semana anterior foi confortável.</p>
+
   <h3>Dói a panturrilha ou o joelho nos primeiros dias, é normal?</h3>
   <p>Desconforto muscular leve na adaptação é comum. Dor aguda, latejante, ou que piora durante o exercício não é. Pare e avalie com um profissional de saúde antes de continuar.</p>
 
-  <p><strong>Leia também:</strong> o <a href="/guias/treino-na-esteira-para-emagrecer">treino de 30 minutos para depois do plano</a>, o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de esteira para corrida ou caminhada</a>, o <a href="/guias/como-escolher">guia de como escolher uma esteira</a>, o guia sobre <a href="/guias/o-que-e-uma-esteira-ergometrica">como uma esteira funciona por dentro</a> ou o <a href="/guias/melhor-esteira-ergometrica-residencial">comparativo por categoria</a>.</p>
+  <p><strong>Leia também:</strong> o <a href="/guias/hiit-na-esteira">HIIT de 20 minutos</a>, o <a href="/guias/treino-zona-2-na-esteira">treino em Zona 2</a>, o <a href="/guias/treino-na-esteira-para-emagrecer">treino de 30 minutos para depois do plano</a>, o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de esteira para corrida ou caminhada</a>, o <a href="/guias/como-escolher">guia de como escolher uma esteira</a>, o guia sobre <a href="/guias/o-que-e-uma-esteira-ergometrica">como uma esteira funciona por dentro</a> ou o <a href="/guias/melhor-esteira-ergometrica-residencial">comparativo por categoria</a>.</p>
 
-  <p class="disclosure">Este guia é orientação geral de atividade física, não prescrição individual, e não substitui avaliação de um profissional de educação física ou de saúde. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+  <p class="disclosure">A progressão do zero aos 5 km resume o <a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/" target="_blank" rel="noopener">Couch to 5K do NHS</a>, consultado em outubro de 2026. Este guia é orientação geral de atividade física, não prescrição individual, e não substitui avaliação de um profissional de educação física ou de saúde. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </ArticleLayout>

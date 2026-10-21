@@ -1,0 +1,123 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'HIIT na esteira: treino de 20 minutos',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/hiit-na-esteira',
+};
+
+const faq = [
+	{ q: 'Como fazer HIIT na esteira?', a: 'Aqueça 5 minutos em caminhada, depois alterne 30 segundos de esforço forte com 60 segundos de recuperação leve, 10 vezes. São 20 minutos no total. Mude a intensidade pela velocidade ou pela inclinação, sem pular para fora da lona em movimento.' },
+	{ q: 'HIIT na esteira serve para iniciante?', a: 'Só depois de algumas semanas de caminhada regular e sem problemas de saúde que limitem esforço intenso. Para quem está começando, a ACE sugere intervalos em intensidade moderada, 4 a 6 numa escala de esforço de 0 a 10, e não esforço máximo.' },
+	{ q: 'Quantas vezes por semana posso fazer HIIT?', a: 'Para a maioria das pessoas, 1 a 3 sessões por semana, com pelo menos um dia mais leve entre elas. O resto da semana pode ser caminhada em ritmo confortável. Pela OMS, cada minuto vigoroso conta como dois minutos moderados na meta semanal.' },
+	{ q: 'Posso fazer HIIT só com inclinação, sem correr?', a: 'Pode. Caminhar rápido numa inclinação alta durante o intervalo forte é uma alternativa de menor impacto que correr. Funciona bem em esteiras que mudam a inclinação pelo painel.' },
+	{ q: 'Pular para as laterais da esteira no intervalo é seguro?', a: 'É um costume comum, mas aumenta o risco de queda na volta para a lona em movimento. Prefira reduzir a velocidade ou a inclinação para recuperar, e mantenha a chave de segurança presa à roupa.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="HIIT na esteira: treino de 20 minutos (iniciante)"
+	description="Treino HIIT de 20 minutos na esteira: 5 de aquecimento e 10 tiros de 30 segundos, por velocidade ou por inclinação. Com versão para iniciante e cuidados."
+	path="/guias/hiit-na-esteira"
+	ogTitle="HIIT na esteira em 20 minutos"
+	ogDescription="Um treino intervalado simples, por velocidade ou por inclinação, com a versão para iniciante e os cuidados de segurança na esteira."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="HIIT na esteira: treino de 20 minutos"
+	standfirst="O HIIT na esteira alterna períodos curtos de esforço forte com recuperação leve. Este treino tem 20 minutos: 5 de aquecimento e 10 tiros de 30 segundos, cada um seguido de 60 segundos leves. É orientação geral, não prescrição: se você tem alguma condição de saúde ou está parado há muito tempo, fale antes com um profissional."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Aquecimento:</strong> 5 minutos de caminhada, aumentando o ritmo aos poucos.</li>
+      <li><strong>Tiros:</strong> 10 vezes 30 segundos fortes e 60 segundos leves (15 minutos).</li>
+      <li><strong>Forte para iniciante:</strong> esforço 4 a 6 numa escala de 0 a 10, segundo a ACE. Não é esforço máximo.</li>
+      <li><strong>Frequência:</strong> 1 a 3 vezes por semana, com dias leves entre as sessões.</li>
+      <li><strong>Sem esteira de corrida?</strong> Faça os tiros com inclinação, caminhando.</li>
+    </ul>
+  </div>
+
+  <h2>Antes de começar</h2>
+  <p>HIIT é exercício vigoroso. Se você ainda não caminha com regularidade, comece pelo <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a> e volte aqui depois de algumas semanas. Se você tem doença cardíaca, pressão alta, diabetes, problema nas articulações ou está parado há muito tempo, converse com um profissional de saúde antes. Pare na hora se sentir dor no peito, tontura ou falta de ar fora do normal.</p>
+
+  <h2>O treino de 20 minutos</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>HIIT de 20 minutos na esteira</caption>
+    <thead>
+      <tr><th scope="col">Bloco</th><th scope="col">Duração</th><th scope="col">Intensidade</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Aquecimento</th><td class="num">5 min</td><td>Caminhada, do leve ao moderado</td></tr>
+      <tr><th scope="row">Tiro forte</th><td class="num">30 s</td><td>Esforço 6 a 8 de 10 (iniciante: 4 a 6)</td></tr>
+      <tr><th scope="row">Recuperação</th><td class="num">60 s</td><td>Caminhada leve, esforço 2 a 3 de 10</td></tr>
+      <tr><th scope="row">Repetir tiro + recuperação</th><td class="num">10 vezes</td><td>15 minutos no total</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Termine com 2 ou 3 minutos de caminhada leve antes de desligar a esteira, se tiver tempo.</p>
+
+  <h2>Por velocidade ou por inclinação</h2>
+  <p>A esteira tem duas formas de aumentar o esforço no tiro:</p>
+  <ul>
+    <li><strong>Velocidade:</strong> trote ou corrida no tiro, caminhada na recuperação. Exige motor e lona que aguentem corrida. Veja o <a href="/guias/esteira-para-corrida-ou-caminhada">guia de esteira para corrida ou caminhada</a>.</li>
+    <li><strong>Inclinação:</strong> caminhada rápida numa inclinação alta no tiro, inclinação baixa na recuperação. Tem menos impacto e funciona em esteiras de caminhada com inclinação no painel. O <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a> mostra quanto a inclinação aumenta o gasto.</li>
+  </ul>
+  <p>Um detalhe prático: a esteira leva alguns segundos para acelerar e desacelerar. Por isso este treino usa recuperação de 60 segundos, e não de 15. Em intervalos muito curtos, a lona mal chega à velocidade antes de você ter que reduzir de novo. Os atalhos de velocidade e inclinação do painel, quando a esteira tem, ajudam a mudar mais rápido.</p>
+
+  <h2>Versão para iniciante</h2>
+  <p>A ACE (American Council on Exercise) sugere que iniciantes façam os intervalos em intensidade moderada, 4 a 6 numa escala de esforço de 0 a 10, e não no esforço máximo que costuma aparecer em vídeos de HIIT. Para quem está começando:</p>
+  <ul>
+    <li>Comece com 5 ou 6 tiros em vez de 10.</li>
+    <li>No tiro, use uma caminhada mais rápida ou uma inclinação leve, sem correr.</li>
+    <li>Aumente o número de tiros antes de aumentar a intensidade.</li>
+  </ul>
+
+  <h2>Quanto HIIT por semana</h2>
+  <p>A Organização Mundial da Saúde recomenda para adultos 150 a 300 minutos de atividade moderada por semana, ou 75 a 150 minutos de atividade vigorosa, ou uma combinação das duas. Cada minuto vigoroso equivale a dois moderados. Os 10 tiros deste treino somam 5 minutos fortes: o resto da sua semana ainda precisa de caminhada ou outra atividade. Para a maioria das pessoas, 1 a 3 sessões de HIIT por semana bastam, com dias mais leves entre elas.</p>
+
+  <h2>Segurança na esteira</h2>
+  <ul>
+    <li>Prenda a chave de segurança na roupa.</li>
+    <li>Não pule para as laterais com a lona em movimento. Para recuperar, reduza a velocidade ou a inclinação.</li>
+    <li>Segure o corrimão só para se equilibrar, não para se apoiar durante o tiro.</li>
+    <li>Use tênis. O manual da Movement, por exemplo, proíbe usar a esteira descalço. Veja o <a href="/guias/correr-descalco-na-esteira">guia de calçado na esteira</a>.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>Como fazer HIIT na esteira?</h3>
+  <p>Aqueça 5 minutos em caminhada, depois alterne 30 segundos de esforço forte com 60 segundos de recuperação leve, 10 vezes. São 20 minutos no total. Mude a intensidade pela velocidade ou pela inclinação, sem pular para fora da lona em movimento.</p>
+
+  <h3>HIIT na esteira serve para iniciante?</h3>
+  <p>Só depois de algumas semanas de caminhada regular e sem problemas de saúde que limitem esforço intenso. Para quem está começando, a ACE sugere intervalos em intensidade moderada, 4 a 6 numa escala de esforço de 0 a 10, e não esforço máximo.</p>
+
+  <h3>Quantas vezes por semana posso fazer HIIT?</h3>
+  <p>Para a maioria das pessoas, 1 a 3 sessões por semana, com pelo menos um dia mais leve entre elas. O resto da semana pode ser caminhada em ritmo confortável. Pela OMS, cada minuto vigoroso conta como dois minutos moderados na meta semanal.</p>
+
+  <h3>Posso fazer HIIT só com inclinação, sem correr?</h3>
+  <p>Pode. Caminhar rápido numa inclinação alta durante o intervalo forte é uma alternativa de menor impacto que correr. Funciona bem em esteiras que mudam a inclinação pelo painel.</p>
+
+  <h3>Pular para as laterais da esteira no intervalo é seguro?</h3>
+  <p>É um costume comum, mas aumenta o risco de queda na volta para a lona em movimento. Prefira reduzir a velocidade ou a inclinação para recuperar, e mantenha a chave de segurança presa à roupa.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/treino-zona-2-na-esteira">treino em Zona 2 pela frequência cardíaca</a>, o <a href="/guias/treino-na-esteira-para-emagrecer">treino de 30 minutos para emagrecer</a>, o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a> e o <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a>.</p>
+
+  <p class="disclosure">Fontes: <a href="https://www.acefitness.org/education-and-resources/professional/expert-articles/5880/a-basic-high-intensity-interval-training-routine-for-beginning-exercisers" target="_blank" rel="noopener">ACE, rotina básica de HIIT para iniciantes</a> e <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7719906/" target="_blank" rel="noopener">diretrizes de atividade física da OMS (2020)</a>, consultadas em outubro de 2026. Este guia é orientação geral de atividade física, não prescrição individual, e não substitui avaliação de um profissional de educação física ou de saúde. Não prometemos resultado. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>

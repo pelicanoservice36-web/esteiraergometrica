@@ -1,0 +1,114 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Treino em Zona 2 na esteira: como calcular pela frequência cardíaca',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/treino-zona-2-na-esteira',
+};
+
+const faq = [
+	{ q: 'O que é treino em Zona 2?', a: 'É treino aeróbico em intensidade leve a moderada, em que você consegue conversar em frases inteiras. No modelo de cinco zonas mais usado, a Zona 2 fica entre 60% e 70% da frequência cardíaca máxima.' },
+	{ q: 'Como calcular a Zona 2?', a: 'Estime a frequência cardíaca máxima com a fórmula de Tanaka (208 − 0,7 × idade) e multiplique por 0,60 e por 0,70. Para 40 anos: máxima estimada de 180 bpm, Zona 2 entre 108 e 126 bpm.' },
+	{ q: 'Por que não usar 220 menos a idade?', a: 'A fórmula 220 − idade é a mais conhecida, mas o estudo de Tanaka, Monahan e Seals (2001) mostrou que ela subestima a frequência máxima de pessoas mais velhas. A fórmula 208 − 0,7 × idade foi proposta para corrigir isso. As duas são estimativas.' },
+	{ q: 'Qual velocidade é Zona 2 na esteira?', a: 'Não existe uma velocidade certa: depende do condicionamento. Para muita gente é uma caminhada rápida ou uma caminhada com inclinação; para quem corre, um trote leve. Ajuste velocidade e inclinação até a frequência cardíaca ficar dentro da faixa.' },
+	{ q: 'O sensor de pulsação da esteira é confiável para Zona 2?', a: 'Os sensores de mão na barra só medem com as mãos paradas sobre eles, o que atrapalha a passada. Uma cinta peitoral ou um relógio costumam ser mais práticos. Na dúvida, use o teste da fala: se você não consegue completar uma frase, passou da Zona 2.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const idades = [30, 40, 50, 60, 70].map((idade) => {
+	const max = Math.round(208 - 0.7 * idade);
+	return { idade, max, min2: Math.round(max * 0.6), max2: Math.round(max * 0.7) };
+});
+---
+
+<ArticleLayout
+	title="Treino Zona 2 na esteira: calcule pela frequência"
+	description="Como achar a sua Zona 2 na esteira: fórmula de Tanaka (208 − 0,7 × idade), tabela por idade, teste da fala e como ajustar velocidade e inclinação."
+	path="/guias/treino-zona-2-na-esteira"
+	ogTitle="Zona 2 na esteira: como calcular"
+	ogDescription="A fórmula mais atual para estimar a frequência máxima, a tabela por idade e como usar a esteira para ficar dentro da faixa."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Treino em Zona 2 na esteira: como calcular pela frequência cardíaca"
+	standfirst="A Zona 2 é a faixa de intensidade em que você treina de forma aeróbica e ainda consegue conversar. No modelo de cinco zonas mais usado, ela fica entre 60% e 70% da frequência cardíaca máxima. Para estimar a máxima, use a fórmula de Tanaka: 208 − 0,7 × idade. Aos 40 anos, isso dá uma Zona 2 de 108 a 126 batimentos por minuto."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ol>
+      <li><strong>Frequência máxima estimada:</strong> 208 − 0,7 × idade.</li>
+      <li><strong>Zona 2:</strong> 60% a 70% desse valor.</li>
+      <li><strong>Na esteira:</strong> ajuste velocidade e inclinação até a frequência ficar na faixa, por 30 a 60 minutos.</li>
+      <li><strong>Sem monitor:</strong> use o teste da fala. Se não consegue completar uma frase, passou da Zona 2.</li>
+    </ol>
+  </div>
+
+  <h2>Antes de começar</h2>
+  <p>As fórmulas estimam a média de grupos de pessoas. A sua frequência máxima real pode ficar bem acima ou abaixo. Remédios como betabloqueadores também mudam a frequência cardíaca, e nesse caso as fórmulas não servem. Se você tem doença cardíaca, pressão alta ou toma remédio contínuo, peça ao seu médico a faixa de treino. Este guia é orientação geral, não prescrição.</p>
+
+  <h2>Tabela de Zona 2 por idade</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Zona 2 estimada (60% a 70% da máxima pela fórmula de Tanaka)</caption>
+    <thead>
+      <tr><th scope="col">Idade</th><th scope="col">Frequência máxima estimada</th><th scope="col">Zona 2</th></tr>
+    </thead>
+    <tbody>
+      {idades.map((r) => (
+        <tr><th scope="row">{r.idade} anos</th><td class="num">{r.max} bpm</td><td class="num">{r.min2} a {r.max2} bpm</td></tr>
+      ))}
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Valores arredondados. Para outra idade: (208 − 0,7 × idade) × 0,6 e × 0,7.</p>
+
+  <h2>Por que 208 − 0,7 × idade, e não 220 − idade</h2>
+  <p>A fórmula 220 − idade é a mais conhecida, mas um estudo de Tanaka, Monahan e Seals, publicado em 2001 no Journal of the American College of Cardiology, mostrou que ela subestima a frequência máxima de pessoas mais velhas. A fórmula 208 − 0,7 × idade foi proposta a partir dessa análise. Aos 60 anos, por exemplo, a fórmula antiga dá 160 bpm e a de Tanaka, 166. As duas continuam sendo estimativas.</p>
+
+  <h2>Como fazer na esteira</h2>
+  <ul>
+    <li><strong>Aqueça 5 minutos</strong> em caminhada leve. A frequência leva alguns minutos para estabilizar.</li>
+    <li><strong>Ajuste uma coisa por vez:</strong> velocidade ou inclinação, e espere um ou dois minutos para ver a frequência responder.</li>
+    <li><strong>Use a inclinação</strong> se a velocidade de caminhada não chega na faixa e você não quer correr. Veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>.</li>
+    <li><strong>Mantenha 30 a 60 minutos.</strong> Com o tempo, a frequência sobe aos poucos mesmo no mesmo ritmo. Se sair da faixa, reduza um pouco.</li>
+  </ul>
+  <p>A Zona 2 conta como atividade moderada na recomendação da Organização Mundial da Saúde, que é de 150 a 300 minutos por semana para adultos. Três a cinco sessões de 30 a 60 minutos cobrem essa meta.</p>
+
+  <h2>Medir a frequência na esteira</h2>
+  <p>Muitas esteiras têm sensor de pulsação nas barras, mas ele só mede com as mãos paradas sobre os sensores, o que muda a passada. Cinta peitoral e relógio são mais práticos para treinar em faixa. Sem nenhum deles, o teste da fala é um bom substituto: na Zona 2, você fala frases inteiras, mas não conseguiria cantar.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>O que é treino em Zona 2?</h3>
+  <p>É treino aeróbico em intensidade leve a moderada, em que você consegue conversar em frases inteiras. No modelo de cinco zonas mais usado, a Zona 2 fica entre 60% e 70% da frequência cardíaca máxima.</p>
+
+  <h3>Como calcular a Zona 2?</h3>
+  <p>Estime a frequência cardíaca máxima com a fórmula de Tanaka (208 − 0,7 × idade) e multiplique por 0,60 e por 0,70. Para 40 anos: máxima estimada de 180 bpm, Zona 2 entre 108 e 126 bpm.</p>
+
+  <h3>Por que não usar 220 menos a idade?</h3>
+  <p>A fórmula 220 − idade é a mais conhecida, mas o estudo de Tanaka, Monahan e Seals (2001) mostrou que ela subestima a frequência máxima de pessoas mais velhas. A fórmula 208 − 0,7 × idade foi proposta para corrigir isso. As duas são estimativas.</p>
+
+  <h3>Qual velocidade é Zona 2 na esteira?</h3>
+  <p>Não existe uma velocidade certa: depende do condicionamento. Para muita gente é uma caminhada rápida ou uma caminhada com inclinação; para quem corre, um trote leve. Ajuste velocidade e inclinação até a frequência cardíaca ficar dentro da faixa.</p>
+
+  <h3>O sensor de pulsação da esteira é confiável para Zona 2?</h3>
+  <p>Os sensores de mão na barra só medem com as mãos paradas sobre eles, o que atrapalha a passada. Uma cinta peitoral ou um relógio costumam ser mais práticos. Na dúvida, use o teste da fala: se você não consegue completar uma frase, passou da Zona 2.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/hiit-na-esteira">HIIT de 20 minutos na esteira</a>, o <a href="/guias/treino-na-esteira-para-emagrecer">treino de 30 minutos para emagrecer</a>, o <a href="/guias/esteira-para-idosos">guia de esteira para idosos</a> e o <a href="/guias/como-comecar-a-usar-a-esteira">plano para iniciante</a>.</p>
+
+  <p class="disclosure">Fontes: <a href="https://pubmed.ncbi.nlm.nih.gov/11153730/" target="_blank" rel="noopener">Tanaka, Monahan e Seals, "Age-predicted maximal heart rate revisited" (2001)</a> e <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7719906/" target="_blank" rel="noopener">diretrizes de atividade física da OMS (2020)</a>, consultadas em outubro de 2026. Os limites de 60% a 70% seguem o modelo de cinco zonas mais comum; outros modelos usam faixas um pouco diferentes. Este guia é orientação geral de atividade física, não prescrição individual, e não substitui avaliação de um profissional de saúde. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ArticleLayout>
