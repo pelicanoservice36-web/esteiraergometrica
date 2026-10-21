@@ -15,7 +15,7 @@ const faq = [
 	{ q: 'Como converter pace em km/h?', a: 'Divida 60 pelo pace em minutos. Antes, converta os segundos em fração de minuto: pace 5:30 é 5,5 minutos, e 60 ÷ 5,5 = 10,9 km/h.' },
 	{ q: 'Qual velocidade na esteira para correr 5 km em 30 minutos?', a: '10 km/h, que é pace 6:00 por km. Para 5 km em 25 minutos, 12 km/h (pace 5:00). Confira se a sua esteira chega a essa velocidade: muitas de entrada param em 10 ou 12 km/h.' },
 	{ q: 'Quantos passos dou em 30 minutos de esteira?', a: 'Cerca de 3.000 passos numa caminhada moderada. Pesquisas sobre cadência mostram que, para adultos, cerca de 100 passos por minuto corresponde a intensidade moderada. Em 30 minutos, isso dá uns 3.000 passos, perto de um terço da meta popular de 10.000.' },
-	{ q: 'Pace na esteira é igual ao da rua?', a: 'É parecido, mas não idêntico. Na esteira não há vento nem variação de terreno. Muitos corredores usam 1% de inclinação para aproximar o esforço da rua; trate isso como um ajuste prático, não como regra.' },
+	{ q: 'Pace na esteira é igual ao da rua?', a: 'É parecido, mas não idêntico. Na esteira não há vento nem variação de terreno. Um estudo de Jones e Doust (1996) mostrou que 1% de inclinação deixa o gasto de energia da esteira igual ao da rua, em corredores treinados, entre cerca de 10,5 e 18 km/h.' },
 ];
 
 const faqJsonLd = {
@@ -131,7 +131,7 @@ const paceRows = paces.map((p) => ({ pace: mmss(p), v: fmtKmh(Math.round((60 / p
   <p>Na meta popular de 10.000 passos por dia, 30 minutos de esteira cobrem perto de um terço; o resto vem da caminhada do dia a dia. A cadência muda de pessoa para pessoa, com a altura e o comprimento da passada. Para medir a sua, conte os passos por 15 segundos e multiplique por 4.</p>
 
   <h2>Pace na esteira e na rua</h2>
-  <p>O mesmo pace costuma parecer um pouco mais fácil na esteira: não há vento, subidas nem curvas, e a lona ajuda a manter o ritmo. Muitos corredores usam 1% de inclinação para aproximar o esforço da rua. Trate isso como ajuste prático, não como regra. Para saber quanto a inclinação aumenta o gasto, veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>, que faz a conta de calorias por peso, velocidade e inclinação.</p>
+  <p>O mesmo pace costuma parecer um pouco mais fácil na esteira: não há vento, subidas nem curvas, e a lona ajuda a manter o ritmo. Um estudo de Jones e Doust, publicado em 1996 no Journal of Sports Sciences, comparou o gasto de energia de corredores treinados na esteira e na rua: com <strong>1% de inclinação</strong>, os dois ficaram iguais em velocidades de cerca de 10,5 a 18 km/h. Nas velocidades mais baixas do estudo, a diferença entre 0% e 1% foi pequena. Para saber quanto a inclinação aumenta o gasto, veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>, que faz a conta de calorias por peso, velocidade e inclinação.</p>
 
   <h2>Perguntas frequentes</h2>
 
@@ -148,10 +148,16 @@ const paceRows = paces.map((p) => ({ pace: mmss(p), v: fmtKmh(Math.round((60 / p
   <p>Cerca de 3.000 passos numa caminhada moderada. Pesquisas sobre cadência mostram que, para adultos, cerca de 100 passos por minuto corresponde a intensidade moderada. Em 30 minutos, isso dá uns 3.000 passos, perto de um terço da meta popular de 10.000.</p>
 
   <h3>Pace na esteira é igual ao da rua?</h3>
-  <p>É parecido, mas não idêntico. Na esteira não há vento nem variação de terreno. Muitos corredores usam 1% de inclinação para aproximar o esforço da rua; trate isso como um ajuste prático, não como regra.</p>
+  <p>É parecido, mas não idêntico. Na esteira não há vento nem variação de terreno. Um estudo de Jones e Doust (1996) mostrou que 1% de inclinação deixa o gasto de energia da esteira igual ao da rua, em corredores treinados, entre cerca de 10,5 e 18 km/h.</p>
+
+  <h2 id="fontes">Fontes</h2>
+  <ol>
+      <li><a href="https://bjsm.bmj.com/content/52/12/776" target="_blank" rel="noopener">Tudor-Locke C. et al. How fast is fast enough? Walking cadence (steps/min) as a practical estimate of intensity in adults: a narrative review. British Journal of Sports Medicine, 2018</a>. Revisão de 38 estudos: cerca de 100 passos por minuto para intensidade moderada e 130 para vigorosa.</li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/8887211/" target="_blank" rel="noopener">Jones A. M.; Doust J. H. A 1% treadmill grade most accurately reflects the energetic cost of outdoor running. Journal of Sports Sciences, 1996</a>. Inclinação de 1% para igualar o esforço da rua.</li>
+  </ol>
 
   <p><strong>Leia também:</strong> o <a href="/guias/como-comecar-a-usar-a-esteira#5km">plano do zero aos 5 km</a>, o <a href="/guias/hiit-na-esteira">HIIT de 20 minutos</a>, o <a href="/guias/treino-zona-2-na-esteira">treino em Zona 2</a> e o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>.</p>
 
-  <p class="disclosure">A conversão de velocidade em pace é aritmética (60 ÷ km/h). Os limites de cadência vêm de <a href="https://bjsm.bmj.com/content/52/12/776" target="_blank" rel="noopener">Tudor-Locke e colegas, British Journal of Sports Medicine (2018)</a> e da <a href="https://shareok.org/handle/11244/335267" target="_blank" rel="noopener">revisão sobre cadência como estimativa de intensidade</a>, consultados em outubro de 2026; são valores de referência para adultos, com variação individual. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+  <p class="disclosure">A conversão de velocidade em pace é aritmética (60 ÷ km/h). Os limites de cadência e o dado sobre inclinação vêm das <a href="#fontes">fontes listadas acima</a>, consultadas em outubro de 2026; são valores de referência, com variação individual. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </ArticleLayout>
