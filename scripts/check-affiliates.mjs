@@ -258,6 +258,7 @@ if (existsSync(dist)) {
 		// +1 nos 13 modelos dobráveis: coluna "Onde comprar" da tabela de
 		// /guias/esteira-eletrica-dobravel-silenciosa, e mais +1 pela mesma coluna
 		// em /guias/esteira-dobravel.
+		// +1 na Redfin e na Health Herald: coluna "Onde comprar" de /guias/walking-pad.
 		const expected = {
 			'dream-fitness-dr1600': 7,
 			'polimet-ep1600': 8,
@@ -271,8 +272,8 @@ if (existsSync(dist)) {
 				'podiumfit-x300': 7,
 				'qbuen-150kg': 10, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
 				'strive-25hp-16kmh': 5,
-				'redfin-150kg': 7,
-				'health-herald-lcd': 7,
+				'redfin-150kg': 8,
+				'health-herald-lcd': 8,
 				'antuvi-mesa': 5,
 				'gallant-elite-gee12m25a': 7,
 				'speedo-tr5': 6,
@@ -290,7 +291,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 145) diff.push(`total de CTAs: esperado 145, encontrado ${total}`);
+		if (total !== 147) diff.push(`total de CTAs: esperado 147, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

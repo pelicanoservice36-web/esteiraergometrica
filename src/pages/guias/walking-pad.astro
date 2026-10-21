@@ -1,0 +1,137 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const mlTitle = 'Ir para o anúncio no Mercado Livre';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Walking pad: o que é, vale a pena e qual escolher',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-10-21',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/walking-pad',
+};
+
+const faq = [
+	{ q: 'O que é walking pad?', a: 'É uma esteira elétrica compacta e baixa, feita para caminhar. Costuma ter velocidade máxima em torno de 6 km/h, controle remoto ou painel simples e pouco peso, para guardar embaixo do sofá ou da cama. Muitas são usadas embaixo de uma mesa alta, para caminhar enquanto se trabalha.' },
+	{ q: 'Walking pad vale a pena?', a: 'Vale para quem quer caminhar em casa ou no home office e tem pouco espaço. Não vale para quem quer correr: a velocidade baixa e a lona curta não foram feitas para isso. Nesse caso, uma esteira dobrável comum é melhor escolha.' },
+	{ q: 'Dá para correr em walking pad?', a: 'Na maioria, não. Os modelos com perfil de walking pad que analisamos param em 6 km/h e têm lona de 90 cm, o que mal permite um trote. Existem versões 2 em 1, com barra que levanta e velocidade maior; confira a ficha antes de comprar.' },
+	{ q: 'Walking pad funciona embaixo da mesa?', a: 'Funciona se a mesa for alta o bastante para você digitar em pé, como uma mesa com regulagem de altura. Numa mesa comum, a esteira não serve. Para trabalhar caminhando, a maioria das pessoas usa velocidades baixas.' },
+	{ q: 'Qual walking pad comprar?', a: 'Dos modelos que analisamos, a Health Herald SP0501 é a mais leve (13,5 kg) e a Redfin Ideal DL-227 suporta mais peso (150 kg). As duas têm o perfil de walking pad na ficha: 6 km/h, controle remoto e dobram. Nenhuma informa garantia.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Walking pad: o que é, vale a pena e qual escolher"
+	description="Walking pad é a esteira compacta para caminhar em casa ou no home office. Veja para quem vale, o que conferir na ficha e os modelos com esse perfil."
+	path="/guias/walking-pad"
+	ogTitle="Walking pad vale a pena?"
+	ogDescription="A esteira baixa e leve para caminhar no home office: para quem serve, os limites e os modelos com esse perfil que já analisamos."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Walking pad: o que é, vale a pena e qual escolher"
+	standfirst="Walking pad é uma esteira elétrica compacta e baixa, feita para caminhar: costuma ir até uns 6 km/h, é controlada por controle remoto ou painel simples e pesa pouco, para guardar embaixo do sofá ou da cama. Vale a pena para quem quer caminhar em casa ou no home office com pouco espaço. Não serve para correr."
+	updated="outubro de 2026"
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Para quem é:</strong> quem quer caminhar em casa, tem pouco espaço ou quer caminhar enquanto trabalha numa mesa alta.</li>
+      <li><strong>Para quem não é:</strong> quem quer trotar ou correr. Prefira uma <a href="/guias/esteira-dobravel">esteira dobrável comum</a>.</li>
+      <li><strong>Mais leve que analisamos:</strong> <a href="/reviews/health-herald-lcd">Health Herald SP0501</a>, 13,5 kg, R$ 719,70 (setembro de 2026).</li>
+      <li><strong>Para mais peso:</strong> <a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a>, até 150 kg, R$ 716,66 (setembro de 2026).</li>
+    </ul>
+  </div>
+
+  <h2>O que é um walking pad</h2>
+  <p>"Walking pad" é o nome que pegou para as esteiras de caminhada compactas. Não é uma categoria com regra técnica: é um formato. O que esses modelos costumam ter em comum:</p>
+  <ul>
+    <li><strong>Velocidade baixa</strong>, em torno de 6 km/h, suficiente para caminhada.</li>
+    <li><strong>Perfil baixo e pouco peso</strong>, para deslizar para baixo de um móvel.</li>
+    <li><strong>Controle remoto ou painel simples</strong>, em vez de um console alto.</li>
+    <li><strong>Lona curta</strong>, perto de 90 cm de comprimento.</li>
+  </ul>
+  <p>Algumas versões, vendidas como "2 em 1", têm uma barra que levanta e velocidade maior. Como o nome não garante nada, o que vale é a ficha técnica de cada anúncio.</p>
+
+  <h2>Walking pad no home office</h2>
+  <p>O uso que popularizou o formato é caminhar enquanto se trabalha. Para isso funcionar:</p>
+  <ul>
+    <li><strong>Mesa alta:</strong> você precisa digitar em pé, com os cotovelos mais ou menos na altura da mesa. Uma mesa com regulagem de altura resolve; uma mesa comum não serve.</li>
+    <li><strong>Velocidade baixa:</strong> para digitar e falar em chamada, a maioria das pessoas fica nas velocidades mais lentas.</li>
+    <li><strong>Pausas:</strong> alternar períodos caminhando, em pé e sentado tende a ser mais confortável do que passar o dia todo andando.</li>
+  </ul>
+  <p>As diretrizes de 2020 da Organização Mundial da Saúde recomendam reduzir o tempo sentado e trocá-lo por atividade física de qualquer intensidade, inclusive leve. Uma caminhada lenta durante o trabalho entra nessa conta. Ela não substitui os 150 a 300 minutos semanais de atividade moderada, mas soma.</p>
+
+  <h2>Modelos com perfil de walking pad que já analisamos</h2>
+  <p>Dois modelos do nosso catálogo têm o perfil de walking pad na ficha técnica: velocidade máxima de 6 km/h, controle remoto, dobram e pesam menos de 20 kg.</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Modelos com perfil de walking pad no nosso catálogo</caption>
+    <thead>
+      <tr><th scope="col">Critério</th><th scope="col"><a href="/reviews/health-herald-lcd">Health Herald SP0501</a></th><th scope="col"><a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a></th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Nota editorial</th><td class="num">5,5/10</td><td class="num">6,7/10</td></tr>
+      <tr><th scope="row">Motor</th><td>0,65 HP</td><td>2,5 HP</td></tr>
+      <tr><th scope="row">Velocidade máxima</th><td>6 km/h</td><td>6 km/h</td></tr>
+      <tr><th scope="row">Lona</th><td>37 × 90 cm</td><td>40 × 90 cm</td></tr>
+      <tr><th scope="row">Peso máximo do usuário</th><td>110 kg</td><td>150 kg</td></tr>
+      <tr><th scope="row">Peso da esteira</th><td>13,5 kg</td><td>18 kg</td></tr>
+      <tr><th scope="row">Inclinação</th><td>Manual, posições não informadas</td><td>Manual, 1 posição</td></tr>
+      <tr><th scope="row">Controle remoto</th><td>Sim</td><td>Sim</td></tr>
+      <tr><th scope="row">Garantia</th><td>Não informada</td><td>Não informada</td></tr>
+      <tr><th scope="row">Preço (setembro de 2026)</th><td>R$ 719,70</td><td>R$ 716,66</td></tr>
+      <tr><th scope="row">Onde comprar</th><td class="cell-cta"><a class="mini-cta" href={buyHref('health-herald-lcd')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Health Herald SP0501 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td><td class="cell-cta"><a class="mini-cta" href={buyHref('redfin-150kg')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Redfin Ideal DL-227 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Dados das fichas dos anúncios, consultadas em setembro de 2026. Os preços mudam: confira no anúncio.</p>
+  <p><strong>Health Herald SP0501:</strong> a mais leve do catálogo e a que tinha mais avaliações no Mercado Livre (4,8 com 704). O motor de 0,65 HP é o mais fraco que já analisamos, por isso a nota baixa. Serve para caminhada leve. <a href="/reviews/health-herald-lcd">Leia a análise</a>.</p>
+  <p><strong>Redfin Ideal DL-227:</strong> suporta até 150 kg, bem acima do comum nesse formato, com motor de 2,5 HP. A ficha do anúncio se contradiz sobre ter tela. <a href="/reviews/redfin-150kg">Leia a análise</a>.</p>
+  <p>Se você quer um pouco mais de velocidade sem perder portabilidade, veja a seção de <a href="/guias/esteira-dobravel#portatil">esteiras dobráveis portáteis</a>: há modelos de até 27 kg que chegam a até 14 km/h.</p>
+
+  <h2>O que conferir antes de comprar</h2>
+  <ul>
+    <li><strong>Peso máximo do usuário:</strong> deixe uma folga em relação ao seu peso.</li>
+    <li><strong>Comprimento da lona:</strong> lona de 90 cm é para caminhada. Quem tem passada longa pode se sentir apertado.</li>
+    <li><strong>Altura do móvel</strong> embaixo do qual você quer guardar, comparada com a altura da esteira dobrada.</li>
+    <li><strong>Garantia:</strong> nenhum dos dois modelos que analisamos informa. Pergunte ao vendedor antes de comprar. Veja o <a href="/guias/como-comprar-esteira-com-seguranca">guia de compra segura</a>.</li>
+    <li><strong>Vizinho de baixo:</strong> caminhar faz menos impacto que correr, mas um tapete de borracha embaixo ajuda. Veja o <a href="/guias/esteira-silenciosa">guia de esteira silenciosa</a>.</li>
+  </ul>
+
+  <h2>Quanto gasta de energia no home office</h2>
+  <p>Mais horas de uso pesam na conta, mas o motor pequeno ajuda. Uma esteira de 0,65 HP usada 2 horas por dia gasta no máximo cerca de R$ 25 por mês, com a tarifa média residencial projetada pela ANEEL para dezembro de 2026 (R$ 0,851/kWh). É o teto teórico, com o motor na potência máxima o tempo todo: em caminhada lenta, o gasto real é menor. O <a href="/guias/esteira-gasta-muita-energia">guia de consumo</a> mostra a conta.</p>
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>O que é walking pad?</h3>
+  <p>É uma esteira elétrica compacta e baixa, feita para caminhar. Costuma ter velocidade máxima em torno de 6 km/h, controle remoto ou painel simples e pouco peso, para guardar embaixo do sofá ou da cama. Muitas são usadas embaixo de uma mesa alta, para caminhar enquanto se trabalha.</p>
+
+  <h3>Walking pad vale a pena?</h3>
+  <p>Vale para quem quer caminhar em casa ou no home office e tem pouco espaço. Não vale para quem quer correr: a velocidade baixa e a lona curta não foram feitas para isso. Nesse caso, uma esteira dobrável comum é melhor escolha.</p>
+
+  <h3>Dá para correr em walking pad?</h3>
+  <p>Na maioria, não. Os modelos com perfil de walking pad que analisamos param em 6 km/h e têm lona de 90 cm, o que mal permite um trote. Existem versões 2 em 1, com barra que levanta e velocidade maior; confira a ficha antes de comprar.</p>
+
+  <h3>Walking pad funciona embaixo da mesa?</h3>
+  <p>Funciona se a mesa for alta o bastante para você digitar em pé, como uma mesa com regulagem de altura. Numa mesa comum, a esteira não serve. Para trabalhar caminhando, a maioria das pessoas usa velocidades baixas.</p>
+
+  <h3>Qual walking pad comprar?</h3>
+  <p>Dos modelos que analisamos, a Health Herald SP0501 é a mais leve (13,5 kg) e a Redfin Ideal DL-227 suporta mais peso (150 kg). As duas têm o perfil de walking pad na ficha: 6 km/h, controle remoto e dobram. Nenhuma informa garantia.</p>
+
+  <p><strong>Leia também:</strong> o <a href="/guias/esteira-dobravel">guia de esteira dobrável</a>, o <a href="/guias/esteira-para-apartamento">guia de esteira para apartamento</a>, o <a href="/guias/esteira-eletrica-dobravel-silenciosa">guia de esteira elétrica dobrável silenciosa</a> e o <a href="/guias/treino-zona-2-na-esteira">treino em Zona 2</a>.</p>
+
+  <p class="disclosure">"Walking pad" não é uma categoria técnica: classificamos os dois modelos pelo perfil da ficha técnica (velocidade, peso, controle remoto e dobra), não por teste físico. Não testamos fisicamente nenhuma esteira. A recomendação sobre tempo sentado vem das <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7719906/" target="_blank" rel="noopener">diretrizes de atividade física da OMS (2020)</a>. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação não influencia as notas.</p>
+
+</ArticleLayout>
