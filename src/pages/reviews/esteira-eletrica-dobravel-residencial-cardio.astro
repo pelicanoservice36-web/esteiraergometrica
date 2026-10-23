@@ -18,6 +18,13 @@ const jsonLd = {
 		offerCount: '1',
 		availability: 'https://schema.org/InStock',
 	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.8',
+		reviewCount: '1268',
+		bestRating: '5',
+		worstRating: '1',
+	},
 	review: {
 		'@type': 'Review',
 		reviewRating: {
@@ -59,25 +66,31 @@ const fichaItems = [
 	{ label: 'Lona', value: '48 × 90 cm' },
 	{ label: 'Peso máximo', value: '150 kg' },
 	{ label: 'Inclinação', value: 'Não especificada pelo anúncio' },
+	{ label: 'Vendas no Mercado Livre', value: 'Mais de 5 mil unidades' },
 	{ label: 'Preço', value: 'R$ 675,18' },
 ];
 ---
 
 <ReviewLayout
 	title="Esteira Ergométrica Dobrável Cardio: análise e nota 6,5"
-	description="Esteira Ergométrica Elétrica Dobrável Residencial Cardio: ficha, preço de out/2026, pontos fortes, limites e para quem vale. Nota editorial 6,5/10."
+	description="Esteira Ergométrica Elétrica Dobrável Residencial Cardio: mais de 5 mil vendidas, R$ 675,18 (out/2026), pontos fortes, limites e para quem vale. Nota 6,5."
 	path="/reviews/esteira-eletrica-dobravel-residencial-cardio"
 	ogTitle="Essa esteira de R$ 675 sem marca vale a pena?"
 	ogDescription="150 kg de capacidade e 2,5 HP no papel, mas sem marca identificável e garantia de só 30 dias. O que isso muda na prática."
 	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira elétrica dobrável Cardio: vale a pena por ser tão barata?"
-	standfirst="Está entre as opções mais baratas do nosso comparativo, por menos da metade do preço da Polimet EP-1600. Isso é possível, mas vem com trocas reais: nenhuma marca por trás, garantia de 30 dias e uma ficha técnica que só o próprio vendedor assina."
+	standfirst="Com mais de 5 mil unidades vendidas no Mercado Livre, é uma das esteiras mais vendidas do nosso catálogo e está entre as mais baratas, por menos da metade do preço da Polimet EP-1600. Isso é possível, mas vem com trocas reais: nenhuma marca por trás, garantia de 30 dias e uma ficha técnica que só o próprio vendedor assina."
 	updated="outubro de 2026"
 	fichaItems={fichaItems}
 	buyHref={buyUrl}
 	buyLabel="Ver preço de hoje no Mercado Livre"
 	priceNote="Preço observado em 23 de outubro de 2026, num único vendedor: R$ 675,18, em até 10x de R$ 67,52 sem juros. Link de afiliado."
 >
+
+  <div class="sales-highlight">
+    <span class="sales-highlight__icon" aria-hidden="true">🔥</span>
+    <div><strong>Mais de 5 mil vendidas no Mercado Livre</strong>Nota 4,8 em 1.268 avaliações de compradores (outubro de 2026)</div>
+  </div>
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>

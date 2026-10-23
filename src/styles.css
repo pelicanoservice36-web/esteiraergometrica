@@ -961,6 +961,22 @@ a:hover { color: var(--primary-ink); }
 }
 
 .verdict h2 { color: var(--primary-ink); }
+
+.sales-highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #FFF4E5;
+  border: 1px solid #F3C27A;
+  border-left: 5px solid #D9730D;
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.1rem;
+  margin: 1.5rem 0 0;
+  color: #6B3A00;
+  line-height: 1.4;
+}
+.sales-highlight__icon { font-size: 1.6rem; line-height: 1; }
+.sales-highlight strong { display: block; font-size: 1.15rem; color: #5A2F00; }
 .verdict p { margin-bottom: 0.9rem; }
 .verdict p:last-child { margin-bottom: 0; }
 
