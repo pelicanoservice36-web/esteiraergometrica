@@ -1,0 +1,182 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('solperk-esteira-plana');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Solperk Esteira Elétrica Plana Residencial',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Solperk' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '727.00',
+		highPrice: '727.00',
+		offerCount: '1',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.8',
+		reviewCount: '1210',
+		bestRating: '5',
+		worstRating: '1',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '5.9',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-23',
+	},
+};
+
+const faq = [
+	{ q: 'A esteira Solperk é boa?', a: 'Para caminhar e trotar de leve em casa, gastando pouco, ela entrega bastante: dobra, pesa 18 kg, vai até 12 km/h, suporta 120 kg e tem Bluetooth, por R$ 727 em outubro de 2026. Nossa nota editorial é 5,9/10 porque o anúncio não informa a potência do motor, a lona tem 94 cm e não há fabricante com site para confirmar os dados.' },
+	{ q: 'Qual a potência do motor da Solperk?', a: 'O anúncio não informa. Nem a ficha técnica nem a descrição trazem a potência do motor, um dado que todas as outras esteiras do nosso catálogo declaram. Por isso usamos a faixa mais conservadora de motor na nota.' },
+	{ q: 'A Solperk é um walking pad?', a: 'Não exatamente. A base é plana e baixa, como a de um walking pad, mas ela tem uma barra em U com suporte para tablet e mede 1,09 m de altura montada. Chega a 12 km/h, o dobro dos walking pads típicos.' },
+	{ q: 'Dá para correr na esteira Solperk?', a: 'Para trote leve e curto, sim. Para corrida, não: a lona mede 94 × 37 cm, tamanho de esteira de caminhada, e o anúncio não informa a potência do motor.' },
+	{ q: 'Qual a garantia da esteira Solperk?', a: 'A descrição do anúncio informa "Garantia do vendedor: 1 anos". É garantia do vendedor, não de um fabricante com assistência técnica. Guarde a nota fiscal e a conversa com o vendedor.' },
+	{ q: 'Solperk ou Romantic Crown: qual é a marca?', a: 'A ficha técnica e o logo impresso na base dizem Solperk. A descrição chama o produto de "marca Romantic Crown", que é o nome da loja que vende. Tratamos Solperk como a marca e Romantic Crown como o vendedor.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: 'Não informado no anúncio' },
+	{ label: 'Velocidade máxima', value: '12 km/h' },
+	{ label: 'Lona', value: '94 × 37 cm' },
+	{ label: 'Peso máximo do usuário', value: '120 kg' },
+	{ label: 'Peso do equipamento', value: '18 kg' },
+	{ label: 'É dobrável', value: 'Sim' },
+	{ label: 'Medidas montada', value: '1,02 m × 48 cm × 1,09 m' },
+	{ label: 'Garantia', value: '1 ano, do vendedor' },
+	{ label: 'Preço', value: 'R$ 727' },
+];
+---
+
+<ReviewLayout
+	title="Esteira Solperk é boa? Análise da plana de R$ 727"
+	description="Esteira Elétrica Plana Residencial Solperk: dobra, 18 kg, 12 km/h, 120 kg e Bluetooth por R$ 727 (out/2026). Mas o motor não é informado. Nota 5,9/10."
+	path="/reviews/solperk-esteira-plana"
+	ogTitle="Esteira Solperk: análise honesta"
+	ogDescription="Mais de 5 mil vendidas no Mercado Livre. Leve, dobrável e com Bluetooth, mas o anúncio não informa a potência do motor."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira Solperk é boa?"
+	standfirst="Para caminhar em casa gastando pouco, a Esteira Elétrica Plana Residencial da Solperk entrega bastante: dobra, pesa 18 kg, vai até 12 km/h, suporta 120 kg e tem Bluetooth, por R$ 727 em outubro de 2026. Com mais de 5 mil unidades vendidas, só fica atrás da WCT Fitness em volume de vendas entre as que já analisamos. O ponto fraco é o que falta no anúncio: a potência do motor não aparece em lugar nenhum, e não há fabricante com site para conferir os dados."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	priceNote="Preço observado em 23 de outubro de 2026 no Mercado Livre: R$ 727, ou 12x de R$ 70,30 com juros, com frete grátis. Link de afiliado."
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">5,9<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
+    <ul>
+      <li><strong>Compre se:</strong> quer caminhar ou trotar de leve em casa, tem pouco espaço e quer gastar menos de R$ 800.</li>
+      <li><strong>Evite se:</strong> quer correr, pesa mais de 110 kg ou quer marca com assistência técnica conhecida.</li>
+      <li><strong>O que você leva:</strong> dobra, pesa 18 kg, 12 km/h, 120 kg, Bluetooth e 1 ano de garantia do vendedor.</li>
+      <li><strong>O que você arrisca:</strong> motor sem potência informada, lona de 94 cm e nenhum fabricante com site.</li>
+    </ul>
+    <p>A Solperk vende muito por um bom motivo: por R$ 727, ela é leve, dobra, chega a 12 km/h, mais que a <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a> (10 km/h) e a <a href="/reviews/redfin-150kg">Redfin</a> (6 km/h), e ainda conecta o celular por Bluetooth. A nota dos compradores é alta: 4,8 com 1.210 avaliações.</p>
+    <p>A nota editorial fica em 5,9 por causa do que o anúncio não diz. A potência do motor não aparece na ficha nem na descrição, e nossa metodologia usa a faixa mais conservadora quando o dado falta. A garantia de 1 ano é do vendedor, não de um fabricante, e não encontramos site da Solperk no Brasil.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem quer caminhar em casa, mora em espaço pequeno e quer uma esteira que uma pessoa sozinha dobra e guarda. Com 18 kg, ela é tão leve quanto a Cardio e a Redfin, mas vai mais rápido (12 km/h) e tem garantia de 1 ano declarada (a Cardio tem 30 dias, e a Redfin não informa). O Bluetooth permite ouvir música do celular pelas caixas de som da esteira, segundo o anúncio.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem quer correr: a lona de 94 cm é de esteira de caminhada, e sem a potência do motor não dá para saber se ela aguenta ritmo de corrida por muito tempo. Para quem pesa perto de 120 kg: o ideal é ter folga em relação ao limite, e aqui não há fabricante que confirme o número. Nesses casos, veja o <a href="/guias/esteira-acima-de-100kg">guia de esteira acima de 100 kg</a> ou a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a>, com fabricante identificado e lona de 122 cm.</p>
+
+  <h2>Motor: a potência não é informada</h2>
+  <p>É o dado mais importante de uma esteira, e o único que falta neste anúncio. A ficha técnica traz marca, peso, medidas, lona, velocidade e peso suportado, mas nenhum campo de potência. A descrição também não fala do motor. Todas as outras esteiras do nosso catálogo declaram pelo menos um número de potência, mesmo que sem separar contínua de pico.</p>
+  <p>Como nossa <a href="/metodologia">metodologia</a> mede potência contínua, usamos a faixa mais conservadora de motor (abaixo de 1,6 HP). Se o vendedor ou a marca publicarem a potência, a nota pode subir.</p>
+
+  <h2>Base plana, barra em U e Bluetooth</h2>
+  <p>Pelas fotos do anúncio, a base é plana e baixa, parecida com a de um walking pad, mas com uma barra em U na frente que segura um suporte para tablet ou celular. Montada, ela mede 1,02 m de comprimento, 48 cm de largura e 1,09 m de altura. As fotos também mostram caixas de som na frente da base, para tocar música do celular por Bluetooth, e a descrição diz que a conexão funciona com aplicativos de exercício. Não testamos a conexão.</p>
+  <p>Se você procura uma esteira baixa, sem barra, para caminhar embaixo da mesa, veja o <a href="/guias/walking-pad">guia de walking pad</a>.</p>
+
+  <h2>Lona de 94 × 37 cm</h2>
+  <p>É a mesma medida de comprimento da <a href="/reviews/jmjn-qk-3058">JMJN QK-3058-D</a> e um pouco menor que a da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> (100 cm). Para caminhada e trote leve, resolve. Os 37 cm de largura são estreitos: quem tem passada larga precisa prestar atenção para não pisar na borda.</p>
+
+  <h2>Dobra e pesa 18 kg</h2>
+  <p>Ela dobra e pesa 18 kg: uma pessoa sozinha move e guarda sem esforço. Requer montagem, segundo a ficha. Para usar com segurança, deixe espaço livre em volta: o manual da Movement, que usamos como referência, pede 60 cm de cada lado e 2 m atrás. Veja o <a href="/guias/seguranca-na-esteira">guia de segurança na esteira</a>.</p>
+
+  <h2>Marca, vendedor e garantia</h2>
+  <p>A ficha técnica e o logo impresso na base dizem <strong>Solperk</strong>. A descrição do anúncio, porém, apresenta o produto como "da marca Romantic Crown", que é o nome da loja que vende. Tratamos Solperk como a marca e Romantic Crown como o vendedor. Não encontramos site, manual ou assistência técnica da Solperk no Brasil.</p>
+  <p>O vendedor tem selo MercadoLíder e reputação verde, mas não é loja oficial. A descrição informa "Garantia do vendedor: 1 anos". Além dela, valem a garantia legal de 90 dias do Código de Defesa do Consumidor e a devolução em 30 dias do Mercado Livre. Teste bem a esteira assim que ela chegar.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Preço baixo: R$ 727 em outubro de 2026</li>
+        <li>Dobra e pesa 18 kg</li>
+        <li>Até 12 km/h e 120 kg</li>
+        <li>Bluetooth, caixas de som e suporte para tablet</li>
+        <li>Mais de 5 mil vendidas e nota 4,8 com 1.210 avaliações</li>
+        <li>1 ano de garantia do vendedor</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Potência do motor não informada</li>
+        <li>Lona de 94 × 37 cm, curta e estreita para correr</li>
+        <li>Sem fabricante com site ou assistência técnica conhecida</li>
+        <li>Anúncio cita duas marcas diferentes</li>
+        <li>Vendedor não é loja oficial</li>
+        <li>Parcelamento com juros</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em 23 de outubro de 2026, a Solperk aparecia por <strong>R$ 727</strong> no Mercado Livre, ou 12x de R$ 70,30 com juros, com frete grátis e mais de 5 mil unidades vendidas. Ignore o preço riscado que aparece no anúncio: é âncora de marketing, não um valor pelo qual o produto de fato circulou.</p>
+
+  <CompareSimilar slug="solperk-esteira-plana" />
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A esteira Solperk é boa?</h3>
+  <p>Para caminhar e trotar de leve em casa, gastando pouco, ela entrega bastante: dobra, pesa 18 kg, vai até 12 km/h, suporta 120 kg e tem Bluetooth, por R$ 727 em outubro de 2026. Nossa nota editorial é 5,9/10 porque o anúncio não informa a potência do motor, a lona tem 94 cm e não há fabricante com site para confirmar os dados.</p>
+
+  <h3>Qual a potência do motor da Solperk?</h3>
+  <p>O anúncio não informa. Nem a ficha técnica nem a descrição trazem a potência do motor, um dado que todas as outras esteiras do nosso catálogo declaram. Por isso usamos a faixa mais conservadora de motor na nota.</p>
+
+  <h3>A Solperk é um walking pad?</h3>
+  <p>Não exatamente. A base é plana e baixa, como a de um walking pad, mas ela tem uma barra em U com suporte para tablet e mede 1,09 m de altura montada. Chega a 12 km/h, o dobro dos walking pads típicos.</p>
+
+  <h3>Dá para correr na esteira Solperk?</h3>
+  <p>Para trote leve e curto, sim. Para corrida, não: a lona mede 94 × 37 cm, tamanho de esteira de caminhada, e o anúncio não informa a potência do motor.</p>
+
+  <h3>Qual a garantia da esteira Solperk?</h3>
+  <p>A descrição do anúncio informa "Garantia do vendedor: 1 anos". É garantia do vendedor, não de um fabricante com assistência técnica. Guarde a nota fiscal e a conversa com o vendedor.</p>
+
+  <h3>Solperk ou Romantic Crown: qual é a marca?</h3>
+  <p>A ficha técnica e o logo impresso na base dizem Solperk. A descrição chama o produto de "marca Romantic Crown", que é o nome da loja que vende. Tratamos Solperk como a marca e Romantic Crown como o vendedor.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a> e a <a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a>, as outras dobráveis de 18 kg do catálogo, a <a href="/reviews/jmjn-qk-3058">JMJN QK-3058-D</a>, outra campeã de vendas com Bluetooth, o <a href="/guias/esteira-dobravel">guia de esteira elétrica dobrável</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica, da descrição e das fotos do anúncio no Mercado Livre, coletadas em 23 de outubro de 2026. Não encontramos site, manual ou ficha oficial de fabricante da Solperk. Não testamos fisicamente o equipamento. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

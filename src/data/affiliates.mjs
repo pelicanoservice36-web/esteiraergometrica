@@ -356,7 +356,20 @@ export const products = {
 		verifiedAt: '2026-10-17',
 		notes:
 			'Pedido direto do usuário em 17/10/2026 ("2ª mais vendida no ML"), meli.la enviado por ele. Catálogo MLB77956436 (220V, item MLB5105621559); a versão 127V é o catálogo MLB77956434 (item MLB5105621563, R$1.299). Selo "MAIS VENDIDO 2º em Esteira Ergometrica", +500 vendidos, 4,8 com 206 avaliações (91 comentários). Preço 17/10: R$1.121,43 no Pix em oferta relâmpago, R$1.289 em outros meios (preço riscado não reproduzido). Vendedor "TC20251127160858", MercadoLíder Platinum, +5 mil vendas, +25 produtos. Garantia de fábrica NÃO informada. Ficha: marca JMJN, modelo QK-3058-D, 3.0 HP "motor sem escovas" sem separar contínua de pico, 1-14 km/h, 200 kg, lona 94x38,5 cm, 24 kg, dobrável (116x60x13 cm), inclinação manual "6º" na ficha e "6%" na descrição, 12 programas, Bluetooth FitShow/Kinomap/Zwift, requer montagem. Anúncio alega ruído em dB (não publicamos). Nenhum fabricante/site JMJN encontrado. O mesmo P/N QK-3058 é vendido na PcComponentes (Portugal) como marca TENBOOM: 3,0 CV pico, 0,75 CV contínua, carga máx. 130 kg, superfície 950x380 mm, inclinação 12% — usado como fonte conservadora para motor e peso na nota. Nota editorial 5,8/10 — ver metodologia.astro.',
+	},	'solperk-esteira-plana': {
+		merchant: 'mercadolivre',
+		title: 'Solperk Esteira Elétrica Plana Residencial',
+		listingId: 'MLB4505703283',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-plana-residencial-preta-cor-preto-bluetooth/up/MLBU3818599259',
+		affiliateUrl: 'https://meli.la/1tBGmtm',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-23',
+		notes:
+			'Pedido do usuário em 23/10/2026 (3ª de 3 esteiras da lista de mais vendidas que ele enviou), meli.la enviado por ele; mapeamento link→produto assumido pela ordem das mensagens (o ref do meli.la é cifrado). Página MLBU3818599259, item MLB4505703283. Dados coletados via Apify (gio21/mercadolivre-product-detail) em 23/10/2026: R$ 727 (de R$ 1.199,99 riscado — não reproduzir), 12x R$ 70,30 com juros, nota 4,8 com 1.210 avaliações, +5.000 vendidos (2º maior volume do catálogo, atrás da WCT Fitness com 10.000), vendedor "Romantic Crown" (MercadoLíder, reputação verde, não é loja oficial), frete grátis. Ficha: marca Solperk (logo impresso na base na foto do anúncio; a descrição chama de "marca Romantic Crown", que é o nome do vendedor), modelo "Esteira", 18 kg, 1,02 m x 48 cm x 1,09 m, lona 94 x 37 cm, 120 kg, 12 km/h, dobrável, requer montagem. Potência do motor NÃO informada em nenhum campo. Descrição: Bluetooth para apps e "Garantia do vendedor: 1 anos". Fotos: base plana com barra em U, suporte para tablet e caixas de som. Sem site de fabricante localizado. Nota editorial 5,9/10 — ver metodologia.astro (¶).',
 	},
+
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

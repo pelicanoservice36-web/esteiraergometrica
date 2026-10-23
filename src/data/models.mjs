@@ -31,6 +31,7 @@ export const models = [
 	{ slug: 'movement-lx-160-g4', nome: 'Movement LX 160 G4', nota: '7,3', motor: '2,0 cv (3,0 de pico)', vel: '18 km/h', lona: '47 × 133 cm', peso: '150 kg', dobra: 'Não', preco: 'R$ 18.588', precoRef: 18588 },
 	{ slug: 'poli-sports-ep-16k', nome: 'Poli Sports EP-16K', nota: '7,6', motor: '3,0 HP', vel: '16 km/h', lona: '39 × 122 cm', peso: '120 kg', dobra: 'Sim', preco: 'R$ 2.354,30 – 2.727', precoRef: 2354.3 },
 	{ slug: 'jmjn-qk-3058', nome: 'JMJN QK-3058-D', nota: '5,8', motor: '3,0 HP', vel: '14 km/h', lona: '38,5 × 94 cm', peso: '200 kg', dobra: 'Sim', preco: 'R$ 1.121,43 – 1.299', precoRef: 1121.43 },
+	{ slug: 'solperk-esteira-plana', nome: 'Solperk Esteira Plana', nota: '5,9', motor: 'Não informado', vel: '12 km/h', lona: '37 × 94 cm', peso: '120 kg', dobra: 'Sim', preco: 'R$ 727', precoRef: 727 },
 ];
 
 /**

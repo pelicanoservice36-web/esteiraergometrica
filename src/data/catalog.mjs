@@ -31,5 +31,5 @@
 //
 // (busca rápida: grep -rln "dezenove\|19 modelos\|19 esteiras" src/pages)
 
-export const TOTAL_MODELOS = 22;
-export const TOTAL_MODELOS_EXTENSO = 'vinte e dois';
+export const TOTAL_MODELOS = 23;
+export const TOTAL_MODELOS_EXTENSO = 'vinte e três';
