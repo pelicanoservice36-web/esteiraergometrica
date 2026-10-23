@@ -40,6 +40,18 @@ const jsonLd = {
 	},
 };
 
+// Vídeo de demonstração da própria Dream Fitness (15 s, vertical), sem cortes.
+const videoJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'VideoObject',
+	name: 'Esteira Dream Fitness Concept 2.5 em uso',
+	description: 'Vídeo de demonstração da Dream Fitness mostrando a esteira Concept 2.5: console, base com o logo Concept 2.5 e a esteira em uso numa sala.',
+	thumbnailUrl: 'https://esteiraergometrica.com/video/dream-fitness-concept-2-5-poster.webp',
+	contentUrl: 'https://esteiraergometrica.com/video/dream-fitness-concept-2-5.mp4',
+	uploadDate: '2026-10-23',
+	duration: 'PT15S',
+};
+
 const faq = [
 	{ q: 'A esteira Dream Concept 2.5 é boa?', a: 'Sim, para caminhar e correr em ritmo moderado em casa: nota editorial 7,6/10. Ela chega a 16 km/h, tem lona de 128 × 43 cm, suporta 130 kg, tem 3 níveis de inclinação e é vendida pela loja oficial da Dream Fitness, com mais de 10 mil unidades vendidas. Em troca, pesa 37,5 kg e a garantia é de 6 meses.' },
 	{ q: 'Quanto custa a Dream Concept 2.5?', a: 'Em outubro de 2026, R$ 2.799 na loja oficial da Dream Fitness no Mercado Livre e R$ 2.699 no site da própria marca.' },
@@ -79,7 +91,7 @@ const fichaItems = [
 	path="/reviews/dream-fitness-concept-2-5"
 	ogTitle="Dream Concept 2.5: análise honesta"
 	ogDescription="Mais de 10 mil vendidas na loja oficial da Dream. Lona de corrida, 130 kg e inclinação, mas pesada para guardar e com garantia de 6 meses."
-	jsonLd={[jsonLd, faqJsonLd]}
+	jsonLd={[jsonLd, faqJsonLd, videoJsonLd]}
 	h1="Esteira Dream Concept 2.5 é boa?"
 	standfirst="Sim, para quem quer caminhar e correr em ritmo moderado em casa. A Concept 2.5 da Dream Fitness chega a 16 km/h, tem lona de 128 × 43 cm, suporta 130 kg, tem 3 níveis de inclinação e 8 amortecedores, por R$ 2.799 na loja oficial da marca no Mercado Livre em outubro de 2026. É uma das esteiras mais vendidas do nosso catálogo, com mais de 10 mil unidades. O que pesa contra: 37,5 kg para dobrar e guardar, garantia de 6 meses e a recomendação do fabricante de não passar de 60 minutos seguidos de uso."
 	updated="outubro de 2026"
@@ -106,6 +118,15 @@ const fichaItems = [
     <p>A Concept 2.5 junta, por menos de R$ 2.800, o que esteiras de entrada não têm: lona longa o bastante para passada de corrida, 16 km/h e inclinação em 3 níveis. A ficha do anúncio bate com a do site da Dream Fitness em todos os números que conferimos.</p>
     <p>A nota fica em 7,6, empatada com a <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> e a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a>. O que segura: o peso de 37,5 kg, que tira praticidade de quem guarda a esteira todo dia, e a garantia de 6 meses, metade da que a <a href="/reviews/athletic-racer">Athletic Racer</a> oferece.</p>
   </div>
+
+  <h2>Vídeo: a Concept 2.5 em uso</h2>
+  <p>Vídeo de demonstração da própria Dream Fitness, com o console, a base e a esteira em uso.</p>
+  <figure class="review-video review-video--tall-only">
+    <video class="review-video__tall" controls preload="none" playsinline width="720" height="1280" poster="/video/dream-fitness-concept-2-5-poster.webp">
+      <source src="/video/dream-fitness-concept-2-5.mp4" type="video/mp4" />
+    </video>
+    <figcaption>Vídeo: Dream Fitness.</figcaption>
+  </figure>
 
   <h2>Para quem essa esteira faz sentido</h2>
   <p>Para quem quer correr em casa sem pagar preço de esteira de academia. Com 128 cm de lona, ela fica acima do corte de 120 cm que usamos para passada de corrida, e chega a 16 km/h. A inclinação manual em 3 níveis ajuda a aumentar o esforço na caminhada: veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>. E o limite de 130 kg dá folga para quem pesa até uns 110 kg.</p>

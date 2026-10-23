@@ -1583,6 +1583,9 @@ a:hover { color: var(--primary-ink); }
   .review-video__tall { display: none !important; }
   .review-video__wide { display: block !important; }
 }
+/* Vídeo vertical curto, sem versão 16:9: aparece em todas as larguras, centralizado. */
+.review-video--tall-only .review-video__tall { display: block !important; max-width: 22rem; margin: 0 auto; }
+.review-video--tall-only figcaption { text-align: center; }
 .review-video figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted, #5b6472); }
 
 /* Tabela de guia com coluna de compra: no celular a coluna fica presa à direita,
