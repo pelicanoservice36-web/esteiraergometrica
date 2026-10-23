@@ -1,5 +1,8 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const mlTitle = 'Ir para o anúncio no Mercado Livre';
 import { TOTAL_MODELOS } from '../../data/catalog.mjs';
 
 const jsonLd = {
@@ -115,6 +118,7 @@ const faqJsonLd = {
         <th scope="col">Motor</th>
         <th scope="col">Peso máx.</th>
         <th scope="col">Preço</th>
+        <th scope="col">Onde comprar</th>
       </tr>
     </thead>
     <tbody>
@@ -129,6 +133,7 @@ const faqJsonLd = {
         <td class="num">5.0 HPM</td>
         <td class="num">130 kg</td>
         <td class="num">R$ 4.300</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('athletic-racer')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Athletic Racer 16km/h no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -141,6 +146,7 @@ const faqJsonLd = {
         <td class="num">2,8 HP</td>
         <td class="num">120 kg</td>
         <td class="num">R$ 2.498</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('gallant-elite-gee12m28a')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Gallant Elite GEE12M28A no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -153,6 +159,7 @@ const faqJsonLd = {
         <td class="num">2,9 HP</td>
         <td class="num">130 kg</td>
         <td class="num">R$ 3.609</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('gallant-elite-gee13m29a')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Gallant Elite GEE13M29A no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -165,6 +172,7 @@ const faqJsonLd = {
         <td class="num">3,0 HP</td>
         <td class="num">120 kg</td>
         <td class="num">R$ 2.354,30 – 2.727</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('poli-sports-ep-16k')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Poli Sports EP-16K no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -177,6 +185,7 @@ const faqJsonLd = {
         <td class="num">2,5 HP</td>
         <td class="num">120 kg</td>
         <td class="num">R$ 2.453,13 – 2.529</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('gallant-elite-gee12m25a')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Gallant Elite GEE12M25A no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -189,6 +198,7 @@ const faqJsonLd = {
         <td class="num">4,0 HP AC****</td>
         <td class="num">150 kg</td>
         <td class="num">R$ 11.499</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('kht-gts6')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da KHT GTS-6 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -201,6 +211,7 @@ const faqJsonLd = {
         <td class="num">2,0 cv (3,0 de pico)</td>
         <td class="num">150 kg</td>
         <td class="num">R$ 18.588</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('movement-lx-160-g4')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Movement LX 160 G4 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -213,6 +224,7 @@ const faqJsonLd = {
         <td class="num">1,6 HP</td>
         <td class="num">110 kg</td>
         <td class="num">R$ 1.449</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('polimet-ep1600')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Polimet EP-1600 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -225,6 +237,7 @@ const faqJsonLd = {
         <td class="num">2,5 HP DC</td>
         <td class="num">150 kg</td>
         <td class="num">R$ 17.172,15</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('kht-gts7')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da KHT GTS-7 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -237,6 +250,7 @@ const faqJsonLd = {
         <td class="num">2,5 HP</td>
         <td class="num">150 kg</td>
         <td class="num">R$ 716,66</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('redfin-150kg')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Redfin Ideal DL-227 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -249,6 +263,7 @@ const faqJsonLd = {
         <td class="num">1,6 HP</td>
         <td class="num">110 kg</td>
         <td class="num">R$ 1.939</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('dream-fitness-dr1600')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Dream Fitness DR-1600 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -261,6 +276,7 @@ const faqJsonLd = {
         <td class="num">2,5 HP*</td>
         <td class="num">150 kg*</td>
         <td class="num">R$ 640</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('esteira-eletrica-dobravel-residencial-cardio')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Esteira Cardio no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -273,6 +289,7 @@ const faqJsonLd = {
         <td class="num">2,0 HPM</td>
         <td class="num">110 kg</td>
         <td class="num">R$ 2.534</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('podiumfit-x300')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da PodiumFit X300 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -285,6 +302,7 @@ const faqJsonLd = {
         <td class="num">2,0 HP**</td>
         <td class="num">120 kg</td>
         <td class="num">R$ 1.055</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('importway-iwest2x1-10')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Importway IWEST2X1-10 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -297,6 +315,7 @@ const faqJsonLd = {
         <td class="num">2 HP**</td>
         <td class="num">150 kg</td>
         <td class="num">R$ 1.079,98</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('qbuen-150kg')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da QBuen AT-1271 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -309,6 +328,7 @@ const faqJsonLd = {
         <td class="num">4,0 HP pico*****</td>
         <td class="num">150 kg</td>
         <td class="num">R$ 10.990</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('speedo-tr5')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Speedo TR5 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -321,6 +341,7 @@ const faqJsonLd = {
         <td class="num">1,6 HP</td>
         <td class="num">110 kg</td>
         <td class="num">R$ 1.579</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('polimet-ep1600-senior')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Polimet EP-1600 Sênior no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -333,6 +354,7 @@ const faqJsonLd = {
         <td class="num">2,5 HP**</td>
         <td class="num">120 kg</td>
         <td class="num">R$ 2.658,70</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('strive-25hp-16kmh')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Strive TM16 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -345,6 +367,7 @@ const faqJsonLd = {
         <td class="num">0,75 HP contínuo***</td>
         <td class="num">110 kg</td>
         <td class="num">R$ 1.699</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('wct-fitness-esteira')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da WCT Fitness no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -357,6 +380,7 @@ const faqJsonLd = {
         <td class="num">3,0 HP (anúncio)</td>
         <td class="num">200 kg (anúncio)</td>
         <td class="num">R$ 1.121,43 – 1.299</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('jmjn-qk-3058')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da JMJN QK-3058-D no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -369,6 +393,7 @@ const faqJsonLd = {
         <td class="num">2,5 HP**</td>
         <td class="num">100 kg</td>
         <td class="num">R$ 1.580</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('antuvi-mesa')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Antuvi no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
       <tr>
         <th scope="row">
@@ -381,6 +406,7 @@ const faqJsonLd = {
         <td class="num">0,65 HP</td>
         <td class="num">110 kg</td>
         <td class="num">R$ 719,70</td>
+        <td class="cell-cta"><a class="mini-cta" href={buyHref('health-herald-lcd')} rel="sponsored nofollow noopener" target="_blank" aria-label="Ver preço da Health Herald SP0501 no Mercado Livre" title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
       </tr>
     </tbody>
   </table>

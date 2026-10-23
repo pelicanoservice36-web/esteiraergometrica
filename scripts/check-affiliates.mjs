@@ -259,29 +259,31 @@ if (existsSync(dist)) {
 		// /guias/esteira-eletrica-dobravel-silenciosa, e mais +1 pela mesma coluna
 		// em /guias/esteira-dobravel.
 		// +1 na Redfin e na Health Herald: coluna "Onde comprar" de /guias/walking-pad.
+		// +1 em cada modelo listado nas tabelas de /guias/esteira-por-orcamento e
+		// /guias/melhor-esteira-ergometrica-residencial (coluna "Onde comprar").
 		const expected = {
-			'dream-fitness-dr1600': 7,
-			'polimet-ep1600': 8,
-			'polimet-ep1600-senior': 5,
-			'esteira-eletrica-dobravel-residencial-cardio': 7,
-				'athletic-racer': 8,
-				'wct-fitness-esteira': 7,
-				'importway-iwest2x1-10': 5,
-				'gallant-elite-gee13m29a': 7,
-				'gallant-elite-gee12m28a': 7,
-				'podiumfit-x300': 7,
-				'qbuen-150kg': 10, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
-				'strive-25hp-16kmh': 5,
-				'redfin-150kg': 8,
-				'health-herald-lcd': 8,
-				'antuvi-mesa': 5,
-				'gallant-elite-gee12m25a': 7,
-				'speedo-tr5': 6,
-				'kht-gts6': 6,
-				'kht-gts7': 5,
-				'movement-lx-160-g4': 5,
-				'poli-sports-ep-16k': 7,
-				'jmjn-qk-3058': 7,
+			'dream-fitness-dr1600': 9,
+			'polimet-ep1600': 10,
+			'polimet-ep1600-senior': 7,
+			'esteira-eletrica-dobravel-residencial-cardio': 9,
+				'athletic-racer': 10,
+				'wct-fitness-esteira': 9,
+				'importway-iwest2x1-10': 7,
+				'gallant-elite-gee13m29a': 9,
+				'gallant-elite-gee12m28a': 9,
+				'podiumfit-x300': 9,
+				'qbuen-150kg': 12, // 5 da review + 3 da página de oferta (/oferta/qbuen-at-1271)
+				'strive-25hp-16kmh': 7,
+				'redfin-150kg': 10,
+				'health-herald-lcd': 10,
+				'antuvi-mesa': 7,
+				'gallant-elite-gee12m25a': 9,
+				'speedo-tr5': 7,
+				'kht-gts6': 7,
+				'kht-gts7': 6,
+				'movement-lx-160-g4': 6,
+				'poli-sports-ep-16k': 8,
+				'jmjn-qk-3058': 8,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -291,7 +293,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 147) diff.push(`total de CTAs: esperado 147, encontrado ${total}`);
+		if (total !== 185) diff.push(`total de CTAs: esperado 185, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
