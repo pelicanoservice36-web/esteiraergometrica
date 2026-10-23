@@ -32,6 +32,7 @@ export const models = [
 	{ slug: 'poli-sports-ep-16k', nome: 'Poli Sports EP-16K', nota: '7,6', motor: '3,0 HP', vel: '16 km/h', lona: '39 × 122 cm', peso: '120 kg', dobra: 'Sim', preco: 'R$ 2.354,30 – 2.727', precoRef: 2354.3 },
 	{ slug: 'jmjn-qk-3058', nome: 'JMJN QK-3058-D', nota: '5,8', motor: '3,0 HP', vel: '14 km/h', lona: '38,5 × 94 cm', peso: '200 kg', dobra: 'Sim', preco: 'R$ 1.121,43 – 1.299', precoRef: 1121.43 },
 	{ slug: 'solperk-esteira-plana', nome: 'Solperk Esteira Plana', nota: '5,9', motor: 'Não informado', vel: '12 km/h', lona: '37 × 94 cm', peso: '120 kg', dobra: 'Sim', preco: 'R$ 727', precoRef: 727 },
+	{ slug: 'dream-fitness-concept-2-5', nome: 'Dream Fitness Concept 2.5', nota: '7,6', motor: '2,5 HP', vel: '16 km/h', lona: '43 × 128 cm', peso: '130 kg', dobra: 'Sim', preco: 'R$ 2.799', precoRef: 2799 },
 ];
 
 /**

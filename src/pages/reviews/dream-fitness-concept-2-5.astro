@@ -1,0 +1,205 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CompareSimilar from '../../components/CompareSimilar.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const buyUrl = buyHref('dream-fitness-concept-2-5');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: 'Esteira Dream Fitness Concept 2.5',
+	model: 'Concept 2.5',
+	category: 'Esteira ergométrica',
+	brand: { '@type': 'Brand', name: 'Dream Fitness' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'BRL',
+		lowPrice: '2699.00',
+		highPrice: '2799.00',
+		offerCount: '2',
+		availability: 'https://schema.org/InStock',
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.6',
+		reviewCount: '1586',
+		bestRating: '5',
+		worstRating: '1',
+	},
+	review: {
+		'@type': 'Review',
+		reviewRating: {
+			'@type': 'Rating',
+			ratingValue: '7.6',
+			bestRating: '10',
+			worstRating: '0',
+		},
+		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+		datePublished: '2026-10-23',
+	},
+};
+
+const faq = [
+	{ q: 'A esteira Dream Concept 2.5 é boa?', a: 'Sim, para caminhar e correr em ritmo moderado em casa: nota editorial 7,6/10. Ela chega a 16 km/h, tem lona de 128 × 43 cm, suporta 130 kg, tem 3 níveis de inclinação e é vendida pela loja oficial da Dream Fitness, com mais de 10 mil unidades vendidas. Em troca, pesa 37,5 kg e a garantia é de 6 meses.' },
+	{ q: 'Quanto custa a Dream Concept 2.5?', a: 'Em outubro de 2026, R$ 2.799 na loja oficial da Dream Fitness no Mercado Livre e R$ 2.699 no site da própria marca.' },
+	{ q: 'Qual a diferença entre a Concept 2.5 e a Concept 2.5 Brushless?', a: 'São esteiras diferentes com o mesmo nome. A Concept 2.5 clássica, desta análise, tem lona de 128 × 43 cm, suporta 130 kg e pesa 37,5 kg. A versão Brushless, vendida no Mercado Livre por outra loja, tem lona de 103 × 42 cm, suporta 120 kg e pesa 31 kg. Confira o nome completo do anúncio antes de comprar.' },
+	{ q: 'Dá para correr na Dream Concept 2.5?', a: 'Para corrida moderada, sim: a lona tem 128 cm, acima do corte de 120 cm que usamos para passada de corrida, e a velocidade vai até 16 km/h. A Dream recomenda usar no máximo 60 minutos seguidos e esperar 30 minutos antes de voltar a usar.' },
+	{ q: 'A Dream Concept 2.5 dobra?', a: 'Dobra e tem rodas, mas pesa 37,5 kg. Dá para uma pessoa guardar, mas exige força. Montada, ocupa 171 × 73,5 cm e tem 133 cm de altura.' },
+	{ q: 'Qual a garantia da Dream Concept 2.5?', a: '6 meses, segundo a ficha no site da Dream Fitness. A loja oficial da marca no Mercado Livre é o canal para acionar a garantia.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const fichaItems = [
+	{ label: 'Motor', value: '2,5 HP (CC), sem separar contínua de pico' },
+	{ label: 'Velocidade', value: '1 a 16 km/h' },
+	{ label: 'Lona', value: '128 × 43 cm' },
+	{ label: 'Peso máximo do usuário', value: '130 kg' },
+	{ label: 'Inclinação', value: '3 níveis, manual' },
+	{ label: 'Amortecimento', value: '8 amortecedores' },
+	{ label: 'Peso do equipamento', value: '37,5 kg, dobrável com rodas' },
+	{ label: 'Garantia', value: '6 meses' },
+	{ label: 'Vendas no Mercado Livre', value: 'Mais de 10 mil unidades' },
+	{ label: 'Preço', value: 'R$ 2.699 a R$ 2.799' },
+];
+---
+
+<ReviewLayout
+	title="Esteira Dream Concept 2.5 é boa? Análise e nota 7,6"
+	description="Dream Fitness Concept 2.5: 16 km/h, lona de 128 × 43 cm, 130 kg, 3 inclinações e 8 amortecedores por R$ 2.799 (out/2026). Pesa 37,5 kg. Nota 7,6/10."
+	path="/reviews/dream-fitness-concept-2-5"
+	ogTitle="Dream Concept 2.5: análise honesta"
+	ogDescription="Mais de 10 mil vendidas na loja oficial da Dream. Lona de corrida, 130 kg e inclinação, mas pesada para guardar e com garantia de 6 meses."
+	jsonLd={[jsonLd, faqJsonLd]}
+	h1="Esteira Dream Concept 2.5 é boa?"
+	standfirst="Sim, para quem quer caminhar e correr em ritmo moderado em casa. A Concept 2.5 da Dream Fitness chega a 16 km/h, tem lona de 128 × 43 cm, suporta 130 kg, tem 3 níveis de inclinação e 8 amortecedores, por R$ 2.799 na loja oficial da marca no Mercado Livre em outubro de 2026. É uma das esteiras mais vendidas do nosso catálogo, com mais de 10 mil unidades. O que pesa contra: 37,5 kg para dobrar e guardar, garantia de 6 meses e a recomendação do fabricante de não passar de 60 minutos seguidos de uso."
+	updated="outubro de 2026"
+	fichaItems={fichaItems}
+	buyHref={buyUrl}
+	buyLabel="Ver preço de hoje no Mercado Livre"
+	priceNote="Preço observado em 23 de outubro de 2026: R$ 2.799 na loja oficial Dream Fitness no Mercado Livre (ou 12x de R$ 269,03 com juros) e R$ 2.699 no site da marca. Link de afiliado."
+>
+
+  <div class="sales-highlight">
+    <span class="sales-highlight__icon" aria-hidden="true">🔥</span>
+    <div><strong>Mais de 10 mil vendidas no Mercado Livre</strong>Loja oficial Dream Fitness, nota 4,6 em 1.586 avaliações (outubro de 2026)</div>
+  </div>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Veredito</h2>
+    <p class="edit-score"><span class="edit-score__value">7,6<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
+    <ul>
+      <li><strong>Compre se:</strong> quer caminhar e correr em ritmo moderado, usar inclinação e comprar de fabricante com loja oficial.</li>
+      <li><strong>Evite se:</strong> precisa guardar a esteira todo dia sozinho, pesa mais de 120 kg ou faz treinos de mais de uma hora seguida.</li>
+      <li><strong>O que você leva:</strong> 16 km/h, lona de 128 cm, 130 kg, 3 inclinações, 8 amortecedores e loja oficial.</li>
+      <li><strong>O que você arrisca:</strong> 37,5 kg para dobrar, garantia de 6 meses e motor sem potência contínua informada.</li>
+    </ul>
+    <p>A Concept 2.5 junta, por menos de R$ 2.800, o que esteiras de entrada não têm: lona longa o bastante para passada de corrida, 16 km/h e inclinação em 3 níveis. A ficha do anúncio bate com a do site da Dream Fitness em todos os números que conferimos.</p>
+    <p>A nota fica em 7,6, empatada com a <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> e a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a>. O que segura: o peso de 37,5 kg, que tira praticidade de quem guarda a esteira todo dia, e a garantia de 6 meses, metade da que a <a href="/reviews/athletic-racer">Athletic Racer</a> oferece.</p>
+  </div>
+
+  <h2>Para quem essa esteira faz sentido</h2>
+  <p>Para quem quer correr em casa sem pagar preço de esteira de academia. Com 128 cm de lona, ela fica acima do corte de 120 cm que usamos para passada de corrida, e chega a 16 km/h. A inclinação manual em 3 níveis ajuda a aumentar o esforço na caminhada: veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>. E o limite de 130 kg dá folga para quem pesa até uns 110 kg.</p>
+
+  <h2>Para quem não faz sentido</h2>
+  <p>Para quem mora em espaço pequeno e precisa guardar a esteira depois de cada treino: são 37,5 kg, bem mais que as dobráveis compactas de 18 a 24 kg. Para quem treina mais de uma hora seguida: a própria Dream recomenda não passar de 60 minutos de uso e esperar 30 minutos antes de religar. Nesses casos, veja o <a href="/guias/esteira-dobravel">guia de esteira dobrável</a> ou a <a href="/reviews/athletic-racer">Athletic Racer</a>, a maior nota do catálogo.</p>
+
+  <h2>Atenção: existem duas "Concept 2.5"</h2>
+  <p>No Mercado Livre, há outra esteira vendida como "Concept 2.5 com motor Brushless", por outra loja oficial (UpKeen) e preço mais baixo. Não é a mesma esteira:</p>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Concept 2.5 clássica × Concept 2.5 Brushless (fichas dos anúncios, outubro de 2026)</caption>
+    <thead>
+      <tr><th scope="col">Item</th><th scope="col">Concept 2.5 (esta análise)</th><th scope="col">Concept 2.5 Brushless</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Lona</th><td>128 × 43 cm</td><td>103 × 42 cm</td></tr>
+      <tr><th scope="row">Peso máximo</th><td>130 kg</td><td>120 kg</td></tr>
+      <tr><th scope="row">Peso da esteira</th><td>37,5 kg</td><td>31 kg</td></tr>
+      <tr><th scope="row">Programas</th><td>9</td><td>12</td></tr>
+      <tr><th scope="row">Voltagem</th><td>Bivolt</td><td>127 V</td></tr>
+      <tr><th scope="row">Vendas no anúncio</th><td>Mais de 10 mil</td><td>Mais de 50</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>A diferença que mais importa é a lona: 103 cm é medida de esteira de caminhada. Confira o nome completo do anúncio antes de comprar.</p>
+
+  <h2>Motor de 2,5 HP</h2>
+  <p>A ficha declara motor de 2,5 HP de corrente contínua (CC), sem separar potência contínua de pico. Usamos o valor declarado, na faixa de 2,5 a 3,4 HP da nossa <a href="/metodologia">metodologia</a>, como fizemos com a Poli Sports EP-16K. É o que permite corrida moderada, mas a Dream faz uma recomendação que vale levar a sério: para preservar o motor e a placa de potência, use no máximo 60 minutos seguidos e espere pelo menos 30 minutos antes de voltar a usar.</p>
+
+  <h2>Lona, amortecimento e inclinação</h2>
+  <p>A área de corrida mede 128 × 43 cm, a mesma no anúncio e no site da marca. No catálogo, só a Speedo TR5 (140 cm), as KHT (135 cm) e a Movement LX 160 G4 (133 cm) têm lona mais comprida. O amortecimento usa 8 amortecedores, e a inclinação é manual, em 3 níveis. O painel LCD mostra tempo, velocidade, distância, calorias, programa e batimentos pelos sensores de mão, com 9 programas prontos.</p>
+  <p>A ficha do site pede lubrificação periódica da lona: veja o <a href="/guias/como-lubrificar-esteira">guia de lubrificação</a> e siga o manual que vem na caixa.</p>
+
+  <h2>Dobra, mas pesa 37,5 kg</h2>
+  <p>Ela dobra e tem rodas de transporte. Montada, ocupa 171 × 73,5 cm e tem 133 cm de altura. Com 37,5 kg, dá para uma pessoa mover, mas não é uma esteira para guardar e tirar todo dia sem esforço. Reserve também o espaço livre em volta: veja o <a href="/guias/seguranca-na-esteira">guia de segurança na esteira</a>.</p>
+
+  <h2>Fabricante, loja e garantia</h2>
+  <p>A Dream Fitness é fabricante identificável, com site próprio, ficha técnica publicada e loja oficial no Mercado Livre (mais de 50 mil vendas na loja). A garantia é de 6 meses, segundo o site da marca. No <a href="/guias/dream-fitness-e-boa-marca">guia da marca Dream Fitness</a>, contamos o que já verificamos, incluindo relatos no Reclame Aqui de choque leve ao ajustar a tensão da lona com a esteira ligada na tomada: desligue da tomada antes de qualquer ajuste.</p>
+
+  <div class="pros-cons">
+    <div>
+      <h3>Pontos fortes</h3>
+      <ul>
+        <li>Lona de 128 × 43 cm, com espaço para passada de corrida</li>
+        <li>Até 16 km/h e 130 kg</li>
+        <li>3 níveis de inclinação e 8 amortecedores</li>
+        <li>Loja oficial e ficha igual à do site do fabricante</li>
+        <li>Mais de 10 mil vendidas e nota 4,6 com 1.586 avaliações</li>
+        <li>Bivolt</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitações</h3>
+      <ul>
+        <li>Pesa 37,5 kg: dobrar e guardar exige força</li>
+        <li>Garantia de 6 meses</li>
+        <li>Motor sem potência contínua informada</li>
+        <li>Fabricante recomenda no máximo 60 minutos seguidos de uso</li>
+        <li>Existe outra "Concept 2.5" com lona bem menor</li>
+        <li>Parcelamento com juros no Mercado Livre</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Onde comprar e por quanto</h2>
+  <p>Em 23 de outubro de 2026, a Concept 2.5 aparecia por <strong>R$ 2.799</strong> na loja oficial da Dream Fitness no Mercado Livre, ou 12x de R$ 269,03 com juros, com frete grátis e mais de 10 mil unidades vendidas. No site da própria Dream, o preço era R$ 2.699. Ignore o preço riscado que aparece no anúncio: é âncora de marketing.</p>
+
+  <CompareSimilar slug="dream-fitness-concept-2-5" />
+
+  <h2>Perguntas frequentes</h2>
+
+  <h3>A esteira Dream Concept 2.5 é boa?</h3>
+  <p>Sim, para caminhar e correr em ritmo moderado em casa: nota editorial 7,6/10. Ela chega a 16 km/h, tem lona de 128 × 43 cm, suporta 130 kg, tem 3 níveis de inclinação e é vendida pela loja oficial da Dream Fitness, com mais de 10 mil unidades vendidas. Em troca, pesa 37,5 kg e a garantia é de 6 meses.</p>
+
+  <h3>Quanto custa a Dream Concept 2.5?</h3>
+  <p>Em outubro de 2026, R$ 2.799 na loja oficial da Dream Fitness no Mercado Livre e R$ 2.699 no site da própria marca.</p>
+
+  <h3>Qual a diferença entre a Concept 2.5 e a Concept 2.5 Brushless?</h3>
+  <p>São esteiras diferentes com o mesmo nome. A Concept 2.5 clássica, desta análise, tem lona de 128 × 43 cm, suporta 130 kg e pesa 37,5 kg. A versão Brushless, vendida no Mercado Livre por outra loja, tem lona de 103 × 42 cm, suporta 120 kg e pesa 31 kg. Confira o nome completo do anúncio antes de comprar.</p>
+
+  <h3>Dá para correr na Dream Concept 2.5?</h3>
+  <p>Para corrida moderada, sim: a lona tem 128 cm, acima do corte de 120 cm que usamos para passada de corrida, e a velocidade vai até 16 km/h. A Dream recomenda usar no máximo 60 minutos seguidos e esperar 30 minutos antes de voltar a usar.</p>
+
+  <h3>A Dream Concept 2.5 dobra?</h3>
+  <p>Dobra e tem rodas, mas pesa 37,5 kg. Dá para uma pessoa guardar, mas exige força. Montada, ocupa 171 × 73,5 cm e tem 133 cm de altura.</p>
+
+  <h3>Qual a garantia da Dream Concept 2.5?</h3>
+  <p>6 meses, segundo a ficha no site da Dream Fitness. A loja oficial da marca no Mercado Livre é o canal para acionar a garantia.</p>
+
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Conferir frete e garantia no anúncio</a></p>
+
+  <p><strong>Leia também:</strong> a <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a>, a esteira de entrada da mesma marca, a <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> e a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a>, alternativas de preço parecido, o <a href="/guias/dream-fitness-e-boa-marca">guia da marca Dream Fitness</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica, da descrição e das avaliações do anúncio da loja oficial Dream Fitness no Mercado Livre e da ficha técnica no site da marca (dream.com.br), consultados em 23 de outubro de 2026. Não testamos fisicamente o equipamento. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+
+</ReviewLayout>

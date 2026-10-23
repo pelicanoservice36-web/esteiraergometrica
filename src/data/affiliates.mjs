@@ -368,7 +368,20 @@ export const products = {
 		verifiedAt: '2026-10-23',
 		notes:
 			'Pedido do usuário em 23/10/2026 (3ª de 3 esteiras da lista de mais vendidas que ele enviou), meli.la enviado por ele; mapeamento link→produto assumido pela ordem das mensagens (o ref do meli.la é cifrado). Página MLBU3818599259, item MLB4505703283. Dados coletados via Apify (gio21/mercadolivre-product-detail) em 23/10/2026: R$ 727 (de R$ 1.199,99 riscado — não reproduzir), 12x R$ 70,30 com juros, nota 4,8 com 1.210 avaliações, +5.000 vendidos (2º maior volume do catálogo, atrás da WCT Fitness com 10.000), vendedor "Romantic Crown" (MercadoLíder, reputação verde, não é loja oficial), frete grátis. Ficha: marca Solperk (logo impresso na base na foto do anúncio; a descrição chama de "marca Romantic Crown", que é o nome do vendedor), modelo "Esteira", 18 kg, 1,02 m x 48 cm x 1,09 m, lona 94 x 37 cm, 120 kg, 12 km/h, dobrável, requer montagem. Potência do motor NÃO informada em nenhum campo. Descrição: Bluetooth para apps e "Garantia do vendedor: 1 anos". Fotos: base plana com barra em U, suporte para tablet e caixas de som. Sem site de fabricante localizado. Nota editorial 5,9/10 — ver metodologia.astro (¶).',
+	},	'dream-fitness-concept-2-5': {
+		merchant: 'mercadolivre',
+		title: 'Dream Fitness Concept 2.5',
+		listingId: 'MLB14963220',
+		productUrl:
+			'https://www.mercadolivre.com.br/esteira-eletrica-dream-fitness-ergometrica-concept-25-cor-preto/p/MLB14963220',
+		affiliateUrl: 'https://meli.la/1PnWjFm',
+		trackingTag: 'pelicano',
+		enabled: true,
+		verifiedAt: '2026-10-23',
+		notes:
+			'Pedido do usuário em 23/10/2026 (é a esteira recomendada pelo resumo de IA do Google na SERP "esteira ergométrica elétrica dobrável residencial cardio"), meli.la enviado por ele; o ref do meli.la é cifrado — assumido que aponta para a Concept 2.5 clássica (a mais vendida), não para a "Concept 2.5 Brushless" (catálogo MLB74347441, loja UpKeen, R$ 2.380,46, lona 103x42, 120 kg, 31 kg, 127 V, +50 vendidos). Catálogo MLB14963220, item MLB3770366932, loja oficial Dream Fitness (+50 mil vendas). Apify (gio21/mercadolivre-product-detail) em 23/10/2026: R$ 2.799 (de R$ 3.595,70 riscado — não reproduzir), 12x R$ 269,03 com juros, nota 4,6 com 1.586 avaliações, +10.000 vendidos, frete grátis. Ficha do anúncio = ficha do site dream.com.br/esteira-eletronica-dream-concept-25-bivolt (R$ 2.699 lá): motor 2.5 HP CC (sem separar contínua de pico), 1-16 km/h, 130 kg, lona 128x43, 37,5 kg, 171x73,5x133 cm, 3 níveis de inclinação manual, 8 amortecedores, 9 programas, bivolt, dobrável com rodas, garantia 6 meses (site). Site recomenda no máximo 60 min de uso seguidos e 30 min de intervalo, e lubrificação periódica da lona. Nota editorial 7,6/10 — ver metodologia.astro (‖).',
 	},
+
 
 };
 

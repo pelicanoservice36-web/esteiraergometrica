@@ -285,6 +285,7 @@ if (existsSync(dist)) {
 				'poli-sports-ep-16k': 8,
 				'jmjn-qk-3058': 8,
 				'solperk-esteira-plana': 8, // 3 da review + 2 da home + orçamento, residencial e dobrável
+				'dream-fitness-concept-2-5': 8, // 3 da review + 2 da home + orçamento, residencial e dobrável
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -294,7 +295,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 193) diff.push(`total de CTAs: esperado 193, encontrado ${total}`);
+		if (total !== 201) diff.push(`total de CTAs: esperado 201, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 
