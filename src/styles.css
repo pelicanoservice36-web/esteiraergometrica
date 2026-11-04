@@ -962,6 +962,20 @@ a:hover { color: var(--primary-ink); }
 
 .verdict h2 { color: var(--primary-ink); }
 
+.cross-sell {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  background: var(--primary-tint);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+  margin: 2.25rem 0 0;
+}
+.cross-sell__icon { font-size: 1.8rem; line-height: 1; }
+.cross-sell strong { display: block; color: var(--primary-ink); margin-bottom: 0.25rem; }
+.cross-sell span { display: block; }
+.cross-sell a { display: inline-block; margin-top: 0.5rem; font-weight: 600; }
+
 .sales-highlight {
   display: flex;
   align-items: center;
