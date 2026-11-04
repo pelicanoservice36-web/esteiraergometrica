@@ -140,10 +140,14 @@ check('T14b buyHref devolve a rota /go/ esperada', () => {
 
 // ------------------------------------- integridade entre registro e páginas
 
-check('T15 todo slug do registro tem página de review', () => {
-	const missing = Object.keys(products).filter(
-		(s) => !existsSync(join(root, 'src', 'pages', 'reviews', `${s}.astro`)),
-	);
+check('T15 todo slug do registro tem página de review (ou a página declarada em `page`)', () => {
+	const missing = Object.entries(products)
+		.filter(([s, p]) =>
+			p.page
+				? !existsSync(join(root, 'src', 'pages', `${p.page.replace(/^\//, '')}.astro`))
+				: !existsSync(join(root, 'src', 'pages', 'reviews', `${s}.astro`)),
+		)
+		.map(([s, p]) => (p.page ? `${s} (${p.page})` : s));
 	return missing.length ? `sem src/pages/reviews/*.astro: ${missing.join(', ')}` : null;
 });
 
@@ -188,6 +192,8 @@ check('T19b CTAs continuam com rel="sponsored nofollow"', () => {
 			if (!/href=\{/.test(tag)) continue;
 			// Link interno montado por template (tabela de comparação para /reviews/...) não é CTA.
 			if (/href=\{`\/reviews\//.test(tag)) continue;
+			// Âncora interna montada por template (#categoria no guia de tênis) também não é CTA.
+			if (/href=\{`#/.test(tag)) continue;
 			if (!/rel="[^"]*sponsored/.test(tag) || !/rel="[^"]*nofollow/.test(tag)) {
 				bad.push(`${rel(f)}: ${tag.slice(0, 90)}`);
 			}
@@ -286,6 +292,15 @@ if (existsSync(dist)) {
 				'jmjn-qk-3058': 8,
 				'solperk-esteira-plana': 8, // 3 da review + 2 da home + orçamento, residencial e dobrável
 				'dream-fitness-concept-2-5': 8, // 3 da review + 2 da home + orçamento, residencial e dobrável
+				// Tênis: 2 cada em /guias/melhor-tenis-para-esteira (tabela + card).
+				'tenis-kappa-park-2': 2,
+				'tenis-vili-feminino-cf220': 2,
+				'tenis-olympikus-nyx': 2,
+				'tenis-olympikus-fluir': 2,
+				'tenis-nike-run-defy': 2,
+				'tenis-mizuno-wave-dynasty': 2,
+				'tenis-new-balance-680v9-feminino': 2,
+				'tenis-asics-gel-excite-11': 2,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -295,7 +310,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 201) diff.push(`total de CTAs: esperado 201, encontrado ${total}`);
+		if (total !== 217) diff.push(`total de CTAs: esperado 217, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

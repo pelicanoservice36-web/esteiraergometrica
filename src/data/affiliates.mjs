@@ -36,6 +36,7 @@
  * @property {string}  affiliateUrl         Link Especial gerado no painel de afiliados
  * @property {string} [affiliateProductId]  ID de produto do programa de afiliados
  * @property {string} [trackingTag]         Etiqueta de rastreamento (matt_word)
+ * @property {string} [page]                Página que hospeda o produto quando não há review (ex.: tênis)
  * @property {boolean} enabled              false = fora do ar, sem apagar o registro
  * @property {string}  verifiedAt           Data da última conferência (YYYY-MM-DD)
  * @property {string} [notes]
@@ -382,7 +383,123 @@ export const products = {
 			'Pedido do usuário em 23/10/2026 (é a esteira recomendada pelo resumo de IA do Google na SERP "esteira ergométrica elétrica dobrável residencial cardio"), meli.la enviado por ele; o ref do meli.la é cifrado — assumido que aponta para a Concept 2.5 clássica (a mais vendida), não para a "Concept 2.5 Brushless" (catálogo MLB74347441, loja UpKeen, R$ 2.380,46, lona 103x42, 120 kg, 31 kg, 127 V, +50 vendidos). Catálogo MLB14963220, item MLB3770366932, loja oficial Dream Fitness (+50 mil vendas). Apify (gio21/mercadolivre-product-detail) em 23/10/2026: R$ 2.799 (de R$ 3.595,70 riscado — não reproduzir), 12x R$ 269,03 com juros, nota 4,6 com 1.586 avaliações, +10.000 vendidos, frete grátis. Ficha do anúncio = ficha do site dream.com.br/esteira-eletronica-dream-concept-25-bivolt (R$ 2.699 lá): motor 2.5 HP CC (sem separar contínua de pico), 1-16 km/h, 130 kg, lona 128x43, 37,5 kg, 171x73,5x133 cm, 3 níveis de inclinação manual, 8 amortecedores, 9 programas, bivolt, dobrável com rodas, garantia 6 meses (site). Site recomenda no máximo 60 min de uso seguidos e 30 min de intervalo, e lubrificação periódica da lona. Nota editorial 7,6/10 — ver metodologia.astro (‖).',
 	},
 
+	// ---------------------------------------------------------- tênis
+	// Acessórios, não esteiras: não têm review própria nem nota editorial. Vivem
+	// em `page` (guia de tênis), que o check T15 aceita no lugar de reviews/<slug>.
+	// Dados de 04/11/2026: busca Apify (karamelo/mercadolivre-scraper-brasil-portugues,
+	// "tenis para caminhada" e "tenis para esteira") + ficha de cada anúncio lida no
+	// navegador logado, no mesmo dia em que o meli.la foi gerado (etiqueta pelicano).
 
+	'tenis-kappa-park-2': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Kappa Park 2.0 (unissex)',
+		listingId: 'MLB4049279695',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-4049279695-tnis-kappa-park-20-original-unissex-caminhada-academia-_JM',
+		affiliateUrl: 'https://meli.la/2jzPmbk',
+		affiliateProductId: 'HAPWBH-JP8Y',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Kappa. R$ 78 na página / R$ 78,84 no Apify (de R$ 169 riscado — não reproduzir). Nota 4,7 com 84.073 avaliações, +250 mil vendidos (maior volume da busca). Ficha: modelo K138, sem gênero, usos "Caminhada, Corridas Leves", exterior tecido, sola EVA. Ganhos extras 21% exibidos na barra de afiliados.',
+	},
+	'tenis-vili-feminino-cf220': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Vili feminino CF220',
+		listingId: 'MLB3232415465',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-3232415465-tnis-branco-feminino-vili-para-caminhada-academia-treino-_JM',
+		affiliateUrl: 'https://meli.la/1r9fAgQ',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Vili. R$ 74,95. Nota 4,8 com 63.769 avaliações (Apify), +100 mil vendidos. Ficha: feminino, CF220, exterior poliéster, sola micro expandido, entressola EVA, palmilha de espuma, sola antiderrapante sim, entressola acolchoada sim; superfícies aptas só "Concreto" (esteira não listada).',
+	},
+	'tenis-olympikus-nyx': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Olympikus Nyx feminino',
+		listingId: 'MLBU3297023772',
+		productUrl: 'https://www.mercadolivre.com.br/tenis-feminino-nyx-olympikus/up/MLBU3297023772',
+		affiliateUrl: 'https://meli.la/1WjXLbg',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Olympikus (vendido pelo Mercado Livre). R$ 139,64. Nota 4,9, +10 mil vendidos. Ficha: linha Casual, 2024, Evasense, usos "Caminhada, Casual, Corridas Leves", superfícies "Asfalto, Concreto, Esteira, Pisos", entressola EVA, palmilha removível, sola antiderrapante NÃO.',
+	},
+	'tenis-olympikus-fluir': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Olympikus Fluir masculino',
+		listingId: 'MLBU789129194',
+		productUrl: 'https://www.mercadolivre.com.br/tenis-esportivo-masculino-fluir-olympikus/up/MLBU789129194',
+		affiliateUrl: 'https://meli.la/1NwrEP6',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Olympikus (vendido pelo Mercado Livre). R$ 151,99. Nota 4,9, +10 mil vendidos. Ficha: linha Treino, 2024, Evasense, usos caminhada/casual/corrida/treino, superfícies "Asfalto, Concreto, Esteira, Pisos", entressola EVA, palmilha removível, sola antiderrapante sim.',
+	},
+	'tenis-nike-run-defy': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Nike Run Defy masculino',
+		listingId: 'MLB5345896520',
+		productUrl: 'https://produto.mercadolivre.com.br/MLB-5345896520-tnis-nike-run-defy-masculino-_JM',
+		affiliateUrl: 'https://meli.la/2jWhMV6',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Nike. R$ 249,99. Nota 4,7 com 204 avaliações, +10 mil vendidos. Ficha: modelo HM9594, uso "Corrida", superfícies "Rua ou Esteira", entressola de espuma, palmilha respirável e removível, sola antiderrapante sim.',
+	},
+	'tenis-mizuno-wave-dynasty': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Mizuno Wave Dynasty masculino',
+		listingId: 'MLB4144520179',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-4144520179-tnis-mizuno-wave-dynasty-masculino-corrida-caminhada-treino-_JM',
+		affiliateUrl: 'https://meli.la/1zVxj7h',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Mizuno (B2 Online). R$ 314,65. Nota 4,8 com 345 avaliações, +1.000 vendidos. Ficha: 2026, tecnologias "AIRmesh, Mizuno Enerzy, Mizuno Wave, X10", entressola Mizuno Enerzy, superfícies incluem Esteira, palmilha removível, sola antiderrapante sim.',
+	},
+	'tenis-new-balance-680v9-feminino': {
+		merchant: 'mercadolivre',
+		title: 'Tênis New Balance Fresh Foam 680v9 feminino',
+		listingId: 'MLBU3823028225',
+		productUrl:
+			'https://www.mercadolivre.com.br/tenis-new-balance-feminino-fresh-foam-680v9-esportivo-treino/up/MLBU3823028225',
+		affiliateUrl: 'https://meli.la/1b7FjYE',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial New Balance (Usee Brasil). R$ 356,04 na página em 04/11 (R$ 387 no Apify no mesmo dia — varia por cor/tamanho). Nota 4,9 com 181 avaliações, +500 vendidos. Ficha: W680V9, Fresh Foam, superfícies "Asfalto / Esteira / Academia", mesh respirável, palmilha removível, sola antiderrapante sim.',
+	},
+	'tenis-asics-gel-excite-11': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Asics Gel Excite 11 masculino',
+		listingId: 'MLB4230395513',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-4230395513-tnis-asics-gel-excite-11-masculino-corrida-treino-original-_JM',
+		affiliateUrl: 'https://meli.la/1GPzr1P',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-04',
+		notes:
+			'Loja oficial Asics (Salute Sports). R$ 429,89. Nota 4,9 com 411 avaliações, +1.000 vendidos. Ficha: 1011C200-002, tecnologias "Amplifoam Plus, Gel", entressola EVA, Jacquard mesh, superfícies "Asfalto, esteira e superfícies firmes", palmilha removível, sola antiderrapante sim.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */

@@ -1,0 +1,236 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { buyHref } from '../../data/affiliates.mjs';
+
+const mlTitle = 'Ir para o anúncio no Mercado Livre';
+const mes = 'novembro de 2026';
+
+// Dados das fichas dos anúncios e da busca no Mercado Livre, conferidos em 04/11/2026.
+// "esteiraNaFicha" = o campo "Superfícies aptas" do anúncio cita esteira.
+const tenis = [
+	{
+		slug: 'tenis-kappa-park-2', cat: 'ate-100', nome: 'Kappa Park 2.0', genero: 'Unissex',
+		img: 'kappa-park-2.webp', w: 500, h: 241, preco: 'R$ 78 a 79', nota: '4,7', avaliacoes: '84.073', vendidos: '+250 mil',
+		amortecimento: 'Sola de EVA', esteiraNaFicha: 'Não cita (uso: caminhada e corrida leve)',
+		badge: 'Mais vendido',
+		texto: 'O tênis mais vendido da busca, com folga: mais de 250 mil unidades e nota 4,7 em mais de 84 mil avaliações no Mercado Livre. A ficha indica uso para caminhada e corrida leve, cabedal de tecido e sola de EVA. É unissex, então a numeração vale para os dois. Não espere tecnologia de amortecimento com nome de marca: é um tênis simples e leve para caminhar.',
+	},
+	{
+		slug: 'tenis-vili-feminino-cf220', cat: 'ate-100', nome: 'Vili CF220', genero: 'Feminino',
+		img: 'vili-feminino-cf220.webp', w: 500, h: 278, preco: 'R$ 74,95', nota: '4,8', avaliacoes: '63.769', vendidos: '+100 mil',
+		amortecimento: 'Entressola de EVA, palmilha de espuma', esteiraNaFicha: 'Não cita (só "concreto")',
+		badge: 'Mais barato',
+		texto: 'O mais barato da lista e o segundo maior volume de vendas. A ficha é mais detalhada que a média para a faixa de preço: entressola de EVA, palmilha de espuma, língua e cano acolchoados e sola antiderrapante. O campo de superfícies do anúncio cita só concreto, não esteira, mas nada na ficha indica problema para caminhar na lona.',
+	},
+	{
+		slug: 'tenis-olympikus-nyx', cat: 'intermediario', nome: 'Olympikus Nyx', genero: 'Feminino',
+		img: 'olympikus-nyx.webp', w: 500, h: 254, preco: 'R$ 139,64', nota: '4,9', avaliacoes: null, vendidos: '+10 mil',
+		amortecimento: 'Evasense (entressola de EVA)', esteiraNaFicha: 'Sim',
+		badge: null,
+		texto: 'Tênis da Olympikus vendido pelo próprio Mercado Livre, com nota 4,9 e mais de 10 mil vendidos. A ficha cita esteira entre as superfícies aptas e indica caminhada e corrida leve como uso. Usa a espuma Evasense na entressola e tem palmilha removível, útil para quem usa palmilha própria. Um ponto contra: o anúncio informa que a sola <strong>não</strong> é antiderrapante.',
+	},
+	{
+		slug: 'tenis-olympikus-fluir', cat: 'intermediario', nome: 'Olympikus Fluir', genero: 'Masculino',
+		img: 'olympikus-fluir.webp', w: 500, h: 227, preco: 'R$ 151,99', nota: '4,9', avaliacoes: null, vendidos: '+10 mil',
+		amortecimento: 'Evasense (entressola de EVA)', esteiraNaFicha: 'Sim',
+		badge: null,
+		texto: 'A versão masculina do mesmo degrau de preço: Evasense na entressola, palmilha removível e esteira citada nas superfícies aptas. Diferente do Nyx, o Fluir tem sola antiderrapante segundo a ficha, e o uso indicado inclui corrida e treino, não só caminhada.',
+	},
+	{
+		slug: 'tenis-nike-run-defy', cat: 'amortecimento', nome: 'Nike Run Defy', genero: 'Masculino',
+		img: 'nike-run-defy.webp', w: 500, h: 222, preco: 'R$ 249,99', nota: '4,7', avaliacoes: '204', vendidos: '+10 mil',
+		amortecimento: 'Entressola de espuma', esteiraNaFicha: 'Sim ("rua ou esteira")',
+		badge: null,
+		texto: 'O tênis de corrida mais acessível das marcas grandes nesta lista, vendido pela loja oficial da Nike. A ficha diz literalmente "rua ou esteira" nas superfícies, com entressola de espuma, palmilha respirável e removível e sola antiderrapante. Faz sentido para quem caminha e de vez em quando acelera para um trote.',
+	},
+	{
+		slug: 'tenis-mizuno-wave-dynasty', cat: 'amortecimento', nome: 'Mizuno Wave Dynasty', genero: 'Masculino',
+		img: 'mizuno-wave-dynasty.webp', w: 389, h: 500, preco: 'R$ 314,65', nota: '4,8', avaliacoes: '345', vendidos: '+1.000',
+		amortecimento: 'Mizuno Wave e Mizuno Enerzy', esteiraNaFicha: 'Sim',
+		badge: null,
+		texto: 'Modelo de 2026 da linha Wave, com a placa Wave e a espuma Enerzy na entressola, segundo a ficha. O anúncio lista caminhada, corrida e trote entre os usos e esteira entre as superfícies. Tem palmilha removível e sola antiderrapante.',
+	},
+	{
+		slug: 'tenis-new-balance-680v9-feminino', cat: 'amortecimento', nome: 'New Balance Fresh Foam 680v9', genero: 'Feminino',
+		img: 'new-balance-680v9-feminino.webp', w: 500, h: 500, preco: 'R$ 356 a 387', nota: '4,9', avaliacoes: '181', vendidos: '+500',
+		amortecimento: 'Fresh Foam', esteiraNaFicha: 'Sim',
+		badge: null,
+		texto: 'A opção feminina com amortecimento de marca: entressola Fresh Foam, cabedal de mesh respirável, palmilha removível e sola antiderrapante. A ficha cita asfalto, esteira e academia. O preço variou entre R$ 356 e R$ 387 no mesmo dia, conforme a cor e o tamanho.',
+	},
+	{
+		slug: 'tenis-asics-gel-excite-11', cat: 'amortecimento', nome: 'Asics Gel Excite 11', genero: 'Masculino',
+		img: 'asics-gel-excite-11.webp', w: 500, h: 244, preco: 'R$ 429,89', nota: '4,9', avaliacoes: '411', vendidos: '+1.000',
+		amortecimento: 'Gel e Amplifoam Plus', esteiraNaFicha: 'Sim',
+		badge: 'Mais amortecimento declarado',
+		texto: 'O mais caro da lista, com duas tecnologias de amortecimento declaradas na ficha: Gel e a espuma Amplifoam Plus. O anúncio indica caminhada, corrida, academia e uso diário, e cita "asfalto, esteira e superfícies firmes". Cabedal de Jacquard mesh, palmilha removível e sola antiderrapante.',
+	},
+];
+
+const categorias = [
+	{ id: 'ate-100', titulo: 'Até R$ 100: para caminhar sem gastar muito', intro: 'Para quem caminha em ritmo leve e quer um tênis só para a esteira. São os dois mais vendidos da busca, com dezenas de milhares de avaliações. A contrapartida é a ficha mais simples: amortecimento de EVA sem tecnologia com nome, e nenhum dos dois cita esteira nas superfícies.' },
+	{ id: 'intermediario', titulo: 'De R$ 130 a R$ 160: o meio-termo nacional', intro: 'Um degrau acima, a Olympikus tem um modelo feminino e um masculino que citam esteira na ficha, usam a mesma espuma Evasense e têm palmilha removível. É o melhor ponto de partida para quem caminha várias vezes por semana.' },
+	{ id: 'amortecimento', titulo: 'De R$ 250 a R$ 430: amortecimento de marca', intro: 'Tênis de corrida das marcas grandes, todos vendidos por lojas oficiais e todos com esteira nas superfícies aptas. Fazem mais sentido para quem caminha muito tempo, alterna caminhada com trote ou usa a inclinação com frequência.' },
+];
+
+const porCat = (id) => tenis.filter((t) => t.cat === id);
+// Primeiro valor da faixa ("R$ 78 a 79" → 78, "R$ 74,95" → 74.95), só para ordenar a tabela.
+const precoMin = (t) => parseFloat(t.preco.match(/[\d.,]+/)[0].replace('.', '').replace(',', '.'));
+const alt = (t) => `Tênis ${t.nome} (${t.genero.toLowerCase()})`;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Melhor tênis para esteira: 8 opções para caminhar, por faixa de preço',
+	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
+	datePublished: '2026-11-04',
+	mainEntityOfPage: 'https://esteiraergometrica.com/guias/melhor-tenis-para-esteira',
+};
+
+const itemList = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Tênis para caminhar na esteira',
+	itemListElement: tenis.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: `Tênis ${t.nome}` })),
+};
+
+const faq = [
+	{ q: 'Qual o melhor tênis para caminhar na esteira?', a: 'Depende do orçamento. Até R$ 100, o Kappa Park 2.0 (unissex) e o Vili CF220 (feminino) são os mais vendidos do Mercado Livre. Entre R$ 130 e R$ 160, o Olympikus Nyx (feminino) e o Fluir (masculino) citam esteira na ficha. Para mais amortecimento, Mizuno Wave Dynasty, New Balance 680v9 e Asics Gel Excite 11.' },
+	{ q: 'Precisa de tênis específico para esteira?', a: 'Não. Qualquer tênis de caminhada ou de corrida em bom estado, bem amarrado, serve. Nenhum fabricante vende um "tênis de esteira" como categoria; o que alguns anúncios fazem é citar a esteira entre as superfícies aptas.' },
+	{ q: 'Tênis barato serve para caminhar na esteira?', a: 'Serve para caminhada leve, se a sola estiver inteira e o tênis estiver bem ajustado ao pé. O que um tênis mais caro costuma acrescentar é amortecimento com tecnologia declarada, que faz mais diferença em treinos longos ou com trote.' },
+	{ q: 'Tênis de corrida ou de caminhada para a esteira?', a: 'Os dois funcionam para caminhar. Se você pretende alternar caminhada com trote ou corrida, prefira um de corrida, como o Nike Run Defy ou o Asics Gel Excite 11, que indicam corrida e esteira na ficha.' },
+	{ q: 'Posso usar o mesmo tênis da rua na esteira?', a: 'Pode, se estiver em bom estado. Limpe a sola antes: terra e pedrinhas vão parar na lona e embaixo dela. Sola gasta ou lisa perde aderência e deve ser trocada.' },
+	{ q: 'Posso caminhar descalço ou de meia na esteira?', a: 'Não é recomendado. O manual da Movement LX G4, por exemplo, proíbe usar o equipamento descalço, com calçado de salto ou com sola gasta. Detalhes no nosso guia sobre correr descalço na esteira.' },
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<ArticleLayout
+	title="Melhor tênis para esteira: 8 opções para caminhar"
+	description="Os melhores tênis para caminhar na esteira, por faixa de preço (R$ 75 a R$ 430): feminino, masculino e unissex, com o que diz a ficha de cada um."
+	path="/guias/melhor-tenis-para-esteira"
+	ogTitle="Melhor tênis para caminhar na esteira"
+	ogDescription="Oito tênis para esteira separados por faixa de preço, com o que a ficha de cada um diz sobre amortecimento e superfícies."
+	jsonLd={[jsonLd, itemList, faqJsonLd]}
+	h1="Melhor tênis para esteira: 8 opções para caminhar, por faixa de preço"
+	standfirst="Para caminhar na esteira não é preciso um tênis especial: basta um tênis de caminhada ou de corrida em bom estado, bem amarrado. Separamos oito modelos do Mercado Livre em três faixas de preço, de R$ 75 a R$ 430, com o que a ficha de cada anúncio declara sobre amortecimento, sola e uso em esteira."
+	updated={mes}
+>
+
+  <div class="verdict">
+    <h2 style="margin-top:0">Resposta rápida</h2>
+    <ul>
+      <li><strong>Mais barato:</strong> <a href="#ate-100">Vili CF220</a> (feminino), R$ 74,95.</li>
+      <li><strong>Mais vendido:</strong> <a href="#ate-100">Kappa Park 2.0</a> (unissex), mais de 250 mil vendidos, R$ 78 a 79.</li>
+      <li><strong>Melhor meio-termo:</strong> <a href="#intermediario">Olympikus Nyx</a> (feminino, R$ 139,64) ou <a href="#intermediario">Fluir</a> (masculino, R$ 151,99), que citam esteira na ficha.</li>
+      <li><strong>Mais amortecimento declarado:</strong> <a href="#amortecimento">Asics Gel Excite 11</a> (masculino, R$ 429,89) e <a href="#amortecimento">New Balance 680v9</a> (feminino, R$ 356 a 387).</li>
+    </ul>
+    <p style="margin-top:0.9rem">Preços de {mes}. Notas são de compradores, no Mercado Livre — não testamos tênis.</p>
+  </div>
+
+  <h2>Tênis por categoria</h2>
+  <ul>
+    <li><a href="#ate-100">Até R$ 100</a>: Kappa Park 2.0, Vili CF220</li>
+    <li><a href="#intermediario">De R$ 130 a R$ 160</a>: Olympikus Nyx, Olympikus Fluir</li>
+    <li><a href="#amortecimento">De R$ 250 a R$ 430</a>: Nike Run Defy, Mizuno Wave Dynasty, New Balance 680v9, Asics Gel Excite 11</li>
+    <li><strong>Femininos:</strong> Vili CF220, Olympikus Nyx, New Balance 680v9</li>
+    <li><strong>Masculinos:</strong> Olympikus Fluir, Nike Run Defy, Mizuno Wave Dynasty, Asics Gel Excite 11</li>
+    <li><strong>Unissex:</strong> Kappa Park 2.0</li>
+  </ul>
+
+  <h2>Comparativo dos 8 tênis</h2>
+  <div class="table-scroll">
+  <table class="specs">
+    <caption>Tênis para caminhar na esteira, do mais barato ao mais caro</caption>
+    <thead>
+      <tr><th scope="col">Tênis</th><th scope="col">Gênero</th><th scope="col">Amortecimento (ficha)</th><th scope="col">Cita esteira?</th><th scope="col">Nota no Mercado Livre</th><th scope="col">Vendidos</th><th scope="col">Preço ({mes})</th><th scope="col">Onde comprar</th></tr>
+    </thead>
+    <tbody>
+      {[...tenis].sort((a, b) => precoMin(a) - precoMin(b)).map((t) => (
+        <tr>
+          <th scope="row"><a href={`#${t.cat}`}>{t.nome}</a></th>
+          <td>{t.genero}</td>
+          <td>{t.amortecimento}</td>
+          <td>{t.esteiraNaFicha}</td>
+          <td class="num">{t.nota}{t.avaliacoes && ` (${t.avaliacoes})`}</td>
+          <td class="num">{t.vendidos}</td>
+          <td class="num">{t.preco}</td>
+          <td class="cell-cta"><a class="mini-cta" href={buyHref(t.slug)} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver preço do tênis ${t.nome} no Mercado Livre`} title={mlTitle}><span class="cta-long">Ver no Mercado Livre →</span><span class="cta-short">Comprar →</span></a></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  </div>
+  <p class="stamp">Dados das fichas dos anúncios e da busca do Mercado Livre, consultados em 4 de novembro de 2026. "Cita esteira?" se refere ao campo "Superfícies aptas" de cada anúncio. Os preços mudam: confira no anúncio.</p>
+
+  {categorias.map((c) => (
+    <>
+      <h2 id={c.id}>{c.titulo}</h2>
+      <p>{c.intro}</p>
+      <div class="product-grid">
+        {porCat(c.id).map((t) => (
+          <article class="product-card">
+            <div class="product-card__media product-card__media--contain">
+              {t.badge && <span class="product-card__badge">{t.badge}</span>}
+              <img src={`/assets/images/tenis/${t.img}`} alt={alt(t)} width={t.w} height={t.h} loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">{t.nome}</h3>
+              <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> {t.nota}{t.avaliacoes ? ` (${t.avaliacoes} avaliações no Mercado Livre)` : ' no Mercado Livre'}</p>
+              <p class="product-card__specs">{t.genero} • {t.amortecimento} • {t.vendidos} vendidos</p>
+              <p set:html={t.texto} />
+              <div class="product-card__footer">
+                <span class="product-card__price">{t.preco}</span>
+              </div>
+              <a class="btn btn-primary btn-block" href={buyHref(t.slug)} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço do tênis ${t.nome} no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </>
+  ))}
+
+  <h2>O que olhar na ficha do tênis</h2>
+  <p>Na esteira o piso é plano, regular e sem obstáculos, então dispensam-se recursos de trilha ou de solado para terreno irregular. O que importa está em poucos campos da ficha técnica do anúncio:</p>
+  <ul>
+    <li><strong>Entressola:</strong> é a camada que amortece. EVA é o material básico; tecnologias com nome (Evasense, Fresh Foam, Gel, Wave, Enerzy) são variações de cada marca. Não há medição pública e comparável de amortecimento entre elas, então desconfie de quem diz qual é "melhor".</li>
+    <li><strong>Superfícies aptas:</strong> alguns anúncios citam esteira. Não é obrigatório, mas mostra que o fabricante pensou nesse uso.</li>
+    <li><strong>Sola antiderrapante:</strong> ajuda a aderência na lona. Entre os oito, só o Olympikus Nyx declara que não tem.</li>
+    <li><strong>Palmilha removível:</strong> importa para quem usa palmilha ortopédica. Seis dos oito têm.</li>
+    <li><strong>Cabedal de tecido ou mesh:</strong> em ambiente fechado, sem vento, o pé esquenta mais que na rua. Tecido respira melhor que material sintético fechado.</li>
+  </ul>
+
+  <h2>Para quem esta lista não serve</h2>
+  <ul>
+    <li><strong>Quem tem dor no pé, joelho ou quadril que não passa:</strong> o tênis certo depende do seu pé e da sua pisada, e quem avalia isso é ortopedista ou fisioterapeuta, não uma lista.</li>
+    <li><strong>Quem procura tênis para corrida de rendimento:</strong> nenhum dos oito é modelo de competição. Para correr rápido na esteira, a própria esteira precisa acompanhar; veja o guia de <a href="/guias/esteira-para-corrida-ou-caminhada">esteira para corrida ou caminhada</a>.</li>
+    <li><strong>Quem precisa de numeração larga:</strong> todos os oito informam "largura padrão" na ficha.</li>
+  </ul>
+
+  <h2>Cuidados com o tênis na esteira</h2>
+  <ul>
+    <li><strong>Amarre bem.</strong> Cadarço solto pode ficar preso na lona ou nas laterais.</li>
+    <li><strong>Limpe a sola</strong> se o tênis também vai para a rua: terra e pedrinhas acabam embaixo da lona.</li>
+    <li><strong>Troque quando a sola ficar lisa ou deformada.</strong> O manual da Movement LX G4 proíbe usar a esteira com sola gasta.</li>
+    <li><strong>Nada de descalço ou de meia.</strong> Veja o <a href="/guias/correr-descalco-na-esteira">guia de calçado na esteira</a>.</li>
+  </ul>
+  <p>Ainda escolhendo a esteira? Comece pelo guia de <a href="/guias/como-escolher">como escolher uma esteira</a> ou veja as <a href="/guias/melhor-esteira-ergometrica-residencial">melhores esteiras residenciais</a>.</p>
+
+  <h2>Perguntas frequentes</h2>
+  {faq.map((f) => (
+    <>
+      <h3>{f.q}</h3>
+      <p>{f.a}</p>
+    </>
+  ))}
+
+  <p class="disclosure">Não testamos fisicamente nenhum tênis desta lista. A seleção vem da busca do Mercado Livre por "tênis para caminhada" e "tênis para esteira" (volume de vendas, nota de compradores e loja oficial) e os dados de cada modelo vêm da ficha técnica do anúncio, consultada em 4 de novembro de 2026. Não damos nota editorial a tênis: a <a href="/metodologia">metodologia</a> do site vale só para esteiras. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Essa relação não influencia a seleção.</p>
+</ArticleLayout>
