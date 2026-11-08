@@ -34,8 +34,11 @@ const {
 // lidas no build). Enquanto o ID real não for configurado, o placeholder
 // AW-XXXXXXXXX/YYYYYYYYYY fica valendo e o código do Ads NÃO é emitido: nada é
 // enviado com ID falso. Ver .env.example.
-const GADS_ID = (import.meta.env.PUBLIC_GADS_ID ?? '').trim();
-const GADS_SEND_TO = (import.meta.env.PUBLIC_GADS_CONVERSION ?? 'AW-XXXXXXXXX/YYYYYYYYYY').trim();
+// IDs públicos (aparecem no HTML de qualquer forma); env do Cloudflare sobrescreve se definida.
+// Conversão "Clique ML (tag direta)" na conta 624-356-6182 — SECUNDÁRIA (a principal é o
+// affiliate_click importado do GA4); não promover as duas a principal, conta em dobro.
+const GADS_ID = (import.meta.env.PUBLIC_GADS_ID || 'AW-18556642466').trim();
+const GADS_SEND_TO = (import.meta.env.PUBLIC_GADS_CONVERSION || 'AW-18556642466/Wn4yCJLczrQdEKLJv5BF').trim();
 const gadsEnabled = /^AW-\d+$/.test(GADS_ID) && /^AW-\d+\/[\w-]+$/.test(GADS_SEND_TO);
 
 const canonicalURL = new URL(path, Astro.site);
