@@ -29,6 +29,15 @@ const {
 	noindex = false,
 } = Astro.props;
 
+// Google Ads: tag e conversão de clique no link de afiliado. Os dois valores vêm
+// de variáveis de ambiente PÚBLICAS (definidas no painel do Cloudflare Pages,
+// lidas no build). Enquanto o ID real não for configurado, o placeholder
+// AW-XXXXXXXXX/YYYYYYYYYY fica valendo e o código do Ads NÃO é emitido: nada é
+// enviado com ID falso. Ver .env.example.
+const GADS_ID = (import.meta.env.PUBLIC_GADS_ID ?? '').trim();
+const GADS_SEND_TO = (import.meta.env.PUBLIC_GADS_CONVERSION ?? 'AW-XXXXXXXXX/YYYYYYYYYY').trim();
+const gadsEnabled = /^AW-\d+$/.test(GADS_ID) && /^AW-\d+\/[\w-]+$/.test(GADS_SEND_TO);
+
 const canonicalURL = new URL(path, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 
@@ -72,7 +81,14 @@ const breadcrumbJsonLd = path === '/' ? null : {
 	try {
 		if (localStorage.getItem('cookie-consent') === 'accepted') storedConsent = 'granted';
 	} catch (e) {}
-	gtag('consent', 'default', { analytics_storage: storedConsent });
+	// ad_* acompanham analytics_storage: a mesma escolha do banner vale para o
+	// Google Ads (sem aceite, o Ads não grava cookie e só recebe sinal sem cookie).
+	gtag('consent', 'default', {
+		analytics_storage: storedConsent,
+		ad_storage: storedConsent,
+		ad_user_data: storedConsent,
+		ad_personalization: 'denied',
+	});
 	gtag('js', new Date());
 	gtag('config', 'G-F3SC734W1X');
 
@@ -116,23 +132,67 @@ const breadcrumbJsonLd = path === '/' ? null : {
 	}
 </script>
 
-<!-- Clique nos CTAs de afiliado (href começa com /go/), como evento affiliate_click.
-     Delegado em document, então cobre CTAs de qualquer página sem precisar de
-     data-attribute por botão: o slug do produto já está no próprio href. Não
-     precisa de preventDefault/delay: todo CTA de afiliado abre em target="_blank",
-     a aba atual nunca descarrega, então o gtag.js tem tempo de sobra pra enviar
-     o evento mesmo tendo acabado de ser carregado por essa mesma interação. -->
-<script is:inline>
+{gadsEnabled && (
+	<script is:inline define:vars={{ GADS_ID }}>
+		gtag('config', GADS_ID);
+	</script>
+)}
+
+<!-- Clique nos CTAs de afiliado, como evento affiliate_click (GA4) e, quando o
+     Google Ads estiver configurado, como conversão do Ads.
+
+     Quais links contam: href começando com /go/ (linkMode 'redirect'), qualquer
+     <a data-affiliate-link> e qualquer link rel="sponsored" (todo CTA de compra
+     do site leva rel="sponsored", inclusive no linkMode 'direct'). Delegado em
+     document, então cobre todas as páginas sem atributo por botão.
+
+     Parâmetros do Google (utm_*, gclid, campaignid, adgroupid, keyword...) da URL
+     da página vão JUNTO DO EVENTO, não no link. O link de afiliado do Mercado
+     Livre segue intacto, byte a byte: acrescentar parâmetro a ele viola o item
+     1.8 dos Termos do Programa de Afiliados ("edição ou modificação dos Links
+     Especiais") e a mitigação M7 de AFFILIATE_IMPLEMENTATION.md §12.1.
+
+     Envio antes de sair da página: gtag usa transporte beacon (sendBeacon).
+     Todo CTA de afiliado abre em target="_blank", então a aba atual não
+     descarrega e não precisa atrasar nada. Só um link que abra na MESMA aba
+     é segurado, até o gtag confirmar o envio ou no máximo 150 ms. -->
+<script is:inline define:vars={{ GADS_SEND_TO: gadsEnabled ? GADS_SEND_TO : '' }}>
+	var TRACK_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'campaignid', 'adgroupid', 'keyword', 'matchtype', 'device'];
+	function adParams() {
+		var out = {};
+		try {
+			var q = new URLSearchParams(location.search);
+			TRACK_PARAMS.forEach(function (k) { var v = q.get(k); if (v) out[k] = v.slice(0, 100); });
+		} catch (e) {}
+		return out;
+	}
 	document.addEventListener('click', function (e) {
-		var link = e.target.closest && e.target.closest('a[href^="/go/"]');
+		var link = e.target.closest && e.target.closest('a[href^="/go/"], a[data-affiliate-link], a[rel~="sponsored"]');
 		if (!link) return;
-		var href = link.getAttribute('href');
-		gtag('event', 'affiliate_click', {
+		var href = link.getAttribute('href') || '';
+		var params = adParams();
+		var data = {
 			event_category: 'affiliate',
-			event_label: href.split('/').pop(),
+			event_label: href.split('?')[0].split('/').pop(),
 			link_url: href,
 			page_path: location.pathname,
-		});
+			transport_type: 'beacon',
+		};
+		for (var k in params) data[k] = params[k];
+		gtag('event', 'affiliate_click', data);
+
+		if (!GADS_SEND_TO) return;
+		var sameTab = !link.target || link.target === '_self';
+		var plainClick = e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+		if (sameTab && plainClick) {
+			e.preventDefault();
+			var gone = false;
+			var go = function () { if (gone) return; gone = true; location.href = link.href; };
+			gtag('event', 'conversion', { send_to: GADS_SEND_TO, transport_type: 'beacon', event_callback: go });
+			setTimeout(go, 150);
+		} else {
+			gtag('event', 'conversion', { send_to: GADS_SEND_TO, transport_type: 'beacon' });
+		}
 	});
 </script>
 
@@ -190,7 +250,7 @@ const breadcrumbJsonLd = path === '/' ? null : {
 
 <div id="cookie-banner" class="cookie-banner" hidden>
 	<h2 class="cookie-banner__title">Cookies</h2>
-	<p class="cookie-banner__text">Usamos cookies para entender como você usa o site e melhorar sua experiência. Isso não afeta a navegação. Ao clicar em "Aceitar", você concorda com esse uso, conforme descrito na nossa <a href="/politica-de-cookies">Política de Cookies</a>.</p>
+	<p class="cookie-banner__text">Usamos cookies para entender como você usa o site, melhorar sua experiência e medir o resultado dos nossos anúncios no Google. Isso não afeta a navegação. Ao clicar em "Aceitar", você concorda com esse uso, conforme descrito na nossa <a href="/politica-de-cookies">Política de Cookies</a>.</p>
 	<div class="cookie-banner__actions">
 		<button type="button" id="cookie-accept" class="btn btn-primary">Aceitar</button>
 		<button type="button" id="cookie-reject" class="btn btn-secondary">Recusar</button>
@@ -208,13 +268,13 @@ const breadcrumbJsonLd = path === '/' ? null : {
 
 	document.getElementById('cookie-accept').addEventListener('click', function () {
 		try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
-		gtag('consent', 'update', { analytics_storage: 'granted' });
+		gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted' });
 		banner.hidden = true;
 	});
 
 	document.getElementById('cookie-reject').addEventListener('click', function () {
 		try { localStorage.setItem(KEY, 'rejected'); } catch (e) {}
-		gtag('consent', 'update', { analytics_storage: 'denied' });
+		gtag('consent', 'update', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied' });
 		banner.hidden = true;
 	});
 })();
