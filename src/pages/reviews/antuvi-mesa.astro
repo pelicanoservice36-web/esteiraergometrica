@@ -5,24 +5,28 @@ import { buyHref } from '../../data/affiliates.mjs';
 
 const buyUrl = buyHref('antuvi-mesa');
 
+// Novembro de 2026: o anúncio analisado em setembro (Antuvi 2,5 HP, 100 kg, não dobrável,
+// marca declarada "Geral") saiu do ar e o link de afiliado passou a cair numa página genérica.
+// Esta análise passou a cobrir o modelo atual da loja oficial Antuvi, a partir da página do
+// anúncio salva pelo dono do site em 14/11/2026 (ficha técnica, descrição e avaliações).
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
-	name: 'Antuvi Esteira Elétrica Ergométrica (marca declarada "Geral")',
+	name: 'Esteira Elétrica Ergométrica Antuvi Dobrável 150 kg',
 	category: 'Esteira ergométrica',
-	brand: { '@type': 'Brand', name: 'Geral' },
+	brand: { '@type': 'Brand', name: 'Antuvi' },
 	offers: {
 		'@type': 'AggregateOffer',
 		priceCurrency: 'BRL',
-		lowPrice: '1580.00',
-		highPrice: '1580.00',
+		lowPrice: '1039.85',
+		highPrice: '1039.85',
 		offerCount: '1',
 		availability: 'https://schema.org/InStock',
 	},
 	aggregateRating: {
 		'@type': 'AggregateRating',
-		ratingValue: '4.7',
-		reviewCount: '280',
+		ratingValue: '5.0',
+		reviewCount: '2',
 		bestRating: '5',
 		worstRating: '1',
 	},
@@ -30,21 +34,22 @@ const jsonLd = {
 		'@type': 'Review',
 		reviewRating: {
 			'@type': 'Rating',
-			ratingValue: '5.5',
+			ratingValue: '6.8',
 			bestRating: '10',
 			worstRating: '0',
 		},
 		author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
-		datePublished: '2026-09-13',
+		datePublished: '2026-11-14',
 	},
 };
 
 const faq = [
-	{ q: 'Antuvi é uma marca de verdade?', a: 'A própria ficha técnica do anúncio declara a marca como "Geral", não "Antuvi": esse é o nome do vendedor no Mercado Livre. Não localizamos fabricante com site, manual ou assistência técnica própria.' },
-	{ q: 'Ela dobra?', a: 'Não. A ficha técnica do anúncio confirma "É dobrável: Não". Tem rodas para ajudar a mover, mas não dobra ao meio para guardar.' },
-	{ q: 'Qual a garantia?', a: 'Não encontramos essa informação em nenhuma fonte: nem no anúncio, nem em site de fabricante independente. Recomendamos perguntar diretamente ao vendedor antes de comprar.' },
-	{ q: 'Serve para correr?', a: 'Não é o foco dela. Com 12 km/h de velocidade máxima e motor de 2,5 HP (sem separar contínua de pico), é mais indicada para caminhada rápida e trote leve.' },
-	{ q: 'A inclinação de "6°" que aparece na imagem é confirmada?', a: 'Não. É uma chamada gráfica na imagem de marketing do próprio vendedor. O título do anúncio confirma que existe algum mecanismo de inclinação, mas nenhuma fonte em texto especifica o grau: veja nossa metodologia.' },
+	{ q: 'A esteira Antuvi é boa?', a: 'Para caminhar e trotar de leve em casa, sim: nota editorial 6,8/10. Por R$ 1.039,85 em novembro de 2026, ela dobra, pesa 25 kg, suporta 150 kg, chega a 12 km/h e tem inclinação manual em 10 posições, vendida pela loja oficial da Antuvi. O que pesa contra: a garantia não é informada e a lona tem 1 m, curta para correr.' },
+	{ q: 'Antuvi é uma marca de verdade?', a: 'No anúncio atual, sim: a ficha técnica declara a marca Antuvi e a venda é feita pela loja oficial da Antuvi no Mercado Livre, com mais de 10 mil vendas. Não localizamos site de fabricante nem assistência técnica própria no Brasil.' },
+	{ q: 'A esteira Antuvi dobra?', a: 'Sim. A ficha confirma que ela é dobrável e tem rodas. Pesa 25 kg, então uma pessoa consegue guardar sozinha.' },
+	{ q: 'A esteira Antuvi aguenta 150 kg?', a: 'É o que a ficha técnica do anúncio declara. Não há fabricante com site para confirmar o número de forma independente, então compre com folga em relação ao seu peso.' },
+	{ q: 'O motor da Antuvi tem 3 HP?', a: 'A descrição e o título do anúncio falam em 3,0 HP, mas a ficha técnica não traz o campo de potência e o anúncio não separa potência contínua de pico. Usamos o número declarado na nota, com essa ressalva.' },
+	{ q: 'Qual a garantia da esteira Antuvi?', a: 'O anúncio não informa garantia de fábrica. Valem a devolução grátis em 30 dias do Mercado Livre, a Compra Garantida e a garantia legal de 90 dias do Código de Defesa do Consumidor.' },
 ];
 
 const faqJsonLd = {
@@ -58,111 +63,133 @@ const faqJsonLd = {
 };
 
 const fichaItems = [
-	{ label: 'Motor', value: '2,5 HP (anúncio não separa contínua de pico)' },
+	{ label: 'Motor', value: '3,0 HP na descrição (a ficha não traz potência)' },
 	{ label: 'Velocidade máxima', value: '12 km/h' },
-	{ label: 'Lona', value: '100 × 38 cm' },
-	{ label: 'Peso máximo', value: '100 kg' },
-	{ label: 'Peso do equipamento', value: '15 kg' },
-	{ label: 'É dobrável', value: 'Não (tem rodas para mover)' },
-	{ label: 'Inclinação', value: 'Anunciada no título; grau não especificado' },
-	{ label: 'Garantia', value: '[VERIFICAR]' },
-	{ label: 'Preço', value: 'R$ 1.580' },
+	{ label: 'Lona', value: '100 × 40 cm' },
+	{ label: 'Peso máximo', value: '150 kg' },
+	{ label: 'Peso do equipamento', value: '25 kg' },
+	{ label: 'É dobrável', value: 'Sim, com rodas' },
+	{ label: 'Inclinação', value: 'Manual, 10 posições' },
+	{ label: 'Programas', value: '12' },
+	{ label: 'Garantia', value: 'Não informada no anúncio' },
+	{ label: 'Preço', value: 'R$ 1.039,85' },
 ];
 ---
 
 <ReviewLayout
 	title="Esteira Antuvi é boa? Vale a pena? Análise honesta"
-	description="Esteira Antuvi é boa? Nota 4,7 no Mercado Livre, mas a marca vem como 'Geral' e a garantia não aparece. 2,5 HP, 12 km/h, 100 kg, não dobra. R$ 1.580."
+	description="Esteira Antuvi é boa? Dobra, 25 kg, 150 kg, 12 km/h e inclinação em 10 posições por R$ 1.039,85 (nov/2026), loja oficial. Mas sem garantia informada. Nota 6,8."
 	path="/reviews/antuvi-mesa"
-	ogTitle="Antuvi esteira ergométrica: análise honesta"
-	ogDescription="2,5 HP, 12 km/h, 100 kg e lona 100×38 cm por R$ 1.580, mas marca genérica ('Geral') e sem garantia divulgada em lugar nenhum."
+	ogImage="/assets/images/antuvi-dobravel-150kg-cover.webp"
+	ogTitle="Esteira Antuvi: análise honesta"
+	ogDescription="Dobrável, 150 kg e inclinação manual por pouco mais de R$ 1.000 na loja oficial da Antuvi. O que a ficha confirma e o que fica de fora."
 	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira Antuvi é boa?"
-	standfirst='A Antuvi é vendida no Mercado Livre com a marca do próprio fabricante declarada apenas como "Geral", mesmo padrão de anúncio sem marca real que já vimos na Esteira Cardio. Motor de 2,5 HP, 12 km/h e até 100 kg de peso suportado, numa esteira de só 15 kg, por R$ 1.580. Ficha completa o bastante para nota editorial, mas ela não dobra e a garantia não aparece em lugar nenhum do anúncio.'
-	updated="setembro de 2026"
+	standfirst="Para caminhar e trotar de leve em casa, a esteira dobrável da Antuvi entrega bastante pelo preço: dobra, pesa 25 kg, suporta 150 kg, chega a 12 km/h e tem inclinação manual em 10 posições, por R$ 1.039,85 em novembro de 2026, na loja oficial da marca no Mercado Livre. O que pesa contra: a garantia não aparece no anúncio, a lona de 1 m é curta para correr e os 3,0 HP só constam na descrição, não na ficha técnica."
+	updated="novembro de 2026"
 	fichaItems={fichaItems}
 	buyHref={buyUrl}
-	priceNote='Preço observado em setembro de 2026, loja "Antuvi" (marca declarada "Geral") no Mercado Livre. Link de afiliado.'
+	buyLabel="Ver preço de hoje no Mercado Livre"
+	priceNote="Preço observado em 14 de novembro de 2026 na loja oficial Antuvi no Mercado Livre: R$ 1.039,85, ou até 18x de R$ 68,99 no cartão Mercado Pago. Link de afiliado."
 >
+
+  <div class="sales-highlight">
+    <span class="sales-highlight__icon" aria-hidden="true">🔥</span>
+    <div><strong>Mais de 1.000 vendidas no Mercado Livre</strong>Loja oficial Antuvi, 10º mais vendido em esteira ergométrica (novembro de 2026)</div>
+  </div>
 
   <div class="verdict">
     <h2 style="margin-top:0">Veredito</h2>
-    <p class="edit-score"><span class="edit-score__value">5,5<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
-    <p>É uma ficha honesta de esteira de entrada: motor de 2,5 HP e 12 km/h ficam na faixa intermediária do catálogo, mas o peso suportado (100 kg) e a lona estreita (38 cm de largura) puxam a nota pra baixo. O que mais pesa contra ela, porém, não é a especificação: é a falta de fabricante identificável (a ficha declara a marca apenas como "Geral") e a ausência total de informação sobre garantia, os dois fatores do critério de confiabilidade, que aqui recebe a nota mais baixa possível.</p>
-    <p>O que pesa a favor: com 15 kg, ainda é uma esteira leve para o padrão do catálogo, e tem rodas para facilitar mover, mesmo não dobrando. Por R$ 1.580, é uma opção de entrada aceitável se você já sabe que caminhada leve é o uso pretendido e não se importa em comprar sem garantia declarada. Vale notar, porém, que a <a href="/reviews/health-herald-lcd">Health Herald</a> (R$ 645) e a <a href="/reviews/redfin-150kg">Redfin</a> (R$ 577,91) pesam menos, dobram, e custam menos da metade.</p>
+    <p class="edit-score"><span class="edit-score__value">6,8<span class="edit-score__max">/10</span></span><span class="edit-score__label">Nossa avaliação editorial: <a href="/metodologia">como calculamos</a></span></p>
+    <ul>
+      <li><strong>Compre se:</strong> quer caminhar ou trotar de leve em casa, pesa até uns 130 kg e precisa guardar a esteira depois do treino.</li>
+      <li><strong>Evite se:</strong> quer correr de verdade ou faz questão de garantia de fábrica declarada.</li>
+      <li><strong>O que você leva:</strong> dobra, 25 kg, 150 kg, 12 km/h, inclinação em 10 posições, controle remoto e monitor cardíaco.</li>
+      <li><strong>O que você arrisca:</strong> garantia não informada, lona de 1 m e motor sem potência contínua confirmada.</li>
+    </ul>
+    <p>Por pouco mais de R$ 1.000, a Antuvi junta o que costuma aparecer separado nessa faixa: 150 kg de peso suportado, inclinação e uma esteira que dobra e pesa 25 kg. A ficha técnica do anúncio é completa, com marca, peso, medidas da lona, velocidade, programas e tipo de inclinação, e a venda é feita pela loja oficial da Antuvi, com mais de 10 mil vendas.</p>
+    <p>A nota fica em 6,8, logo abaixo da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> (6,9), por dois motivos: a garantia não é informada em nenhum lugar do anúncio, e não encontramos fabricante com site ou assistência técnica no Brasil. A lona de 100 × 40 cm é de esteira de caminhada.</p>
   </div>
 
+  <h2>Atenção: este não é o mesmo modelo de antes</h2>
+  <p>Até outubro de 2026, esta página analisava outra esteira vendida pela loja Antuvi: 2,5 HP, até 100 kg, sem dobrar, com a marca declarada como "Geral" na ficha. Aquele anúncio saiu do ar. Em novembro, refizemos a análise para o modelo atual da loja oficial, que é bem diferente: dobra, suporta 150 kg, tem inclinação em 10 posições e a ficha declara a marca Antuvi.</p>
+
   <h2>Para quem essa esteira faz sentido</h2>
-  <p>Para quem quer caminhada leve ou trote ocasional, precisa mover o equipamento sozinho com frequência (15 kg é leve o bastante pra isso, mesmo sem dobrar) e não tem espaço fixo dedicado: as rodas ajudam a guardar embaixo de uma cama ou armário mesmo sem dobrar ao meio. Também faz sentido para quem já decidiu que R$ 1.580 é o teto do orçamento e aceita comprar sem garantia declarada.</p>
+  <p>Para quem quer caminhar e trotar de leve em casa, tem pouco espaço e pesa mais que o limite de 110 kg das esteiras de entrada. Com 150 kg declarados, ela dá folga para quem pesa até uns 130 kg. A inclinação manual ajuda a aumentar o esforço da caminhada sem precisar de mais velocidade: veja o <a href="/guias/caminhada-inclinada-ou-corrida">guia de caminhada inclinada ou corrida</a>.</p>
 
   <h2>Para quem não faz sentido</h2>
-  <p>Para quem pesa perto do limite de 100 kg (o mais baixo entre os modelos com peso confirmado no nosso catálogo) ou quer correr de verdade: 12 km/h e uma lona de apenas 38 cm de largura não são pensados pra isso. Também não faz sentido para quem valoriza ter um fabricante identificável para acionar garantia ou assistência técnica: aqui a marca declarada é só "Geral", sem site, manual ou suporte próprio localizado. Para isso, a <a href="/reviews/podiumfit-x300">PodiumFit X300</a> ou a <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a> custam na mesma faixa ou pouco mais e têm fabricante auditável.</p>
+  <p>Para quem quer correr: a lona tem 1 m de comprimento, medida de esteira de caminhada, e a velocidade para em 12 km/h. Para quem quer garantia de fábrica e assistência técnica conhecida: o anúncio não informa garantia. Nesses casos, a <a href="/reviews/gallant-elite-gee12m25a">Gallant Elite GEE12M25A</a> (fabricante identificado, lona de 110 cm) ou o <a href="/guias/esteira-acima-de-100kg">guia de esteira acima de 100 kg</a> são caminhos mais seguros.</p>
 
-  <h2>Motor e velocidade: 2,5 HP e 12 km/h, sem separar contínua de pico</h2>
-  <p>A ficha do anúncio declara "Potência: 2,5 hp" como valor único, sem qualificar se é contínua ou de pico, o mesmo padrão de transparência incompleta já visto na Importway. Combinado aos 12 km/h de velocidade máxima, dá pra caminhada rápida e trote leve, não para corrida sustentada.</p>
+  <h2>Motor: 3,0 HP só na descrição</h2>
+  <p>O título e a descrição falam em motor de 3,0 HP, e a descrição chama a potência de "estável e contínua". A ficha técnica estruturada, porém, não tem o campo de potência, e o anúncio não diz se os 3,0 HP são contínuos ou de pico. Na <a href="/metodologia">metodologia</a>, usamos o valor declarado, na faixa de 2,5 a 3,4 HP, a mesma limitação que já vimos na <a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a> e na <a href="/reviews/jmjn-qk-3058">JMJN</a>.</p>
 
-  <h2>Lona e peso máximo: 100 × 38 cm, até 100 kg</h2>
-  <p>Os 100 cm de comprimento ficam na faixa de entrada do catálogo, mas os 38 cm de largura são estreitos mesmo para essa faixa: mais estreitos que a WCT Fitness (39 cm) e bem mais que a Gallant (42-45 cm). O limite de 100 kg para o usuário também é o mais baixo entre os modelos com esse dado confirmado no nosso catálogo até agora.</p>
+  <h2>Inclinação: 10 posições manuais</h2>
+  <p>A ficha confirma inclinação manual com 10 posições. A descrição fala em "inclinação de 10%", e uma das imagens do anúncio diz "12 níveis até 10%": os números de posições não batem entre a ficha e a imagem. Usamos o da ficha. Por ser manual, o ajuste é feito com a esteira parada.</p>
 
-  <h2>Não dobra, e já não é mais a mais leve do catálogo</h2>
-  <p>A própria ficha confirma "É dobrável: Não", ao contrário do que uma dobradiça visível nas fotos do anúncio sugeriu antes de termos a ficha técnica completa (correção feita nesta análise). Com 15 kg, ainda é leve para o padrão do catálogo, mas não é mais recorde: a <a href="/reviews/health-herald-lcd">Health Herald</a> (13,5 kg) pesa menos, e a <a href="/reviews/redfin-150kg">Redfin</a> (18 kg) fica perto, e as duas dobram, ao contrário da Antuvi. Tem rodas para ajudar a mover e guardar de pé ou embaixo de um móvel, mesmo sem dobrar ao meio.</p>
+  <h2>Lona, painel e controles</h2>
+  <p>A área de corrida mede 100 × 40 cm na ficha (a descrição cita 40 × 16,5 polegadas, o que dá cerca de 102 × 42 cm). É o padrão de esteira de caminhada, um pouco mais larga que a da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> (33 cm). O painel LED mostra tempo, velocidade, distância, calorias, frequência cardíaca e programa, com 12 programas prontos, sensores de pulsação nas barras, controle remoto e um botão giratório para mudar a velocidade. O anúncio também cita um nível de ruído em decibéis; como não há medição verificável, não reproduzimos esse número.</p>
 
-  <h2>Inclinação e painel: presentes, mas com informação incompleta</h2>
-  <p>O título do anúncio ("Esteira Elétrica Ergométrica Ginástica Inclinação 12km 2.5hp") confirma que existe algum mecanismo de inclinação, mas nenhuma fonte em texto especifica o grau. A imagem promocional do vendedor usa uma chamada gráfica de "6°": tratamos isso como marketing, não como dado confirmado, o mesmo critério que já aplicamos ao "15% Auto Incline" da Strive. O painel mostra tempo, velocidade, distância e calorias, e o anúncio lista uma função adicional chamada "Stepper", sem explicar o que isso significa na prática. Não presumimos um recurso que não está detalhado. Vale notar também que o anúncio pede pra escolher a voltagem na hora da compra (vimos a opção 220V); confirme a voltagem certa para sua casa, já que não há indicação de bivolt automático.</p>
+  <h2>Dobra e pesa 25 kg</h2>
+  <p>Ela dobra, tem rodas de transporte e pesa 25 kg, quase o mesmo que a Polimet EP-1600 (24 kg) e a QBuen (24,5 kg): uma pessoa move e guarda sozinha. A montagem é simples, segundo o anúncio: só parafusar as colunas. Para usar com segurança, deixe espaço livre em volta: veja o <a href="/guias/seguranca-na-esteira">guia de segurança na esteira</a>.</p>
 
-  <h2>Fabricante: sem marca identificável, vendida como "Geral"</h2>
-  <p>A própria ficha técnica do anúncio declara a marca do produto como "Geral". Esse é o valor que aparece quando o vendedor não declara fabricante, e não uma marca de verdade. É o mesmo padrão já visto na <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Elétrica Dobrável Residencial Cardio</a> (que declara "Genérica"). A loja que vende o produto se identifica como Antuvi no Mercado Livre, mais de 500 unidades vendidas e nota 4,7 (280 avaliações) neste anúncio, com o selo "Mais vendido" na categoria, mas isso é o nome do vendedor, não necessariamente um fabricante com site, manual ou assistência técnica próprios; não localizamos nenhum dos três. A garantia também não é informada em nenhum lugar do anúncio, o que deixa esse quesito ainda mais vazio que o da Cardio (que ao menos declara 30 dias pelo vendedor).</p>
+  <h2>Marca, loja e garantia</h2>
+  <p>A ficha declara a marca <strong>Antuvi</strong>, e a venda é feita pela loja oficial da Antuvi no Mercado Livre, com mais de 10 mil vendas e mais de 10 mil seguidores. O anúncio tinha mais de 1.000 unidades vendidas e o selo de 10º mais vendido em esteira ergométrica, mas só 2 avaliações publicadas (nota 5,0), poucas para tirar conclusão sobre durabilidade.</p>
+  <p>O anúncio não informa garantia de fábrica, e não localizamos site de fabricante ou assistência técnica da Antuvi no Brasil. O que protege a compra é a devolução grátis em 30 dias do Mercado Livre, a Compra Garantida e a garantia legal de 90 dias do Código de Defesa do Consumidor. Teste bem a esteira assim que ela chegar.</p>
 
   <div class="pros-cons">
     <div>
       <h3>Pontos fortes</h3>
       <ul>
-        <li>Motor de 2,5 HP e 12 km/h (faixa intermediária do catálogo)</li>
-        <li>Leve para o padrão do catálogo (15 kg), com rodas para mover</li>
-        <li>Ficha técnica completa o bastante para nota editorial, algo que faltou nos outros achados desta rodada de varredura</li>
-        <li>Mais de 500 vendidos, nota 4,7 (280 avaliações), selo "Mais vendido" na categoria</li>
+        <li>R$ 1.039,85 em novembro de 2026</li>
+        <li>Suporta 150 kg, segundo a ficha</li>
+        <li>Dobra, tem rodas e pesa 25 kg</li>
+        <li>Inclinação manual em 10 posições</li>
+        <li>Controle remoto, monitor cardíaco e 12 programas</li>
+        <li>Loja oficial Antuvi, mais de 1.000 vendidas</li>
       </ul>
     </div>
     <div>
       <h3>Limitações</h3>
       <ul>
-        <li>Marca declarada apenas como "Geral" (sem fabricante identificável)</li>
-        <li>Garantia não informada em nenhuma fonte que encontramos</li>
-        <li>Não dobra</li>
-        <li>Lona de 38 cm de largura, estreita mesmo para a faixa de entrada</li>
-        <li>Peso máximo de 100 kg, o mais baixo confirmado do catálogo</li>
-        <li>Grau de inclinação anunciado no título, mas não especificado em texto</li>
-        <li>Motor declarado como valor único (2,5 HP), sem separar contínua de pico</li>
+        <li>Garantia de fábrica não informada</li>
+        <li>Lona de 100 × 40 cm, curta para correr</li>
+        <li>3,0 HP só na descrição, sem potência contínua</li>
+        <li>Posições de inclinação diferentes entre ficha e imagem</li>
+        <li>Só 2 avaliações publicadas</li>
+        <li>Sem fabricante com site ou assistência técnica conhecida</li>
       </ul>
     </div>
   </div>
 
   <h2>Onde comprar e por quanto</h2>
-  <p>Em setembro de 2026, a esteira apareceu por <strong>R$ 1.580</strong> na loja Antuvi (marca declarada "Geral") no Mercado Livre: mais de 500 unidades vendidas, nota 4,7 com 280 avaliações, selo "Mais vendido" na categoria Esteira Ergométrica.</p>
+  <p>Em 14 de novembro de 2026, a esteira Antuvi aparecia por <strong>R$ 1.039,85</strong> na loja oficial Antuvi no Mercado Livre, ou em até 18x de R$ 68,99 no cartão Mercado Pago, com frete grátis e mais de 1.000 unidades vendidas. Ignore o preço riscado que aparece no anúncio: é âncora de marketing, não um valor pelo qual o produto de fato circulou.</p>
 
   <CompareSimilar slug="antuvi-mesa" />
 
   <h2>Perguntas frequentes</h2>
 
+  <h3>A esteira Antuvi é boa?</h3>
+  <p>Para caminhar e trotar de leve em casa, sim: nota editorial 6,8/10. Por R$ 1.039,85 em novembro de 2026, ela dobra, pesa 25 kg, suporta 150 kg, chega a 12 km/h e tem inclinação manual em 10 posições, vendida pela loja oficial da Antuvi. O que pesa contra: a garantia não é informada e a lona tem 1 m, curta para correr.</p>
+
   <h3>Antuvi é uma marca de verdade?</h3>
-  <p>A própria ficha técnica do anúncio declara a marca como "Geral", não "Antuvi": esse é o nome do vendedor no Mercado Livre. Não localizamos fabricante com site, manual ou assistência técnica própria.</p>
+  <p>No anúncio atual, sim: a ficha técnica declara a marca Antuvi e a venda é feita pela loja oficial da Antuvi no Mercado Livre, com mais de 10 mil vendas. Não localizamos site de fabricante nem assistência técnica própria no Brasil.</p>
 
-  <h3>Ela dobra?</h3>
-  <p>Não. A ficha técnica do anúncio confirma "É dobrável: Não". Tem rodas para ajudar a mover, mas não dobra ao meio para guardar.</p>
+  <h3>A esteira Antuvi dobra?</h3>
+  <p>Sim. A ficha confirma que ela é dobrável e tem rodas. Pesa 25 kg, então uma pessoa consegue guardar sozinha.</p>
 
-  <h3>Qual a garantia?</h3>
-  <p>Não encontramos essa informação em nenhuma fonte: nem no anúncio, nem em site de fabricante independente. Recomendamos perguntar diretamente ao vendedor antes de comprar.</p>
+  <h3>A esteira Antuvi aguenta 150 kg?</h3>
+  <p>É o que a ficha técnica do anúncio declara. Não há fabricante com site para confirmar o número de forma independente, então compre com folga em relação ao seu peso.</p>
 
-  <h3>Serve para correr?</h3>
-  <p>Não é o foco dela. Com 12 km/h de velocidade máxima e motor de 2,5 HP (sem separar contínua de pico), é mais indicada para caminhada rápida e trote leve.</p>
+  <h3>O motor da Antuvi tem 3 HP?</h3>
+  <p>A descrição e o título do anúncio falam em 3,0 HP, mas a ficha técnica não traz o campo de potência e o anúncio não separa potência contínua de pico. Usamos o número declarado na nota, com essa ressalva.</p>
 
-  <h3>A inclinação de "6°" que aparece na imagem é confirmada?</h3>
-  <p>Não. É uma chamada gráfica na imagem de marketing do próprio vendedor. O título do anúncio confirma que existe algum mecanismo de inclinação, mas nenhuma fonte em texto especifica o grau: veja nossa <a href="/metodologia">metodologia</a>.</p>
+  <h3>Qual a garantia da esteira Antuvi?</h3>
+  <p>O anúncio não informa garantia de fábrica. Valem a devolução grátis em 30 dias do Mercado Livre, a Compra Garantida e a garantia legal de 90 dias do Código de Defesa do Consumidor.</p>
 
-  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a></p>
+  <p style="margin-top:2.5rem"><a class="buy" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Conferir frete e garantia no anúncio</a></p>
 
-  <p><strong>Leia também:</strong> nosso <a href="/guias/como-escolher">guia de como escolher uma esteira</a>, a <a href="/reviews/qbuen-150kg">QBuen AT-1271</a> (150 kg de peso máximo contra 100 kg desta, por um preço menor) e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
+  <p><strong>Leia também:</strong> a <a href="/reviews/qbuen-150kg">QBuen AT-1271</a>, outra dobrável de 150 kg com inclinação, a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, com fabricante identificado, o <a href="/guias/esteira-acima-de-100kg">guia de esteira para quem pesa mais de 100 kg</a> e o <a href="/#comparativo">comparativo completo</a> com todos os modelos que já analisamos.</p>
 
-  <p class="disclosure">Esta análise foi feita a partir da ficha técnica e do título do anúncio da loja Antuvi no Mercado Livre, consultados em setembro de 2026: não localizamos site de fabricante independente, e a ficha declara a marca apenas como "Geral". Por isso, garantia e o grau exato de inclinação estão marcados como não confirmados. Não testamos fisicamente o equipamento e não recebemos produto ou pagamento da Antuvi ou de "Geral". O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
+  <p class="disclosure">Esta análise foi feita a partir da ficha técnica, da descrição, das imagens e das avaliações do anúncio da loja oficial Antuvi no Mercado Livre (anúncio #7933866592), consultados em 14 de novembro de 2026. Não encontramos site, manual ou ficha oficial de fabricante da Antuvi. Não testamos fisicamente o equipamento. O site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você.</p>
 
 </ReviewLayout>

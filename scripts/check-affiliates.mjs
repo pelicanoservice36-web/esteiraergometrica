@@ -282,7 +282,7 @@ if (existsSync(dist)) {
 				'strive-25hp-16kmh': 7,
 				'redfin-150kg': 10,
 				'health-herald-lcd': 10,
-				'antuvi-mesa': 7,
+				'antuvi-mesa': 8,
 				'gallant-elite-gee12m25a': 9,
 				'speedo-tr5': 7,
 				'kht-gts6': 7,
@@ -317,7 +317,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 228) diff.push(`total de CTAs: esperado 228, encontrado ${total}`);
+		if (total !== 229) diff.push(`total de CTAs: esperado 229, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

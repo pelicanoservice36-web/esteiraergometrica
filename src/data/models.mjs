@@ -20,7 +20,7 @@ export const models = [
 	{ slug: 'gallant-elite-gee12m28a', nome: 'Gallant Elite GEE12M28A', nota: '7,7', motor: '2,8 HP', vel: '16 km/h', lona: '42 × 122 cm', peso: '120 kg', dobra: 'Sim', preco: 'R$ 2.699', precoRef: 2699 },
 	{ slug: 'gallant-elite-gee12m25a', nome: 'Gallant Elite GEE12M25A', nota: '7,4', motor: '2,5 HP', vel: '14 km/h', lona: '42 × 110 cm', peso: '120 kg', dobra: 'Sim', preco: 'R$ 2.052,04', precoRef: 2052.04 },
 	{ slug: 'podiumfit-x300', nome: 'PodiumFit X300', nota: '6,5', motor: '2,0 HPM', vel: '12 km/h', lona: '40 × 110 cm', peso: '110 kg', dobra: 'Sim', preco: 'R$ 2.536', precoRef: 2536 },
-	{ slug: 'antuvi-mesa', nome: 'Antuvi', nota: '5,5', motor: '2,5 HP', vel: '12 km/h', lona: '38 × 100 cm', peso: '100 kg', dobra: 'Não', preco: 'R$ 1.580', precoRef: 1580 },
+	{ slug: 'antuvi-mesa', nome: 'Antuvi Dobrável 150 kg', nota: '6,8', motor: '3,0 HP', vel: '12 km/h', lona: '40 × 100 cm', peso: '150 kg', dobra: 'Sim', preco: 'R$ 1.039,85', precoRef: 1039.85 },
 	{ slug: 'qbuen-150kg', nome: 'QBuen AT-1271', nota: '6,4', motor: '2 HP', vel: '12 km/h', lona: '40 cm larg.', peso: '150 kg', dobra: 'Sim', preco: 'R$ 889,64', precoRef: 889.64 },
 	{ slug: 'strive-25hp-16kmh', nome: 'Strive TM16', nota: '6,0', motor: '2,5 HP', vel: '16 km/h', lona: '40 × 110 cm', peso: '120 kg', dobra: 'Não', preco: 'R$ 2.658,70', precoRef: 2658.7 },
 	{ slug: 'redfin-150kg', nome: 'Redfin Ideal DL-227', nota: '6,7', motor: '2,5 HP', vel: '6 km/h', lona: '40 × 90 cm', peso: '150 kg', dobra: 'Sim', preco: 'R$ 577,91', precoRef: 577.91 },
