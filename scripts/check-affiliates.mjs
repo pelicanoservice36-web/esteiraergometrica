@@ -301,6 +301,13 @@ if (existsSync(dist)) {
 				'tenis-mizuno-wave-dynasty': 2,
 				'tenis-new-balance-680v9-feminino': 2,
 				'tenis-asics-gel-excite-11': 2,
+				'tenis-puma-flyer-runner-feminino': 2,
+				'tenis-adidas-runvista-feminino': 2,
+				'tenis-modare-ultraconforto-slip-on': 2,
+				'tenis-olympikus-cosmo': 2,
+				'tenis-sandrini-aero-spark': 2,
+				'tenis-olympikus-veloz-3': 2,
+				'tenis-new-balance-dynasoft-flash-v7': 2,
 		};
 		const got = {};
 		for (const m of all.matchAll(/href="\/go\/[a-z0-9-]+\/([a-z0-9-]+)"/g)) {
@@ -310,7 +317,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 214) diff.push(`total de CTAs: esperado 214, encontrado ${total}`);
+		if (total !== 228) diff.push(`total de CTAs: esperado 228, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

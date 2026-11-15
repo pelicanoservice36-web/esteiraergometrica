@@ -500,6 +500,105 @@ export const products = {
 		notes:
 			'Loja oficial Asics (Salute Sports). R$ 429,89. Nota 4,9 com 411 avaliações, +1.000 vendidos. Ficha: 1011C200-002, tecnologias "Amplifoam Plus, Gel", entressola EVA, Jacquard mesh, superfícies "Asfalto, esteira e superfícies firmes", palmilha removível, sola antiderrapante sim.',
 	},
+
+	// Segunda leva (14/11/2026). Apify sem cota no mês: candidatos tirados das buscas
+	// "tenis para caminhada feminino/masculino" do próprio Mercado Livre, ficha e
+	// meli.la lidos no navegador logado no mesmo dia. Descartado: "Olympikus Flutua 2"
+	// (MLBU4021894000), ficha com marca "Olimpicus" — não confiável.
+
+	'tenis-puma-flyer-runner-feminino': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Puma Flyer Runner Mesh feminino',
+		listingId: 'MLB4091855423',
+		productUrl: 'https://produto.mercadolivre.com.br/MLB-4091855423-tnis-flyer-runner-mesh-feminino-puma-_JM',
+		affiliateUrl: 'https://meli.la/2BDyi1Z',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Loja oficial Puma. R$ 189,99 (de R$ 249,99 riscado, Black Friday — não reproduzir). Nota 4,8 com 2.450 avaliações, +50 mil vendidos. Ficha: largura ESTREITA, uso "Casual", entressola de espuma e EVA, palmilha removível, sola antiderrapante sim, superfícies só "Cimento".',
+	},
+	'tenis-adidas-runvista-feminino': {
+		merchant: 'mercadolivre',
+		title: 'Tênis adidas Runvista feminino',
+		listingId: 'MLBU3647428779',
+		productUrl: 'https://www.mercadolivre.com.br/tenis-feminino-runvista-adidas/up/MLBU3647428779',
+		affiliateUrl: 'https://meli.la/24kn4aG',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Vendedor adidas. R$ 282,14. Nota 4,9 com 105 avaliações, +500 vendidos. Ficha: JR4626, 2026, entressola de EVA, tecnologias "NA", sola antiderrapante NÃO, palmilha removível NÃO, superfícies só "Cimento".',
+	},
+	'tenis-modare-ultraconforto-slip-on': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Modare Ultraconforto sem cadarço feminino',
+		listingId: 'MLBU3796018775',
+		productUrl:
+			'https://www.mercadolivre.com.br/tenis-feminino-elastico-sem-cadarco-ultra-conforto-modare/up/MLBU3796018775',
+		affiliateUrl: 'https://meli.la/2d7Jx6w',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Vendido por Usee Brasil. R$ 151,90. Nota 4,8 com 453 avaliações, +1.000 vendidos. Ficha: 7401.105, 2026, ajuste "Calce Fácil, Elástico, Slip On", uso caminhada/dia a dia, sola PVC expandido/borracha antiderrapante, palmilha removível e respirável. Superfícies não citam esteira. O nome do modelo na ficha cita "esporão, fascite plantar" — alegação do anúncio, não reproduzir como benefício.',
+	},
+	'tenis-olympikus-cosmo': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Olympikus Cosmo masculino',
+		listingId: 'MLBU3961978307',
+		productUrl: 'https://www.mercadolivre.com.br/tenis-masculino-cosmo-olympikus/up/MLBU3961978307',
+		affiliateUrl: 'https://meli.la/268zm7b',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Vendedor Olympikus. R$ 153,99 (R$ 140 a 153 entre anúncios na busca). Nota 4,9 com 1.104 avaliações, +1.000 vendidos. Ficha: linha Caminhada, 2024, tecnologia Eleva +, entressola EVA, superfícies "TODAS", palmilha removível, sola antiderrapante sim.',
+	},
+	'tenis-sandrini-aero-spark': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Sandrini Aero Spark masculino',
+		listingId: 'MLB4340888693',
+		productUrl:
+			'https://produto.mercadolivre.com.br/MLB-4340888693-tnis-sandrini-aero-spark-corrida-academia-caminhada-leve-_JM',
+		affiliateUrl: 'https://meli.la/1uswtya',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Loja oficial Sandrini (Sandrini Menswear). R$ 132,99. Nota 4,7 com 11.876 avaliações, +10 mil vendidos. Ficha: modelo 1841, masculino, cadarços, largura padrão, usos academia/caminhada/casual/treino. Ficha NÃO informa entressola nem superfícies.',
+	},
+	'tenis-olympikus-veloz-3': {
+		merchant: 'mercadolivre',
+		title: 'Tênis Olympikus Veloz 3 masculino',
+		listingId: 'MLBU2606358887',
+		productUrl: 'https://www.mercadolivre.com.br/tenis-masculino-olympikus-veloz-3/up/MLBU2606358887',
+		affiliateUrl: 'https://meli.la/1nCySEU',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Loja oficial Olympikus (vendido pelo Mercado Livre). R$ 215,99. Nota 4,9 com 2.922 avaliações, +10 mil vendidos. Ficha: linha Corrida, tecnologias "Eleva +, Gripper", entressola EVA, usos caminhada e corrida, superfícies "Asfalto, Concreto, Esteira", palmilha removível, sola antiderrapante sim. Ano de lançamento na ficha: 2019.',
+	},
+	'tenis-new-balance-dynasoft-flash-v7': {
+		merchant: 'mercadolivre',
+		title: 'Tênis New Balance Dynasoft Flash v7 masculino',
+		listingId: 'MLBU3833821406',
+		productUrl: 'https://www.mercadolivre.com.br/tenis-masculino-dynasoft-flash-v7-new-balance/up/MLBU3833821406',
+		affiliateUrl: 'https://meli.la/1qVmNUN',
+		trackingTag: 'pelicano',
+		page: '/guias/melhor-tenis-para-esteira',
+		enabled: true,
+		verifiedAt: '2026-11-14',
+		notes:
+			'Loja oficial New Balance (Usee Brasil). R$ 249,99. Nota 4,9 com 37 avaliações, +100 vendidos. Ficha: MFLSHV7, linha Running, DynaSoft, superfícies "Academia, Asfalto, Calçadas Urbanas, Esteira", palmilha removível, sola antiderrapante sim.',
+	},
 };
 
 /** Rotas curtas antigas, mantidas para links externos já publicados. */
