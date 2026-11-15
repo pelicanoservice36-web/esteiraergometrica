@@ -12,6 +12,7 @@ const jsonLd = {
 
 const faq = [
 	{ q: 'Por que a esteira desliga sozinha no meio do treino?', a: 'As causas mais comuns são a chave de segurança que se soltou, o fim de um programa de treino, sobrecarga do motor (peso acima do limite ou lona com atrito alto), superaquecimento e problemas na rede elétrica, como tensão baixa ou alta. Muitas esteiras mostram um código de erro no painel que indica qual delas aconteceu.' },
+	{ q: 'Por que a esteira para sozinha durante o uso?', a: 'Na maioria dos casos é a chave de segurança, que se soltou do painel, ou o fim de um programa de treino. Se não for isso, a causa costuma ser sobrecarga do motor, superaquecimento ou tensão fora do normal na tomada. Se o painel mostrar um código de erro, anote: ele indica qual dessas causas aconteceu.' },
 	{ q: 'A chave de segurança pode desligar a esteira sem querer?', a: 'Pode. Ela é feita para desligar a esteira quando se solta, e um puxão no cordão ou um ímã mal encaixado no painel basta. Confira se a chave está bem encaixada e presa à sua roupa antes de começar.' },
 	{ q: 'Posso ligar a esteira em extensão ou adaptador de tomada?', a: 'O manual da Movement LX G4 proíbe qualquer adaptação para tomadas sem pino terra e exige tomada 2P+T de 20 A, aterrada. Ele também pede um disjuntor exclusivo: 25 A em 220 V ou 32 A em 110 V, curva B. Confira as exigências do manual do seu modelo.' },
 	{ q: 'O peso do usuário pode fazer a esteira desligar?', a: 'Pode. Acima do limite, o motor trabalha em sobrecarga, e esteiras com inversor, como a Movement, têm alarme e falha de sobrecarga do motor que podem interromper o funcionamento. Respeite o peso máximo do seu modelo.' },
@@ -30,15 +31,15 @@ const faqJsonLd = {
 ---
 
 <ArticleLayout
-	title="Esteira desligando sozinha: causas e o que fazer"
-	description="Esteira desliga sozinha no treino? Chave de segurança, sobrecarga, superaquecimento ou rede elétrica: veja o que conferir antes de chamar o técnico."
+	title="Esteira desliga sozinha durante o uso? Causas e solução"
+	description="Esteira parando ou desligando sozinha no meio do treino? Confira chave de segurança, tomada, peso, superaquecimento e os códigos de erro do painel."
 	path="/guias/esteira-desligando-sozinha"
 	ogTitle="Esteira desligando sozinha: o que pode ser"
 	ogDescription="Chave de segurança, sobrecarga, superaquecimento ou tomada errada: um roteiro de diagnóstico baseado no manual de um fabricante, com os códigos de erro."
 	jsonLd={[jsonLd, faqJsonLd]}
 	h1="Esteira desligando sozinha: causas e o que fazer"
 	standfirst="Quando a esteira desliga sozinha no meio do treino, as causas mais comuns são a chave de segurança que se soltou, o fim de um programa, sobrecarga do motor, superaquecimento ou problema na rede elétrica. Comece pelo que é simples: a chave de segurança e a tomada. Se o painel mostrar um código de erro, ele indica qual dessas causas aconteceu."
-	updated="outubro de 2026"
+	updated="novembro de 2026"
 >
 
   <div class="verdict">
@@ -111,6 +112,9 @@ const faqJsonLd = {
 
   <h3>Por que a esteira desliga sozinha no meio do treino?</h3>
   <p>As causas mais comuns são a chave de segurança que se soltou, o fim de um programa de treino, sobrecarga do motor (peso acima do limite ou lona com atrito alto), superaquecimento e problemas na rede elétrica, como tensão baixa ou alta. Muitas esteiras mostram um código de erro no painel que indica qual delas aconteceu.</p>
+
+  <h3>Por que a esteira para sozinha durante o uso?</h3>
+  <p>Na maioria dos casos é a chave de segurança, que se soltou do painel, ou o fim de um programa de treino. Se não for isso, a causa costuma ser sobrecarga do motor, superaquecimento ou tensão fora do normal na tomada. Se o painel mostrar um código de erro, anote: ele indica qual dessas causas aconteceu.</p>
 
   <h3>A chave de segurança pode desligar a esteira sem querer?</h3>
   <p>Pode. Ela é feita para desligar a esteira quando se solta, e um puxão no cordão ou um ímã mal encaixado no painel basta. Confira se a chave está bem encaixada e presa à sua roupa antes de começar.</p>
