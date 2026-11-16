@@ -798,6 +798,17 @@ a:hover { color: var(--primary-ink); }
 
 .comparativo-table thead th { padding-top: 0; }
 
+/* Miniatura em qualquer tabela (ex.: .specs dos guias): nunca distorce. */
+.cell-product { display: flex; align-items: center; gap: 0.75rem; }
+.cell-product img {
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
 .comparativo-table .cell-product {
   display: flex;
   align-items: center;
@@ -1071,7 +1082,7 @@ a:hover { color: var(--primary-ink); }
   overflow: hidden;
 }
 
-.featured-pick-media img { width: 100%; height: 100%; object-fit: cover; }
+.featured-pick-media img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
 
 .featured-pick .eyebrow {
   background: rgba(255, 255, 255, 0.14);
@@ -1163,12 +1174,23 @@ a:hover { color: var(--primary-ink); }
   text-decoration: none;
 }
 
-.product-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 250ms ease; }
+/* Fotos de anúncio têm proporções diferentes (300×183 a 180×300). A imagem fica
+   absoluta dentro da moldura: a moldura mantém sempre a mesma proporção (o card
+   não estica com foto vertical) e "contain" mostra o produto inteiro, sem cortar. */
+.product-card__media { background: #fff; border-bottom: 1px solid var(--border); }
+.product-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+  transition: transform 250ms ease;
+}
 .product-card:hover .product-card__media img { transform: scale(1.04); }
 
-/* Fotos de anúncio em formato paisagem (tênis): mostra o produto inteiro, sem cortar. */
-.product-card__media--contain { background: #fff; aspect-ratio: 4 / 3; }
-.product-card__media--contain img { object-fit: contain; padding: 1rem; }
+/* Tênis: fotos em formato paisagem, moldura 4:3. */
+.product-card__media--contain { aspect-ratio: 4 / 3; }
 
 .product-card__badge {
   position: absolute;
