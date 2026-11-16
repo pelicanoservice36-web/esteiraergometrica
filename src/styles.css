@@ -1263,14 +1263,37 @@ a:hover { color: var(--primary-ink); }
 
 /* ---------- Como avaliamos ---------- */
 
+/* 7 critérios: celular em 1 coluna; tablet 2 colunas (o último ocupa a linha);
+   desktop em grade de 6: 20% e 15% em pares, os três de 10% numa linha. */
 .method-grid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 @media (min-width: 40rem) {
-  .method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .method-grid > .method-item:last-child { grid-column: 1 / -1; }
+}
+
+@media (min-width: 64rem) {
+  .method-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .method-item--20, .method-item--15 { grid-column: span 3; }
+  .method-grid > .method-item--10, .method-grid > .method-item:last-child { grid-column: span 2; }
+}
+
+.method-grid + .stamp { margin-top: 1.5rem; }
+
+.method-weight {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  vertical-align: middle;
 }
 
 .method-item {
