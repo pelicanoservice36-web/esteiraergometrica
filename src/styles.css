@@ -1189,6 +1189,9 @@ a:hover { color: var(--primary-ink); }
 }
 .product-card:hover .product-card__media img { transform: scale(1.04); }
 
+/* Esteiras: miniaturas já quadradas e padronizadas (-sq.webp), preenchem a moldura. */
+.product-card__media:not(.product-card__media--contain) img { padding: 0; }
+
 /* Tênis: fotos em formato paisagem, moldura 4:3. */
 .product-card__media--contain { aspect-ratio: 4 / 3; }
 
