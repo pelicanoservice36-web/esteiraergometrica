@@ -4,15 +4,15 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'Pode correr descalço na esteira? E de meia?',
+	headline: 'Pode fazer esteira descalço ou de meia?',
 	author: { '@type': 'Person', name: 'Rafael Rodrigues', url: 'https://esteiraergometrica.com/sobre' },
 	datePublished: '2026-10-21',
 	mainEntityOfPage: 'https://esteiraergometrica.com/guias/correr-descalco-na-esteira',
 };
 
 const faq = [
-	{ q: 'Pode correr descalço na esteira?', a: 'Não é recomendado. O manual da Movement LX G4, por exemplo, diz: "Não utilize o equipamento descalço, com calçado de salto ou sola gasta". O pé fica exposto ao atrito da lona e às partes fixas da esteira. Confira o manual do seu modelo, mas a regra geral é usar tênis.' },
-	{ q: 'Posso usar a esteira só de meia?', a: 'Também não é recomendado. A meia tem menos aderência que a sola de um tênis e deixa o pé tão exposto ao atrito quanto descalço. Se a lona escorregar sob o pé, o risco de queda aumenta.' },
+	{ q: 'Pode fazer esteira descalço?', a: 'Não é recomendado. O manual da Movement LX G4, por exemplo, diz: "Não utilize o equipamento descalço, com calçado de salto ou sola gasta". O pé fica exposto ao atrito da lona e às partes fixas da esteira. Confira o manual do seu modelo, mas a regra geral é usar tênis.' },
+	{ q: 'Pode fazer esteira de meia?', a: 'Também não é recomendado. A meia tem menos aderência que a sola de um tênis e deixa o pé tão exposto ao atrito quanto descalço. Se a lona escorregar sob o pé, o risco de queda aumenta.' },
 	{ q: 'Qual o melhor tênis para esteira?', a: 'Um tênis de caminhada ou de corrida, bem amarrado, com sola inteira e sem desgaste. Não precisa ser um modelo específico para esteira. Evite chinelo, sapatênis com sola lisa e qualquer calçado de salto.' },
 	{ q: 'Tênis com sola gasta faz mal na esteira?', a: 'O manual da Movement proíbe usar a esteira com sola gasta. Sola lisa perde aderência na lona, e um tênis muito usado já não amortece como antes. Troque quando a sola estiver lisa ou deformada.' },
 	{ q: 'Posso usar o mesmo tênis da rua na esteira?', a: 'Pode, se estiver em bom estado. Só limpe a sola antes: terra e pedrinhas vão parar na lona e embaixo dela. O manual da Movement pede limpeza semanal, com aspirador embaixo da esteira.' },
@@ -30,15 +30,15 @@ const faqJsonLd = {
 ---
 
 <ArticleLayout
-	title="Pode correr descalço na esteira? E de meia?"
-	description="Correr descalço ou de meia na esteira não é recomendado: o manual da Movement proíbe. Veja por quê e como escolher o tênis certo para a esteira."
+	title="Pode fazer esteira descalço ou de meia? O que o manual diz"
+	description="Não: o manual da Movement proíbe usar a esteira descalço. Veja por que de meia também não é seguro e qual tênis usar para caminhar ou correr na esteira."
 	path="/guias/correr-descalco-na-esteira"
-	ogTitle="Descalço ou de meia na esteira: pode?"
+	ogTitle="Pode fazer esteira descalço ou de meia?"
 	ogDescription="O que o manual de um fabricante diz sobre calçado na esteira, e como escolher um tênis que funcione bem na lona."
 	jsonLd={[jsonLd, faqJsonLd]}
-	h1="Pode correr descalço na esteira? E de meia?"
+	h1="Pode fazer esteira descalço ou de meia?"
 	standfirst="Não é recomendado. O manual da Movement LX G4 é direto: “Não utilize o equipamento descalço, com calçado de salto ou sola gasta”. Descalço ou de meia, o pé fica exposto ao atrito da lona e tem menos aderência. Use um tênis de caminhada ou de corrida, bem amarrado e com a sola em bom estado."
-	updated="outubro de 2026"
+	updated="novembro de 2026"
 >
 
   <div class="verdict">
@@ -96,10 +96,10 @@ const faqJsonLd = {
 
   <h2>Perguntas frequentes</h2>
 
-  <h3>Pode correr descalço na esteira?</h3>
+  <h3>Pode fazer esteira descalço?</h3>
   <p>Não é recomendado. O manual da Movement LX G4, por exemplo, diz: "Não utilize o equipamento descalço, com calçado de salto ou sola gasta". O pé fica exposto ao atrito da lona e às partes fixas da esteira. Confira o manual do seu modelo, mas a regra geral é usar tênis.</p>
 
-  <h3>Posso usar a esteira só de meia?</h3>
+  <h3>Pode fazer esteira de meia?</h3>
   <p>Também não é recomendado. A meia tem menos aderência que a sola de um tênis e deixa o pé tão exposto ao atrito quanto descalço. Se a lona escorregar sob o pé, o risco de queda aumenta.</p>
 
   <h3>Qual o melhor tênis para esteira?</h3>
