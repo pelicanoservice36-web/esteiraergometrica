@@ -1567,7 +1567,7 @@ a:hover { color: var(--primary-ink); }
     align-items: center;
   }
 
-  .comparativo-table .cell-product img { width: 6.5rem; height: 6.5rem; }
+  .comparativo-table .cell-product img { width: 8.5rem; height: 8.5rem; }
 
   .comparativo-table .cell-product-name { font-size: 1.0625rem; }
 
