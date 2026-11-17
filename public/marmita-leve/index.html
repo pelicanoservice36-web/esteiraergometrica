@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://esteiraergometrica.com/marmita-leve/">
+<title>Marmita Leve em 21 Dias</title>
+<meta name="description" content="Quiz gratuito: descubra o plano de marmitas que combina com a sua rotina e tenha a semana pronta em uma tarde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F9F4; --surface:#FFFFFF; --ink:#1F2B23; --muted:#5D6B61;
+  --brand:#2F7D5B; --brand-dark:#22603F; --brand-ink:#FFFFFF;
+  --accent:#F2A541; --soft:#E6F1E8; --line:#DCE7DE; --ok:#2F7D5B;
+  --alert-bg:#FFF4E5; --alert-line:#E8A64E; --alert-ink:#6B4210;
+  --radius:18px; --shadow:0 10px 30px rgba(30,70,45,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em;font-weight:700}
+h1{font-size:clamp(2rem,6.5vw,3.1rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,4.5vw,2.2rem)}
+h3{font-size:1.15rem}
+p{margin:0 0 1em}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+.wide{max-width:1000px}
+.eyebrow{display:inline-block;font:600 .78rem/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:var(--soft);padding:8px 12px;border-radius:999px;margin-bottom:18px}
+.lead{font-size:1.12rem;color:var(--muted)}
+.small{font-size:.86rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand);color:var(--brand-ink);font:700 1.05rem/1 Inter,sans-serif;text-decoration:none;padding:18px 28px;border-radius:999px;box-shadow:0 8px 20px rgba(47,125,91,.28);transition:transform .15s,background .15s,opacity .15s;border:0;cursor:pointer;text-align:center}
+.btn:hover{background:var(--brand-dark);transform:translateY(-2px)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.btn.block{width:100%}
+.btn.ghost{background:transparent;color:var(--brand);box-shadow:none;border:2px solid var(--brand)}
+.top{padding:16px 0;text-align:center;font:700 1.05rem Fraunces,serif;color:var(--brand)}
+#quiz{min-height:calc(100vh - 60px);padding:8px 0 48px}
+.progress{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:4px 0 8px}
+.progress span{display:block;height:100%;width:0;background:var(--brand);transition:width .35s}
+.step-count{font-size:.85rem;color:var(--muted);margin-bottom:22px;display:flex;justify-content:space-between}
+.back{background:none;border:0;color:var(--muted);font:500 .85rem Inter;cursor:pointer;padding:0}
+.back:hover{color:var(--brand)}
+.screen{display:none;animation:in .35s ease}
+.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.intro{text-align:center;padding-top:28px}
+.intro .btn{margin:10px 0 14px}
+.q h2{font-size:clamp(1.4rem,4.5vw,1.85rem)}
+.hint{font-size:.9rem;color:var(--muted);margin:-6px 0 16px}
+.opts{display:grid;gap:10px;margin-bottom:20px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:16px 18px;font:500 1rem Inter,sans-serif;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--accent)}
+.opt .box{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff}
+.opt.multi .box{border-radius:6px}
+.opt.sel{border-color:var(--brand);background:var(--soft)}
+.opt.sel .box{background:var(--brand);border-color:var(--brand)}
+.opt.sel .box::after{content:"✓"}
+.note{background:var(--soft);border-radius:14px;padding:14px 16px;font-size:.95rem;margin-bottom:18px}
+input[type=text],input[type=email]{width:100%;font:500 1.05rem Inter,sans-serif;padding:16px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);margin-bottom:16px}
+input[type=text]:focus,input[type=email]:focus{outline:none;border-color:var(--brand)}
+.loading{text-align:center;padding-top:40px}
+.spinner{width:56px;height:56px;border-radius:50%;border:5px solid var(--line);border-top-color:var(--brand);margin:0 auto 24px;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-steps{list-style:none;padding:0;margin:0 auto;max-width:340px;text-align:left}
+.load-steps li{padding:8px 0 8px 30px;position:relative;color:var(--muted);transition:color .3s}
+.load-steps li::before{content:"";position:absolute;left:0;top:13px;width:16px;height:16px;border-radius:50%;border:2px solid var(--line)}
+.load-steps li.done{color:var(--ink)}
+.load-steps li.done::before{background:var(--ok);border-color:var(--ok)}
+#resultado,#oferta{display:none}
+section{padding:48px 0}
+.profile{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+.profile .label{font-size:.9rem;color:var(--muted);margin-bottom:4px}
+.profile .name{font:700 clamp(1.7rem,5.5vw,2.4rem)/1.1 Fraunces,serif;color:var(--brand);margin-bottom:14px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.stat{background:var(--soft);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font:700 clamp(1.15rem,4.5vw,1.6rem)/1.15 Fraunces,serif;color:var(--brand)}
+.stat span{font-size:.88rem;color:var(--muted)}
+.cols{display:grid;gap:16px;margin-top:6px}
+@media(min-width:700px){.cols{grid-template-columns:1fr 1fr}}
+.mini{background:var(--bg);border-radius:14px;padding:18px}
+.mini h3{font-size:1rem;margin-bottom:10px}
+.mini ul{margin:0;padding-left:18px}
+.mini li{margin-bottom:6px}
+.timeline{display:grid;gap:10px;margin-top:22px}
+@media(min-width:700px){.timeline{grid-template-columns:repeat(3,1fr)}}
+.phase{border:2px solid var(--line);border-radius:14px;padding:16px;background:var(--surface)}
+.phase .d{font:600 .78rem Inter;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.phase .t{font:700 1.2rem Fraunces,serif;margin:4px 0}
+.phase p{font-size:.92rem;color:var(--muted);margin:0}
+.safety{background:var(--alert-bg);border:2px solid var(--alert-line);color:var(--alert-ink);border-radius:18px;padding:22px;margin-top:22px}
+.safety h3{color:var(--alert-ink)}
+.email-box{margin-top:22px;background:var(--surface);border:1px dashed var(--line);border-radius:18px;padding:22px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.check input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px;flex:none}
+.list{list-style:none;padding:0;margin:0}
+.list li{position:relative;padding:10px 0 10px 34px;border-bottom:1px dashed var(--line)}
+.list li:last-child{border-bottom:0}
+.list li::before{content:"✓";position:absolute;left:0;top:11px;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;font-size:.78rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.list li.no{color:#9AA79E}
+.list li.no::before{content:"–";background:#DCE3DD;color:#7B887F}
+.plans{display:grid;gap:20px;margin-top:28px}
+@media(min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plans-one{max-width:520px;margin-left:auto;margin-right:auto}
+@media(min-width:760px){.plans-one{grid-template-columns:1fr}}
+.hero-mock{position:relative;margin-top:22px;text-align:center}
+.hero-mock>img{width:100%;max-width:520px;height:auto;border-radius:var(--radius)}
+.hero-mock .selos{display:flex;justify-content:center;gap:10px;margin-top:-30px;position:relative}
+.hero-mock .selos img{width:92px;height:92px}
+.shot{display:block;width:100%;height:auto;border-radius:var(--radius);margin:18px 0;box-shadow:var(--shadow)}
+.plan{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;position:relative}
+.plan.featured{border-color:var(--brand);box-shadow:0 18px 40px rgba(47,125,91,.18)}
+.plan .tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font:700 .76rem/1 Inter;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:999px;white-space:nowrap}
+.price{font:700 3rem/1 Fraunces,serif;margin:10px 0 4px}
+.price small{font:600 1rem Inter;vertical-align:super;margin-right:2px}
+.plan .list{flex:1;margin:16px 0 24px}
+.grid3{display:grid;gap:14px;margin-top:22px}
+@media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card .n{font:700 2rem/1 Fraunces,serif;color:var(--accent)}
+.foto{background:repeating-linear-gradient(45deg,#E4EEE5 0 14px,#D9E7DB 14px 28px);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;text-align:center;color:#55705E;font-size:.9rem;padding:20px;min-height:220px;margin-top:22px}
+.p4{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+@media(min-width:760px){.p4{grid-template-columns:repeat(4,1fr)}}
+.p4 div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.p4 b{display:block;font:700 1.05rem Fraunces,serif;color:var(--brand)}
+.p4 span{font-size:.85rem;color:var(--muted)}
+.notis{background:var(--ink);color:#E8F0EA;border-radius:22px;padding:28px}
+.notis h2{color:#fff}
+.notis .list li{border-color:rgba(255,255,255,.15)}
+.notis .list li::before{content:"✕";background:#C0574A}
+.guarantee{display:grid;gap:22px;align-items:center}
+@media(min-width:700px){.guarantee{grid-template-columns:auto 1fr}}
+.seal{width:140px;height:140px;border-radius:50%;background:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 2.6rem/1 Fraunces,serif;color:var(--ink);box-shadow:inset 0 0 0 8px rgba(255,255,255,.5);margin:0 auto}
+.seal span{font:700 .78rem Inter;letter-spacing:.1em;text-transform:uppercase}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--brand)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted)}
+.todo{background:#FFF4D6;border:1px dashed #D9A93A;border-radius:10px;padding:8px 12px;font-size:.88rem;color:#7A5A12}
+footer{padding:36px 0 90px;font-size:.84rem;color:var(--muted);text-align:center}
+footer a{color:var(--muted)}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:10;display:none}
+@media(max-width:759px){.sticky.show{display:block}}
+</style>
+</head>
+<body>
+
+<div class="top">Marmita Leve em 21 Dias</div>
+
+<main id="quiz" class="wrap">
+  <div id="qhead" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="step-count"><button class="back" id="back" type="button">← Voltar</button><span id="count"></span></div>
+  </div>
+
+  <div class="screen intro on" data-s="intro">
+    <span class="eyebrow">Quiz gratuito · 1 minuto</span>
+    <h1>Qual plano de marmitas combina com a sua rotina?</h1>
+    <p class="lead">Responda 7 perguntas rápidas e descubra como ter as refeições da semana prontas em uma tarde, comendo bem e sem passar fome.</p>
+    <button class="btn" id="start" type="button">Começar o quiz</button>
+    <p class="small">🔒 Suas respostas ficam só no seu celular.</p>
+  </div>
+
+  <div id="questions"></div>
+
+  <div class="screen q" data-s="nome">
+    <h2>Como posso te chamar?</h2>
+    <p class="hint">Só o primeiro nome. É opcional.</p>
+    <input type="text" id="nome" maxlength="30" autocomplete="given-name" placeholder="Seu primeiro nome">
+    <button class="btn block" id="finish" type="button">Ver meu plano</button>
+  </div>
+
+  <div class="screen loading" data-s="loading">
+    <div class="spinner"></div>
+    <h2>Montando o seu plano…</h2>
+    <ul class="load-steps">
+      <li>Lendo a sua rotina</li>
+      <li>Escolhendo o tamanho da sua sessão de preparo</li>
+      <li>Separando a sua lista de compras</li>
+    </ul>
+  </div>
+</main>
+
+<section id="resultado">
+  <div class="wrap">
+    <div class="profile">
+      <div class="label" id="r-hello">O seu perfil é:</div>
+      <div class="name" id="r-name"></div>
+      <p id="r-text"></p>
+      <div class="stats">
+        <div class="stat"><b id="r-qtd"></b><span>por semana</span></div>
+        <div class="stat"><b id="r-tempo"></b><span id="r-sessao">de preparo</span></div>
+      </div>
+      <div class="cols">
+        <div class="mini" id="r-res-box"><h3>O que o plano vai resolver</h3><ul id="r-res"></ul></div>
+        <div class="mini" id="r-ad-box"><h3>Adaptações</h3><ul id="r-ad"></ul></div>
+      </div>
+      <div class="timeline">
+        <div class="phase"><div class="d">Semana 1</div><div class="t">Começar</div><p>Sessão guiada passo a passo e as primeiras 10 marmitas.</p></div>
+        <div class="phase"><div class="d">Semana 2</div><div class="t">Variar</div><p>Kit de molhos e novas combinações com a mesma base.</p></div>
+        <div class="phase"><div class="d">Semana 3</div><div class="t">Firmar</div><p>Montar o seu próprio cardápio, sem depender de ninguém.</p></div>
+      </div>
+
+      <div class="safety" id="r-safety" hidden>
+        <h3>Antes de começar</h3>
+        <p>Na sua situação, o ideal é seguir um cardápio com acompanhamento de nutricionista ou médico. Você pode usar este material para organização e preparo, mas quantidades e escolhas devem ser ajustadas com um profissional. Atendimento gratuito: UBS (posto de saúde) da sua cidade.</p>
+        <p id="r-ta" hidden style="margin:0"><strong>Sobre transtorno alimentar:</strong> desafios com prazo e foco em emagrecimento podem não ser indicados para você agora. Procure apoio profissional. Se precisar conversar, o CVV atende pelo <a href="tel:188" style="color:var(--alert-ink);font-weight:700">188</a>, gratuito, 24 horas.</p>
+      </div>
+
+      <form class="email-box" id="email-form" action="#FORM_EMAIL_ACTION" method="post">
+        <h3>Quer receber a lista de compras da Semana 1 no seu e-mail?</h3>
+        <input type="email" name="email" required placeholder="seuemail@exemplo.com" autocomplete="email">
+        <input type="hidden" name="perfil" id="email-perfil">
+        <label class="check"><input type="checkbox" required> Aceito receber e-mails de Helena Prado sobre o Marmita Leve em 21 Dias. Posso cancelar quando quiser.</label>
+        <button class="btn ghost block" type="submit">Enviar a lista</button>
+        <p class="small" id="email-ok" hidden style="margin:12px 0 0;color:var(--ok)">Pronto! Confira sua caixa de entrada (e o spam).</p>
+      </form>
+    </div>
+    <p style="text-align:center;margin-top:28px"><a class="btn" href="#oferta">Ver o plano completo de 21 dias ↓</a></p>
+  </div>
+</section>
+
+<div id="oferta">
+  <section>
+    <div class="wrap wide">
+      <span class="eyebrow">O que você recebe</span>
+      <h2>Seu plano de 21 dias de marmitas</h2>
+      <p class="lead">Uma tarde por semana. 10 marmitas no freezer. E a cabeça livre de "o que eu vou comer hoje?".</p>
+      <div class="hero-mock"><img src="img/mockup-ebook.jpg" alt="Capa do e-book Marmita Leve em 21 Dias" width="900" height="900" loading="lazy">
+        <div class="selos"><img src="img/selo-30-marmitas.png" alt="30 marmitas em 3 tardes" width="120" height="120"><img src="img/selo-tarde-unica.png" alt="1 tarde por semana" width="120" height="120"><img src="img/selo-acesso-imediato.png" alt="PDF com acesso imediato" width="120" height="120"></div></div>
+      <h3 style="margin-top:28px">Toda marmita segue o Prato 4 Partes</h3>
+      <div class="p4">
+        <div><b>Proteína</b><span>o tamanho da palma da mão</span></div>
+        <div><b>Legumes</b><span>metade da marmita</span></div>
+        <div><b>Carboidrato</b><span>uma mão fechada</span></div>
+        <div><b>Molho</b><span>o que dá sabor e faz você não desistir</span></div>
+      </div>
+      <div class="grid3">
+        <div class="card"><div class="n">1</div><h3>Semana 1 · Começar</h3><p class="small">A Tarde Única guiada passo a passo: forno, panela e assadeira trabalhando ao mesmo tempo.</p></div>
+        <div class="card"><div class="n">2</div><h3>Semana 2 · Variar</h3><p class="small">5 molhos feitos numa vez só e novas combinações com a mesma base.</p></div>
+        <div class="card"><div class="n">3</div><h3>Semana 3 · Firmar</h3><p class="small">Você monta o seu próprio cardápio e a sua lista de compras.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap wide">
+      <h2>Por dentro do e-book</h2>
+      <p class="lead">72 páginas com links clicáveis, para ler no celular enquanto cozinha ou imprimir.</p>
+      <img class="shot" src="img/conteudo-interno.jpg" alt="Páginas internas: cronograma, receitas, listas de compras, molhos, freezer e checklist" width="1200" height="750" loading="lazy">
+      <img class="shot" src="img/apresentacao-produto.jpg" alt="E-book no tablet, no celular e planners impressos" width="1200" height="750" loading="lazy">
+      <div class="plans plans-one">
+        <div class="plan featured">
+          <span class="tag">Acesso imediato</span>
+          <h3>Marmita Leve em 21 Dias</h3>
+          <div class="price"><small>R$</small>27,90</div>
+          <p class="small">pagamento único · PDF</p>
+          <ul class="list">
+            <li>Método Tarde Única: 10 marmitas em uma tarde, 30 em 3 semanas</li>
+            <li>Cardápios das 3 semanas + cronograma minuto a minuto</li>
+            <li>29 preparos e o kit de 5 molhos</li>
+            <li>Listas de compras para 1 e 2 pessoas</li>
+            <li>Organização do freezer e tabela de conservação</li>
+            <li>Guia de substituições (vegetariano, sem lactose, sem glúten)</li>
+            <li>Planejamento econômico: custo por marmita</li>
+            <li>Planner semanal + PDF de planners para imprimir</li>
+          </ul>
+          <a class="btn block buy" href="#CHECKOUT_PRINCIPAL">Quero organizar minhas marmitas</a>
+        </div>
+      </div>
+      <p class="small" style="text-align:center;margin-top:16px">Acesso imediato no e-mail da compra · Pix ou cartão · Pagamento pela plataforma <span class="todo">[PREENCHER]</span></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="notis">
+        <h2>Para ser honesta com você</h2>
+        <ul class="list">
+          <li>Não é dieta de passar fome.</li>
+          <li>Não promete quilos nem prazos.</li>
+          <li>Não substitui nutricionista ou médico.</li>
+        </ul>
+        <p style="margin:16px 0 0;color:#C9D8CD">É um plano para você ter comida boa e pronta na hora certa, que é o que faz a gente não desistir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section hidden>
+    <div class="wrap"><h2>Quem já fez o desafio</h2><p class="todo">[PREENCHER com depoimentos reais, sem fotos de corpo e sem quilos]</p></div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap guarantee">
+      <div class="seal">7<span>dias</span></div>
+      <div>
+        <h2>Garantia de 7 dias</h2>
+        <p>Abra o e-book, leia o método e veja as listas e os cardápios. Se não for para você, peça o reembolso em até 7 dias pela plataforma de pagamento e você recebe todo o valor de volta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>Perguntas frequentes</h2>
+      <details><summary>Preciso saber cozinhar?</summary><p>Não. As receitas usam poucos ingredientes e o passo a passo diz o tempo de cada etapa.</p></details>
+      <details><summary>Comida congelada fica boa?</summary><p>Fica, com a técnica certa. O guia mostra o que congela bem, o que vai separado e como aquecer sem ressecar.</p></details>
+      <details><summary>Serve para quem não come carne ou não toma leite?</summary><p>Sim. As receitas trazem trocas vegetarianas e sem lactose, e o e-book tem um guia de substituições.</p></details>
+      <details><summary>Quanto tempo leva a Tarde Única?</summary><p>Cerca de 2h30 na Sessão Padrão ou 1h30 na Sessão Expressa. Os tempos variam com o fogão e a prática.</p></details>
+      <details><summary>Vou economizar?</summary><p>Depende dos preços da sua cidade e do que você gasta hoje. O e-book ensina a calcular o custo de cada marmita para você comparar; não há economia garantida.</p></details>
+      <details><summary>Quanto vou emagrecer?</summary><p>Cada corpo é diferente, e o material não promete quilos. Ele resolve o que faz a gente desistir: falta de tempo e de comida pronta. Para metas específicas, procure um nutricionista.</p></details>
+      <details><summary>Como recebo?</summary><p>Na hora, no e-mail usado na compra, com acesso pela área de membros.</p></details>
+    </div>
+  </section>
+
+  <section style="padding-top:0;text-align:center">
+    <div class="wrap">
+      <h2>Sua próxima semana pode começar pronta.</h2>
+      <p class="lead">Uma tarde. Dez marmitas. Um dia de cada vez.</p>
+      <a class="btn" href="#oferta" id="to-plans">Quero o Marmita Leve em 21 Dias</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Marmita Leve em 21 Dias · Helena Prado (pseudônimo) · <span class="todo">[CNPJ/CPF]</span> · <a href="#">Termos de uso</a> · <a href="#">Política de privacidade</a></p>
+    <p>Este material não substitui orientação de nutricionista ou médico. Gestantes, lactantes e pessoas com doenças crônicas devem procurar acompanhamento profissional.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn block" href="#oferta">Ver meu plano de 21 dias</a></div>
+
+<script>
+(function(){
+  var Q = [
+    {id:'obj', t:'Qual é o seu principal objetivo agora?', o:['Emagrecer com saúde','Comer melhor no dia a dia','Ter mais disposição','Gastar menos com delivery']},
+    {id:'ref', t:'Quantas refeições você quer resolver com marmita?', o:['Só o almoço','Almoço e jantar','O dia todo, com lanches']},
+    {id:'tempo', t:'Quanto tempo você tem para cozinhar no fim de semana?', o:['Até 1h30','De 2 a 3 horas','Mais de 3 horas'],
+     after:'Ótimo. Com esse tempo já dá para deixar a semana pronta. O segredo é cozinhar tudo ao mesmo tempo.'},
+    {id:'dif', t:'O que mais atrapalha a sua alimentação hoje?', multi:true, o:['Falta de tempo','Fome no meio da tarde','Peço delivery com frequência','Não sei o que cozinhar','A comida fica sem gosto','Começo e desisto rápido'],
+     after:'Isso é mais comum do que parece. Na maioria das vezes, quem desiste não tem falta de força de vontade, tem falta de comida pronta na hora certa.'},
+    {id:'rest', t:'Você tem alguma restrição?', multi:true, o:['Nenhuma','Sem lactose','Sem glúten','Vegetariana','Não como peixe']},
+    {id:'casa', t:'O que você tem em casa?', multi:true, o:['Freezer','Air fryer','Panela de pressão','Micro-ondas no trabalho']},
+    {id:'saude', t:'Alguma destas situações vale para você?', multi:true, o:['Gestante ou amamentando','Diabetes','Doença renal','Histórico de transtorno alimentar','Nenhuma'],
+     hint:'Essa pergunta existe para o seu plano ser seguro para você.'}
+  ];
+  var RES = {
+    'Falta de tempo':'Uma única sessão de preparo por semana, com tudo cozinhando ao mesmo tempo.',
+    'Fome no meio da tarde':'Marmitas com proteína e fibra na medida, e lanches simples para levar.',
+    'Peço delivery com frequência':'Um jantar pronto em 5 minutos, mais rápido que o motoboy.',
+    'Não sei o que cozinhar':'Cardápio pronto das 3 semanas, com lista de compras.',
+    'A comida fica sem gosto':'Kit de 5 molhos feitos numa vez só.',
+    'Começo e desisto rápido':'Checklist diário e metas de uma semana por vez.'
+  };
+  var AD = {
+    'Sem lactose':'Trocas sem lactose nas receitas e no guia de substituições.',
+    'Sem glúten':'Marmitas sem glúten sinalizadas no cardápio.',
+    'Vegetariana':'Trocas vegetarianas nas receitas e no guia de substituições.',
+    'Não como peixe':'Trocas de proteína indicadas em cada receita.',
+    'Air fryer':'Atalhos de preparo na air fryer.',
+    'Micro-ondas no trabalho':'Guia de como aquecer sem ressecar.'
+  };
+  var PERFIS = {
+    delivery:{n:'Refém do delivery', t:'O delivery ganha quando você chega cansada e não tem nada pronto. O seu plano começa com marmitas "com cara de prato de restaurante" e um jantar que fica pronto em 5 minutos.'},
+    fome:{n:'Fome da tarde', t:'A fome das 16h quase sempre começa no almoço. O seu plano monta cada marmita com o Prato 4 Partes, com proteína e fibra na medida, e inclui lanches simples para levar.'},
+    tempo:{n:'Rotina sem tempo', t:'Você não precisa de mais tempo, precisa de um jeito mais esperto de usar o que tem. O seu plano começa com a Sessão Expressa: 1h30 de preparo para a semana.'},
+    recomeco:{n:'Recomeço consciente', t:'Você quer mudar sem sofrimento, e isso é o mais importante. O seu plano é o de 21 dias completo: começar, variar e firmar, uma semana de cada vez.'}
+  };
+
+  var A = {}, order = [], cur = 0;
+  var host = document.getElementById('questions');
+
+  Q.forEach(function(q){
+    var s = document.createElement('div');
+    s.className = 'screen q'; s.dataset.s = q.id;
+    var h = '<h2>' + q.t + '</h2>';
+    if (q.multi) h += '<p class="hint">Pode marcar mais de uma.</p>';
+    if (q.hint) h += '<p class="hint">' + q.hint + '</p>';
+    h += '<div class="opts">' + q.o.map(function(o){
+      return '<button type="button" class="opt' + (q.multi ? ' multi' : '') + '" data-v="' + o.replace(/"/g,'&quot;') + '"><span class="box"></span>' + o + '</button>';
+    }).join('') + '</div>';
+    if (q.multi) h += '<button type="button" class="btn block next" disabled>Continuar</button>';
+    s.innerHTML = h;
+    host.appendChild(s);
+
+    s.addEventListener('click', function(e){
+      var b = e.target.closest('.opt');
+      if (b){
+        if (q.multi){
+          var excl = (b.dataset.v === 'Nenhuma');
+          s.querySelectorAll('.opt').forEach(function(x){
+            if (x === b) return;
+            if (excl || x.dataset.v === 'Nenhuma') x.classList.remove('sel');
+          });
+          b.classList.toggle('sel');
+          var v = [].map.call(s.querySelectorAll('.opt.sel'), function(x){return x.dataset.v;});
+          A[q.id] = v;
+          s.querySelector('.next').disabled = !v.length;
+        } else {
+          s.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');});
+          b.classList.add('sel');
+          A[q.id] = b.dataset.v;
+          setTimeout(function(){ advance(q); }, 220);
+        }
+      }
+      if (e.target.closest('.next')) advance(q);
+    });
+  });
+
+  order = ['intro'].concat(Q.map(function(q){return q.id;}), ['nome']);
+  var total = order.length - 1;
+
+  function show(name){
+    document.querySelectorAll('#quiz .screen').forEach(function(x){ x.classList.toggle('on', x.dataset.s === name); });
+    var i = order.indexOf(name);
+    document.getElementById('qhead').hidden = (i <= 0);
+    if (i > 0){
+      document.getElementById('bar').style.width = (i / total * 100) + '%';
+      document.getElementById('count').textContent = i + ' de ' + total;
+    }
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  function go(i){ cur = i; show(order[cur]); }
+
+  function advance(q){
+    if (q && q.after){
+      var s = document.querySelector('[data-s="' + q.id + '"]');
+      if (!s.querySelector('.note.ack')){
+        var n = document.createElement('div');
+        n.className = 'note ack'; n.textContent = '💬 ' + q.after;
+        s.appendChild(n);
+        var c = document.createElement('button');
+        c.type = 'button'; c.className = 'btn block'; c.textContent = 'Continuar';
+        c.onclick = function(){ go(cur + 1); };
+        s.appendChild(c);
+        s.querySelectorAll('.next').forEach(function(x){ x.hidden = true; });
+        n.scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+    }
+    go(cur + 1);
+  }
+
+  document.getElementById('start').onclick = function(){ go(1); };
+  document.getElementById('back').onclick = function(){ if (cur > 0) go(cur - 1); };
+  document.getElementById('finish').onclick = function(){
+    A.nome = document.getElementById('nome').value.trim().split(/\s+/)[0] || '';
+    document.getElementById('qhead').hidden = true;
+    document.querySelectorAll('#quiz .screen').forEach(function(x){ x.classList.toggle('on', x.dataset.s === 'loading'); });
+    var li = document.querySelectorAll('.load-steps li');
+    li.forEach(function(x, i){ setTimeout(function(){ x.classList.add('done'); }, 700 * (i + 1)); });
+    setTimeout(render, 700 * li.length + 400);
+  };
+
+  function has(k, v){ return (A[k] || []).indexOf(v) >= 0; }
+  function perfil(){
+    if (has('dif','Peço delivery com frequência') || A.obj === 'Gastar menos com delivery') return 'delivery';
+    if (has('dif','Fome no meio da tarde')) return 'fome';
+    if (A.tempo === 'Até 1h30' || has('dif','Falta de tempo')) return 'tempo';
+    return 'recomeco';
+  }
+  function li(txt){ var e = document.createElement('li'); e.textContent = txt; return e; }
+
+  function render(){
+    var key = perfil(), p = PERFIS[key];
+    document.getElementById('r-hello').textContent = (A.nome ? A.nome + ', o' : 'O') + ' seu perfil é:';
+    document.getElementById('r-name').textContent = p.n;
+    document.getElementById('r-text').textContent = p.t;
+
+    var qtd = A.ref === 'Só o almoço' ? '5 marmitas' : (A.ref === 'O dia todo, com lanches' ? '10 marmitas + 5 lanches' : '10 marmitas');
+    var tempo = A.tempo === 'Até 1h30' ? '1h30' : (A.tempo === 'Mais de 3 horas' ? '3h30' : '2h30');
+    var sessao = A.tempo === 'Até 1h30' ? 'Sessão Expressa' : (A.tempo === 'Mais de 3 horas' ? 'Sessão Completa' : 'Sessão Padrão');
+    document.getElementById('r-qtd').textContent = qtd;
+    document.getElementById('r-tempo').textContent = tempo;
+    document.getElementById('r-sessao').textContent = sessao + ' · 1 vez por semana';
+
+    var res = document.getElementById('r-res'); res.innerHTML = '';
+    (A.dif || []).forEach(function(x){ if (RES[x]) res.appendChild(li(RES[x])); });
+    document.getElementById('r-res-box').hidden = !res.children.length;
+
+    var ad = document.getElementById('r-ad'); ad.innerHTML = '';
+    (A.rest || []).concat(A.casa || []).forEach(function(x){ if (AD[x]) ad.appendChild(li(AD[x])); });
+    if (!ad.children.length) ad.appendChild(li('Cardápio completo, sem adaptações necessárias.'));
+
+    var s = (A.saude || []).filter(function(x){ return x !== 'Nenhuma'; });
+    document.getElementById('r-safety').hidden = !s.length;
+    document.getElementById('r-ta').hidden = s.indexOf('Histórico de transtorno alimentar') < 0;
+    document.getElementById('email-perfil').value = key;
+
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('resultado').style.display = 'block';
+    document.getElementById('oferta').style.display = 'block';
+    document.getElementById('sticky').classList.add('show');
+    window.scrollTo({top:0});
+    if (window.fbq) fbq('track', 'Lead', {content_name: p.n});
+  }
+
+  document.getElementById('email-form').addEventListener('submit', function(e){
+    if (this.getAttribute('action').indexOf('#') === 0){
+      e.preventDefault();
+      document.getElementById('email-ok').hidden = false;
+    }
+  });
+  document.querySelectorAll('.buy').forEach(function(b){
+    b.addEventListener('click', function(){ if (window.fbq) fbq('track', 'InitiateCheckout'); });
+  });
+  document.getElementById('to-plans').addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector('.plans').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
+</body>
+</html>

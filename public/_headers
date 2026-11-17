@@ -19,3 +19,8 @@
 /go/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+# Página de vendas do e-book Marmita Leve em 21 Dias (produto separado do blog).
+# Fora do índice para não misturar com o conteúdo de esteiras; fora do sitemap.
+/marmita-leve/*
+  X-Robots-Tag: noindex, follow
