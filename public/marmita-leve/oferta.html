@@ -334,7 +334,10 @@ body.has-sticky{padding-bottom:78px}
     <p class="eyebrow">Assista antes de decidir · 3 min</p>
     <h2>Como uma tarde organiza a <em>semana inteira</em></h2>
     <div class="vsl-box">
-      <video id="vsl" src="/marmita-leve/video/vsl-marmita-leve.mp4" poster="/marmita-leve/video/vsl-capa.webp" preload="none" playsinline width="1280" height="720"></video>
+      <video id="vsl" poster="/marmita-leve/video/vsl-capa.webp" preload="none" playsinline width="1280" height="720">
+        <source src="/marmita-leve/video/hls/vsl.m3u8" type="application/vnd.apple.mpegurl">
+        <source src="/marmita-leve/video/vsl-marmita-leve.mp4" type="video/mp4">
+      </video>
       <button class="vsl-play" type="button" aria-label="Assistir ao vídeo">
         <span class="pp"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
         <span class="pl">Assistir com som</span>
