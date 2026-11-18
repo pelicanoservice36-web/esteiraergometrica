@@ -11,10 +11,10 @@
 <meta property="og:title" content="Marmita Leve em 21 Dias">
 <meta property="og:description" content="Prepare 10 marmitas em uma tarde e organize sua alimentação para a semana.">
 <meta property="og:image" content="https://esteiraergometrica.com/marmita-leve/img/oferta/livro-3d.webp">
+<link rel="preload" as="image" href="/marmita-leve/video/vsl-capa.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/marmita-leve/img/oferta/flow-livro.webp">
 <style>
 :root{
   --dk:#244B38; --g:#3D7555; --gl:#EAF2E9; --cream:#FAF8F1; --white:#FFFFFF; --ink:#252A25; --gold:#E5A64B;
@@ -62,41 +62,53 @@ section{padding:72px 0}
 /* topo */
 .topbar{background:var(--dk);color:#DCE9DF;font-size:.8rem;text-align:center;padding:9px 16px;letter-spacing:.02em}
 .topbar b{color:#fff;font-weight:600}
-.brand{display:flex;align-items:center;justify-content:space-between;padding:18px 0 0}
+.brand{display:flex;align-items:center;justify-content:space-between;padding:14px 0 0}
 .logo{font:600 1.08rem/1 var(--serif);color:var(--dk);text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:30px;height:30px;border-radius:9px;background:var(--dk);display:grid;place-items:center;color:var(--gold);font-style:normal;font-size:.95rem}
 .brand a.mini-cta{font:700 .8rem var(--sans);color:var(--dk);text-decoration:none;border:1.5px solid var(--dk);padding:9px 14px;border-radius:999px;white-space:nowrap}
 .brand a.mini-cta:hover{background:var(--dk);color:#fff}
 
-/* hero */
-.hero{padding:34px 0 64px;background:radial-gradient(120% 70% at 85% 30%,#EEF4EC 0,rgba(238,244,236,0) 60%),var(--cream);position:relative;overflow:hidden}
-.hero-grid{display:grid;gap:28px;align-items:center}
-.hero h1 em{font-style:italic;font-weight:500}
-.hero .lead{font-size:1.1rem;margin-bottom:22px}
-.benefits{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:10px}
-.benefits li{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink)}
-.benefits .ic{flex:none;width:34px;height:34px;border-radius:10px;background:var(--gl);color:var(--g);display:grid;place-items:center}
+/* hero: promessa, VSL, preço e botão */
+.hero{padding:18px 0 40px;background:radial-gradient(120% 60% at 50% 0,#EEF4EC 0,rgba(238,244,236,0) 70%),var(--cream);position:relative}
+.hero-in{max-width:880px;margin:0 auto;text-align:center;padding-top:22px}
+.hero h1{font-size:clamp(1.7rem,6.6vw,2.85rem);line-height:1.12;margin-bottom:.4em;text-wrap:balance}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--g)}
+.hero .lead{font-size:clamp(.98rem,3.6vw,1.12rem);max-width:62ch;margin:0 auto 20px;text-wrap:pretty}
+.hero .vsl-box{margin-top:0}
 .price-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:16px}
 .price{font:700 2.9rem/1 var(--serif);color:var(--dk);letter-spacing:-.02em}
 .price small{font:700 1rem var(--sans);vertical-align:.95em;margin-right:4px}
 .price-note{font-size:.85rem;color:var(--muted);line-height:1.35;padding-bottom:6px}
 .price-note b{display:block;color:var(--ink)}
-.hero-art{position:relative;max-width:540px;margin:0 auto;width:100%}
-.hero-art img{width:100%;filter:drop-shadow(0 30px 40px rgba(36,75,56,.18))}
-.hero-art img.hero-photo{filter:none;border-radius:26px;box-shadow:var(--sh-lg)}
+.buybar{margin:18px auto 0;background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:20px 18px;display:grid;gap:16px;text-align:center}
+.bb-name{display:block;font:700 .76rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.buybar .price{font-size:2.6rem}
+.bb-list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-size:.84rem;color:var(--muted)}
+.bb-list li{display:flex;align-items:center;gap:6px}.bb-list svg{color:var(--g)}
+.hero-media{width:100%;margin:0 auto}
+.buybar.hero-media{margin-top:16px}
+@media(min-width:760px){
+  .hero{padding:12px 0 56px}
+  .hero-in{padding-top:18px;max-width:980px}
+  .hero h1{font-size:clamp(2rem,3.2vw,2.6rem)}
+  .hero h1 em{display:block}
+  .hero .lead{max-width:74ch;margin-bottom:18px}
+  /* o vídeo acompanha a altura da tela para preço e botão caberem na primeira tela, sem ficar pequeno */
+  .hero-media{width:clamp(620px,calc((100vh - 445px) * 1.778),920px);max-width:100%}
+  .buybar.hero-media{margin-top:14px}
+  .buybar{padding:12px 14px 12px 24px;gap:20px}
+  .bb-info{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:18px;align-items:center}
+  .bb-name{grid-column:1 / -1;margin-bottom:4px;white-space:nowrap}
+  .buybar .price{font-size:2.1rem}
+  .bb-list{margin:0;gap:4px 14px;font-size:.8rem}
+  .bb-list li{white-space:nowrap}
+  .buybar{grid-template-columns:1fr auto;align-items:center;text-align:left;padding:20px 26px;gap:28px}
+  .bb-list{justify-content:flex-start}
+  .buybar .btn{width:auto;min-width:340px}
+}
 .banner{margin:0 0 30px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
 .banner img{width:100%;aspect-ratio:16/8;object-fit:cover}
 @media(min-width:760px){.banner img{aspect-ratio:16/7}}
-.chip{position:absolute;background:#fff;border-radius:14px;box-shadow:var(--sh);padding:10px 14px;font-size:.8rem;line-height:1.25;display:flex;align-items:center;gap:10px}
-.chip b{display:block;font:700 1.05rem var(--serif);color:var(--dk)}
-.chip .dot{width:34px;height:34px;border-radius:10px;background:var(--gl);color:var(--g);display:grid;place-items:center;flex:none}
-.chip.c1{left:-4px;bottom:16%}
-.chip.c2{right:0;top:6%}
-@media(min-width:900px){
-  .hero{padding:46px 0 96px}
-  .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}
-  .hero .btn{max-width:420px}
-}
 
 /* faixa de números */
 .strip{background:var(--dk);color:#fff;padding:26px 0}
@@ -248,14 +260,13 @@ section{padding:72px 0}
 .tf-photo img{width:100%;border-radius:var(--r);aspect-ratio:16/8;object-fit:cover;box-shadow:var(--sh)}
 .tf-photo figcaption{position:absolute;right:14px;bottom:10px;font-size:.72rem;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 @media(min-width:820px){.tf-grid{grid-template-columns:1fr auto 1fr;gap:18px}.tf-arrow{transform:none}.tf-card{padding:32px 30px 28px}}
-.vsl{padding-bottom:8px}
 .vsl-box{position:relative;margin-top:22px;border-radius:22px;overflow:hidden;background:#1B392A;box-shadow:var(--sh-lg);aspect-ratio:16/9}
 .vsl-box video{display:block;width:100%;height:100%;object-fit:cover;background:#1B392A}
 .vsl-play{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:linear-gradient(180deg,rgba(27,57,42,.05),rgba(27,57,42,.45));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;font:600 1rem var(--sans)}
 .vsl-play .pp{width:84px;height:84px;border-radius:50%;background:var(--gold);color:var(--dk);display:grid;place-items:center;padding-left:5px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .2s}
 .vsl-play:hover .pp{transform:scale(1.07)}
 .vsl-play .pl{background:rgba(27,57,42,.75);padding:6px 14px;border-radius:999px;font-size:.9rem}
-.vsl-note{font-size:.8rem;color:var(--muted);margin:12px 0 0}
+.vsl-note{font-size:.72rem;color:var(--muted);margin:8px auto 0;text-align:center}
 @media(max-width:520px){.vsl-play .pp{width:68px;height:68px}}
 footer{background:#1B392A;color:#9FB6A7;font-size:.8rem;padding:30px 0 36px;text-align:center}
 footer p{margin:0 0 8px;max-width:680px;margin-left:auto;margin-right:auto}
@@ -301,38 +312,40 @@ body.has-sticky{padding-bottom:78px}
 
 <div class="topbar">E-book digital · <b>Método Tarde Única</b> · 10 marmitas planejadas em uma tarde</div>
 
-<header class="hero">
+<header class="hero" id="topo">
   <div class="wrap">
     <div class="brand">
       <a class="logo" href="#topo" aria-label="Marmita Leve em 21 Dias"><i>✦</i>Marmita Leve</a>
       <a class="mini-cta" href="#oferta">R$ 27,90</a>
     </div>
-    <div class="hero-grid" id="topo">
-      <div>
-        <p class="eyebrow" style="margin-top:28px">Marmita Leve em 21 Dias</p>
-        <h1>Prepare 10 marmitas em uma tarde e organize sua <em>alimentação para a semana.</em></h1>
-        <p class="lead">Descubra como planejar, preparar e organizar suas refeições sem precisar cozinhar todos os dias.</p>
-        <ul class="benefits">
-          <li><span class="ic"><svg width="18" height="18"><use href="#i-pot"/></svg></span>29 preparos, com kit de 5 molhos</li>
-          <li><span class="ic"><svg width="18" height="18"><use href="#i-list"/></svg></span>Listas de compras e planners</li>
-          <li><span class="ic"><svg width="18" height="18"><use href="#i-clock"/></svg></span>Método Tarde Única passo a passo</li>
-        </ul>
-        <div class="price-row">
+    <div class="hero-in">
+      <h1>Uma tarde na cozinha. Até 10 marmitas prontas. <em>Sua semana muito mais organizada.</em></h1>
+      <p class="lead">Conheça o Método Tarde Única e descubra como planejar, preparar e organizar suas refeições para os próximos dias, sem precisar começar do zero todos os dias.</p>
+      <div class="hero-media">
+      <div class="vsl-box" id="video">
+        <video id="vsl" poster="/marmita-leve/video/vsl-capa.webp" preload="none" playsinline width="1280" height="720" aria-label="Vídeo de apresentação do Marmita Leve em 21 Dias">
+          <source src="/marmita-leve/video/hls/vsl.m3u8" type="application/vnd.apple.mpegurl">
+          <source src="/marmita-leve/video/vsl-marmita-leve.mp4" type="video/mp4">
+        </video>
+        <button class="vsl-play" type="button" aria-label="Assistir ao vídeo com som">
+          <span class="pp"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="pl">Assistir com som · 3 min</span>
+        </button>
+      </div>
+      </div>
+      <div class="buybar hero-media">
+        <div class="bb-info">
+          <span class="bb-name">Marmita Leve em 21 Dias</span>
           <div class="price"><small>R$</small>27,90</div>
-          <div class="price-note"><b>Pagamento único</b>e-book digital em PDF</div>
+          <ul class="bb-list">
+            <li><svg width="15" height="15"><use href="#i-check"/></svg>Pagamento único</li>
+            <li><svg width="15" height="15"><use href="#i-mail"/></svg>Acesso digital</li>
+            <li><svg width="15" height="15"><use href="#i-shield"/></svg>Garantia de 7 dias</li>
+          </ul>
         </div>
-        <a class="btn buy" href="#CHECKOUT_PRINCIPAL">Quero organizar minhas marmitas <svg width="20" height="20"><use href="#i-arrow"/></svg></a>
-        <div class="micro">
-          <span><svg width="15" height="15"><use href="#i-mail"/></svg>Acesso digital</span>
-          <span><svg width="15" height="15"><use href="#i-shield"/></svg>Garantia de 7 dias</span>
-          <span><svg width="15" height="15"><use href="#i-lock"/></svg>Compra segura</span>
-        </div>
+        <a class="btn buy" data-cta="primeira-dobra" href="#CHECKOUT_PRINCIPAL">Quero organizar minhas refeições <svg width="20" height="20"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="hero-art">
-        <img class="hero-photo" src="/marmita-leve/img/oferta/flow-livro.webp" width="1024" height="1024" alt="E-book Marmita Leve em 21 Dias apresentado como livro sobre linho claro" fetchpriority="high">
-        <div class="chip c1"><span class="dot"><svg width="18" height="18"><use href="#i-pot"/></svg></span><div><b>10 marmitas</b>por Tarde Única</div></div>
-        <div class="chip c2"><span class="dot"><svg width="18" height="18"><use href="#i-book"/></svg></span><div><b>72 páginas</b>com links clicáveis</div></div>
-      </div>
+      <p class="vsl-note hero-media">Imagens ilustrativas</p>
     </div>
   </div>
 </header>
@@ -347,24 +360,6 @@ body.has-sticky{padding-bottom:78px}
     </ul>
   </div>
 </div>
-
-<section class="vsl" id="video">
-  <div class="wrap narrow center">
-    <p class="eyebrow">Assista antes de decidir · 3 min</p>
-    <h2>Como uma tarde organiza a <em>semana inteira</em></h2>
-    <div class="vsl-box">
-      <video id="vsl" poster="/marmita-leve/video/vsl-capa.webp" preload="none" playsinline width="1280" height="720">
-        <source src="/marmita-leve/video/hls/vsl.m3u8" type="application/vnd.apple.mpegurl">
-        <source src="/marmita-leve/video/vsl-marmita-leve.mp4" type="video/mp4">
-      </video>
-      <button class="vsl-play" type="button" aria-label="Assistir ao vídeo">
-        <span class="pp"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
-        <span class="pl">Assistir com som</span>
-      </button>
-    </div>
-    <p class="vsl-note">Imagens ilustrativas</p>
-  </div>
-</section>
 
 <section class="pain">
   <div class="wrap">
@@ -529,7 +524,7 @@ body.has-sticky{padding-bottom:78px}
           <div class="price"><small>R$</small>27,90</div>
           <div class="pn"><b>Pagamento único</b>sem mensalidade</div>
         </div>
-        <a class="btn buy" href="#CHECKOUT_PRINCIPAL">Quero meu Marmita Leve <svg width="20" height="20"><use href="#i-arrow"/></svg></a>
+        <a class="btn buy" data-cta="oferta" href="#CHECKOUT_PRINCIPAL">Quero meu Marmita Leve <svg width="20" height="20"><use href="#i-arrow"/></svg></a>
         <div class="micro">
           <span><svg width="15" height="15"><use href="#i-mail"/></svg>Acesso enviado ao e-mail da compra</span>
           <span><svg width="15" height="15"><use href="#i-shield"/></svg>Garantia de 7 dias</span>
@@ -585,7 +580,7 @@ body.has-sticky{padding-bottom:78px}
       <p class="lead" style="margin:0 auto 10px">Conheça o Método Tarde Única e comece a planejar suas refeições.</p>
       <div class="final-art"><img src="/marmita-leve/img/oferta/hero-ebook.webp" width="898" height="876" loading="lazy" alt="E-book Marmita Leve em 21 Dias"></div>
       <div class="price-row"><div class="price"><small>R$</small>27,90</div></div>
-      <a class="btn buy" href="#CHECKOUT_PRINCIPAL">Quero começar agora <svg width="20" height="20"><use href="#i-arrow"/></svg></a>
+      <a class="btn buy" data-cta="cta-final" href="#CHECKOUT_PRINCIPAL">Quero começar agora <svg width="20" height="20"><use href="#i-arrow"/></svg></a>
       <div class="micro"><span><svg width="15" height="15"><use href="#i-check"/></svg>Pagamento único</span><span><svg width="15" height="15"><use href="#i-mail"/></svg>Acesso digital</span><span><svg width="15" height="15"><use href="#i-shield"/></svg>Garantia de 7 dias</span></div>
     </div>
   </div>
@@ -600,24 +595,54 @@ body.has-sticky{padding-bottom:78px}
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="sp"><b>R$ 27,90</b><span>pagamento único</span></div>
-  <a class="btn buy" href="#CHECKOUT_PRINCIPAL" tabindex="-1">Quero minhas marmitas</a>
+  <a class="btn buy" data-cta="barra-fixa" href="#CHECKOUT_PRINCIPAL" tabindex="-1">Quero minhas marmitas</a>
 </div>
 
 <script>
 (function(){
+  /* Eventos: vão para window.dataLayer (lido pelo GA4/GTM quando for instalado); nada é enviado se não houver ferramenta. */
+  window.dataLayer = window.dataLayer || [];
+  function track(ev, extra){ var o = {event: ev}; for (var k in (extra || {})) o[k] = extra[k]; window.dataLayer.push(o); }
+
   /* Link de compra: troque só aqui quando o checkout estiver criado. */
   var CHECKOUT = '#CHECKOUT_PRINCIPAL';
   var ready = CHECKOUT.charAt(0) !== '#';
+  /* Repassa UTMs e identificação de afiliado que chegaram na página para o checkout */
+  var link = CHECKOUT;
+  if (ready && location.search){
+    try{
+      var u = new URL(CHECKOUT), q = new URLSearchParams(location.search);
+      q.forEach(function(v, k){ if (/^(utm_|src$|sck$|aff|ref$|fbclid$|gclid$)/i.test(k) && !u.searchParams.has(k)) u.searchParams.set(k, v); });
+      link = u.toString();
+    }catch(e){}
+  }
   document.querySelectorAll('a.buy').forEach(function(a){
-    a.setAttribute('href', ready ? CHECKOUT : '#oferta');
-    a.addEventListener('click', function(){ if (window.fbq) fbq('track', 'InitiateCheckout'); });
+    a.setAttribute('href', ready ? link : '#oferta');
+    a.addEventListener('click', function(){
+      var onde = a.getAttribute('data-cta') || (a.closest('section,header,.sticky') || {}).className || '';
+      track('cta_click', {cta_location: String(onde).split(' ')[0]});
+      if (ready){
+        track('begin_checkout', {currency: 'BRL', value: 27.90});
+        if (window.fbq) fbq('track', 'InitiateCheckout');
+      }
+    });
   });
 
-  /* VSL: botão grande de play; some quando o vídeo começa */
+  /* VSL: botão grande de play; some quando o vídeo começa. Nada toca sozinho. */
   var vsl = document.getElementById('vsl'), vp = document.querySelector('.vsl-play');
   if (vsl && vp){
     vp.addEventListener('click', function(){ vsl.muted = false; vsl.play(); });
-    vsl.addEventListener('play', function(){ vp.hidden = true; vsl.controls = true; });
+    var marcos = {25:false, 50:false, 75:false}, iniciou = false, fim = false;
+    vsl.addEventListener('play', function(){
+      vp.hidden = true; vsl.controls = true;
+      if (!iniciou){ iniciou = true; track('video_start', {video_title: 'VSL Marmita Leve'}); }
+    });
+    vsl.addEventListener('timeupdate', function(){
+      if (!vsl.duration) return;
+      var pc = vsl.currentTime / vsl.duration * 100;
+      [25, 50, 75].forEach(function(m){ if (!marcos[m] && pc >= m){ marcos[m] = true; track('video_' + m, {video_title: 'VSL Marmita Leve'}); } });
+    });
+    vsl.addEventListener('ended', function(){ if (!fim){ fim = true; track('video_complete', {video_title: 'VSL Marmita Leve'}); } });
   }
 
   /* CTA fixo: aparece depois do hero, some na oferta e no fechamento */
