@@ -229,6 +229,15 @@ section{padding:72px 0}
 .final .micro{color:#AFC5B6}
 .final .micro svg{color:var(--gold)}
 
+.vsl{padding-bottom:8px}
+.vsl-box{position:relative;margin-top:22px;border-radius:22px;overflow:hidden;background:#1B392A;box-shadow:var(--sh-lg);aspect-ratio:16/9}
+.vsl-box video{display:block;width:100%;height:100%;object-fit:cover;background:#1B392A}
+.vsl-play{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:linear-gradient(180deg,rgba(27,57,42,.05),rgba(27,57,42,.45));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;font:600 1rem var(--sans)}
+.vsl-play .pp{width:84px;height:84px;border-radius:50%;background:var(--gold);color:var(--dk);display:grid;place-items:center;padding-left:5px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .2s}
+.vsl-play:hover .pp{transform:scale(1.07)}
+.vsl-play .pl{background:rgba(27,57,42,.75);padding:6px 14px;border-radius:999px;font-size:.9rem}
+.vsl-note{font-size:.8rem;color:var(--muted);margin:12px 0 0}
+@media(max-width:520px){.vsl-play .pp{width:68px;height:68px}}
 footer{background:#1B392A;color:#9FB6A7;font-size:.8rem;padding:30px 0 36px;text-align:center}
 footer p{margin:0 0 8px;max-width:680px;margin-left:auto;margin-right:auto}
 footer b{color:#DCE9DF;font-weight:600}
@@ -319,6 +328,21 @@ body.has-sticky{padding-bottom:78px}
     </ul>
   </div>
 </div>
+
+<section class="vsl" id="video">
+  <div class="wrap narrow center">
+    <p class="eyebrow">Assista antes de decidir · 3 min</p>
+    <h2>Como uma tarde organiza a <em>semana inteira</em></h2>
+    <div class="vsl-box">
+      <video id="vsl" src="/marmita-leve/video/vsl-marmita-leve.mp4" poster="/marmita-leve/video/vsl-capa.webp" preload="none" playsinline width="1280" height="720"></video>
+      <button class="vsl-play" type="button" aria-label="Assistir ao vídeo">
+        <span class="pp"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+        <span class="pl">Assistir com som</span>
+      </button>
+    </div>
+    <p class="vsl-note">Vídeo com legendas · Imagens ilustrativas</p>
+  </div>
+</section>
 
 <section class="pain">
   <div class="wrap">
@@ -530,6 +554,13 @@ body.has-sticky{padding-bottom:78px}
     a.setAttribute('href', ready ? CHECKOUT : '#oferta');
     a.addEventListener('click', function(){ if (window.fbq) fbq('track', 'InitiateCheckout'); });
   });
+
+  /* VSL: botão grande de play; some quando o vídeo começa */
+  var vsl = document.getElementById('vsl'), vp = document.querySelector('.vsl-play');
+  if (vsl && vp){
+    vp.addEventListener('click', function(){ vsl.muted = false; vsl.play(); });
+    vsl.addEventListener('play', function(){ vp.hidden = true; vsl.controls = true; });
+  }
 
   /* CTA fixo: aparece depois do hero, some na oferta e no fechamento */
   var sticky = document.getElementById('sticky');
