@@ -92,7 +92,6 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
           <img id="pix-qr" alt="QR Code do Pix">
           <textarea id="pix-code" readonly aria-label="Código Pix copia e cola"></textarea>
           <button class="btn" id="pix-copy" type="button">Copiar código Pix</button>
-          <button class="btn alt" id="pix-paguei" type="button">Já paguei, liberar meu e-book</button>
           <div class="wait"><span class="dot"></span>Aguardando o pagamento… esta página atualiza sozinha.</div>
         </div>
       </section>
@@ -152,12 +151,6 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
   }
   ['visibilitychange', 'focus', 'pageshow'].forEach(function(ev){
     window.addEventListener(ev, function(){ if (!document.hidden) conferir(); });
-  });
-  document.getElementById('pix-paguei').addEventListener('click', function(){
-    var b = this; b.disabled = true; b.textContent = 'Conferindo o pagamento…';
-    conferir().then(function(ok){
-      if (!ok){ b.disabled = false; b.textContent = 'Já paguei, liberar meu e-book'; aviso('O pagamento ainda não apareceu. Pode levar alguns segundos depois de pagar; tente de novo em instantes.', 'info'); }
-    });
   });
 
   var guardado = lerGuardado();
