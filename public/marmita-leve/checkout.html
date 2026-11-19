@@ -23,9 +23,10 @@ body{margin:0;background:var(--cream);color:var(--ink);font:400 16px/1.55 var(--
 .logo{font:600 1.05rem var(--serif);color:var(--dk);text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:30px;height:30px;border-radius:9px;background:var(--dk);display:grid;place-items:center;color:var(--gold);font-style:normal}
 .safe{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px}
-h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px 0 18px}
+h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px auto 18px;max-width:680px}
 .grid{display:grid;gap:18px;padding-bottom:48px}
-@media(min-width:880px){.grid{grid-template-columns:1fr 1fr;align-items:start;gap:24px}.photo{position:sticky;top:18px}}
+.grid{max-width:680px;margin:0 auto}
+@media(min-width:880px){.photo img{aspect-ratio:4/3}}
 .col{display:grid;gap:18px}
 .photo{margin:0;overflow:hidden;position:relative}
 .photo img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
