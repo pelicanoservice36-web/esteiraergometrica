@@ -1,22 +1,26 @@
 ---
 // Banner do e-book próprio "Marmita Leve em 21 Dias" (página de venda em
-// /marmita-leve/oferta), exibido no fim de toda review pelo ReviewLayout.
+// /marmita-leve/oferta). Aparece duas vezes em cada review: logo após o
+// veredito (posicao="veredito", inserido na própria página) e no fim do
+// artigo (posicao="fim", pelo ReviewLayout).
 // Arte gerada no Google Flow (Nano Banana) em 2026-11-19, com dor, benefício e
 // CTA dentro da própria imagem; o banner inteiro é o link.
 // Produto próprio, não é link pago de terceiro: por isso NÃO leva
 // rel="sponsored" (o que também o mantém fora do evento affiliate_click do
 // BaseLayout). O clique vira o evento GA4 promo_click.
-// Os UTMs são repassados pela página de oferta até o checkout.
+// Os UTMs (utm_content = review + posição) são repassados pela página de
+// oferta até o checkout, para comparar qual review e qual posição vendem.
 export interface Props {
 	slug: string;
+	posicao: 'veredito' | 'fim';
 }
-const { slug } = Astro.props;
-const utm = `utm_source=esteiraergometrica&utm_medium=banner&utm_campaign=marmita-leve&utm_content=${encodeURIComponent(slug)}`;
+const { slug, posicao } = Astro.props;
+const utm = `utm_source=esteiraergometrica&utm_medium=banner&utm_campaign=marmita-leve&utm_content=${encodeURIComponent(`${slug}-${posicao}`)}`;
 const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é improviso? Prepare até 10 marmitas em uma tarde e deixe a semana inteira organizada. Quero minhas marmitas.';
 ---
 
 <aside class="promo-banner" aria-label="E-book Marmita Leve em 21 Dias">
-  <a href={`/marmita-leve/oferta?${utm}`} data-promo="marmita-leve">
+  <a href={`/marmita-leve/oferta?${utm}`} data-promo="marmita-leve" data-promo-pos={posicao}>
     <picture>
       <source media="(max-width: 600px)" srcset="/assets/images/banner-marmita-leve-896x1200.webp" width="896" height="1200" />
       <img src="/assets/images/banner-marmita-leve-1376x768.webp" width="1376" height="768" loading="lazy" decoding="async" alt={alt} />
@@ -26,13 +30,18 @@ const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é im
 </aside>
 
 <script is:inline>
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest && e.target.closest('a[data-promo]');
-    if (!link || typeof gtag !== 'function') return;
-    gtag('event', 'promo_click', {
-      promo_name: link.getAttribute('data-promo'),
-      page_path: location.pathname,
-      transport_type: 'beacon',
+  // O componente aparece duas vezes por página; o listener é registrado uma vez só.
+  if (!window.__promoClickBound) {
+    window.__promoClickBound = true;
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[data-promo]');
+      if (!link || typeof gtag !== 'function') return;
+      gtag('event', 'promo_click', {
+        promo_name: link.getAttribute('data-promo'),
+        promo_position: link.getAttribute('data-promo-pos'),
+        page_path: location.pathname,
+        transport_type: 'beacon',
+      });
     });
-  });
+  }
 </script>
