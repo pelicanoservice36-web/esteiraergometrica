@@ -605,7 +605,7 @@ body.has-sticky{padding-bottom:78px}
   function track(ev, extra){ var o = {event: ev}; for (var k in (extra || {})) o[k] = extra[k]; window.dataLayer.push(o); }
 
   /* Link de compra: troque só aqui quando o checkout estiver criado. */
-  var CHECKOUT = '#CHECKOUT_PRINCIPAL';
+  var CHECKOUT = 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=213728615-cf0437dd-3969-48f2-ad8f-f2163f9c3bfa';
   var ready = CHECKOUT.charAt(0) !== '#';
   /* Repassa UTMs e identificação de afiliado que chegaram na página para o checkout */
   var link = CHECKOUT;

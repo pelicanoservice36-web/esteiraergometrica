@@ -25,6 +25,14 @@
 /marmita-leve/*
   X-Robots-Tag: noindex, follow
 
+# Página de obrigado e arquivos do e-book: endereço não divulgado, nunca indexar.
+/marmita-leve/obrigado-t70ofcjnpd*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/marmita-leve/arquivos-t70ofcjnpd/*
+  X-Robots-Tag: noindex, nofollow
+
 # VSL da página de vendas em HLS (o iPhone exige isso, já que o servidor não responde a pedidos por partes)
 /marmita-leve/video/hls/*.m3u8
   Content-Type: application/vnd.apple.mpegurl
