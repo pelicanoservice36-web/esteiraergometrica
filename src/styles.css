@@ -1032,7 +1032,9 @@ a:hover { color: var(--primary-ink); }
   display: block;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-pop);
+  /* borda + sombra mais marcadas: a arte é creme e se perdia no fundo claro da página */
+  border: 1px solid rgba(36, 75, 56, 0.28);
+  box-shadow: 0 2px 6px rgba(17, 24, 39, 0.10), 0 18px 40px -12px rgba(17, 24, 39, 0.35);
   transition: transform .15s ease;
 }
 .promo-float a:hover { transform: translateY(-2px); }

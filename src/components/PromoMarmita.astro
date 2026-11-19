@@ -4,6 +4,8 @@
 // veredito (posicao="veredito", inserido na própria página) e no fim do
 // artigo (posicao="fim", pelo ReviewLayout). Nos guias, uma vez no fim do
 // artigo (posicao="guia", pelo ArticleLayout, só para path /guias/...).
+// Arquivos -v2: mesma arte com contraste/saturação ajustados (a original saía
+// opaca/lavada). /assets/ tem cache imutável de 1 ano: nova versão = novo nome.
 // Arte gerada no Google Flow (Nano Banana) em 2026-11-19, com dor, benefício e
 // CTA dentro da própria imagem; o banner inteiro é o link.
 // Produto próprio, não é link pago de terceiro: por isso NÃO leva
@@ -23,8 +25,8 @@ const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é im
 <aside class="promo-banner" aria-label="E-book Marmita Leve em 21 Dias">
   <a href={`/marmita-leve/oferta?${utm}`} data-promo="marmita-leve" data-promo-pos={posicao}>
     <picture>
-      <source media="(max-width: 600px)" srcset="/assets/images/banner-marmita-leve-896x1200.webp" width="896" height="1200" />
-      <img src="/assets/images/banner-marmita-leve-1376x768.webp" width="1376" height="768" loading="lazy" decoding="async" alt={alt} />
+      <source media="(max-width: 600px)" srcset="/assets/images/banner-marmita-leve-v2-896x1200.webp" width="896" height="1200" />
+      <img src="/assets/images/banner-marmita-leve-v2-1376x768.webp" width="1376" height="768" loading="lazy" decoding="async" alt={alt} />
     </picture>
   </a>
   <p class="promo-banner__note">E-book digital próprio deste site · imagem ilustrativa</p>
