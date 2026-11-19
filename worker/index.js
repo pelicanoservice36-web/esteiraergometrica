@@ -15,11 +15,15 @@ const PRODUTO = {
 const OBRIGADO = '/marmita-leve/obrigado-t70ofcjnpd';
 const PERMITIDOS = /^(pix|visa|master|amex|elo|hipercard|cabal|diners)$/;
 
+// Limpa a chave colada no painel: tira espaços, quebras de linha, aspas e um "Bearer" colado junto.
+const chaveMP = (env) => String(env.MP_ACCESS_TOKEN || '').replace(/^\s*["']?\s*(Bearer\s+)?/i, '').replace(/["'\s]+$/g, '').replace(/\s+/g, '');
+
 const json = (dados, status = 200) =>
   new Response(JSON.stringify(dados), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
 async function pagamento(request, env) {
-  if (!env.MP_ACCESS_TOKEN) return json({ erro: 'Pagamento indisponível no momento.' }, 503);
+  const tok = chaveMP(env);
+  if (!tok) return json({ erro: 'Pagamento indisponível no momento.' }, 503);
   let f;
   try { f = await request.json(); } catch { return json({ erro: 'Dados inválidos.' }, 400); }
 
@@ -55,7 +59,7 @@ async function pagamento(request, env) {
   const r = await fetch('https://api.mercadopago.com/v1/payments', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${env.MP_ACCESS_TOKEN}`,
+      'Authorization': `Bearer ${tok}`,
       'Content-Type': 'application/json',
       'X-Idempotency-Key': chave,
       ...(f.device_id ? { 'X-meli-session-id': String(f.device_id).slice(0, 100) } : {}),
@@ -63,6 +67,7 @@ async function pagamento(request, env) {
     body: JSON.stringify(corpo),
   });
   const p = await r.json().catch(() => ({}));
+  if (!r.ok || !p.id) { console.error('MP pagamento recusado', r.status, p.message, JSON.stringify(p.cause || null)); }
   if (!r.ok || !p.id) return json({ erro: 'Não foi possível processar o pagamento. Confira os dados e tente de novo.', detalhe: p.message || null }, 400);
 
   const resp = { id: p.id, status: p.status, detalhe: p.status_detail };
@@ -78,10 +83,11 @@ async function pagamento(request, env) {
 
 
 async function status(request, env) {
-  if (!env.MP_ACCESS_TOKEN) return json({ erro: 'indisponível' }, 503);
+  const tok = chaveMP(env);
+  if (!tok) return json({ erro: 'indisponível' }, 503);
   const id = new URL(request.url).searchParams.get('id') || '';
   if (!/^\d{5,20}$/.test(id)) return json({ erro: 'id inválido' }, 400);
-  const r = await fetch(`https://api.mercadopago.com/v1/payments/${id}`, { headers: { Authorization: `Bearer ${env.MP_ACCESS_TOKEN}` } });
+  const r = await fetch(`https://api.mercadopago.com/v1/payments/${id}`, { headers: { Authorization: `Bearer ${tok}` } });
   if (!r.ok) return json({ erro: 'não encontrado' }, 404);
   const p = await r.json();
   if (p.external_reference !== 'marmita-leve-21') return json({ erro: 'não encontrado' }, 404);
@@ -100,6 +106,11 @@ export default {
     if (pathname === '/api/mp/status') {
       if (request.method !== 'GET') return json({ erro: 'método não permitido' }, 405);
       return status(request, env);
+    }
+    if (pathname === '/api/mp/diag') {
+      // Diagnóstico sem expor a chave: só diz se ela existe e se tem o formato esperado.
+      const t = chaveMP(env), bruto = String(env.MP_ACCESS_TOKEN || '');
+      return json({ tem_chave: !!t, formato_ok: /^APP_USR-\d+-\d+-[0-9a-f]{32}-\d+$/.test(t), tinha_espacos_ou_bearer: bruto !== t });
     }
     if (pathname.startsWith('/api/')) return json({ erro: 'não encontrado' }, 404);
     return env.ASSETS.fetch(request);
