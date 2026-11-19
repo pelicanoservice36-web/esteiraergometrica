@@ -194,6 +194,8 @@ check('T19b CTAs continuam com rel="sponsored nofollow"', () => {
 			if (/href=\{`\/reviews\//.test(tag)) continue;
 			// Âncora interna montada por template (#categoria no guia de tênis) também não é CTA.
 			if (/href=\{`#/.test(tag)) continue;
+			// Banner do e-book próprio (PromoMarmita.astro): link interno para /marmita-leve/, não é link pago.
+			if (/href=\{`\/marmita-leve\//.test(tag)) continue;
 			if (!/rel="[^"]*sponsored/.test(tag) || !/rel="[^"]*nofollow/.test(tag)) {
 				bad.push(`${rel(f)}: ${tag.slice(0, 90)}`);
 			}

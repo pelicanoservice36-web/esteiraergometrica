@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import PromoMarmita from '../components/PromoMarmita.astro';
 
 export interface FichaItem {
 	label: string;
@@ -78,6 +79,8 @@ const defaultOgImage = `/assets/images/${slug}-cover.webp`;
   </section>
 
   <slot />
+
+  <PromoMarmita slug={slug} />
 
   <aside class="cross-sell" id="tenis" aria-label="Calçado para usar a esteira">
     <span class="cross-sell__icon" aria-hidden="true">👟</span>

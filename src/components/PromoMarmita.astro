@@ -1,0 +1,38 @@
+---
+// Banner do e-book próprio "Marmita Leve em 21 Dias" (página de venda em
+// /marmita-leve/oferta), exibido no fim de toda review pelo ReviewLayout.
+// Arte gerada no Google Flow (Nano Banana) em 2026-11-19, com dor, benefício e
+// CTA dentro da própria imagem; o banner inteiro é o link.
+// Produto próprio, não é link pago de terceiro: por isso NÃO leva
+// rel="sponsored" (o que também o mantém fora do evento affiliate_click do
+// BaseLayout). O clique vira o evento GA4 promo_click.
+// Os UTMs são repassados pela página de oferta até o checkout.
+export interface Props {
+	slug: string;
+}
+const { slug } = Astro.props;
+const utm = `utm_source=esteiraergometrica&utm_medium=banner&utm_campaign=marmita-leve&utm_content=${encodeURIComponent(slug)}`;
+const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é improviso? Prepare até 10 marmitas em uma tarde e deixe a semana inteira organizada. Quero minhas marmitas.';
+---
+
+<aside class="promo-banner" aria-label="E-book Marmita Leve em 21 Dias">
+  <a href={`/marmita-leve/oferta?${utm}`} data-promo="marmita-leve">
+    <picture>
+      <source media="(max-width: 600px)" srcset="/assets/images/banner-marmita-leve-896x1200.webp" width="896" height="1200" />
+      <img src="/assets/images/banner-marmita-leve-1376x768.webp" width="1376" height="768" loading="lazy" decoding="async" alt={alt} />
+    </picture>
+  </a>
+  <p class="promo-banner__note">E-book digital próprio deste site · imagem ilustrativa</p>
+</aside>
+
+<script is:inline>
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[data-promo]');
+    if (!link || typeof gtag !== 'function') return;
+    gtag('event', 'promo_click', {
+      promo_name: link.getAttribute('data-promo'),
+      page_path: location.pathname,
+      transport_type: 'beacon',
+    });
+  });
+</script>
