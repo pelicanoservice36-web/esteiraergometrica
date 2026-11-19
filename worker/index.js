@@ -1,3 +1,8 @@
+// Worker do site: atende só /api/* (pagamento do e-book Marmita Leve). Todo o resto é servido
+// direto pelos arquivos estáticos (assets), com o mesmo comportamento de antes.
+// A chave secreta do Mercado Pago fica no Cloudflare: Worker esteiraergometrica > Settings >
+// Variables and Secrets > MP_ACCESS_TOKEN (tipo Secret).
+
 // Cria o pagamento do e-book Marmita Leve no Mercado Pago (cartão ou Pix), chamado pelo checkout do site.
 // A chave secreta fica só no Cloudflare: variável MP_ACCESS_TOKEN (Settings > Variables and Secrets, tipo Secret).
 // Preço, produto e descrição são fixos aqui: nunca confiamos no valor que vem do navegador.
@@ -13,7 +18,7 @@ const PERMITIDOS = /^(pix|visa|master|amex|elo|hipercard|cabal|diners)$/;
 const json = (dados, status = 200) =>
   new Response(JSON.stringify(dados), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
-export async function onRequestPost({ request, env }) {
+async function pagamento(request, env) {
   if (!env.MP_ACCESS_TOKEN) return json({ erro: 'Pagamento indisponível no momento.' }, 503);
   let f;
   try { f = await request.json(); } catch { return json({ erro: 'Dados inválidos.' }, 400); }
@@ -66,3 +71,37 @@ export async function onRequestPost({ request, env }) {
   if (metodo === 'pix' && pix) { resp.pix = { copia_e_cola: pix.qr_code, qr: pix.qr_code_base64, expira: p.date_of_expiration }; }
   return json(resp);
 }
+
+// Consulta a situação de um pagamento do e-book (usado enquanto a pessoa paga o Pix).
+// Só devolve a situação; o endereço da página de obrigado só vai junto quando o pagamento está aprovado
+// e é mesmo deste produto.
+
+
+async function status(request, env) {
+  if (!env.MP_ACCESS_TOKEN) return json({ erro: 'indisponível' }, 503);
+  const id = new URL(request.url).searchParams.get('id') || '';
+  if (!/^\d{5,20}$/.test(id)) return json({ erro: 'id inválido' }, 400);
+  const r = await fetch(`https://api.mercadopago.com/v1/payments/${id}`, { headers: { Authorization: `Bearer ${env.MP_ACCESS_TOKEN}` } });
+  if (!r.ok) return json({ erro: 'não encontrado' }, 404);
+  const p = await r.json();
+  if (p.external_reference !== 'marmita-leve-21') return json({ erro: 'não encontrado' }, 404);
+  const resp = { status: p.status };
+  if (p.status === 'approved') resp.proximo = OBRIGADO;
+  return json(resp);
+}
+
+export default {
+  async fetch(request, env) {
+    const { pathname } = new URL(request.url);
+    if (pathname === '/api/mp/pagamento') {
+      if (request.method !== 'POST') return json({ erro: 'método não permitido' }, 405);
+      return pagamento(request, env);
+    }
+    if (pathname === '/api/mp/status') {
+      if (request.method !== 'GET') return json({ erro: 'método não permitido' }, 405);
+      return status(request, env);
+    }
+    if (pathname.startsWith('/api/')) return json({ erro: 'não encontrado' }, 404);
+    return env.ASSETS.fetch(request);
+  },
+};
