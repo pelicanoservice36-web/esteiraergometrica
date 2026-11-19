@@ -880,6 +880,23 @@ a:hover { color: var(--primary-ink); }
 
 .mini-cta:hover { background: var(--accent-ink); color: #fff; transform: translateY(-1px); }
 
+/* Link "Ler análise" abaixo do "Ver melhor preço" na tabela comparativa da home */
+.cta-review {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cta-review:hover { color: var(--primary-ink); }
+@media (max-width: 47.9375rem) {
+  .comparativo-table td.cell-cta { flex-direction: column; align-items: stretch; }
+  .comparativo-table td.cell-cta .cta-review { padding: 0.35rem 0; }
+}
+
 /* Tabela → cards no mobile (só a tabela comparativa da home) */
 
 @media (max-width: 47.9375rem) {
