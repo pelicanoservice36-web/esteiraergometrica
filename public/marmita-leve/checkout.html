@@ -60,6 +60,7 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
 .pix img{width:220px;height:220px;border:1px solid var(--line);border-radius:12px;margin:0 auto 14px;display:block}
 .pix textarea{width:100%;height:76px;font:12px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--line);border-radius:12px;padding:10px;resize:none;color:var(--ink);background:#FCFCFA}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;margin-top:10px;border:0;border-radius:14px;background:var(--gold);color:#2A1E08;font:800 .95rem var(--sans);letter-spacing:.03em;text-transform:uppercase;cursor:pointer}
+.btn.alt{background:var(--dk);color:#fff}.btn:disabled{opacity:.6;cursor:wait}
 .wait{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:.88rem;color:var(--g);font-weight:600}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--g);animation:p 1.2s infinite}@keyframes p{50%{opacity:.25}}
 .back{display:inline-block;margin:6px 0 0;font-size:.85rem;color:var(--g)}
@@ -91,6 +92,7 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
           <img id="pix-qr" alt="QR Code do Pix">
           <textarea id="pix-code" readonly aria-label="Código Pix copia e cola"></textarea>
           <button class="btn" id="pix-copy" type="button">Copiar código Pix</button>
+          <button class="btn alt" id="pix-paguei" type="button">Já paguei, liberar meu e-book</button>
           <div class="wait"><span class="dot"></span>Aguardando o pagamento… esta página atualiza sozinha.</div>
         </div>
       </section>
@@ -122,16 +124,44 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
   function uuid(){ return (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)); }
 
   function aprovado(url){ track('purchase_redirect'); location.replace(url); }
-  function acompanhar(id){
-    var n = 0;
-    var t = setInterval(function(){
-      if (++n > 400){ clearInterval(t); return; }
-      fetch('/api/mp/status?id=' + encodeURIComponent(id), {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
-        if (d.proximo){ clearInterval(t); aprovado(d.proximo); }
-        else if (d.status === 'rejected' || d.status === 'cancelled'){ clearInterval(t); aviso('O pagamento não foi concluído. Recarregue a página para tentar de novo.', 'err'); }
-      }).catch(function(){});
-    }, 4000);
+  /* Acompanha o pagamento até ser aprovado. No celular a pessoa sai para o app do banco e o navegador
+     pausa ou recarrega a aba: por isso o Pix fica guardado e a conferência roda de novo ao voltar. */
+  var CHAVE = 'ml_pix_pendente', atual = null, timer = null;
+  function guardar(dado){ try{ dado ? localStorage.setItem(CHAVE, JSON.stringify(dado)) : localStorage.removeItem(CHAVE); }catch(e){} }
+  function lerGuardado(){ try{ var d = JSON.parse(localStorage.getItem(CHAVE) || 'null'); return d && d.ate > Date.now() ? d : null; }catch(e){ return null; } }
+  function conferir(){
+    if (!atual) return Promise.resolve();
+    return fetch('/api/mp/status?id=' + encodeURIComponent(atual), {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+      if (d.proximo){ clearInterval(timer); guardar(null); aprovado(d.proximo); return true; }
+      if (d.status === 'rejected' || d.status === 'cancelled'){ clearInterval(timer); guardar(null); aviso('O pagamento não foi concluído. Recarregue a página para tentar de novo.', 'err'); }
+      return false;
+    }).catch(function(){ return false; });
   }
+  function acompanhar(id){
+    atual = id; clearInterval(timer);
+    timer = setInterval(conferir, 3000);
+    conferir();
+  }
+  function mostrarPix(id, qr, codigo, ate){
+    document.getElementById('brick').hidden = true;
+    document.getElementById('pix-qr').src = 'data:image/png;base64,' + qr;
+    document.getElementById('pix-code').value = codigo;
+    document.getElementById('pix').hidden = false;
+    guardar({id: id, qr: qr, codigo: codigo, ate: ate || (Date.now() + 30 * 60 * 1000)});
+    acompanhar(id);
+  }
+  ['visibilitychange', 'focus', 'pageshow'].forEach(function(ev){
+    window.addEventListener(ev, function(){ if (!document.hidden) conferir(); });
+  });
+  document.getElementById('pix-paguei').addEventListener('click', function(){
+    var b = this; b.disabled = true; b.textContent = 'Conferindo o pagamento…';
+    conferir().then(function(ok){
+      if (!ok){ b.disabled = false; b.textContent = 'Já paguei, liberar meu e-book'; aviso('O pagamento ainda não apareceu. Pode levar alguns segundos depois de pagar; tente de novo em instantes.', 'info'); }
+    });
+  });
+
+  var guardado = lerGuardado();
+  if (guardado) mostrarPix(guardado.id, guardado.qr, guardado.codigo, guardado.ate);
 
   var mp = new MercadoPago(PUBLIC_KEY, {locale: 'pt-BR'});
   mp.bricks().create('payment', 'brick', {
@@ -154,12 +184,8 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
             if (d.erro) throw new Error(d.erro);
             if (d.proximo) return aprovado(d.proximo);
             if (d.pix){
-              document.getElementById('brick').hidden = true;
-              document.getElementById('pix-qr').src = 'data:image/png;base64,' + d.pix.qr;
-              document.getElementById('pix-code').value = d.pix.copia_e_cola;
-              document.getElementById('pix').hidden = false;
               track('pix_generated');
-              acompanhar(d.id);
+              mostrarPix(d.id, d.pix.qr, d.pix.copia_e_cola, d.pix.expira ? Date.parse(d.pix.expira) : 0);
               return;
             }
             if (d.status === 'in_process' || d.status === 'pending'){
