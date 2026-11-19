@@ -25,7 +25,14 @@ body{margin:0;background:var(--cream);color:var(--ink);font:400 16px/1.55 var(--
 .safe{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px}
 h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px 0 18px}
 .grid{display:grid;gap:18px;padding-bottom:48px}
-@media(min-width:880px){.grid{grid-template-columns:.85fr 1.15fr;align-items:start}.sum{position:sticky;top:18px}}
+@media(min-width:880px){.grid{grid-template-columns:1fr 1fr;align-items:start;gap:24px}.photo{position:sticky;top:18px}}
+.col{display:grid;gap:18px}
+.photo{margin:0;overflow:hidden;position:relative}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.photo figcaption{padding:16px 20px 18px}
+.photo figcaption b{display:block;font:600 1.3rem/1.2 var(--serif);color:var(--dk)}
+.photo figcaption span{font-size:.9rem;color:var(--muted)}
+.ilus{position:absolute;right:12px;top:12px;font-size:.68rem;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 .card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
 .sum{padding:20px}
 .cover{margin:-20px -20px 16px;position:relative;background:var(--gl);border-radius:var(--r) var(--r) 0 0;overflow:hidden}
@@ -56,7 +63,7 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
 .dot{width:10px;height:10px;border-radius:50%;background:var(--g);animation:p 1.2s infinite}@keyframes p{50%{opacity:.25}}
 .back{display:inline-block;margin:6px 0 0;font-size:.85rem;color:var(--g)}
 .foot{font-size:.75rem;color:var(--muted);text-align:center;padding:0 0 30px}
-@media(max-width:879px){.cover img{aspect-ratio:16/7}.inc{display:none}.tot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.tot b{font-size:1.6rem}.gar{margin-top:10px;padding:9px 12px;font-size:.8rem}.gar b{width:34px;height:34px;font-size:1rem}h1{margin:8px 0 12px}}
+@media(max-width:879px){.photo img{aspect-ratio:4/3}.photo figcaption{padding:12px 16px 14px}h1{margin:8px 0 12px}}
 </style>
 </head>
 <body>
@@ -68,32 +75,36 @@ h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--serif);color:var(--dk);margin:14px
   </div>
   <h1>Finalize sua compra</h1>
   <div class="grid">
-    <aside class="card sum">
-      <figure class="cover"><img src="/marmita-leve/img/oferta/flow-livro.webp" width="1024" height="1024" alt="E-book Marmita Leve em 21 Dias" fetchpriority="high"><figcaption>Imagem ilustrativa</figcaption></figure>
-      <div class="prod">
-        <div><b>Marmita Leve em 21 Dias</b><span>E-book digital (PDF) · Método Tarde Única</span></div>
-      </div>
-      <ul class="inc">
-        <li>E-book de 72 páginas com 3 semanas guiadas</li>
-        <li>29 preparos, kit de 5 molhos e listas de compras</li>
-        <li>Planejadores para imprimir</li>
-        <li>Download logo após a confirmação do pagamento</li>
-      </ul>
-      <div class="tot"><span>Total</span><div><b>R$ 27,90</b><small>pagamento único</small></div></div>
-      <div class="gar"><b>7</b><span><strong>Garantia de 7 dias.</strong> Se não for para você, peça o reembolso dentro do prazo.</span></div>
-    </aside>
-    <section class="card pay">
-      <div id="status" hidden></div>
-      <div id="brick"></div>
-      <div class="pix" id="pix" hidden>
-        <h2>Pague com Pix para liberar o e-book</h2>
-        <p>Abra o app do seu banco, escolha <b>Pix</b> e escaneie o código ou use o <b>copia e cola</b>. O código vale por 30 minutos.</p>
-        <img id="pix-qr" alt="QR Code do Pix">
-        <textarea id="pix-code" readonly aria-label="Código Pix copia e cola"></textarea>
-        <button class="btn" id="pix-copy" type="button">Copiar código Pix</button>
-        <div class="wait"><span class="dot"></span>Aguardando o pagamento… esta página atualiza sozinha.</div>
-      </div>
-    </section>
+    <figure class="card photo">
+      <img src="/marmita-leve/img/oferta/flow-livro.webp" width="1024" height="1024" alt="E-book Marmita Leve em 21 Dias" fetchpriority="high">
+      <figcaption><b>Marmita Leve em 21 Dias</b><span>E-book digital (PDF) · R$ 27,90</span></figcaption>
+      <small class="ilus">Imagem ilustrativa</small>
+    </figure>
+    <div class="col">
+      <section class="card pay">
+        <div id="status" hidden></div>
+        <div id="brick"></div>
+        <div class="pix" id="pix" hidden>
+          <h2>Pague com Pix para liberar o e-book</h2>
+          <p>Abra o app do seu banco, escolha <b>Pix</b> e escaneie o código ou use o <b>copia e cola</b>. O código vale por 30 minutos.</p>
+          <img id="pix-qr" alt="QR Code do Pix">
+          <textarea id="pix-code" readonly aria-label="Código Pix copia e cola"></textarea>
+          <button class="btn" id="pix-copy" type="button">Copiar código Pix</button>
+          <div class="wait"><span class="dot"></span>Aguardando o pagamento… esta página atualiza sozinha.</div>
+        </div>
+      </section>
+      <aside class="card sum">
+        <div class="prod"><div><b>Marmita Leve em 21 Dias</b><span>E-book digital (PDF) · Método Tarde Única</span></div></div>
+        <ul class="inc">
+          <li>E-book de 72 páginas com 3 semanas guiadas</li>
+          <li>29 preparos, kit de 5 molhos e listas de compras</li>
+          <li>Planejadores para imprimir</li>
+          <li>Download logo após a confirmação do pagamento</li>
+        </ul>
+        <div class="tot"><span>Total</span><div><b>R$ 27,90</b><small>pagamento único</small></div></div>
+        <div class="gar"><b>7</b><span><strong>Garantia de 7 dias.</strong> Se não for para você, peça o reembolso dentro do prazo.</span></div>
+      </aside>
+    </div>
   </div>
   <p class="foot">Marmita Leve em 21 Dias · Helena Prado · Material de organização de refeições; não substitui orientação de nutricionista ou médico.</p>
 </div>
