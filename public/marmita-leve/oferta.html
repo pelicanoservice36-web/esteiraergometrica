@@ -611,7 +611,7 @@ body.has-sticky{padding-bottom:78px}
   var link = CHECKOUT;
   if (ready && location.search){
     try{
-      var u = new URL(CHECKOUT), q = new URLSearchParams(location.search);
+      var u = new URL(CHECKOUT, location.href), q = new URLSearchParams(location.search);
       q.forEach(function(v, k){ if (/^(utm_|src$|sck$|aff|ref$|fbclid$|gclid$)/i.test(k) && !u.searchParams.has(k)) u.searchParams.set(k, v); });
       link = u.toString();
     }catch(e){}
