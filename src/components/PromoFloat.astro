@@ -1,0 +1,65 @@
+---
+// Banner flutuante do e-book Marmita Leve, fixo no canto inferior direito da
+// home (src/pages/index.astro). Usa a arte vertical (3:4) gerada no Google
+// Flow, a mesma do PromoMarmita no celular.
+// - Só em telas a partir de 1100px: no celular cobriria a tabela e o CTA.
+// - Abaixo de 1720px some enquanto a tabela comparativa está na tela, para não
+//   cobrir os botões de afiliado da coluna da direita.
+// - Aparece depois que o visitante rola além do topo (hero) e tem botão de
+//   fechar; fechado, fica fechado até recarregar a página (sem localStorage,
+//   regra do CLAUDE.md).
+// - Link interno, produto próprio: sem rel="sponsored". Clique vira promo_click
+//   (promo_position = "home-flutuante") e utm_content=home-flutuante.
+const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é improviso? Prepare até 10 marmitas em uma tarde e deixe a semana inteira organizada. Quero minhas marmitas.';
+---
+
+<aside class="promo-float" id="promoFloat" aria-label="E-book Marmita Leve em 21 Dias" hidden>
+  <button type="button" class="promo-float__close" aria-label="Fechar anúncio do e-book">×</button>
+  <a href="/marmita-leve/oferta?utm_source=esteiraergometrica&utm_medium=banner&utm_campaign=marmita-leve&utm_content=home-flutuante" data-promo="marmita-leve" data-promo-pos="home-flutuante">
+    <img src="/assets/images/banner-marmita-leve-896x1200.webp" width="896" height="1200" loading="lazy" decoding="async" alt={alt} />
+  </a>
+</aside>
+
+<script is:inline>
+  (function () {
+    var box = document.getElementById('promoFloat');
+    if (!box || !window.matchMedia) return;
+    var wide = window.matchMedia('(min-width: 1100px)');
+    // A partir de 1720px o banner cabe na margem lateral, fora do container de
+    // 1220px; abaixo disso ele ficaria por cima da coluna "Ver melhor preço" da
+    // tabela comparativa, então some enquanto a tabela estiver na tela.
+    var gutter = window.matchMedia('(min-width: 1720px)');
+    var table = document.querySelector('.comparativo-table');
+    var closed = false;
+    function tableOnScreen() {
+      if (!table) return false;
+      var r = table.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    }
+    function update() {
+      var show = !closed && wide.matches && window.scrollY > 600 && (gutter.matches || !tableOnScreen());
+      box.hidden = !show;
+    }
+    box.querySelector('.promo-float__close').addEventListener('click', function () {
+      closed = true;
+      update();
+    });
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+
+    if (!window.__promoClickBound) {
+      window.__promoClickBound = true;
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest && e.target.closest('a[data-promo]');
+        if (!link || typeof gtag !== 'function') return;
+        gtag('event', 'promo_click', {
+          promo_name: link.getAttribute('data-promo'),
+          promo_position: link.getAttribute('data-promo-pos'),
+          page_path: location.pathname,
+          transport_type: 'beacon',
+        });
+      });
+    }
+  })();
+</script>

@@ -1018,6 +1018,45 @@ a:hover { color: var(--primary-ink); }
 .promo-banner__note { font-size: 0.75rem; color: var(--muted-2); margin: 0.4rem 0 0; text-align: right; }
 @media (prefers-reduced-motion: reduce) { .promo-banner a { transition: none; } .promo-banner a:hover { transform: none; } }
 
+/* Banner flutuante da home (components/PromoFloat.astro) — só em tela larga */
+.promo-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 45; /* acima do conteúdo e do header (40), abaixo do aviso de cookies (50) */
+  width: 220px;
+  animation: promo-float-in 300ms ease-out;
+}
+.promo-float[hidden] { display: none; }
+.promo-float a {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-pop);
+  transition: transform .15s ease;
+}
+.promo-float a:hover { transform: translateY(-2px); }
+.promo-float img { display: block; width: 100%; height: auto; }
+.promo-float__close {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  z-index: 1;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font: 700 1.1rem/1 var(--sans);
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+.promo-float__close:hover { background: var(--surface-sunk); }
+@media (max-width: 1099px) { .promo-float { display: none !important; } }
+@keyframes promo-float-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .promo-float { animation: none; } .promo-float a { transition: none; } }
+
 .sales-highlight {
   display: flex;
   align-items: center;

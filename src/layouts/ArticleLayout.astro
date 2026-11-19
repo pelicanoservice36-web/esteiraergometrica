@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import PromoMarmita from '../components/PromoMarmita.astro';
 
 export interface Props {
 	title: string;
@@ -28,6 +29,10 @@ const {
 	standfirstHtml,
 	updated,
 } = Astro.props;
+
+// Banner do e-book Marmita Leve só nos guias (não nas páginas legais/institucionais).
+const isGuia = path.startsWith('/guias/');
+const guiaSlug = path.replace(/^\/guias\//, '').replace(/\.html$/, '');
 ---
 
 <BaseLayout
@@ -48,6 +53,8 @@ const {
   </div>
 
   <slot />
+
+  {isGuia && <PromoMarmita slug={guiaSlug} posicao="guia" />}
 
 </article>
 </BaseLayout>
