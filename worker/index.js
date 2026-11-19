@@ -110,7 +110,10 @@ export default {
     if (pathname === '/api/mp/diag') {
       // Diagnóstico sem expor a chave: só diz se ela existe e se tem o formato esperado.
       const t = chaveMP(env), bruto = String(env.MP_ACCESS_TOKEN || '');
-      return json({ tem_chave: !!t, formato_ok: /^APP_USR-\d+-\d+-[0-9a-f]{32}-\d+$/.test(t), tinha_espacos_ou_bearer: bruto !== t });
+      const tipo = /^APP_USR-\d+-\d+-[0-9a-f]{32}-\d+$/.test(t) ? (t.startsWith('APP_USR-7284920251678353-') ? 'access_token_producao' : 'access_token_de_outra_aplicacao_ou_teste')
+        : /^APP_USR-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(t) ? 'public_key'
+        : /^TEST-/.test(t) ? 'credencial_de_teste' : /^[A-Za-z0-9]{32}$/.test(t) ? 'client_secret' : /^\d{10,20}$/.test(t) ? 'client_id' : 'desconhecido';
+      return json({ tem_chave: !!t, tipo, tinha_espacos_ou_bearer: bruto !== t });
     }
     if (pathname.startsWith('/api/')) return json({ erro: 'não encontrado' }, 404);
     return env.ASSETS.fetch(request);
