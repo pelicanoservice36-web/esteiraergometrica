@@ -1,21 +1,27 @@
 ---
-// Banner flutuante do e-book Marmita Leve, fixo no canto inferior direito da
-// home (src/pages/index.astro). Usa a arte vertical (3:4) gerada no Google
-// Flow, a mesma do PromoMarmita no celular.
-// - Só em telas a partir de 1100px: no celular cobriria a tabela e o CTA.
-// - Abaixo de 1720px some enquanto a tabela comparativa está na tela, para não
-//   cobrir os botões de afiliado da coluna da direita.
-// - Aparece depois que o visitante rola além do topo (hero) e tem botão de
-//   fechar; fechado, fica fechado até recarregar a página (sem localStorage,
-//   regra do CLAUDE.md).
+// Banner flutuante do e-book Marmita Leve, fixo no canto inferior direito de
+// TODAS as páginas do site (incluído uma vez no BaseLayout). Usa a arte
+// vertical v2 gerada no Google Flow (ver PromoMarmita.astro).
+// - Só em telas a partir de 1100px: no celular cobriria o conteúdo e a barra
+//   fixa de compra das reviews.
+// - Aparece depois que o visitante rola 600px.
+// - Abaixo de 1720px (quando não cabe na margem lateral do container de
+//   1220px) some sempre que ficaria por cima de um botão de afiliado
+//   (rel="sponsored"), da tabela comparativa ou do próprio banner Marmita no
+//   meio do texto — nunca cobre o que gera comissão.
+// - Botão de fechar; fechado, fica fechado até recarregar a página (sem
+//   localStorage, regra do CLAUDE.md).
 // - Link interno, produto próprio: sem rel="sponsored". Clique vira promo_click
-//   (promo_position = "home-flutuante") e utm_content=home-flutuante.
+//   (promo_position "flutuante") e utm_content=flutuante-<página>.
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '').replace(/\/index$/, '');
+const pagina = path === '' ? 'home' : path.slice(1).replace(/\//g, '-');
+const utm = `utm_source=esteiraergometrica&utm_medium=banner&utm_campaign=marmita-leve&utm_content=${encodeURIComponent(`flutuante-${pagina}`)}`;
 const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é improviso? Prepare até 10 marmitas em uma tarde e deixe a semana inteira organizada. Quero minhas marmitas.';
 ---
 
 <aside class="promo-float" id="promoFloat" aria-label="E-book Marmita Leve em 21 Dias" hidden>
   <button type="button" class="promo-float__close" aria-label="Fechar anúncio do e-book">×</button>
-  <a href="/marmita-leve/oferta?utm_source=esteiraergometrica&utm_medium=banner&utm_campaign=marmita-leve&utm_content=home-flutuante" data-promo="marmita-leve" data-promo-pos="home-flutuante">
+  <a href={`/marmita-leve/oferta?${utm}`} data-promo="marmita-leve" data-promo-pos="flutuante">
     <img src="/assets/images/banner-marmita-leve-v2-440x589.webp" srcset="/assets/images/banner-marmita-leve-v2-440x589.webp 440w, /assets/images/banner-marmita-leve-v2-896x1200.webp 896w" sizes="220px" width="440" height="589" loading="lazy" decoding="async" alt={alt} />
   </a>
 </aside>
@@ -25,27 +31,38 @@ const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é im
     var box = document.getElementById('promoFloat');
     if (!box || !window.matchMedia) return;
     var wide = window.matchMedia('(min-width: 1100px)');
-    // A partir de 1720px o banner cabe na margem lateral, fora do container de
-    // 1220px; abaixo disso ele ficaria por cima da coluna "Ver melhor preço" da
-    // tabela comparativa, então some enquanto a tabela estiver na tela.
     var gutter = window.matchMedia('(min-width: 1720px)');
-    var table = document.querySelector('.comparativo-table');
-    var closed = false;
-    function tableOnScreen() {
-      if (!table) return false;
-      var r = table.getBoundingClientRect();
-      return r.top < window.innerHeight && r.bottom > 0;
+    var AVOID = 'a[rel~="sponsored"], .comparativo-table, .promo-banner';
+    // Área que o banner ocupa: 220px de largura, ~295px de altura, a 20px das
+    // bordas (ver .promo-float no styles.css), com folga de 16px.
+    var W = 220 + 20 + 16, H = 295 + 20 + 16;
+    var closed = false, ticking = false;
+    function covers() {
+      var left = window.innerWidth - W, top = window.innerHeight - H;
+      var els = document.querySelectorAll(AVOID);
+      for (var i = 0; i < els.length; i++) {
+        if (box.contains(els[i])) continue;
+        var r = els[i].getBoundingClientRect();
+        if (r.width && r.right > left && r.bottom > top && r.top < window.innerHeight && r.left < window.innerWidth) return true;
+      }
+      return false;
     }
     function update() {
-      var show = !closed && wide.matches && window.scrollY > 600 && (gutter.matches || !tableOnScreen());
+      ticking = false;
+      var show = !closed && wide.matches && window.scrollY > 600 && (gutter.matches || !covers());
       box.hidden = !show;
+    }
+    function schedule() {
+      // setTimeout e não requestAnimationFrame: rAF não dispara em aba/pane
+      // sem pintura, e o banner ficaria preso escondido.
+      if (!ticking) { ticking = true; setTimeout(update, 80); }
     }
     box.querySelector('.promo-float__close').addEventListener('click', function () {
       closed = true;
       update();
     });
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
     update();
 
     if (!window.__promoClickBound) {

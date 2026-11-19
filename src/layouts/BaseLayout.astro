@@ -2,6 +2,7 @@
 import '../styles.css';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import PromoFloat from '../components/PromoFloat.astro';
 
 export interface Props {
 	title: string;
@@ -250,6 +251,8 @@ const breadcrumbJsonLd = path === '/' ? null : {
 </main>
 
 <Footer />
+
+<PromoFloat />
 
 <div id="cookie-banner" class="cookie-banner" hidden>
 	<h2 class="cookie-banner__title">Cookies</h2>
