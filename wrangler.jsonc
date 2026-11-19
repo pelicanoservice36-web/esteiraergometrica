@@ -4,6 +4,8 @@
   "name": "esteiraergometrica",
   "main": "worker/index.js",
   "compatibility_date": "2026-09-01",
+  // O painel do Cloudflare não tem comando de build: o wrangler gera o site antes de publicar.
+  "build": { "command": "npm run build" },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
