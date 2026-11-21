@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import QuickPicks from '../../components/QuickPicks.astro';
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -48,6 +49,27 @@ const faqJsonLd = {
       <li><strong>Melhor custo-benefício abaixo de R$ 1.000:</strong> <a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a>, R$ 577,91.</li>
     </ul>
   </div>
+
+  <QuickPicks
+    titulo="Os melhores custo-benefício, lado a lado"
+    picks={[
+      {
+        "slug": "polimet-ep1600",
+        "perfil": "Melhor custo-benefício do catálogo",
+        "ressalva": "9,0/10 no critério custo-benefício. Feita para caminhada, não para corrida."
+      },
+      {
+        "slug": "redfin-150kg",
+        "perfil": "Abaixo de R$ 1.000",
+        "ressalva": "8,0/10 no critério; declara 150 kg, mas chega a só 6 km/h."
+      },
+      {
+        "slug": "athletic-racer",
+        "perfil": "Para quem corre",
+        "ressalva": "8,0/10 no critério; a única do catálogo com motor de 5.0 HPM confirmado em manual."
+      }
+    ]}
+  />
 
   <h2>Custo-benefício não é "a mais barata"</h2>
   <p>Na nossa <a href="/metodologia">metodologia</a>, custo-benefício é um dos sete critérios que compõem a nota editorial, com peso de 15%. Ele não segue uma faixa fixa de preço: é uma nota qualitativa que pergunta se o que o modelo entrega (motor, lona, peso suportado, praticidade, garantia) justifica o preço cobrado por ele, comparado ao resto do catálogo. Por isso uma esteira de R$ 3.990 pode empatar em nota de custo-benefício com uma de R$ 717: as duas entregam o que prometem pelo que custam, só que em faixas de preço diferentes.</p>

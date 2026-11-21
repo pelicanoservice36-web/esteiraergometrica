@@ -33,6 +33,10 @@ const {
 // Banner do e-book Marmita Leve só nos guias (não nas páginas legais/institucionais).
 const isGuia = path.startsWith('/guias/');
 const guiaSlug = path.replace(/^\/guias\//, '').replace(/\.html$/, '');
+// Nomes com hífen ("EP-1600", "GTS-6") não quebram no hífen do título: no celular
+// o H1 da review virava "Polimet EP-" / "1600 é boa?".
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const h1Html = esc(h1).replace(/(\S+-\S+)/g, '<span class="nobr">$1</span>');
 ---
 
 <BaseLayout
@@ -47,7 +51,7 @@ const guiaSlug = path.replace(/^\/guias\//, '').replace(/\.html$/, '');
 <article>
 
   <div class="lead-section">
-    <h1>{h1}</h1>
+    <h1 set:html={h1Html} />
     <p class="standfirst">{standfirstHtml ? <Fragment set:html={standfirstHtml} /> : standfirst}</p>
     <p class="stamp">Por <a href="/sobre">Rafael Rodrigues</a> · Atualizado em {updated}</p>
   </div>

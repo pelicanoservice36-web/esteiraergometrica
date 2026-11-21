@@ -238,7 +238,7 @@ const breadcrumbJsonLd = path === '/' ? null : {
 
 <Header transparent={transparentHeader} />
 
-{path !== '/' && (
+{path !== '/' && path !== '/404' && (
 	<nav class="breadcrumbs wrap" aria-label="Trilha de navegação">
 		<a href="/">Início</a>
 		<span class="breadcrumbs__sep" aria-hidden="true">›</span>

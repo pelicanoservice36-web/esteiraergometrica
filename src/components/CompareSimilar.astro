@@ -2,6 +2,7 @@
 // Tabela de comparação com os modelos de preço mais parecido, no fim de cada análise.
 // Só links internos para as análises: os botões de compra continuam só na própria review.
 import { models, similarByPrice } from '../data/models.mjs';
+import { PRECO_PERIODO } from '../data/site.mjs';
 
 export interface Props {
 	slug: string;
@@ -14,7 +15,7 @@ const rows = [self, ...similarByPrice(slug, 3)].sort((a, b) => a.precoRef - b.pr
 ---
 
 <h2>Compare com modelos de preço parecido</h2>
-<p>Os três modelos do catálogo com preço mais próximo, lado a lado. Nota editorial pela nossa <a href="/metodologia">metodologia</a>; preço observado no anúncio verificado de cada análise, em setembro e outubro de 2026.</p>
+<p>Os três modelos do catálogo com preço mais próximo, lado a lado. Nota editorial pela nossa <a href="/metodologia">metodologia</a>; preço observado no anúncio verificado de cada análise, {PRECO_PERIODO}.</p>
 <div class="table-scroll">
 <table class="specs">
   <caption>{self.nome} e os modelos de preço mais parecido do catálogo</caption>

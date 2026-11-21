@@ -104,7 +104,8 @@ img { max-width: 100%; display: block; }
 
 .brand-word strong { font-weight: 800; color: var(--logo-navy); transition: color 250ms ease; }
 .brand-word .word-mid { font-weight: 500; color: var(--logo-navy); opacity: 0.82; transition: color 250ms ease; }
-.brand-word .word-dot { font-weight: 700; color: var(--logo-green); }
+.brand-word .word-dot { font-weight: 700; color: var(--accent); } /* texto: #20D06B dá ~2:1 sobre branco */
+.site-head--overlay:not(.is-scrolled) .brand-word .word-dot { color: var(--logo-green); } /* sobre o vídeo escuro o verde vivo passa */
 
 /* ---------- Cabeçalho ---------- */
 
@@ -263,7 +264,7 @@ h1 { font-weight: 800; font-size: clamp(2.25rem, 4.6vw + 0.6rem, 3.75rem); line-
 h2 { font-weight: 700; font-size: clamp(1.5rem, 1.8vw + 1rem, 2.125rem); margin-top: 3.5rem; }
 h3 { font-weight: 700; font-size: 1.1875rem; margin-top: 1.75rem; }
 
-p { margin: 0 0 1.1rem; max-width: 42rem; }
+p { margin: 0 0 1.1rem; max-width: 40rem; text-wrap: pretty; } /* ~75 caracteres por linha */
 
 a { color: var(--primary); }
 a:hover { color: var(--primary-ink); }
@@ -319,6 +320,7 @@ a:hover { color: var(--primary-ink); }
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--muted);
+  max-width: 31rem; /* fonte menor: sem isso a linha passava de 100 caracteres */
   margin: 0 0 2rem;
 }
 
@@ -436,8 +438,20 @@ a:hover { color: var(--primary-ink); }
 
 .cookie-banner__actions .btn { flex: 1; padding-inline: 1rem; }
 
-@media (max-width: 26rem) {
-  .cookie-banner { left: 0.75rem; bottom: 0.75rem; }
+@media (max-width: 47.9375rem) {
+  /* No celular o cartão cobria ~35% da tela e os botões principais. Vira uma faixa
+     baixa colada no rodapé; fica acima da barra de compra fixa (z-index 50). */
+  .cookie-banner {
+    left: 0; right: 0; bottom: 0;
+    width: auto; max-width: none;
+    z-index: 60;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-width: 1px 0 0;
+    padding: 0.875rem 1rem calc(0.875rem + env(safe-area-inset-bottom));
+  }
+  .cookie-banner__title { display: none; }
+  .cookie-banner__text { font-size: 0.8125rem; line-height: 1.45; margin-bottom: 0.625rem; }
+  .cookie-banner__actions .btn { min-height: 2.75rem; padding-block: 0.5rem; }
 }
 
 /* Botão de compra dentro das análises (mantém a classe .buy usada nas reviews) */
@@ -729,6 +743,9 @@ a:hover { color: var(--primary-ink); }
 }
 
 .indicator-chip svg { flex-shrink: 0; color: var(--accent); }
+a.indicator-chip { text-decoration: none; transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease; }
+a.indicator-chip:hover { border-color: var(--accent); background: var(--accent-tint); color: var(--accent-ink); transform: translateY(-1px); }
+.indicators li { display: contents; }
 
 /* ---------- Card de comparativo ---------- */
 
@@ -939,9 +956,9 @@ a:hover { color: var(--primary-ink); }
 
 .ficha {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--primary);
+  border: 1px solid #C9D6EE;
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
   padding: 1.75rem;
   margin: 2rem 0 2.5rem;
 }
@@ -970,6 +987,14 @@ a:hover { color: var(--primary-ink); }
   font-variant-numeric: tabular-nums;
   margin: 0;
   color: var(--ink);
+}
+
+@media (max-width: 47.9375rem) {
+  /* Duas colunas no celular: a ficha empilhada (um dado por linha) empurrava o botão
+     de compra para baixo da dobra. */
+  .ficha { padding: 1.25rem; margin: 1.5rem 0 2rem; }
+  .ficha dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem 1rem; margin-bottom: 1.25rem; }
+  .ficha dd { font-size: 1.1875rem; line-height: 1.25; overflow-wrap: anywhere; }
 }
 
 .price-note {
@@ -1015,7 +1040,7 @@ a:hover { color: var(--primary-ink); }
 }
 .promo-banner a:hover { transform: translateY(-2px); box-shadow: var(--shadow-pop); }
 .promo-banner img { display: block; width: 100%; height: auto; }
-.promo-banner__note { font-size: 0.75rem; color: var(--muted-2); margin: 0.4rem 0 0; text-align: right; }
+.promo-banner__note { font-size: 0.8125rem; color: var(--muted); margin: 0.4rem 0 0; text-align: right; }
 @media (prefers-reduced-motion: reduce) { .promo-banner a { transition: none; } .promo-banner a:hover { transform: none; } }
 
 /* Banner flutuante da home (components/PromoFloat.astro) — só em tela larga */
@@ -1065,7 +1090,6 @@ a:hover { color: var(--primary-ink); }
   gap: 0.75rem;
   background: #FFF4E5;
   border: 1px solid #F3C27A;
-  border-left: 5px solid #D9730D;
   border-radius: var(--radius-md);
   padding: 0.9rem 1.1rem;
   margin: 1.5rem 0 0;
@@ -1587,7 +1611,7 @@ a:hover { color: var(--primary-ink); }
   font-size: 0.875rem;
   color: var(--muted);
   margin: 2.5rem 0;
-  max-width: 40rem;
+  max-width: 36rem;
 }
 
 /* ---------- Acessibilidade e responsivo ---------- */
@@ -1742,4 +1766,181 @@ a:hover { color: var(--primary-ink); }
     padding-left: 0.6rem;
   }
   .specs--buy td.cell-cta .mini-cta { padding: 0.5rem 0.65rem; font-size: 0.8125rem; }
+}
+
+/* ================================================================
+   Escolhas por perfil (QuickPicks.astro) — home e "Resposta rápida" dos guias
+   Uma superfície só, com divisórias de 1px (gap sobre fundo de borda), em vez de
+   cartões soltos: lê como uma decisão lado a lado, não como vitrine.
+   ================================================================ */
+
+.picks { margin: 0 0 0.5rem; }
+.section > .picks > h2:first-child { margin-top: 0; }
+.picks__intro { color: var(--muted); margin-bottom: 0; }
+
+.picks__list {
+  list-style: none;
+  margin: 1.25rem 0 0.75rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  max-width: none;
+}
+
+@media (min-width: 48rem) {
+  .picks__list--n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .picks__list--n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .picks__list--n4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .picks__list--n4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.pick {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  padding: 1.25rem 1.25rem 1.1rem;
+  scroll-margin-top: 6rem;
+  transition: background-color 300ms ease;
+}
+.pick:target { background: var(--accent-tint); }
+
+.pick__perfil {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--accent-ink);
+  margin: 0 0 0.3rem;
+}
+
+.pick__nome { margin: 0 0 0.7rem; font-size: 1.1875rem; line-height: 1.25; }
+.pick__nome a { color: var(--ink); text-decoration: none; }
+.pick__nome a:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+
+.pick__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0 0 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+.pick__nota { font-size: 0.875rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.pick__nota strong { font-size: 1.625rem; font-weight: 800; line-height: 1; color: var(--accent-ink); }
+.pick__nota span { font-weight: 600; }
+.pick__preco { font-size: 1.0625rem; font-weight: 800; color: var(--ink); white-space: nowrap; }
+
+.pick__ressalva { flex: 1; font-size: 0.875rem; line-height: 1.5; color: var(--muted); margin: 0 0 1rem; }
+
+.pick__acoes { display: flex; flex-direction: column; }
+.pick__acoes .mini-cta {
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.875rem;
+}
+.pick__acoes .cta-review { padding: 0.35rem 0 0; }
+
+.picks > .stamp { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) { .pick { transition: none; } }
+
+/* Nota editorial na tabela comparativa da home */
+.comparativo-table .cell-score { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.comparativo-table .cell-score strong { font-size: 1.0625rem; font-weight: 800; color: var(--accent-ink); }
+.comparativo-table .cell-score span { font-size: 0.8125rem; font-weight: 600; color: var(--muted); }
+
+/* "Nossa escolha": nota editorial no lugar das estrelas */
+.featured-pick-score { color: #DCE6F7; font-weight: 600; margin: -0.5rem 0 1.25rem; }
+.featured-pick-score strong { font-size: 1.75rem; font-weight: 800; color: #fff; line-height: 1; }
+.featured-pick-score span { color: #B9CBEC; }
+.featured-pick-why a { color: #fff; }
+
+.nobr { white-space: nowrap; }
+
+/* Tabela larga que rola de lado (guias, "compare com modelos parecidos"): sombra na
+   borda indica que há mais colunas; some quando não há o que rolar. */
+.table-scroll {
+  --scroll-cover: var(--bg);
+  background:
+    linear-gradient(to right, var(--scroll-cover) 30%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--scroll-cover) 30%, transparent) right / 2.5rem 100% no-repeat local,
+    linear-gradient(to right, rgba(15, 23, 42, 0.14), rgba(15, 23, 42, 0)) left / 0.75rem 100% no-repeat scroll,
+    linear-gradient(to left, rgba(15, 23, 42, 0.14), rgba(15, 23, 42, 0)) right / 0.75rem 100% no-repeat scroll;
+}
+.panel .table-scroll { --scroll-cover: var(--surface); }
+
+/* Comparativo da home no celular: cartão compacto (era ~720px por modelo, 24 modelos).
+   Produto em linha, nota e preço lado a lado, CTA, ficha resumida em linhas curtas. */
+@media (max-width: 47.9375rem) {
+  .comparativo-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+    padding: 1rem 1.1rem 0.5rem;
+  }
+  .comparativo-table th[scope="row"] {
+    grid-column: 1 / -1;
+    align-items: stretch;
+    text-align: left;
+    gap: 0.4rem;
+    padding: 0 0 0.6rem;
+  }
+  .comparativo-table .cell-product { flex-direction: row; align-items: center; gap: 0.85rem; }
+  .comparativo-table .cell-product > div { align-items: flex-start; }
+  .comparativo-table .cell-product img { width: 4rem; height: 4rem; }
+  .comparativo-table .badge-mini { text-align: left; margin-top: 0.2rem; }
+  .comparativo-table .cell-rating { font-weight: 600; }
+
+  .comparativo-table td.cell-score {
+    order: 2;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 0.15rem;
+    padding: 0.2rem 0;
+  }
+  .comparativo-table td.cell-score::before { content: none; }
+  .comparativo-table td.cell-score strong { font-size: 1.5rem; }
+  .comparativo-table td.cell-score span::after { content: " nota editorial"; }
+
+  .comparativo-table td.cell-price { order: 3; justify-content: flex-end; padding: 0.2rem 0; font-size: 1.25rem; }
+
+  .comparativo-table td.cell-cta { order: 4; grid-column: 1 / -1; padding: 0.5rem 0 0.75rem; margin-bottom: 0.4rem; }
+
+  .comparativo-table td[data-label="Motor"],
+  .comparativo-table td[data-label="Velocidade"],
+  .comparativo-table td[data-label="Lona"],
+  .comparativo-table td[data-label="Peso máx."],
+  .comparativo-table td[data-label="Dobra"] {
+    grid-column: 1 / -1;
+    padding: 0.2rem 0;
+    font-size: 0.9375rem;
+  }
+  .comparativo-table td[data-label="Motor"]      { order: 5; padding-top: 0.4rem; }
+  .comparativo-table td[data-label="Velocidade"] { order: 6; }
+  .comparativo-table td[data-label="Lona"]       { order: 7; }
+  .comparativo-table td[data-label="Peso máx."]  { order: 8; }
+  .comparativo-table td[data-label="Dobra"]      { order: 9; }
+}
+
+@media (min-width: 48rem) {
+  /* Com a coluna Nota, o nome do produto encolhia até quebrar em 3-4 linhas. */
+  .comparativo-table tbody th[scope="row"] { min-width: 12.5rem; }
+}
+@media (min-width: 48rem) and (max-width: 80rem) {
+  .comparativo-table th, .comparativo-table td { padding-right: 0.5rem; }
+  .comparativo-table .cell-product img { width: 2.25rem; height: 2.25rem; }
+  .comparativo-table tbody th[scope="row"] { min-width: 11rem; }
+  .comparativo-table td[data-label="Motor"] { white-space: normal; min-width: 4.5rem; }
+  .comparativo-table .mini-cta { padding: 0.5rem 0.7rem; }
+  #comparativo .panel { padding-inline: 1.25rem; }
+  .comparativo-table thead th { white-space: normal; }
 }

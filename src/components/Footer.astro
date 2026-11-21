@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro';
+import { PRECO_PERIODO } from '../data/site.mjs';
 ---
 
 <footer class="site-foot">
@@ -38,7 +39,7 @@ import Logo from './Logo.astro';
     </div>
 
     <div class="foot-bottom">
-      <p>Este site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos. Preços consultados em setembro de 2026 e sujeitos a alteração pelas lojas.</p>
+      <p>Este site participa de programas de afiliados: se você comprar por um link daqui, recebemos comissão da loja, sem custo adicional para você. Isso não altera os preços nem quais modelos recomendamos. Preços consultados {PRECO_PERIODO} e sujeitos a alteração pelas lojas.</p>
       <nav class="foot-nav" aria-label="Links legais">
         <a href="/aviso-legal">Aviso legal</a>
         <a href="/termos-de-uso">Termos de uso</a>

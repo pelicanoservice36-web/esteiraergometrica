@@ -1,8 +1,10 @@
 ---
 // Banner do e-book próprio "Marmita Leve em 21 Dias" (página de venda em
-// /marmita-leve/oferta). Aparece duas vezes em cada review: logo após o
-// veredito (posicao="veredito", inserido na própria página) e no fim do
-// artigo (posicao="fim", pelo ReviewLayout). Nos guias, uma vez no fim do
+// /marmita-leve/oferta). Aparece uma vez em cada review, no fim do artigo
+// (posicao="fim", pelo ReviewLayout). Até 2026-11-21 também aparecia logo após
+// o veredito; saiu de lá porque competia com o botão de compra no ponto de
+// maior intenção da página. No celular usa a mesma arte horizontal (a versão
+// em pé 896x1200 ocupava ~520px e era mais chamativa que o CTA da esteira). Nos guias, uma vez no fim do
 // artigo (posicao="guia", pelo ArticleLayout, só para path /guias/...).
 // Arquivos -v2: mesma arte com contraste/saturação ajustados (a original saía
 // opaca/lavada). /assets/ tem cache imutável de 1 ano: nova versão = novo nome.
@@ -25,7 +27,6 @@ const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é im
 <aside class="promo-banner" aria-label="E-book Marmita Leve em 21 Dias">
   <a href={`/marmita-leve/oferta?${utm}`} data-promo="marmita-leve" data-promo-pos={posicao}>
     <picture>
-      <source media="(max-width: 600px)" srcset="/assets/images/banner-marmita-leve-v2-896x1200.webp" width="896" height="1200" />
       <img src="/assets/images/banner-marmita-leve-v2-1376x768.webp" width="1376" height="768" loading="lazy" decoding="async" alt={alt} />
     </picture>
   </a>
@@ -33,7 +34,7 @@ const alt = 'Método Tarde Única. Treina na esteira, mas na hora de comer é im
 </aside>
 
 <script is:inline>
-  // O componente aparece duas vezes por página; o listener é registrado uma vez só.
+  // Se o componente aparecer mais de uma vez na página, o listener é registrado uma vez só.
   if (!window.__promoClickBound) {
     window.__promoClickBound = true;
     document.addEventListener('click', function (e) {

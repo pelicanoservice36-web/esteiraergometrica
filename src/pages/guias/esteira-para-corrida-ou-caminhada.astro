@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import QuickPicks from '../../components/QuickPicks.astro';
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -46,6 +47,22 @@ const faqJsonLd = {
     <h2 style="margin-top:0">Resposta rápida</h2>
     <p>Para caminhada (o uso da maioria de quem compra esteira doméstica), a <a href="/reviews/polimet-ep1600">Polimet EP-1600</a> (R$ 1.260,03) tem a maior nota editorial entre as esteiras de entrada (6,9/10). Se peso suportado importa mais que nota de marca, a <a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a> suporta 150 kg por R$ 577,91. Se você pretende correr de verdade, em ritmos sustentados acima de 10 km/h ou treino intervalado, a <a href="/reviews/athletic-racer">Athletic Racer</a> é a indicação: motor de 5.0 HPM e lona de 126,5 cm confirmados em manual, por R$ 3.990. Acima de R$ 10.000 há quatro modelos que chegam a 18 km/h ou mais, com lona maior, mas nenhum com motor contínuo mais forte confirmado por fabricante. As três <a href="/reviews/gallant-elite-gee12m28a">Gallant Elite</a> chegam a 16 km/h por menos, mas com motor mais modesto.</p>
   </div>
+
+  <QuickPicks
+    titulo="Uma para caminhar, uma para correr"
+    picks={[
+      {
+        "slug": "polimet-ep1600",
+        "perfil": "Para caminhar",
+        "ressalva": "Maior nota editorial entre as esteiras de entrada. Com 1,6 HP e 9 km/h, não é para correr."
+      },
+      {
+        "slug": "athletic-racer",
+        "perfil": "Para correr de verdade",
+        "ressalva": "Motor de 5.0 HPM e lona de 126,5 cm confirmados em manual. Custa três vezes mais."
+      }
+    ]}
+  />
 
   <h2>O motor mostra o limite antes de qualquer coisa</h2>
   <p>1,6 HP contínuo (o motor da <a href="/reviews/polimet-ep1600">Polimet EP-1600</a>, da <a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a> e da <a href="/reviews/polimet-ep1600-senior">Polimet EP-1600 Sênior</a>) é o padrão de entrada do mercado brasileiro. Ele aguenta caminhada e trote leve sem esforço, mas corrida sustentada exige do motor mais do que essa faixa foi projetada para entregar de forma contínua: o motor esquenta mais, perde força para manter velocidade estável, e o desgaste acelera. A <a href="/reviews/athletic-racer">Athletic Racer</a> é a única exceção de verdade, com motor de <strong>5.0 HPM</strong> (mais que o triplo do padrão de entrada), capaz de manter ritmo de corrida sem essa perda de força.</p>

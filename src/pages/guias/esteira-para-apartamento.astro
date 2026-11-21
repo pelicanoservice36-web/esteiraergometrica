@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import QuickPicks from '../../components/QuickPicks.astro';
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -46,6 +47,27 @@ const faqJsonLd = {
     <h2 style="margin-top:0">Resposta rápida</h2>
     <p>Para apartamento pequeno, priorize um modelo que dobre, pese até cerca de 25 kg (para você conseguir mover sozinho) e reserve pelo menos 60 cm livres atrás do equipamento, além do espaço da lona. Um tapete de borracha ou manta de EVA embaixo resolve mais da metade do problema de ruído para o vizinho de baixo, mais do que qualquer especificação técnica do fabricante.</p>
   </div>
+
+  <QuickPicks
+    titulo="As que cabem melhor num apartamento"
+    picks={[
+      {
+        "slug": "polimet-ep1600",
+        "perfil": "Fabricante estabelecido",
+        "ressalva": "Dobra e pesa 24 kg; maior nota editorial entre as leves, com assistência técnica nacional."
+      },
+      {
+        "slug": "redfin-150kg",
+        "perfil": "A mais barata",
+        "ressalva": "Pesa 18 kg e declara até 150 kg, mas a velocidade máxima é só 6 km/h."
+      },
+      {
+        "slug": "health-herald-lcd",
+        "perfil": "A mais leve do catálogo",
+        "ressalva": "Pesa 13,5 kg, mas o motor de 0,65 HP é o mais fraco confirmado do catálogo."
+      }
+    ]}
+  />
 
   <h2>Dobra é necessário, mas não é suficiente</h2>
   <p>Quase toda esteira de entrada anunciada como "dobrável" resolve o mesmo problema: deixar de ser um móvel fixo na sala. Mas dobrar não significa automaticamente "fácil de guardar". Dois detalhes importam mais do que a especificação em si:</p>

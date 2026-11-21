@@ -1,6 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { buyHref } from '../data/affiliates.mjs';
+import QuickPicks from '../components/QuickPicks.astro';
+
+// Escolhas por perfil logo após o hero: as ressalvas repetem o que cada análise
+// (e as notas da tabela abaixo) já afirmam; não escreva aqui nada que a review não diga.
+const perfis = [
+	{ slug: 'polimet-ep1600', perfil: 'Vou caminhar e quero gastar pouco', ressalva: 'Motor de 1,6 HP e 9 km/h: feita para caminhada e trote leve, não para corrida. Dobra e pesa 24 kg.' },
+	{ slug: 'athletic-racer', perfil: 'Quero correr de verdade em casa', ressalva: 'Motor de 5.0 HPM e lona de 126,5 cm confirmados no manual. Dobra, mas pesa 42,4 kg.' },
+	{ slug: 'gallant-elite-gee13m29a', perfil: 'Peso mais de 110 kg', ressalva: 'Limite de 130 kg confirmado pelo fabricante. Não é bivolt: este anúncio é a versão 220V.' },
+	{ slug: 'redfin-150kg', perfil: 'Meu orçamento é abaixo de R$ 1.000', ressalva: 'Declara 150 kg e pesa só 18 kg, mas a velocidade máxima é 6 km/h: só para caminhar.' },
+];
 
 const mlDream = buyHref('dream-fitness-dr1600');
 const mlPolimet = buyHref('polimet-ep1600');
@@ -120,15 +130,26 @@ const siteJsonLd = [
           <a class="btn btn-secondary" href="/guias/como-escolher">Como escolher</a>
         </div>
 
-        <ul class="indicators" role="list">
-          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Motor</li>
-          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Tamanho da lona</li>
-          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Peso suportado</li>
-          <li class="indicator-chip"><svg width="16" height="16" viewBox="0 0 24 24" set:html={check} />Preço</li>
-        </ul>
+        <nav aria-label="Escolher pelo perfil">
+          <ul class="indicators" role="list">
+            <li><a class="indicator-chip" href="#perfil-polimet-ep1600"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" set:html={check} />Caminhar gastando pouco</a></li>
+            <li><a class="indicator-chip" href="#perfil-athletic-racer"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" set:html={check} />Correr em casa</a></li>
+            <li><a class="indicator-chip" href="#perfil-gallant-elite-gee13m29a"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" set:html={check} />Mais de 110 kg</a></li>
+            <li><a class="indicator-chip" href="#perfil-redfin-150kg"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" set:html={check} />Até R$ 1.000</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </section>
+
+  <div class="section">
+    <QuickPicks
+      id="perfil"
+      titulo="Escolha pelo seu perfil"
+      intro="Se você já sabe o que precisa, comece por aqui. A ressalva de cada modelo é o que mais pesa contra ele."
+      picks={perfis}
+    />
+  </div>
 
   <section id="comparativo" class="section">
     <div class="panel">
@@ -139,10 +160,11 @@ const siteJsonLd = [
 
       <div class="table-scroll">
       <table class="specs comparativo-table">
-        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 577,91 a R$ 18.588</caption>
+        <caption class="visually-hidden">Esteiras domésticas, faixa de R$ 577 a R$ 18.588, com nota editorial de 0 a 10</caption>
         <thead>
           <tr>
             <th scope="col">Produto</th>
+            <th scope="col">Nota</th>
             <th scope="col">Motor</th>
             <th scope="col">Velocidade máx.</th>
             <th scope="col">Lona</th>
@@ -162,14 +184,15 @@ const siteJsonLd = [
                   <span class="badge-mini">🏆 Melhor custo-benefício</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,5 (530 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,5/5 no Mercado Livre · 530 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,9</strong><span>/10</span></td>
             <td data-label="Motor" class="num">1,6 HP</td>
             <td data-label="Velocidade" class="num">9 km/h</td>
             <td data-label="Lona" class="num">33 × 100 cm</td>
             <td data-label="Peso máx." class="num">110 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 1.260,03</td>
+            <td data-label="Preço" class="num cell-price">R$ 1.260</td>
             <td class="cell-cta"><a class="mini-cta" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Polimet EP-1600 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/polimet-ep1600">Ler análise</a></td>
           </tr>
           <tr>
@@ -181,14 +204,15 @@ const siteJsonLd = [
                   <span class="badge-mini">🔥 Grande histórico de avaliações</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,6 (2.032 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,6/5 no Mercado Livre · 2.032 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,5</strong><span>/10</span></td>
             <td data-label="Motor" class="num">1,6 HP</td>
             <td data-label="Velocidade" class="num">9 km/h</td>
             <td data-label="Lona" class="num">33 × 100 cm</td>
             <td data-label="Peso máx." class="num">110 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 2.299,90</td>
+            <td data-label="Preço" class="num cell-price">R$ 2.299</td>
             <td class="cell-cta"><a class="mini-cta" href={mlDream} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Dream Fitness DR-1600 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/dream-fitness-dr1600">Ler análise</a></td>
           </tr>
           <tr>
@@ -200,8 +224,9 @@ const siteJsonLd = [
                   <span class="badge-mini">♿ Para idosos e reabilitação</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (223 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,7/5 no Mercado Livre · 223 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,0</strong><span>/10</span></td>
             <td data-label="Motor" class="num">1,6 HP</td>
             <td data-label="Velocidade" class="num">10 km/h</td>
             <td data-label="Lona" class="num">33 × 100 cm</td>
@@ -219,14 +244,15 @@ const siteJsonLd = [
                   <span class="badge-mini">🛒 +5 mil vendidas</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (1.268 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 1.268 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,5</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,5 HP</td>
             <td data-label="Velocidade" class="num">10 km/h</td>
             <td data-label="Lona" class="num">48 × 90 cm</td>
             <td data-label="Peso máx." class="num">150 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 675,18</td>
+            <td data-label="Preço" class="num cell-price">R$ 675</td>
             <td class="cell-cta"><a class="mini-cta" href={mlCardio} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Esteira Dobrável Cardio no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Ler análise</a></td>
           </tr>
           <tr>
@@ -238,8 +264,9 @@ const siteJsonLd = [
                   <span class="badge-mini">🏃 Para quem corre de verdade</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> Loja oficial no Mercado Livre, 500+ vendas</p>
+              <p class="cell-rating">Loja oficial no Mercado Livre, 500+ vendas</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>8,6</strong><span>/10</span></td>
             <td data-label="Motor" class="num">5.0 HPM</td>
             <td data-label="Velocidade" class="num">16 km/h</td>
             <td data-label="Lona" class="num">40 × 126,5 cm</td>
@@ -257,8 +284,9 @@ const siteJsonLd = [
                   <span class="badge-mini">📦 Maior volume de vendas</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (3.837 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 3.837 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>5,8</strong><span>/10</span></td>
             <td data-label="Motor" class="num">0,75 HP</td>
             <td data-label="Velocidade" class="num">10 km/h</td>
             <td data-label="Lona" class="num">39 × 110 cm</td>
@@ -276,14 +304,15 @@ const siteJsonLd = [
                   <span class="badge-mini">⚖️ Maior peso suportado da faixa de entrada</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (197 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,7/5 no Mercado Livre · 197 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,4</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,0 HP</td>
             <td data-label="Velocidade" class="num">10 km/h</td>
             <td data-label="Lona" class="num">41 × 100 cm</td>
             <td data-label="Peso máx." class="num">120 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 1.106,10</td>
+            <td data-label="Preço" class="num cell-price">R$ 1.106</td>
             <td class="cell-cta"><a class="mini-cta" href={mlImportway} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Importway IWEST2X1-10 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/importway-iwest2x1-10">Ler análise</a></td>
           </tr>
           <tr>
@@ -295,8 +324,9 @@ const siteJsonLd = [
                   <span class="badge-mini">📐 Inclinação, 130 kg suportado</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (269 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 269 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,6</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,9 HP</td>
             <td data-label="Velocidade" class="num">16 km/h</td>
             <td data-label="Lona" class="num">45 × 122 cm</td>
@@ -314,8 +344,9 @@ const siteJsonLd = [
                   <span class="badge-mini">💰 Inclinação mais em conta</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (288 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 288 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,7</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,8 HP</td>
             <td data-label="Velocidade" class="num">16 km/h</td>
             <td data-label="Lona" class="num">42 × 122 cm</td>
@@ -333,14 +364,15 @@ const siteJsonLd = [
                   <span class="badge-mini">🚪 Entrada da linha Elite</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (324 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 324 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,4</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,5 HP</td>
             <td data-label="Velocidade" class="num">14 km/h</td>
             <td data-label="Lona" class="num">42 × 110 cm</td>
             <td data-label="Peso máx." class="num">120 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 2.052,04</td>
+            <td data-label="Preço" class="num cell-price">R$ 2.052</td>
             <td class="cell-cta"><a class="mini-cta" href={mlGallant25} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Gallant Elite GEE12M25A no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/gallant-elite-gee12m25a">Ler análise</a></td>
           </tr>
           <tr>
@@ -352,8 +384,9 @@ const siteJsonLd = [
                   <span class="badge-mini">📋 Ficha mais transparente</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (428 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,7/5 no Mercado Livre · 428 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,5</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,0 HPM</td>
             <td data-label="Velocidade" class="num">12 km/h</td>
             <td data-label="Lona" class="num">40 × 110 cm</td>
@@ -371,14 +404,15 @@ const siteJsonLd = [
                   <span class="badge-mini">⚖️ 150 kg por R$ 1.039</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">5,0/5 no Mercado Livre · 2 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,8</strong><span>/10</span></td>
             <td data-label="Motor" class="num">3,0 HP*</td>
             <td data-label="Velocidade" class="num">12 km/h</td>
             <td data-label="Lona" class="num">40 × 100 cm</td>
             <td data-label="Peso máx." class="num">150 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 1.039,85</td>
+            <td data-label="Preço" class="num cell-price">R$ 1.039</td>
             <td class="cell-cta"><a class="mini-cta" href={mlAntuvi} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Antuvi no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/antuvi-mesa">Ler análise</a></td>
           </tr>
           <tr>
@@ -390,14 +424,15 @@ const siteJsonLd = [
                   <span class="badge-mini">🏋️ Maior peso suportado</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,6 (370 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,6/5 no Mercado Livre · 370 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,4</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2 HP</td>
             <td data-label="Velocidade" class="num">12 km/h</td>
             <td data-label="Lona" class="num">40 cm larg.</td>
             <td data-label="Peso máx." class="num">150 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 889,64</td>
+            <td data-label="Preço" class="num cell-price">R$ 889</td>
             <td class="cell-cta"><a class="mini-cta" href={mlQbuen} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da QBuen AT-1271 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/qbuen-150kg">Ler análise</a></td>
           </tr>
           <tr>
@@ -409,14 +444,15 @@ const siteJsonLd = [
                   <span class="badge-mini">⚡ Mais rápida do catálogo</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (28 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">5,0/5 no Mercado Livre · 28 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,0</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,5 HP</td>
             <td data-label="Velocidade" class="num">16 km/h</td>
             <td data-label="Lona" class="num">40 × 110 cm</td>
             <td data-label="Peso máx." class="num">120 kg</td>
             <td data-label="Dobra">Não</td>
-            <td data-label="Preço" class="num cell-price">R$ 2.658,70</td>
+            <td data-label="Preço" class="num cell-price">R$ 2.658</td>
             <td class="cell-cta"><a class="mini-cta" href={mlStrive} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Strive TM16 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/strive-25hp-16kmh">Ler análise</a></td>
           </tr>
           <tr>
@@ -428,14 +464,15 @@ const siteJsonLd = [
                   <span class="badge-mini">💸 Mais barata do catálogo</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (883 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,7/5 no Mercado Livre · 883 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,7</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,5 HP</td>
             <td data-label="Velocidade" class="num">6 km/h</td>
             <td data-label="Lona" class="num">40 × 90 cm</td>
             <td data-label="Peso máx." class="num">150 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 577,91</td>
+            <td data-label="Preço" class="num cell-price">R$ 577</td>
             <td class="cell-cta"><a class="mini-cta" href={mlRedfin} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Redfin Ideal DL-227 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/redfin-150kg">Ler análise</a></td>
           </tr>
           <tr>
@@ -447,8 +484,9 @@ const siteJsonLd = [
                   <span class="badge-mini">🪶 Mais leve do catálogo</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (1.253 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 1.253 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>5,5</strong><span>/10</span></td>
             <td data-label="Motor" class="num">0,65 HP</td>
             <td data-label="Velocidade" class="num">6 km/h</td>
             <td data-label="Lona" class="num">37 × 90 cm</td>
@@ -466,8 +504,9 @@ const siteJsonLd = [
                   <span class="badge-mini">🚀 Maior lona e velocidade do catálogo</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (12 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">5,0/5 no Mercado Livre · 12 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,2</strong><span>/10</span></td>
             <td data-label="Motor" class="num">4,0 HP pico</td>
             <td data-label="Velocidade" class="num">18 km/h</td>
             <td data-label="Lona" class="num">50 × 140 cm</td>
@@ -485,8 +524,9 @@ const siteJsonLd = [
                   <span class="badge-mini">⚡ Motor AC de 4,0 HP declarado</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">5,0/5 no Mercado Livre · 2 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,3</strong><span>/10</span></td>
             <td data-label="Motor" class="num">4,0 HP AC**</td>
             <td data-label="Velocidade" class="num">18,8 km/h</td>
             <td data-label="Lona" class="num">52 × 135 cm</td>
@@ -504,14 +544,15 @@ const siteJsonLd = [
                   <span class="badge-mini">📺 Tela Android com Netflix</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> Sem avaliações registradas ainda</p>
+              <p class="cell-rating">Ainda sem avaliações no Mercado Livre</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>6,9</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,5 HP DC</td>
             <td data-label="Velocidade" class="num">18,8 km/h</td>
             <td data-label="Lona" class="num">52 × 135 cm</td>
             <td data-label="Peso máx." class="num">150 kg</td>
             <td data-label="Dobra">Sim***</td>
-            <td data-label="Preço" class="num cell-price">R$ 17.172,15</td>
+            <td data-label="Preço" class="num cell-price">R$ 17.172</td>
             <td class="cell-cta"><a class="mini-cta" href={mlKht7} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da KHT GTS-7 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/kht-gts7">Ler análise</a></td>
           </tr>
           <tr>
@@ -523,8 +564,9 @@ const siteJsonLd = [
                   <span class="badge-mini">🛡️ Até 5 anos de garantia no motor</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">5,0/5 no Mercado Livre · 2 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,3</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,0 cv (3,0 de pico)</td>
             <td data-label="Velocidade" class="num">18 km/h</td>
             <td data-label="Lona" class="num">47 × 133 cm****</td>
@@ -542,14 +584,15 @@ const siteJsonLd = [
                   <span class="badge-mini">🎬 Análise com vídeo</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★☆</span> 4,4 (338 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,4/5 no Mercado Livre · 338 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,6</strong><span>/10</span></td>
             <td data-label="Motor" class="num">3,0 HP</td>
             <td data-label="Velocidade" class="num">16 km/h</td>
             <td data-label="Lona" class="num">39 × 122 cm</td>
             <td data-label="Peso máx." class="num">120 kg</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 2.354,30</td>
+            <td data-label="Preço" class="num cell-price">R$ 2.354</td>
             <td class="cell-cta"><a class="mini-cta" href={mlEp16k} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Poli Sports EP-16K no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/poli-sports-ep-16k">Ler análise</a></td>
           </tr>
           <tr>
@@ -561,14 +604,15 @@ const siteJsonLd = [
                   <span class="badge-mini">📱 Bluetooth e apps</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (349 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 349 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>5,8</strong><span>/10</span></td>
             <td data-label="Motor" class="num">3,0 HP*</td>
             <td data-label="Velocidade" class="num">14 km/h</td>
             <td data-label="Lona" class="num">38,5 × 94 cm</td>
             <td data-label="Peso máx." class="num">200 kg*</td>
             <td data-label="Dobra">Sim</td>
-            <td data-label="Preço" class="num cell-price">R$ 1.196,99</td>
+            <td data-label="Preço" class="num cell-price">R$ 1.196</td>
             <td class="cell-cta"><a class="mini-cta" href={mlJmjn} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da JMJN QK-3058-D no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a><a class="cta-review" href="/reviews/jmjn-qk-3058">Ler análise</a></td>
           </tr>
           <tr>
@@ -580,8 +624,9 @@ const siteJsonLd = [
                   <span class="badge-mini">🔥 +5 mil vendidas</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (1.210 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,8/5 no Mercado Livre · 1.210 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>5,9</strong><span>/10</span></td>
             <td data-label="Motor" class="num">Não informado</td>
             <td data-label="Velocidade" class="num">12 km/h</td>
             <td data-label="Lona" class="num">37 × 94 cm</td>
@@ -599,8 +644,9 @@ const siteJsonLd = [
                   <span class="badge-mini">🔥 +10 mil vendidas, loja oficial</span>
                 </div>
               </div>
-              <p class="cell-rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,6 (1.586 avaliações no Mercado Livre)</p>
+              <p class="cell-rating">4,6/5 no Mercado Livre · 1.586 avaliações</p>
             </th>
+            <td data-label="Nota" class="num cell-score"><strong>7,6</strong><span>/10</span></td>
             <td data-label="Motor" class="num">2,5 HP</td>
             <td data-label="Velocidade" class="num">16 km/h</td>
             <td data-label="Lona" class="num">43 × 128 cm</td>
@@ -614,6 +660,7 @@ const siteJsonLd = [
       </div>
 
       <h3>Como ler essa tabela</h3>
+      <p><strong>Nota.</strong> Nossa nota editorial de 0 a 10, calculada pelos mesmos sete critérios para todos os modelos, com a conta aberta na <a href="/metodologia">metodologia</a>. Não é a avaliação dos compradores no Mercado Livre, que aparece separada e sempre identificada.</p>
       <p><strong>Motor.</strong> Medido em HP ou CV. É o número que separa uma esteira que aguenta caminhada de uma que aguenta corrida. Fabricantes costumam divulgar potência de pico, não contínua. Quando o dado existir, informamos os dois.</p>
       <p><strong>Lona.</strong> O tapete onde você pisa, em comprimento × largura. Passada de corrida precisa de mais comprimento do que passada de caminhada. É a especificação que mais gente ignora e mais gente se arrepende de ter ignorado.</p>
       <p><strong>Peso máximo.</strong> O limite declarado pelo fabricante. Compre com folga em relação ao seu peso: rodar no limite acelera o desgaste do motor e da lona.</p>
@@ -644,15 +691,15 @@ const siteJsonLd = [
         <img src="/assets/images/polimet-ep1600-q.webp" alt="Esteira ergométrica Polimet EP-1600" width="220" height="220" loading="lazy">
       </div>
       <div>
-        <span class="eyebrow">Nossa escolha</span>
-        <p class="stars"><span aria-hidden="true">★★★★★</span> <span style="color:#B9CBEC; font-weight:600;">4,5 de 5 (530 avaliações no Mercado Livre)</span></p>
+        <span class="eyebrow">Nossa escolha para caminhar gastando pouco</span>
         <h2>Polimet EP-1600</h2>
+        <p class="featured-pick-score"><strong>6,9</strong>/10 na nota editorial <span>· 4,5/5 no Mercado Livre, 530 avaliações</span></p>
         <blockquote>"Para quem quer caminhar em casa sem gastar mais do que precisa."</blockquote>
-        <p class="featured-pick-why">Escolhemos este modelo porque entrega o melhor equilíbrio entre preço, potência, dimensões e capacidade para uso doméstico.</p>
-        <p class="featured-pick-price">R$ 1.260,03<span>Oferta principal no Mercado Livre em novembro de 2026</span></p>
+        <p class="featured-pick-why">É a maior nota editorial entre as esteiras de entrada: equilíbrio entre preço, motor, dimensões e capacidade para caminhada. Para correr, veja a <a href="/reviews/athletic-racer">Athletic Racer</a> (8,6/10).</p>
+        <p class="featured-pick-price">R$ 1.260<span>Oferta principal no Mercado Livre em novembro de 2026</span></p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Polimet EP-1600 no Mercado Livre`} title={mlTitle}>Ver melhor preço</a>
-          <a class="btn btn-secondary-inverse" href="/reviews/polimet-ep1600">Ver análise completa</a>
+          <a class="btn btn-primary" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver preço da Polimet EP-1600 no Mercado Livre`} title={mlTitle}>Ver preço no Mercado Livre</a>
+          <a class="btn btn-secondary-inverse" href="/reviews/polimet-ep1600">Ler análise</a>
         </div>
       </div>
     </div>
@@ -672,13 +719,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/polimet-ep1600">Polimet EP-1600</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,5 (530 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,5/5 no Mercado Livre · 530 avaliações</p>
           <p class="product-card__specs">1,6 HP • 9 km/h • 110 kg</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 1.260,03</span>
-            <a class="product-card__link" href="/reviews/polimet-ep1600">Ver análise →</a>
+            <span class="product-card__price">R$ 1.260</span>
+            <a class="product-card__link" href="/reviews/polimet-ep1600">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlPolimet} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Polimet EP-1600 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -689,13 +735,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/dream-fitness-dr1600">Dream Fitness DR-1600</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,6 (2.032 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,6/5 no Mercado Livre · 2.032 avaliações</p>
           <p class="product-card__specs">1,6 HP • 9 km/h • 110 kg</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 2.299,90</span>
-            <a class="product-card__link" href="/reviews/dream-fitness-dr1600">Ver análise →</a>
+            <span class="product-card__price">R$ 2.299</span>
+            <a class="product-card__link" href="/reviews/dream-fitness-dr1600">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlDream} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Dream Fitness DR-1600 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -706,13 +751,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/polimet-ep1600-senior">Polimet EP-1600 Sênior</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (223 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,7/5 no Mercado Livre · 223 avaliações</p>
           <p class="product-card__specs">1,6 HP • 10 km/h • 110 kg</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 1.592</span>
-            <a class="product-card__link" href="/reviews/polimet-ep1600-senior">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/polimet-ep1600-senior">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlPolimetSenior} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Polimet EP-1600 Sênior no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -723,13 +767,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Dobrável Cardio (genérica)</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (1.268 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 1.268 avaliações</p>
           <p class="product-card__specs">2,5 HP • 10 km/h • 150 kg</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 675,18</span>
-            <a class="product-card__link" href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Ver análise →</a>
+            <span class="product-card__price">R$ 675</span>
+            <a class="product-card__link" href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlCardio} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Esteira Dobrável Cardio no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -740,13 +783,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/athletic-racer">Athletic Racer 16km/h</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> Loja oficial no Mercado Livre, 500+ vendas</p>
+          <p class="product-card__rating">Loja oficial no Mercado Livre, 500+ vendas</p>
           <p class="product-card__specs">5.0 HPM • 16 km/h • 130 kg</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 3.990</span>
-            <a class="product-card__link" href="/reviews/athletic-racer">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/athletic-racer">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlRacer} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Athletic Racer no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -757,13 +799,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/wct-fitness-esteira">WCT Fitness</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (3.837 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 3.837 avaliações</p>
           <p class="product-card__specs">0,75 HP contínuo • 10 km/h • 110 kg</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 1.799</span>
-            <a class="product-card__link" href="/reviews/wct-fitness-esteira">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/wct-fitness-esteira">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlWct} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da WCT Fitness no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -774,13 +815,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/importway-iwest2x1-10">Importway IWEST2X1-10</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (197 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,7/5 no Mercado Livre · 197 avaliações</p>
           <p class="product-card__specs">2,0 HP • 10 km/h • 120 kg</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 1.106,10</span>
-            <a class="product-card__link" href="/reviews/importway-iwest2x1-10">Ver análise →</a>
+            <span class="product-card__price">R$ 1.106</span>
+            <a class="product-card__link" href="/reviews/importway-iwest2x1-10">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlImportway} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Importway IWEST2X1-10 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -791,13 +831,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (269 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 269 avaliações</p>
           <p class="product-card__specs">2,9 HP • 16 km/h • 130 kg</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 3.609</span>
-            <a class="product-card__link" href="/reviews/gallant-elite-gee13m29a">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/gallant-elite-gee13m29a">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlGallant} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Gallant Elite GEE13M29A no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -808,13 +847,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/gallant-elite-gee12m28a">Gallant Elite GEE12M28A</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (288 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 288 avaliações</p>
           <p class="product-card__specs">2,8 HP • 16 km/h • 120 kg</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 2.699</span>
-            <a class="product-card__link" href="/reviews/gallant-elite-gee12m28a">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/gallant-elite-gee12m28a">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlGallant28} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Gallant Elite GEE12M28A no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -825,13 +863,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/gallant-elite-gee12m25a">Gallant Elite GEE12M25A</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (324 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 324 avaliações</p>
           <p class="product-card__specs">2,5 HP • 14 km/h • 120 kg</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 2.052,04</span>
-            <a class="product-card__link" href="/reviews/gallant-elite-gee12m25a">Ver análise →</a>
+            <span class="product-card__price">R$ 2.052</span>
+            <a class="product-card__link" href="/reviews/gallant-elite-gee12m25a">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlGallant25} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Gallant Elite GEE12M25A no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -842,13 +879,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/podiumfit-x300">PodiumFit X300</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (428 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,7/5 no Mercado Livre · 428 avaliações</p>
           <p class="product-card__specs">2,0 HPM • 12 km/h • 110 kg</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 2.536</span>
-            <a class="product-card__link" href="/reviews/podiumfit-x300">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/podiumfit-x300">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlPodiumfit} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da PodiumFit X300 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -859,13 +895,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/qbuen-150kg">QBuen AT-1271</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,6 (370 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,6/5 no Mercado Livre · 370 avaliações</p>
           <p class="product-card__specs">2 HP • 12 km/h • 150 kg • inclinação elétrica</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 889,64</span>
-            <a class="product-card__link" href="/reviews/qbuen-150kg">Ver análise →</a>
+            <span class="product-card__price">R$ 889</span>
+            <a class="product-card__link" href="/reviews/qbuen-150kg">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlQbuen} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da QBuen AT-1271 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -876,13 +911,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/strive-25hp-16kmh">Strive TM16</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (28 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">5,0/5 no Mercado Livre · 28 avaliações</p>
           <p class="product-card__specs">2,5 HP • 16 km/h • 120 kg • não dobra</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 2.658,70</span>
-            <a class="product-card__link" href="/reviews/strive-25hp-16kmh">Ver análise →</a>
+            <span class="product-card__price">R$ 2.658</span>
+            <a class="product-card__link" href="/reviews/strive-25hp-16kmh">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlStrive} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Strive TM16 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -893,13 +927,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/redfin-150kg">Redfin Ideal DL-227</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,7 (883 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,7/5 no Mercado Livre · 883 avaliações</p>
           <p class="product-card__specs">2,5 HP • 6 km/h • 150 kg • dobra (18 kg)</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 577,91</span>
-            <a class="product-card__link" href="/reviews/redfin-150kg">Ver análise →</a>
+            <span class="product-card__price">R$ 577</span>
+            <a class="product-card__link" href="/reviews/redfin-150kg">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlRedfin} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Redfin Ideal DL-227 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -910,13 +943,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/health-herald-lcd">Health Herald SP0501</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (1.253 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 1.253 avaliações</p>
           <p class="product-card__specs">0,65 HP • 6 km/h • 110 kg • dobra (13,5 kg)</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 645</span>
-            <a class="product-card__link" href="/reviews/health-herald-lcd">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/health-herald-lcd">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlHealthHerald} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Health Herald SP0501 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -927,13 +959,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/antuvi-mesa">Antuvi Dobrável 150 kg</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">5,0/5 no Mercado Livre · 2 avaliações</p>
           <p class="product-card__specs">3,0 HP* • 12 km/h • 150 kg • dobra (25 kg)</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 1.039,85</span>
-            <a class="product-card__link" href="/reviews/antuvi-mesa">Ver análise →</a>
+            <span class="product-card__price">R$ 1.039</span>
+            <a class="product-card__link" href="/reviews/antuvi-mesa">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlAntuvi} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Antuvi no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -944,13 +975,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/speedo-tr5">Speedo TR5</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (12 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">5,0/5 no Mercado Livre · 12 avaliações</p>
           <p class="product-card__specs">4,0 HP pico • 18 km/h • 150 kg • dobra (89 kg)</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 10.990</span>
-            <a class="product-card__link" href="/reviews/speedo-tr5">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/speedo-tr5">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlSpeedo} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Speedo TR5 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -961,13 +991,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/kht-gts6">KHT GTS-6</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">5,0/5 no Mercado Livre · 2 avaliações</p>
           <p class="product-card__specs">4,0 HP AC • 18,8 km/h • 150 kg • dobra (103 kg)</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 11.499</span>
-            <a class="product-card__link" href="/reviews/kht-gts6">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/kht-gts6">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlKht} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da KHT GTS-6 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -978,13 +1007,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/kht-gts7">KHT GTS-7</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> Sem avaliações registradas ainda</p>
+          <p class="product-card__rating">Ainda sem avaliações no Mercado Livre</p>
           <p class="product-card__specs">2,5 HP DC • 18,8 km/h • 150 kg • dobra, requer montagem</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 17.172,15</span>
-            <a class="product-card__link" href="/reviews/kht-gts7">Ver análise →</a>
+            <span class="product-card__price">R$ 17.172</span>
+            <a class="product-card__link" href="/reviews/kht-gts7">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlKht7} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da KHT GTS-7 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -995,13 +1023,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/movement-lx-160-g4">Movement LX 160 G4</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 (2 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">5,0/5 no Mercado Livre · 2 avaliações</p>
           <p class="product-card__specs">2,0 cv (3,0 de pico) • 18 km/h • 150 kg • não dobra (108 kg)</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 18.588</span>
-            <a class="product-card__link" href="/reviews/movement-lx-160-g4">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/movement-lx-160-g4">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlMovement} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Movement LX 160 G4 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -1012,13 +1039,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/poli-sports-ep-16k">Poli Sports EP-16K</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★☆</span> 4,4 (338 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,4/5 no Mercado Livre · 338 avaliações</p>
           <p class="product-card__specs">3,0 HP • 16 km/h • 120 kg • dobra (42,3 kg)</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 2.354,30</span>
-            <a class="product-card__link" href="/reviews/poli-sports-ep-16k">Ver análise →</a>
+            <span class="product-card__price">R$ 2.354</span>
+            <a class="product-card__link" href="/reviews/poli-sports-ep-16k">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlEp16k} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Poli Sports EP-16K no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -1029,13 +1055,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/jmjn-qk-3058">JMJN QK-3058-D</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (349 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 349 avaliações</p>
           <p class="product-card__specs">3,0 HP* • 14 km/h • 200 kg* • dobra (24 kg)</p>
           <div class="product-card__footer">
-            <span class="product-card__price">R$ 1.196,99</span>
-            <a class="product-card__link" href="/reviews/jmjn-qk-3058">Ver análise →</a>
+            <span class="product-card__price">R$ 1.196</span>
+            <a class="product-card__link" href="/reviews/jmjn-qk-3058">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlJmjn} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da JMJN QK-3058-D no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -1046,13 +1071,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/solperk-esteira-plana">Solperk Esteira Plana</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 (1.210 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,8/5 no Mercado Livre · 1.210 avaliações</p>
           <p class="product-card__specs">12 km/h • 120 kg • dobra (18 kg) • Bluetooth</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 727</span>
-            <a class="product-card__link" href="/reviews/solperk-esteira-plana">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/solperk-esteira-plana">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlSolperk} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Solperk Esteira Plana no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
 
@@ -1063,13 +1087,12 @@ const siteJsonLd = [
         </a>
         <div class="product-card__body">
           <h3 class="product-card__title"><a href="/reviews/dream-fitness-concept-2-5">Dream Fitness Concept 2.5</a></h3>
-          <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,6 (1.586 avaliações no Mercado Livre)</p>
+          <p class="product-card__rating">4,6/5 no Mercado Livre · 1.586 avaliações</p>
           <p class="product-card__specs">2,5 HP • 16 km/h • 130 kg • 3 inclinações</p>
           <div class="product-card__footer">
             <span class="product-card__price">R$ 2.799</span>
-            <a class="product-card__link" href="/reviews/dream-fitness-concept-2-5">Ver análise →</a>
+            <a class="product-card__link" href="/reviews/dream-fitness-concept-2-5">Ler análise →</a>
           </div>
-          <a class="btn btn-primary btn-block" href={mlConcept25} rel="sponsored nofollow noopener" target="_blank" aria-label={`Ver melhor preço da Dream Fitness Concept 2.5 no Mercado Livre`} title={mlTitle}>Ver melhor preço →</a>
         </div>
       </article>
     </div>

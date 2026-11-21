@@ -239,7 +239,7 @@ const faqJsonLd = {
             </div>
             <div class="product-card__body">
               <h3 class="product-card__title">{t.nome}</h3>
-              <p class="product-card__rating"><span class="stars" aria-hidden="true">★★★★★</span> {t.nota}{t.avaliacoes ? ` (${t.avaliacoes} avaliações no Mercado Livre)` : ' no Mercado Livre'}</p>
+              <p class="product-card__rating">{t.nota}/5 no Mercado Livre{t.avaliacoes ? ` · ${t.avaliacoes} avaliações` : ''}</p>
               <p class="product-card__specs">{t.genero} • {t.amortecimento} • {t.vendidos} vendidos</p>
               <p set:html={t.texto} />
               <div class="product-card__footer">

@@ -1,0 +1,55 @@
+---
+// Escolhas por perfil: 2 a 4 modelos com nota editorial, preço observado, a ressalva
+// principal e os dois caminhos (anúncio e análise). Usado na home e logo após a
+// "Resposta rápida" dos guias, para o leitor não precisar de três toques até o anúncio.
+// Nota, nome e preço vêm de models.mjs (fonte única); só o perfil e a ressalva são
+// escritos por quem usa o componente, e precisam repetir o que a análise já afirma.
+import { models } from '../data/models.mjs';
+import { buyHref } from '../data/affiliates.mjs';
+import { PRECO_PERIODO } from '../data/site.mjs';
+
+export interface Pick {
+	slug: string;
+	perfil: string;
+	ressalva: string;
+}
+
+export interface Props {
+	titulo: string;
+	intro?: string;
+	picks: Pick[];
+	id?: string;
+}
+
+const { titulo, intro, picks, id } = Astro.props;
+
+const items = picks.map((p) => {
+	const m = models.find((x) => x.slug === p.slug);
+	if (!m) throw new Error(`[QuickPicks] slug sem dados em models.mjs: ${p.slug}`);
+	return { ...p, m, href: buyHref(p.slug), preco: m.preco.replace(/,\d\d$/, '') };
+});
+const headId = `${id ?? 'picks'}-titulo`;
+---
+
+<section class="picks" id={id} aria-labelledby={headId}>
+  <h2 id={headId}>{titulo}</h2>
+  {intro && <p class="picks__intro">{intro}</p>}
+  <ol class={`picks__list picks__list--n${items.length}`} role="list">
+    {items.map((it) => (
+      <li class="pick" id={id ? `${id}-${it.slug}` : undefined}>
+        <p class="pick__perfil">{it.perfil}</p>
+        <h3 class="pick__nome"><a href={`/reviews/${it.slug}`}>{it.m.nome}</a></h3>
+        <p class="pick__meta">
+          <span class="pick__nota"><strong>{it.m.nota}</strong>/10 <span>nota editorial</span></span>
+          <span class="pick__preco">{it.preco}</span>
+        </p>
+        <p class="pick__ressalva">{it.ressalva}</p>
+        <div class="pick__acoes">
+          <a class="mini-cta" href={it.href} rel="sponsored nofollow noopener" target="_blank">Ver preço no Mercado Livre</a>
+          <a class="cta-review" href={`/reviews/${it.slug}`}>Ler análise</a>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <p class="stamp">Nota pela nossa <a href="/metodologia">metodologia</a>. Preço do anúncio verificado de cada análise, consultado {PRECO_PERIODO}; muda entre vendedores, confira no anúncio.</p>
+</section>

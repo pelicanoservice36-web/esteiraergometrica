@@ -269,31 +269,35 @@ if (existsSync(dist)) {
 		// +1 na Redfin e na Health Herald: coluna "Onde comprar" de /guias/walking-pad.
 		// +1 em cada modelo listado nas tabelas de /guias/esteira-por-orcamento e
 		// /guias/melhor-esteira-ergometrica-residencial (coluna "Onde comprar").
+		// 2026-11-21: -1 em todos (a grade "Análises por modelo" da home perdeu o botão de
+		// compra, que duplicava a tabela); +1 nos 4 modelos de "Escolha pelo seu perfil"
+		// da home (Polimet, Racer, Gallant 13M29A, Redfin); +1 por caixa QuickPicks nos
+		// guias: Polimet 3, Racer 3, Redfin 2, Health Herald 1, Gallant 13M29A 1.
 		const expected = {
-			'dream-fitness-dr1600': 9,
-			'polimet-ep1600': 10,
-			'polimet-ep1600-senior': 7,
-			'esteira-eletrica-dobravel-residencial-cardio': 9,
-				'athletic-racer': 10,
-				'wct-fitness-esteira': 9,
-				'importway-iwest2x1-10': 7,
-				'gallant-elite-gee13m29a': 9,
-				'gallant-elite-gee12m28a': 9,
-				'podiumfit-x300': 9,
-				'qbuen-150kg': 9, // página de oferta /oferta/qbuen-at-1271 removida em 06/11/2026 (suspensão Google Ads)
-				'strive-25hp-16kmh': 7,
-				'redfin-150kg': 10,
+			'dream-fitness-dr1600': 8,
+			'polimet-ep1600': 13,
+			'polimet-ep1600-senior': 6,
+			'esteira-eletrica-dobravel-residencial-cardio': 8,
+				'athletic-racer': 13,
+				'wct-fitness-esteira': 8,
+				'importway-iwest2x1-10': 6,
+				'gallant-elite-gee13m29a': 10,
+				'gallant-elite-gee12m28a': 8,
+				'podiumfit-x300': 8,
+				'qbuen-150kg': 8, // página de oferta /oferta/qbuen-at-1271 removida em 06/11/2026 (suspensão Google Ads)
+				'strive-25hp-16kmh': 6,
+				'redfin-150kg': 12,
 				'health-herald-lcd': 10,
-				'antuvi-mesa': 8,
-				'gallant-elite-gee12m25a': 9,
-				'speedo-tr5': 7,
-				'kht-gts6': 7,
-				'kht-gts7': 6,
-				'movement-lx-160-g4': 6,
-				'poli-sports-ep-16k': 8,
-				'jmjn-qk-3058': 8,
-				'solperk-esteira-plana': 8, // 3 da review + 2 da home + orçamento, residencial e dobrável
-				'dream-fitness-concept-2-5': 8, // 3 da review + 2 da home + orçamento, residencial e dobrável
+				'antuvi-mesa': 7,
+				'gallant-elite-gee12m25a': 8,
+				'speedo-tr5': 6,
+				'kht-gts6': 6,
+				'kht-gts7': 5,
+				'movement-lx-160-g4': 5,
+				'poli-sports-ep-16k': 7,
+				'jmjn-qk-3058': 7,
+				'solperk-esteira-plana': 7, // 3 da review + 2 da home + orçamento, residencial e dobrável
+				'dream-fitness-concept-2-5': 7, // 3 da review + 2 da home + orçamento, residencial e dobrável
 				// Tênis: 2 cada em /guias/melhor-tenis-para-esteira (tabela + card).
 				'tenis-kappa-park-2': 2,
 				'tenis-vili-feminino-cf220': 2,
@@ -319,7 +323,7 @@ if (existsSync(dist)) {
 			.filter(([s, n]) => got[s] !== n)
 			.map(([s, n]) => `${s}: esperado ${n}, encontrado ${got[s] ?? 0}`);
 		const total = Object.values(got).reduce((a, b) => a + b, 0);
-		if (total !== 229) diff.push(`total de CTAs: esperado 229, encontrado ${total}`);
+		if (total !== 219) diff.push(`total de CTAs: esperado 219, encontrado ${total}`);
 		return diff.length ? diff.join(' | ') : null;
 	});
 

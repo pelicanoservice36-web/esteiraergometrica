@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import QuickPicks from '../../components/QuickPicks.astro';
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -48,6 +49,22 @@ const faqJsonLd = {
     <h2 style="margin-top:0">Resposta rápida</h2>
     <p>Seis modelos do catálogo têm limite de 110 kg (o padrão da faixa de entrada): sem folga de verdade para quem já pesa perto disso. Acima de 110 kg, o número muda de fonte: a <a href="/reviews/athletic-racer">Athletic Racer</a> (130 kg) e a <a href="/reviews/gallant-elite-gee13m29a">Gallant Elite GEE13M29A</a> (130 kg) têm esse limite confirmado pelo fabricante, a Racer também no manual oficial em PDF, a fonte mais confiável que já usamos. Modelos que declaram 150 kg (<a href="/reviews/antuvi-mesa">Antuvi Dobrável</a>, <a href="/reviews/esteira-eletrica-dobravel-residencial-cardio">Esteira Cardio</a>, <a href="/reviews/qbuen-150kg">QBuen</a>, <a href="/reviews/redfin-150kg">Redfin</a>, <a href="/reviews/speedo-tr5">Speedo TR5</a>, <a href="/reviews/kht-gts6">KHT GTS-6</a> e <a href="/reviews/kht-gts7">KHT GTS-7</a>) vêm principalmente da ficha do próprio anúncio, sem confirmação independente tão forte. A Speedo TR5 é a exceção, com confirmação do site da Decathlon. A única com 150 kg confirmados no site do próprio fabricante é a <a href="/reviews/movement-lx-160-g4">Movement LX 160 G4</a>, que custa R$ 18.588 e não dobra.</p>
   </div>
+
+  <QuickPicks
+    titulo="Limite acima de 110 kg confirmado pelo fabricante"
+    picks={[
+      {
+        "slug": "athletic-racer",
+        "perfil": "130 kg, também no manual oficial",
+        "ressalva": "A fonte mais confiável do catálogo para o limite de peso. Dobra, mas pesa 42,4 kg."
+      },
+      {
+        "slug": "gallant-elite-gee13m29a",
+        "perfil": "130 kg, por menos",
+        "ressalva": "Limite confirmado pelo fabricante. Não é bivolt: este anúncio é a versão 220V."
+      }
+    ]}
+  />
 
   <h2>Por que comprar no limite é uma escolha ruim</h2>
   <p>O peso máximo declarado por um fabricante não é uma trava de segurança que impede o uso acima dele: é o ponto em que o fabricante testou e garante o funcionamento normal do motor e da estrutura. Rodar perto desse limite, todo dia, acelera o desgaste do motor e da lona muito mais do que rodar com folga. Por isso o critério certo é "meu peso está com folga confortável abaixo do limite", e não só "meu peso está abaixo do limite".</p>

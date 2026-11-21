@@ -6,6 +6,9 @@ export interface Props {
 }
 
 const { transparent = false } = Astro.props;
+// Destaque de "Comparativo" só na home, onde ele é a seção atual; nas outras páginas
+// o destaque fazia parecer que o visitante já estava no comparativo.
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html';
 ---
 
 <header class:list={['site-head', { 'site-head--overlay': transparent }]}>
@@ -13,7 +16,7 @@ const { transparent = false } = Astro.props;
     <Logo />
 
     <nav class="site-nav" aria-label="Navegação principal">
-      <a href="/#comparativo" class="is-featured">Comparativo</a>
+      <a href="/#comparativo" class:list={[{ 'is-featured': isHome }]}>Comparativo</a>
       <a href="/#analises">Análises</a>
       <a href="/#guias">Guias</a>
       <a href="/guias/melhor-tenis-para-esteira">Tênis</a>
