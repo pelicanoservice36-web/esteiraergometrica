@@ -1935,12 +1935,29 @@ a.indicator-chip:hover { border-color: var(--accent); background: var(--accent-t
   /* Com a coluna Nota, o nome do produto encolhia até quebrar em 3-4 linhas. */
   .comparativo-table tbody th[scope="row"] { min-width: 12.5rem; }
 }
-@media (min-width: 48rem) and (max-width: 80rem) {
+/* Tabela da home no desktop: 9 colunas precisam caber sem rolagem em qualquer largura. */
+@media (min-width: 48rem) {
   .comparativo-table th, .comparativo-table td { padding-right: 0.5rem; }
   .comparativo-table .cell-product img { width: 2.25rem; height: 2.25rem; }
   .comparativo-table tbody th[scope="row"] { min-width: 11rem; }
   .comparativo-table td[data-label="Motor"] { white-space: normal; min-width: 4.5rem; }
   .comparativo-table .mini-cta { padding: 0.5rem 0.7rem; }
-  #comparativo .panel { padding-inline: 1.25rem; }
   .comparativo-table thead th { white-space: normal; }
+}
+@media (min-width: 48rem) and (max-width: 80rem) {
+  #comparativo .panel { padding-inline: 1.25rem; }
+}
+/* Tablet (768–1023px): a tabela ainda não cabe; a coluna do botão fica presa à direita
+   para o "Ver melhor preço" nunca sumir atrás da rolagem. */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .comparativo-table thead th:last-child,
+  .comparativo-table td.cell-cta {
+    position: sticky;
+    right: 0;
+    z-index: 1;
+    background: var(--surface);
+    box-shadow: -0.75rem 0 0.75rem -0.75rem rgba(15, 23, 42, 0.25);
+    padding-left: 0.6rem;
+  }
+  .comparativo-table tr[data-best] td.cell-cta { background: var(--accent-tint); }
 }
