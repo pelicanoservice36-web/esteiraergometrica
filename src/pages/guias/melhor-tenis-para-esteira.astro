@@ -203,7 +203,7 @@ const faqJsonLd = {
 
   <h2>Comparativo dos 15 tênis</h2>
   <div class="table-scroll">
-  <table class="specs">
+  <table class="specs specs--buy specs--tenis">
     <caption>Tênis para caminhar na esteira, do mais barato ao mais caro</caption>
     <thead>
       <tr><th scope="col">Tênis</th><th scope="col">Gênero</th><th scope="col">Amortecimento (ficha)</th><th scope="col">Cita esteira?</th><th scope="col">Nota no Mercado Livre</th><th scope="col">Vendidos</th><th scope="col">Preço ({mes})</th><th scope="col">Onde comprar</th></tr>
@@ -211,7 +211,12 @@ const faqJsonLd = {
     <tbody>
       {[...tenis].sort((a, b) => precoMin(a) - precoMin(b)).map((t) => (
         <tr>
-          <th scope="row"><a href={`#${t.cat}`}>{t.nome}</a></th>
+          <th scope="row">
+            <div class="cell-product cell-product--wide">
+              <img src={`/assets/images/tenis/${t.img}`} alt="" width={t.w} height={t.h} loading="lazy" decoding="async" />
+              <a href={`#${t.cat}`}>{t.nome}</a>
+            </div>
+          </th>
           <td>{t.genero}</td>
           <td>{t.amortecimento}</td>
           <td>{t.esteiraNaFicha}</td>
